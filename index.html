@@ -4,34 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python Learning Platform</title>
-    <!-- Tailwind CSS CDN -->
+    <title>Python Learning Website</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom font for better readability */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
         body {
             font-family: 'Inter', sans-serif;
         }
 
-        /* CodeMirror styles - these apply globally as they are in the main HTML */
         .CodeMirror {
             border: 1px solid #ddd;
             height: 250px;
-            /* Fixed height for the editor */
             border-radius: 0.5rem;
-            /* Rounded corners for CodeMirror */
             font-size: 0.9rem;
-            /* Adjust font size for code */
         }
 
         .CodeMirror-scroll {
             overflow-y: auto;
-            /* Ensure scrollbar appears when content overflows */
         }
 
-        /* General code editor look for static code examples */
         .code-editor-example {
             background: #282a36;
             color: #f8f8f2;
@@ -78,7 +70,6 @@
             border-radius: 9999px;
         }
 
-        /* Locked lesson styles */
         .lesson-link.locked {
             opacity: 0.5;
             cursor: not-allowed;
@@ -93,11 +84,6 @@
             transform: translateY(-50%);
             font-size: 0.8rem;
         }
-
-        .lesson-link.locked:hover {
-            background-color: #f3f4f6 !important;
-            color: #9ca3af !important;
-        }
     </style>
     <!-- CodeMirror CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
@@ -106,8 +92,13 @@
 
 <body class="bg-gray-100 text-gray-800 flex min-h-screen">
 
+    <!-- Hamburger for mobile -->
+    <button class="md:hidden fixed top-4 left-4 z-50 p-3 bg-white rounded-lg shadow-md border border-gray-200"
+        onclick="toggleSidebar()">☰</button>
+
     <!-- Sidebar for Lessons Navigation -->
-    <aside class="w-64 bg-white shadow-md p-6 flex flex-col rounded-r-lg">
+    <aside id="sidebar"
+        class="fixed inset-y-0 left-0 w-64 bg-white shadow-md p-6 flex flex-col rounded-r-lg z-40 transform -translate-x-full md:translate-x-0 transition-transform duration-200 md:static md:block">
         <h2 class="text-2xl font-bold mb-6 text-indigo-700">Python Lessons</h2>
         <nav>
             <ul>
@@ -371,10 +362,14 @@
         </nav>
     </aside>
 
+    <!-- Overlay for mobile sidebar -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-30 z-30 hidden md:hidden"
+        onclick="toggleSidebar()"></div>
+
     <!-- Main Content Area - This will be dynamically updated -->
-    <main id="lesson-content-container" class="flex-1 p-8 md:p-12 lg:p-16 overflow-y-auto">
+    <main id="lesson-content-container" class="flex-1 p-4 sm:p-6 md:p-8 lg:p-12 overflow-y-auto max-w-full">
         <!-- Lesson content will be loaded here -->
-        <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+        <div class="max-w-4xl mx-auto bg-white p-4 sm:p-8 rounded-lg shadow-lg">
             <h1 class="text-3xl font-extrabold mb-4 text-gray-900">Welcome to Python Learning!</h1>
             <p class="text-lg leading-relaxed mb-4">
                 Select a lesson from the sidebar to get started.
@@ -528,7 +523,7 @@
                 </div>
                 <div class="bg-white border border-gray-200 rounded-lg p-4">
                     <h3 class="font-semibold text-gray-800 mb-2">Output:</h3>
-                    <div id="output" class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm min-h-[60px]">
+                    <div id="output" class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm min-h-[60px] overflow-x-auto">
                         Click "Run Code" to see the output here...
                     </div>
                 </div>
@@ -1106,6 +1101,9 @@
             }
         });
     </script>
+</body>
+
+</html>
 </body>
 
 </html>
