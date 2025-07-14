@@ -1,0 +1,263 @@
+<!-- This file contains ONLY the content for the "Break and Continue" lesson. -->
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <div class="mb-8">
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-4xl font-extrabold text-gray-900">17. Break and Continue</h1>
+            <span class="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">Beginner</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-2 mb-6">
+            <div class="bg-green-500 h-2 rounded-full" style="width: 81.0%"></div>
+        </div>
+    </div>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+            <span class="bg-indigo-100 text-indigo-600 p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+            </span>
+            Controlling Loop Execution
+        </h2>
+        <p class="text-lg leading-relaxed mb-4">
+            Sometimes, you need more control over how your loops execute. Python provides two keywords, <code
+                class="font-mono bg-gray-100 px-1 py-0.5 rounded">break</code> and <code
+                class="font-mono bg-gray-100 px-1 py-0.5 rounded">continue</code>, to alter the normal flow of loops.
+        </p>
+        <ul class="list-disc list-inside ml-4 mt-2 text-lg leading-relaxed">
+            <li><strong class="text-indigo-600">`break` statement:</strong> Immediately terminates the loop (both `for`
+                and `while` loops) and transfers control to the statement immediately following the loop.</li>
+            <li><strong class="text-indigo-600">`continue` statement:</strong> Skips the rest of the current iteration
+                of the loop and moves to the next iteration.</li>
+        </ul>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+            <span class="bg-red-100 text-red-600 p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </span>
+            The `break` Statement
+        </h2>
+        <p class="text-lg leading-relaxed mb-4">
+            Use <code class="font-mono bg-gray-100 px-1 py-0.5 rounded">break</code> when you want to exit a loop early,
+            perhaps because you found what you were looking for or an error condition occurred.
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dots flex gap-2">
+                    <div class="code-editor-dot-red"></div>
+                    <div class="code-editor-dot-yellow"></div>
+                    <div class="code-editor-dot-green"></div>
+                </div>
+                <span class="text-gray-400 text-xs">Break Statement Example</span>
+            </div>
+            <pre><code><span style="color: #6272a4;"># Search for a specific number</span>
+<span style="color: #f8f8f2;">numbers</span> <span style="color: #ff79c6;">=</span> <span style="color: #ff79c6;">[</span><span style="color: #bd93f9;">1</span><span style="color: #ff79c6;">,</span> <span style="color: #bd93f9;">5</span><span style="color: #ff79c6;">,</span> <span style="color: #bd93f9;">8</span><span style="color: #ff79c6;">,</span> <span style="color: #bd93f9;">12</span><span style="color: #ff79c6;">,</span> <span style="color: #bd93f9;">15</span><span style="color: #ff79c6;">,</span> <span style="color: #bd93f9;">20</span><span style="color: #ff79c6;">]</span>
+<span style="color: #f8f8f2;">target</span> <span style="color: #ff79c6;">=</span> <span style="color: #bd93f9;">12</span>
+
+<span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">"Searching for"</span><span style="color: #ff79c6;">,</span> <span style="color: #f8f8f2;">target</span><span style="color: #ff79c6;">)</span>
+<span style="color: #ff79c6;">for</span> <span style="color: #f8f8f2;">num</span> <span style="color: #ff79c6;">in</span> <span style="color: #f8f8f2;">numbers</span><span style="color: #ff79c6;">:</span>
+    <span style="color: #ff79c6;">if</span> <span style="color: #f8f8f2;">num</span> <span style="color: #ff79c6;">==</span> <span style="color: #f8f8f2;">target</span><span style="color: #ff79c6;">:</span>
+        <span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">f"Found {target}!"</span><span style="color: #ff79c6;">)</span>
+        <span style="color: #ff79c6;">break</span> <span style="color: #6272a4;"># Exit the loop once target is found</span>
+    <span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">f"Checking {num}..."</span><span style="color: #ff79c6;">)</span>
+<span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">"Loop finished."</span><span style="color: #ff79c6;">)</span></code></pre>
+        </div>
+        <div class="example-output bg-gray-100 p-4 rounded-lg mt-2 border-l-4 border-green-500">
+            <h4 class="font-semibold text-gray-800 mb-2 flex items-center">
+                <span class="text-green-600 mr-2">📤</span>
+                Expected Output:
+            </h4>
+            <pre class="bg-gray-800 text-green-400 p-3 rounded text-sm overflow-x-auto">Searching for 12
+Checking 1...
+Checking 5...
+Checking 8...
+Found 12!
+Loop finished.</pre>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+            <span class="bg-green-100 text-green-600 p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+            </span>
+            The `continue` Statement
+        </h2>
+        <p class="text-lg leading-relaxed mb-4">
+            Use <code class="font-mono bg-gray-100 px-1 py-0.5 rounded">continue</code> when you want to skip the
+            current iteration of a loop and move to the next one, without exiting the entire loop.
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dots flex gap-2">
+                    <div class="code-editor-dot-red"></div>
+                    <div class="code-editor-dot-yellow"></div>
+                    <div class="code-editor-dot-green"></div>
+                </div>
+                <span class="text-gray-400 text-xs">Continue Statement Example</span>
+            </div>
+            <pre><code><span style="color: #6272a4;"># Print only odd numbers</span>
+<span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">"Odd numbers from 1 to 10:"</span><span style="color: #ff79c6;">)</span>
+<span style="color: #ff79c6;">for</span> <span style="color: #f8f8f2;">i</span> <span style="color: #ff79c6;">in</span> <span style="color: #50fa7b;">range</span><span style="color: #ff79c6;">(</span><span style="color: #bd93f9;">1</span><span style="color: #ff79c6;">,</span> <span style="color: #bd93f9;">11</span><span style="color: #ff79c6;">):</span>
+    <span style="color: #ff79c6;">if</span> <span style="color: #f8f8f2;">i</span> <span style="color: #ff79c6;">%</span> <span style="color: #bd93f9;">2</span> <span style="color: #ff79c6;">==</span> <span style="color: #bd93f9;">0</span><span style="color: #6272a4;"> # If number is even</span>
+        <span style="color: #ff79c6;">continue</span> <span style="color: #6272a4;"># Skip to the next iteration</span>
+    <span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f8f8f2;">i</span><span style="color: #ff79c6;">)</span></code></pre>
+        </div>
+        <div class="example-output bg-gray-100 p-4 rounded-lg mt-2 border-l-4 border-green-500">
+            <h4 class="font-semibold text-gray-800 mb-2 flex items-center">
+                <span class="text-green-600 mr-2">📤</span>
+                Expected Output:
+            </h4>
+            <pre class="bg-gray-800 text-green-400 p-3 rounded text-sm overflow-x-auto">Odd numbers from 1 to 10:
+1
+3
+5
+7
+9</pre>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+            <span class="bg-blue-100 text-blue-600 p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+            </span>
+            Try it Yourself!
+        </h2>
+        <p class="text-lg leading-relaxed mb-4">
+            Use <code class="font-mono bg-gray-100 px-1 py-0.5 rounded">break</code> to stop a loop when a condition is
+            met, and <code class="font-mono bg-gray-100 px-1 py-0.5 rounded">continue</code> to skip certain iterations.
+        </p>
+
+        <!-- Code Editor Area -->
+        <div id="code-editor-container" class="bg-gray-50 p-6 rounded-lg shadow-inner border border-gray-200">
+            <!-- CodeMirror editor will be injected here by JavaScript -->
+        </div>
+        <script type="text/plain" id="default-code-break-continue"># Your code goes here
+# Example with break: Simulate a login attempt
+attempts = 0
+max_attempts = 3
+correct_password = "password123"
+
+while attempts < max_attempts:
+    print(f"Attempt {attempts + 1} of {max_attempts}")
+    # In a real scenario, you'd use input() here
+    entered_password = "wrong_password" # Simulate wrong input
+    if attempts == 1: # Simulate correct input on second attempt
+        entered_password = correct_password
+
+    if entered_password == correct_password:
+        print("Login successful!")
+        break # Exit loop on success
+    else:
+        print("Incorrect password.")
+    attempts += 1
+else: # This 'else' block runs if the loop completes without a break
+    print("Maximum login attempts reached.")
+
+print("\n--- Example with continue ---")
+# Print numbers from 1 to 10, skipping 5 and 7
+for num in range(1, 11):
+    if num == 5 or num == 7:
+        continue # Skip these numbers
+    print(num)</script>
+    </section>
+
+    <!-- Challenge/Homework Section -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+            <span class="bg-red-100 text-red-600 p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z">
+                    </path>
+                </svg>
+            </span>
+            🏆 Challenge: Number Guessing Game App
+        </h2>
+        <div class="bg-gradient-to-r from-red-50 to-pink-50 p-6 rounded-lg border-l-4 border-red-500">
+            <p class="text-lg leading-relaxed mb-4">
+                <strong>Project Goal:</strong> Create an interactive number guessing game that combines concepts from
+                previous lessons: variables, data types, operators, conditional statements, loops, and now
+                break/continue statements.<br>
+                <span class="text-sm text-gray-600">The game should generate a random number, let the user guess,
+                    provide hints, and track attempts.</span>
+            </p>
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                    <h3 class="font-semibold text-gray-800 mb-3">📋 Requirements:</h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li>• Use variables to store the secret number and user's guess</li>
+                        <li>• Use a while loop with break to control the game flow</li>
+                        <li>• Use conditional statements (if/elif/else) to provide hints</li>
+                        <li>• Use comparison operators to check if guess is correct</li>
+                        <li>• Track and display the number of attempts</li>
+                        <li>• Use continue to skip invalid inputs</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                    <h3 class="font-semibold text-gray-800 mb-3">🎯 Bonus Ideas:</h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li>• Add a maximum number of attempts</li>
+                        <li>• Keep track of high scores</li>
+                        <li>• Allow multiple rounds</li>
+                        <li>• Add difficulty levels (different ranges)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bg-gray-900 p-4 rounded-lg">
+                <h3 class="text-white font-semibold mb-3">💡 Sample Game Flow:</h3>
+                <pre class="text-sm font-mono"
+                    style="background: #282a36; color: #50fa7b; padding: 1rem; border-radius: 0.375rem;"><code>Welcome to the Number Guessing Game!
+I'm thinking of a number between 1 and 100.
+
+Enter your guess: 50
+Too high! Try again.
+Enter your guess: 25
+Too low! Try again.
+Enter your guess: 37
+Congratulations! You guessed it in 3 attempts!</code></pre>
+            </div>
+            <div class="mt-6 bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg">
+                <p class="text-yellow-800 text-sm">
+                    <strong>💪 Challenge yourself:</strong> This project combines everything you've learned so far! Use
+                    variables, operators, conditionals, loops, and break/continue statements to create a complete,
+                    interactive game. Try to make it user-friendly with clear messages and error handling.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+        <a href="#" onclick="loadLesson('lessons/loops.html')"
+            class="flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous: Loops (for, while)
+        </a>
+        <div class="text-gray-600">
+            <span class="text-sm">Lesson 17 of 71</span>
+        </div>
+        <a href="#" onclick="loadLesson('lessons/list_comprehensions.html')"
+            class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+            Next: List Comprehensions
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </a>
+    </div>
+</div>

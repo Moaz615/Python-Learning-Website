@@ -1,0 +1,360 @@
+<!-- This file contains ONLY the content for the "Python Standard Library" lesson. -->
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-2xl">
+    <div class="mb-10">
+        <div class="flex items-center justify-between mb-8">
+            <h1 class="text-4xl font-extrabold text-gray-900"> 28. Python Standard Library </h1>
+            <span
+                class="inline-flex items-center gap-2 bg-orange-100 text-orange-800 text-base font-semibold px-5 py-2 rounded-full shadow whitespace-nowrap">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3" />
+                </svg>
+                Intermediate Level
+            </span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-3 mb-6">
+            <div class="bg-gradient-to-r from-orange-500 to-red-500 h-3 rounded-full transition-all duration-300"
+                style="width: 38.9%"></div>
+        </div>
+    </div>
+
+    <section class="mb-12">
+        <h2 class="text-3xl font-bold mb-5 text-gray-900 flex items-center gap-2">
+            <span
+                class="inline-flex items-center justify-center w-10 h-10 bg-indigo-100 text-indigo-600 rounded-full shadow"><svg
+                    xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6l4 2" />
+                </svg></span>
+            Python's Batteries Included Philosophy
+        </h2>
+        <div class="bg-gradient-to-br from-indigo-50 to-white border-l-4 border-indigo-400 p-6 rounded-xl mb-6 shadow">
+            <p class="text-lg leading-relaxed mb-2">
+                One of Python's greatest strengths is its extensive <strong class="text-indigo-600">Standard
+                    Library</strong>. This library is a collection of modules and packages that come bundled with Python
+                itself, meaning you don't need to install them separately. This is often referred to as Python's
+                "batteries included" philosophy, as it provides a vast array of tools for common programming tasks right
+                out of the box.
+            </p>
+            <p class="text-lg leading-relaxed mb-0">
+                The Standard Library covers a wide range of functionalities, from handling common data types and
+                mathematical operations to working with files, networks, and even graphical user interfaces. It's a
+                treasure trove of pre-written, highly optimized code.
+            </p>
+        </div>
+    </section>
+
+    <section class="mb-12">
+        <h2 class="text-3xl font-bold mb-5 text-gray-900 flex items-center gap-2">
+            <span
+                class="inline-flex items-center justify-center w-10 h-10 bg-blue-100 text-blue-600 rounded-full shadow"><svg
+                    xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 17v-6a2 2 0 012-2h2a2 2 0 012 2v6" />
+                </svg></span>
+            Key Areas and Useful Modules
+        </h2>
+        <div
+            class="example-section bg-gradient-to-br from-blue-50 to-white border-l-4 border-blue-400 p-8 rounded-2xl mb-10 shadow-lg">
+            <p class="text-lg leading-relaxed mb-4">
+                Let's explore some of the most commonly used modules within the Python Standard Library. To use any of
+                these, you typically need to <code class="font-mono bg-gray-100 px-1 py-0.5 rounded">import</code> them
+                first.
+            </p>
+            <ul class="list-disc list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2">
+                <li><strong class="text-indigo-600">Operating System Interface (<code>os</code>):</strong> For
+                    interacting with the operating system, like file paths, directories, and environment variables.
+                    <ul class="list-disc list-inside ml-4 mt-1 text-base leading-relaxed">
+                        <li><code class="font-mono bg-gray-100 px-1 py-0.5 rounded">os.getcwd()</code>: Get the current
+                            working directory.</li>
+                        <li><code class="font-mono bg-gray-100 px-1 py-0.5 rounded">os.listdir(path)</code>: List
+                            contents of a directory.</li>
+                        <li><code
+                                class="font-mono bg-gray-100 px-1 py-0.5 rounded">os.path.join(path1, path2, ...)</code>:
+                            Join path components intelligently.</li>
+                    </ul>
+                </li>
+                <li><strong class="text-indigo-600">Mathematics (<code>math</code>):</strong> Provides access to
+                    mathematical functions and constants.
+                    <ul class="list-disc list-inside ml-4 mt-1 text-base leading-relaxed">
+                        <li><code class="font-mono bg-gray-100 px-1 py-0.5 rounded">math.sqrt(x)</code>: Square root.
+                        </li>
+                        <li><code class="font-mono bg-gray-100 px-1 py-0.5 rounded">math.pi</code>: The mathematical
+                            constant π.</li>
+                        <li><code class="font-mono bg-gray-100 px-1 py-0.5 rounded">math.floor(x)</code>, <code
+                                class="font-mono bg-gray-100 px-1 py-0.5 rounded">math.ceil(x)</code>: Round down/up to
+                            the nearest integer.</li>
+                    </ul>
+                </li>
+                <li><strong class="text-indigo-600">Random Numbers (<code>random</code>):</strong> For generating
+                    pseudo-random numbers.
+                    <ul class="list-disc list-inside ml-4 mt-1 text-base leading-relaxed">
+                        <li><code class="font-mono bg-gray-100 px-1 py-0.5 rounded">random.random()</code>: Float
+                            between 0.0 and 1.0.</li>
+                        <li><code class="font-mono bg-gray-100 px-1 py-0.5 rounded">random.randint(a, b)</code>: Random
+                            integer between <code>a</code> and <code>b</code> (inclusive).</li>
+                        <li><code class="font-mono bg-gray-100 px-1 py-0.5 rounded">random.choice(sequence)</code>:
+                            Random element from a non-empty sequence.</li>
+                    </ul>
+                </li>
+                <li><strong class="text-indigo-600">Dates and Times (<code>datetime</code>):</strong> Classes for
+                    working with dates, times, and durations.
+                    <ul class="list-disc list-inside ml-4 mt-1 text-base leading-relaxed">
+                        <li><code class="font-mono bg-gray-100 px-1 py-0.5 rounded">datetime.date.today()</code>:
+                            Current local date.</li>
+                        <li><code class="font-mono bg-gray-100 px-1 py-0.5 rounded">datetime.datetime.now()</code>:
+                            Current local date and time.</li>
+                    </ul>
+                </li>
+                <li><strong class="text-indigo-600">JSON Data (<code>json</code>):</strong> For encoding and decoding
+                    JSON (JavaScript Object Notation) data.
+                    <ul class="list-disc list-inside ml-4 mt-1 text-base leading-relaxed">
+                        <li><code class="font-mono bg-gray-100 px-1 py-0.5 rounded">json.dumps(obj)</code>: Serialize
+                            Python object to JSON string.</li>
+                        <li><code class="font-mono bg-gray-100 px-1 py-0.5 rounded">json.loads(json_string)</code>:
+                            Deserialize JSON string to Python object.</li>
+                    </ul>
+                </li>
+                <li><strong class="text-indigo-600">Regular Expressions (<code>re</code>):</strong> For pattern matching
+                    and manipulation of strings.
+                    <ul class="list-disc list-inside ml-4 mt-1 text-base leading-relaxed">
+                        <li><code class="font-mono bg-gray-100 px-1 py-0.5 rounded">re.search(pattern, string)</code>:
+                            Scan for first occurrence of pattern.</li>
+                        <li><code class="font-mono bg-gray-100 px-1 py-0.5 rounded">re.findall(pattern, string)</code>:
+                            Find all non-overlapping matches.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="mb-12">
+        <h2 class="text-3xl font-bold mb-5 text-gray-900 flex items-center gap-2">
+            <span
+                class="inline-flex items-center justify-center w-10 h-10 bg-green-100 text-green-600 rounded-full shadow"><svg
+                    xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 17v-6a2 2 0 012-2h2a2 2 0 012 2v6" />
+                </svg></span>
+            Using Standard Library Modules
+        </h2>
+        <div
+            class="example-section bg-gradient-to-br from-green-50 to-white border-l-4 border-green-400 p-8 rounded-2xl mb-10 shadow-lg">
+            <div class="flex items-center mb-3">
+                <span class="text-blue-500 text-xl mr-2">💡</span>
+                <h3 class="text-xl font-semibold text-blue-800">Example: Using <code>math</code> and <code>random</code>
+                </h3>
+            </div>
+            <div class="code-editor-example mb-4 relative">
+                <div class="code-editor-bar">
+                    <div class="code-editor-dots flex gap-2">
+                        <div class="code-editor-dot-red"></div>
+                        <div class="code-editor-dot-yellow"></div>
+                        <div class="code-editor-dot-green"></div>
+                    </div>
+                    <span class="text-gray-400 text-xs">standard_library_demo.py</span>
+                </div>
+                <button
+                    class="absolute top-3 right-3 bg-gray-700 text-white px-3 py-1 rounded hover:bg-gray-900 text-xs font-mono shadow transition"
+                    onclick="navigator.clipboard.writeText(this.parentElement.nextElementSibling.innerText)">Copy
+                    Code</button>
+                <pre><code><span style="color: #ff79c6;">import</span> <span style="color: #f8f8f2;">math</span>
+<span style="color: #ff79c6;">import</span> <span style="color: #f8f8f2;">random</span>
+<span style="color: #ff79c6;">from</span> <span style="color: #f8f8f2;">datetime</span> <span style="color: #ff79c6;">import</span> <span style="color: #f8f8f2;">date</span> <span style="color: #6272a4;"># Import specific item from a module</span>
+
+<span style="color: #6272a4;"># Using math module</span>
+<span style="color: #f8f8f2;">radius</span> <span style="color: #ff79c6;">=</span> <span style="color: #bd93f9;">5</span>
+<span style="color: #f8f8f2;">area_of_circle</span> <span style="color: #ff79c6;">=</span> <span style="color: #f8f8f2;">math</span>.<span style="color: #f8f8f2;">pi</span> <span style="color: #ff79c6;">*</span> (<span style="color: #f8f8f2;">radius</span> <span style="color: #ff79c6;">**</span> <span style="color: #bd93f9;">2</span>)
+<span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">f"Area of circle with radius {radius}: {area_of_circle:.2f}"</span>)
+<span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">f"Square root of 16: {math.sqrt(16)}"</span>)
+
+<span style="color: #6272a4;"># Using random module</span>
+<span style="color: #f8f8f2;">random_number</span> <span style="color: #ff79c6;">=</span> <span style="color: #f8f8f2;">random</span>.<span style="color: #50fa7b;">random</span>()
+<span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">f"\nRandom float (0.0 to 1.0): {random_number:.4f}"</span>)
+<span style="color: #f8f8f2;">random_integer</span> <span style="color: #ff79c6;">=</span> <span style="color: #f8f8f2;">random</span>.<span style="color: #50fa7b;">randint</span>(<span style="color: #bd93f9;">1</span>, <span style="color: #bd93f9;">10</span>) <span style="color: #6272a4;"># Inclusive</span>
+<span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">f"Random integer (1 to 10): {random_integer}"</span>)
+<span style="color: #f8f8f2;">my_list</span> <span style="color: #ff79c6;">=</span> [<span style="color: #f1fa8c;">"apple"</span>, <span style="color: #f1fa8c;">"banana"</span>, <span style="color: #f1fa8c;">"cherry"</span>, <span style="color: #f1fa8c;">"date"</span>]
+<span style="color: #f8f8f2;">random_choice</span> <span style="color: #ff79c6;">=</span> <span style="color: #f8f8f2;">random</span>.<span style="color: #50fa7b;">choice</span>(<span style="color: #f8f8f2;">my_list</span>)
+<span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">f"Random choice from list: {random_choice}"</span>)
+
+<span style="color: #6272a4;"># Using datetime module</span>
+<span style="color: #f8f8f2;">today</span> <span style="color: #ff79c6;">=</span> <span style="color: #f8f8f2;">date</span>.<span style="color: #50fa7b;">today</span>()
+<span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">f"\nToday's date: {today}"</span>)
+<span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">f"Year: {today.year}, Month: {today.month}, Day: {today.day}"</span>)
+                </code></pre>
+            </div>
+            <div class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm mb-4">
+                <div class="font-semibold text-gray-300 mb-1">Expected Output:</div>
+                <pre class="m-0">Area of circle with radius 5: 78.54
+Square root of 16: 4.0
+
+Random float (0.0 to 1.0): 0.3742
+Random integer (1 to 10): 7
+Random choice from list: banana
+
+Today's date: 2024-06-01
+Year: 2024, Month: 6, Day: 1
+</pre>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-12">
+        <h2 class="text-3xl font-bold mb-5 text-gray-900 flex items-center gap-2">
+            <span
+                class="inline-flex items-center justify-center w-10 h-10 bg-yellow-100 text-yellow-600 rounded-full shadow"><svg
+                    xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 17v-6a2 2 0 012-2h2a2 2 0 012 2v6" />
+                </svg></span>
+            🧪 Try it Yourself
+        </h2>
+        <div
+            class="bg-gradient-to-br from-yellow-50 to-white border-l-4 border-yellow-400 p-8 rounded-2xl mb-10 shadow-lg">
+            <p class="text-lg leading-relaxed mb-4">
+                Write a Python program that:
+            <ol class="list-decimal list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2">
+                <li>Imports the <code>os</code> module.</li>
+                <li>Prints the current working directory using <code>os.getcwd()</code>. (Note: In Pyodide, this will be
+                    a virtual file system path).</li>
+                <li>Imports the <code>json</code> module.</li>
+                <li>Creates a Python dictionary.</li>
+                <li>Converts the dictionary to a JSON string and prints it.</li>
+                <li>Converts the JSON string back to a Python dictionary and prints it.</li>
+            </ol>
+            </p>
+            <div id="code-editor-container"
+                data-default-code="# Your code goes here\n\nimport os\nimport json\n\n# 1. Print current working directory\nprint(f\"
+                Current working directory: {os.getcwd()}\")\n\n# 2. Create a Python dictionary\ndata={\n 'name'
+                : 'Alice' ,\n 'age' : 30,\n 'isStudent' : False,\n 'courses' : ['Math', 'Science' , 'History'
+                ]\n}\nprint(f"\nOriginal Python dictionary: {data}")\nprint(f"Type of original data: {type(data)}")\n\n#
+                3. Convert dictionary to JSON string\njson_string=json.dumps(data, indent=4) # indent for pretty
+                printing\nprint(f"\nConverted JSON string:\n{json_string}")\nprint(f"Type of JSON string:
+                {type(json_string)}")\n\n# 4. Convert JSON string back to Python
+                dictionary\nloaded_data=json.loads(json_string)\nprint(f"\nLoaded Python dictionary from JSON:
+                {loaded_data}")\nprint(f"Type of loaded data: {type(loaded_data)}")\n\n# Access an element from the
+                loaded dictionary\nprint(f"Accessing a course from loaded data: {loaded_data['courses'][0]}")">
+                <script type="text/plain" id="default-code">
+# Your code goes here
+import os
+import json
+
+# 1. Print current working directory
+print(f"Current working directory: {os.getcwd()}")
+
+# 2. Create a Python dictionary
+data = {
+    'name': 'Alice',
+    'age': 30,
+    'isStudent': False,
+    'courses': ['Math', 'Science', 'History']
+}
+print(f"\nOriginal Python dictionary: {data}")
+print(f"Type of original data: {type(data)}")
+
+# 3. Convert dictionary to JSON string
+json_string = json.dumps(data, indent=4)  # indent for pretty printing
+print(f"\nConverted JSON string:\n{json_string}")
+print(f"Type of JSON string: {type(json_string)}")
+
+# 4. Convert JSON string back to Python dictionary
+loaded_data = json.loads(json_string)
+print(f"\nLoaded Python dictionary from JSON: {loaded_data}")
+print(f"Type of loaded data: {type(loaded_data)}")
+
+# Access an element from the loaded dictionary
+print(f"Accessing a course from loaded data: {loaded_data['courses'][0]}")
+                </script>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-12">
+        <h2 class="text-3xl font-bold mb-5 text-orange-700 flex items-center gap-2">
+            <span class="bg-orange-100 text-orange-600 p-3 rounded-lg mr-3 shadow"><svg
+                    xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3" />
+                </svg></span>
+            Challenge: Standard Library Explorer
+        </h2>
+        <div class="bg-gradient-to-r from-orange-50 to-pink-50 p-8 rounded-2xl border-l-4 border-orange-500 shadow-lg">
+            <p class="text-lg leading-relaxed mb-4">
+                <strong>Project Goal:</strong> Explore and use at least three different modules from the Python Standard
+                Library. Write a program that demonstrates their usage and prints results.
+            </p>
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <div class="bg-white p-6 rounded-lg border border-gray-200 shadow">
+                    <h3 class="font-semibold text-gray-800 mb-3 flex items-center gap-2"><svg
+                            xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 17v-6a2 2 0 012-2h2a2 2 0 012 2v6" />
+                        </svg> Requirements:</h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li>Import and use at least three different standard library modules (e.g., <code
+                                class="bg-gray-100 px-1 rounded">os</code>, <code
+                                class="bg-gray-100 px-1 rounded">math</code>, <code
+                                class="bg-gray-100 px-1 rounded">random</code>, <code
+                                class="bg-gray-100 px-1 rounded">datetime</code>, <code
+                                class="bg-gray-100 px-1 rounded">json</code>, <code
+                                class="bg-gray-100 px-1 rounded">re</code>).</li>
+                        <li>Demonstrate a useful function from each module.</li>
+                        <li>Print the results of each function call.</li>
+                        <li>Write clear comments explaining what each part does.</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg border border-gray-200 shadow">
+                    <h3 class="font-semibold text-gray-800 mb-3 flex items-center gap-2"><svg
+                            xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3" />
+                        </svg> Tips:</h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li>Check the <a href="https://docs.python.org/3/library/" class="text-indigo-600 underline"
+                                target="_blank">official Python Standard Library documentation</a> for ideas.</li>
+                        <li>Try to combine modules in creative ways (e.g., generate random data and save it as JSON).
+                        </li>
+                        <li>Use <code class="bg-gray-100 px-1 rounded">print()</code> to show your results.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bg-white p-6 rounded-lg border border-gray-200 mt-4 shadow">
+                <h3 class="font-semibold text-gray-800 mb-2 flex items-center gap-2"><svg
+                        xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3" />
+                    </svg> Sample Output:</h3>
+                <pre class="bg-gray-900 text-green-400 p-4 rounded text-sm overflow-x-auto">Current working directory: /home/pyodide
+Area of a circle with radius 3: 28.27
+Random integer between 1 and 100: 42
+JSON string: {"name": "Bob", "age": 25}
+</pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+        <a href="#" onclick="loadLesson('lessons/modules_packages.html')"
+            class="flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200 lesson-link"
+            data-lesson-path="lessons/modules_packages.html">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous: Modules and Packages
+        </a>
+        <div class="text-gray-600">
+            <span class="text-sm">Lesson 28 of 71</span>
+        </div>
+        <a href="#" onclick="loadLesson('lessons/classes_objects.html')"
+            class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200 lesson-link"
+            data-lesson-path="lessons/classes_objects.html">
+            Next: Object-Oriented Programming (OOP)
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </a>
+    </div>
+</div>

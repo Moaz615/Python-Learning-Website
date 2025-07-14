@@ -1,0 +1,332 @@
+<!-- This file contains ONLY the content for the "Input and Output" lesson. -->
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <div class="mb-8">
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-4xl font-extrabold text-gray-900">6. Basic Input and Output</h1>
+            <span class="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">Beginner</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-2 mb-6">
+            <div class="bg-green-500 h-2 rounded-full" style="width: 28.6%"></div>
+        </div>
+    </div>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+            <span class="bg-blue-100 text-blue-600 p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
+                    </path>
+                </svg>
+            </span>
+            Interacting with Your Program
+        </h2>
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg border-l-4 border-blue-500">
+            <p class="text-lg leading-relaxed mb-4">
+                <strong class="text-indigo-600">Input and Output (I/O)</strong> are fundamental to making programs
+                interactive.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                    <h3 class="font-semibold text-gray-800 mb-3 flex items-center">
+                        <span class="bg-green-100 text-green-600 p-1 rounded mr-2">OUT</span>
+                        print()
+                    </h3>
+                    <p class="text-sm text-gray-600 mb-3">Used to display output to the console</p>
+                    <div class="bg-gray-100 p-3 rounded text-sm">
+                        <code>print("Hello, World!")</code>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                    <h3 class="font-semibold text-gray-800 mb-3 flex items-center">
+                        <span class="bg-blue-100 text-blue-600 p-1 rounded mr-2">IN</span>
+                        input()
+                    </h3>
+                    <p class="text-sm text-gray-600 mb-3">Used to get input from the user</p>
+                    <div class="bg-gray-100 p-3 rounded text-sm">
+                        <code>name = input("Enter name: ")</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+            <span class="bg-green-100 text-green-600 p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+            </span>
+            The `print()` Function
+        </h2>
+        <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+            <p class="text-lg leading-relaxed mb-4">
+                The <code class="font-mono bg-gray-200 px-2 py-1 rounded text-sm">print()</code> function is one of the
+                most commonly used functions in Python. It allows you to display text, numbers, and variable values on
+                the screen.
+            </p>
+            <div class="code-editor-example mb-4">
+                <div class="code-editor-bar">
+                    <div class="code-editor-dots flex gap-2">
+                        <div class="code-editor-dot-red"></div>
+                        <div class="code-editor-dot-yellow"></div>
+                        <div class="code-editor-dot-green"></div>
+                    </div>
+                    <span class="text-gray-400 text-xs">print() Examples</span>
+                </div>
+                <pre><code><span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">"Hello, Python!"</span><span style="color: #ff79c6;">)</span>
+<span style="color: #f8f8f2;">name</span> <span style="color: #ff79c6;">=</span> <span style="color: #f1fa8c;">"World"</span>
+<span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">"Hello,"</span><span style="color: #ff79c6;">,</span> <span style="color: #f8f8f2;">name</span><span style="color: #ff79c6;">,</span> <span style="color: #f1fa8c;">"!"</span><span style="color: #ff79c6;">)</span> <span style="color: #6272a4;"># Multiple arguments separated by spaces</span>
+<span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">f"The number is {10 + 5}."</span><span style="color: #ff79c6;">)</span> <span style="color: #6272a4;"># f-string for formatted output</span></code></pre>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+            <span class="bg-purple-100 text-purple-600 p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z">
+                    </path>
+                </svg>
+            </span>
+            The `input()` Function
+        </h2>
+        <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+            <p class="text-lg leading-relaxed mb-4">
+                The <code class="font-mono bg-gray-200 px-2 py-1 rounded text-sm">input()</code> function pauses your
+                program and waits for the user to type something and press Enter. Whatever the user types is returned as
+                a string.
+            </p>
+            <div class="code-editor-example mb-4">
+                <div class="code-editor-bar">
+                    <div class="code-editor-dots flex gap-2">
+                        <div class="code-editor-dot-red"></div>
+                        <div class="code-editor-dot-yellow"></div>
+                        <div class="code-editor-dot-green"></div>
+                    </div>
+                    <span class="text-gray-400 text-xs">input() Examples</span>
+                </div>
+                <pre><code><span style="color: #6272a4;"># In Pyodide, input() requires the user to type into the editor's input box</span>
+<span style="color: #6272a4;"># and then click the "Run Code" button again to submit.</span>
+<span style="color: #6272a4;"># For simplicity in this interactive environment, we'll simulate input.</span>
+
+<span style="color: #6272a4;"># To properly test input(), you'd typically run this in a local terminal.</span>
+<span style="color: #6272a4;"># In this web editor, input() might not behave as expected for real-time interaction.</span>
+<span style="color: #6272a4;"># We'll use a placeholder for now.</span>
+
+<span style="color: #6272a4;"># name = input("Enter your name: ")</span>
+<span style="color: #6272a4;"># print(f"Hello, {name}!")</span>
+
+<span style="color: #6272a4;"># For this environment, consider pre-setting variables for demonstration:</span>
+<span style="color: #f8f8f2;">user_name</span> <span style="color: #ff79c6;">=</span> <span style="color: #f1fa8c;">"Learner"</span>
+<span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">f"Hello, {user_name}! Welcome to I/O."</span><span style="color: #ff79c6;">)</span>
+
+<span style="color: #f8f8f2;">age_str</span> <span style="color: #ff79c6;">=</span> <span style="color: #f1fa8c;">"25"</span> <span style="color: #6272a4;"># Simulating input</span>
+<span style="color: #f8f8f2;">age</span> <span style="color: #ff79c6;">=</span> <span style="color: #50fa7b;">int</span><span style="color: #ff79c6;">(</span><span style="color: #f8f8f2;">age_str</span><span style="color: #ff79c6;">)</span> <span style="color: #6272a4;"># Convert string to integer</span>
+<span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">f"You are {age} years old."</span><span style="color: #ff79c6;">)</span></code></pre>
+            </div>
+            <div class="mt-4 bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg">
+                <p class="text-yellow-800 text-sm">
+                    <strong>Note:</strong> The <code class="bg-yellow-100 px-1 rounded">input()</code> function in
+                    Pyodide (this web editor) works differently than in a standard Python terminal. It expects all input
+                    to be provided upfront. For interactive input, you might need to type your input into the editor and
+                    then re-run the code. For demonstration purposes, we'll often simulate input by assigning values
+                    directly.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+            <span class="bg-yellow-100 text-yellow-600 p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+            </span>
+            Type Conversion
+        </h2>
+        <div class="bg-gradient-to-r from-yellow-50 to-orange-50 p-6 rounded-lg border-l-4 border-yellow-500">
+            <p class="text-lg leading-relaxed mb-4">
+                Since <code class="font-mono bg-gray-200 px-2 py-1 rounded text-sm">input()</code> always returns a
+                string, you often need to convert it to other data types.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                    <h3 class="font-semibold text-gray-800 mb-2">int()</h3>
+                    <p class="text-sm text-gray-600 mb-3">Convert to integer</p>
+                    <div class="bg-gray-100 p-2 rounded text-sm">
+                        <code>int("25") → 25</code>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                    <h3 class="font-semibold text-gray-800 mb-2">float()</h3>
+                    <p class="text-sm text-gray-600 mb-3">Convert to float</p>
+                    <div class="bg-gray-100 p-2 rounded text-sm">
+                        <code>float("3.14") → 3.14</code>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                    <h3 class="font-semibold text-gray-800 mb-2">str()</h3>
+                    <p class="text-sm text-gray-600 mb-3">Convert to string</p>
+                    <div class="bg-gray-100 p-2 rounded text-sm">
+                        <code>str(42) → "42"</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+            <span class="bg-indigo-100 text-indigo-600 p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+            </span>
+            Try it Yourself!
+        </h2>
+        <p class="text-lg leading-relaxed mb-4">
+            Use <code class="font-mono bg-gray-200 px-2 py-1 rounded text-sm">print()</code> to display different
+            messages. Experiment with converting string input to numbers.
+        </p>
+
+        <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 mb-4">
+            <h3 class="font-semibold text-gray-800 mb-3">Practice with I/O:</h3>
+            <div id="code-editor-container" data-default-code="# Your code goes here
+print(&quot;This is my first output.&quot;)
+print(&quot;The sum of 8 and 9 is:&quot;, 8 + 9)
+
+# Simulating user input for a calculation
+num1_str = &quot;10&quot;
+num2_str = &quot;5&quot;
+
+num1 = int(num1_str)
+num2 = int(num2_str)
+
+print(f&quot;The product of {num1} and {num2} is: {num1 * num2}&quot;)
+
+# You can also use float() for decimal numbers
+height_str = &quot;1.75&quot;
+height = float(height_str)
+print(f&quot;Your height is {height} meters.&quot;)"></div>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+            <span class="bg-green-100 text-green-600 p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                    </path>
+                </svg>
+            </span>
+            Practice Exercise
+        </h2>
+        <div class="bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-lg border-l-4 border-green-500">
+            <p class="text-lg leading-relaxed mb-4">
+                Now it's your turn! Create a simple calculator that takes simulated input and performs calculations.
+            </p>
+            <div class="bg-white p-4 rounded-lg border border-gray-200">
+                <h3 class="font-semibold text-gray-800 mb-3">Challenge:</h3>
+                <ul class="list-disc list-inside text-gray-600 space-y-2">
+                    <li>Simulate getting two numbers from user input</li>
+                    <li>Convert the strings to integers or floats</li>
+                    <li>Perform addition, subtraction, multiplication, and division</li>
+                    <li>Display the results using formatted strings</li>
+                    <li>Try different data types (integers and floats)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenge/Homework Section -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+            <span class="bg-red-100 text-red-600 p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z">
+                    </path>
+                </svg>
+            </span>
+            🏆 Challenge: Personal Information Collector
+        </h2>
+        <div class="bg-gradient-to-r from-red-50 to-pink-50 p-6 rounded-lg border-l-4 border-red-500">
+            <p class="text-lg leading-relaxed mb-4">
+                <strong>Project Goal:</strong> Create a program that collects personal information from a user and
+                displays it in a formatted way.
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                    <h3 class="font-semibold text-gray-800 mb-3">📋 Requirements:</h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li>• Ask for user's name</li>
+                        <li>• Ask for user's age</li>
+                        <li>• Ask for user's favorite color</li>
+                        <li>• Ask for user's height (in cm)</li>
+                        <li>• Calculate age in months and days</li>
+                        <li>• Display all information in a nice format</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                    <h3 class="font-semibold text-gray-800 mb-3">🎯 Bonus Challenges:</h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li>• Calculate BMI if weight is provided</li>
+                        <li>• Add input validation</li>
+                        <li>• Create a summary with statistics</li>
+                        <li>• Format the output with emojis</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-gray-900 p-4 rounded-lg">
+                <h3 class="text-white font-semibold mb-3">💡 Sample Output:</h3>
+                <pre class="text-green-400 text-sm"><code>=== Personal Information ===
+👤 Name: John Doe
+🎂 Age: 25 years (300 months, 9125 days)
+🎨 Favorite Color: Blue
+📏 Height: 175 cm
+========================</code></pre>
+            </div>
+
+            <div class="mt-6 bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg">
+                <p class="text-yellow-800 text-sm">
+                    <strong>💪 Challenge yourself:</strong> Try to make the program interactive and user-friendly.
+                    Add error handling for invalid inputs and make the output visually appealing!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation Section -->
+    <div class="mt-12 pt-8 border-t border-gray-200">
+        <div class="flex flex-col sm:flex-row justify-between items-center">
+            <button onclick="loadLesson('lessons/data_types.html')"
+                class="bg-gray-600 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center mb-4 sm:mb-0">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                Previous: Data Types
+            </button>
+            <div class="text-gray-600 mb-4 sm:mb-0">
+                <span class="text-sm">Lesson 6 of 71</span>
+            </div>
+            <button onclick="loadLesson('lessons/operators.html')"
+                class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center">
+                Next: Arithmetic & Comparison Operators
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,817 @@
+<!-- This file contains ONLY the content for the "Database Access" lesson. -->
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <div class="mb-8">
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-4xl font-extrabold text-gray-900">55. Database Access (SQLite, MySQL, PostgreSQL)</h1>
+            <span
+                class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full whitespace-nowrap">Advanced
+                Level</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-3 mb-6">
+            <!-- Progress bar: (55-39)/18 = 88.9% for advanced (lessons 40-57) -->
+            <div class="bg-gradient-to-r from-indigo-500 to-purple-500 h-3 rounded-full transition-all duration-300"
+                style="width: 88.9%"></div>
+        </div>
+    </div>
+
+    <!-- Why Database Access Matters -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-24 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-10 h-10 bg-indigo-100 bg-opacity-80 backdrop-blur-md border-4 border-indigo-300 shadow-lg rounded-full text-2xl text-indigo-600 transition-transform duration-200 hover:scale-110 animate-fade-in">🌍</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-indigo-50/80 to-white/80 backdrop-blur-md border-2 border-indigo-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-2xl font-extrabold mb-4 text-indigo-800 tracking-tight">Why Database Access Matters</h2>
+                <p class="text-lg leading-relaxed mb-4">
+                    Databases power everything from social media and banking to scientific research and IoT. Choosing
+                    the right database and schema design can impact scalability, security, and maintainability for
+                    years. Modern applications often use multiple databases (SQL and NoSQL) for different needs, and
+                    data engineers must understand how to move, transform, and secure data across systems.
+                </p>
+                <p class="text-lg leading-relaxed mb-4">
+                    In cloud environments, managed database services (like AWS RDS, Google Cloud SQL, or Azure Database)
+                    handle backups, scaling, and failover, but you still need to design efficient queries and schemas.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Databases in the Real World -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-green-100 bg-opacity-80 backdrop-blur-md border-4 border-green-300 shadow-lg rounded-full text-3xl text-green-600 transition-transform duration-200 hover:scale-110 animate-fade-in">🧩</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-green-50/80 to-white/80 backdrop-blur-md border-2 border-green-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-green-800 tracking-tight">Databases in the Real World</h2>
+                <p class="text-lg leading-relaxed mb-4">
+                    Databases power everything from social media and banking to scientific research and IoT. Choosing
+                    the right database and schema design can impact scalability, security, and maintainability for
+                    years. Modern applications often use multiple databases (SQL and NoSQL) for different needs, and
+                    data engineers must understand how to move, transform, and secure data across systems.
+                </p>
+                <p class="text-lg leading-relaxed mb-4">
+                    In cloud environments, managed database services (like AWS RDS, Google Cloud SQL, or Azure Database)
+                    handle backups, scaling, and failover, but you still need to design efficient queries and schemas.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Concepts -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-blue-100 bg-opacity-80 backdrop-blur-md border-4 border-blue-300 shadow-lg rounded-full text-3xl text-blue-600 transition-transform duration-200 hover:scale-110 animate-fade-in">💡</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-blue-50/80 to-white/80 backdrop-blur-md border-2 border-blue-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-blue-800 tracking-tight">Key Concepts: Database Access in
+                    Python</h2>
+                <ul
+                    class="list-disc list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-blue-300 shadow-md rounded-xl p-6 animate-fade-in">
+                    <li><strong class="text-blue-600">Database Types:</strong> Relational (SQL: SQLite, MySQL,
+                        PostgreSQL) vs. NoSQL (MongoDB, Redis, etc.)</li>
+                    <li><strong class="text-blue-600">Connections & Cursors:</strong> Open a connection, create a
+                        cursor, execute queries, and close connections.</li>
+                    <li><strong class="text-blue-600">Connection Pooling:</strong> Reuse connections for performance in
+                        web apps.</li>
+                    <li><strong class="text-blue-600">Parameterized Queries:</strong> Prevent SQL injection by using
+                        placeholders.</li>
+                    <li><strong class="text-blue-600">Transactions:</strong> Use <code>commit()</code> and
+                        <code>rollback()</code> for data integrity.
+                    </li>
+                    <li><strong class="text-blue-600">Fetching Data:</strong> Use <code>fetchone()</code>,
+                        <code>fetchall()</code>, and iterate over results.
+                    </li>
+                    <li><strong class="text-blue-600">Context Managers:</strong> Use <code>with</code> for safe
+                        connection/cursor handling.</li>
+                    <li><strong class="text-blue-600">Migrations:</strong> Evolve your schema safely (Alembic, Django
+                        ORM, etc.).</li>
+                    <li><strong class="text-blue-600">ORMs:</strong> Libraries like SQLAlchemy provide higher-level
+                        abstractions.</li>
+                    <li><strong class="text-blue-600">Security:</strong> Always validate input and use least-privilege
+                        DB users.</li>
+                </ul>
+                <div class="mt-8">
+                    <h3 class="text-xl font-semibold text-blue-800 mb-2">Python DB API Flow</h3>
+                    <div class="bg-white border border-blue-200 rounded-xl p-4 mb-4">
+                        <div class="overflow-x-auto">
+                            <pre class="text-xs"><code>+-------------------+      +-------------+      +-------------------+
+| Python App Code   |<---->| DB-API 2.0  |<---->| Database Engine   |
++-------------------+      +-------------+      +-------------------+
+        |                        |                        |
+        |  connect()             |                        |
+        |----------------------->|                        |
+        |                        |   (driver)             |
+        |                        |----------------------->|
+        |                        |                        |
+        |  cursor()              |                        |
+        |----------------------->|                        |
+        |  execute(), fetchall() |                        |
+        |----------------------->|                        |
+        |                        |                        |
+        |  close()               |                        |
+        |----------------------->|                        |
+</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Database Normalization & Schema Design -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-green-100 bg-opacity-80 backdrop-blur-md border-4 border-green-300 shadow-lg rounded-full text-3xl text-green-600 transition-transform duration-200 hover:scale-110 animate-fade-in">🧩</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-green-50/80 to-white/80 backdrop-blur-md border-2 border-green-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-green-800 tracking-tight">Database Normalization & Schema
+                    Design</h2>
+                <p class="text-lg leading-relaxed mb-4">
+                    Good database design prevents data duplication, ensures consistency, and makes queries efficient.
+                    <strong class="text-green-600">Normalization</strong> is the process of structuring tables to reduce
+                    redundancy and improve integrity. Most production databases use at least 3rd Normal Form (3NF).
+                </p>
+                <ul class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed">
+                    <li>1NF: Each field contains only atomic values (no lists or sets).</li>
+                    <li>2NF: Every non-key column depends on the whole primary key.</li>
+                    <li>3NF: No transitive dependencies (non-key columns depend only on the key).</li>
+                </ul>
+                <p class="text-lg leading-relaxed mt-4">
+                    Schema design also includes choosing data types, indexes, and relationships (one-to-many,
+                    many-to-many).
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Indexes & Performance -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-yellow-100 bg-opacity-80 backdrop-blur-md border-4 border-yellow-300 shadow-lg rounded-full text-3xl text-yellow-600 transition-transform duration-200 hover:scale-110 animate-fade-in">⚡</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-yellow-50/80 to-white/80 backdrop-blur-md border-2 border-yellow-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-yellow-800 tracking-tight">Indexes & Performance</h2>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong class="text-yellow-600">Indexes</strong> speed up queries by allowing the database to find
+                    rows faster, but they add overhead to writes. Use indexes on columns you search or join on
+                    frequently, but avoid over-indexing.
+                </p>
+                <ul class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed">
+                    <li>Primary keys are indexed by default.</li>
+                    <li>Composite indexes can speed up multi-column searches.</li>
+                    <li>Use <code>EXPLAIN</code> to analyze query plans and optimize slow queries.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced SQL -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-pink-100 bg-opacity-80 backdrop-blur-md border-4 border-pink-300 shadow-lg rounded-full text-3xl text-pink-600 transition-transform duration-200 hover:scale-110 animate-fade-in">🧠</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-pink-50/80 to-white/80 backdrop-blur-md border-2 border-pink-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-pink-800 tracking-tight">Advanced SQL: Joins, Subqueries,
+                    Window Functions</h2>
+                <p class="text-lg leading-relaxed mb-4">
+                    SQL is a powerful language for data analysis. Mastering <strong>joins</strong>,
+                    <strong>subqueries</strong>, and <strong>window functions</strong> lets you write complex, efficient
+                    queries.
+                </p>
+                <ul class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed">
+                    <li><strong>Joins:</strong> Combine rows from multiple tables (INNER, LEFT, RIGHT, FULL).</li>
+                    <li><strong>Subqueries:</strong> Use a query inside another query for filtering or aggregation.</li>
+                    <li><strong>Window Functions:</strong> Perform calculations across sets of rows (e.g., running
+                        totals, ranking).</li>
+                </ul>
+                <div class="code-editor-example mt-6 mb-4">
+                    <div class="code-editor-bar">
+                        <div class="code-editor-dots flex gap-2">
+                            <div class="code-editor-dot-red"></div>
+                            <div class="code-editor-dot-yellow"></div>
+                            <div class="code-editor-dot-green"></div>
+                        </div>
+                        <span class="text-gray-400 text-xs">advanced_sql.sql</span>
+                    </div>
+                    <pre><code><span style="color: #ff79c6;">-- Join example</span>
+<span style="color: #f1fa8c;">SELECT</span> u.name, o.amount
+<span style="color: #f1fa8c;">FROM</span> users u
+<span style="color: #f1fa8c;">JOIN</span> orders o <span style="color: #f1fa8c;">ON</span> u.id = o.user_id;
+
+<span style="color: #ff79c6;">-- Window function example</span>
+<span style="color: #f1fa8c;">SELECT</span> name, amount, <span style="color: #f1fa8c;">SUM</span>(amount) <span style="color: #f1fa8c;">OVER</span> (<span style="color: #f1fa8c;">ORDER BY</span> amount) <span style="color: #f1fa8c;">AS</span> running_total
+<span style="color: #f1fa8c;">FROM</span> orders;
+</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SQL vs NoSQL -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-gray-100 bg-opacity-80 backdrop-blur-md border-4 border-gray-300 shadow-lg rounded-full text-3xl text-gray-600 transition-transform duration-200 hover:scale-110 animate-fade-in">🔄</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-gray-50/80 to-white/80 backdrop-blur-md border-2 border-gray-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-gray-800 tracking-tight">SQL vs NoSQL: When to Use Each
+                </h2>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong>SQL databases</strong> (like PostgreSQL, MySQL, SQLite) are best for structured data,
+                    complex queries, and strong consistency. <strong>NoSQL databases</strong> (like MongoDB, Redis,
+                    Cassandra) are better for unstructured or rapidly changing data, horizontal scaling, and flexible
+                    schemas.
+                </p>
+                <ul class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed">
+                    <li>Use SQL for financial data, analytics, and apps needing ACID guarantees.</li>
+                    <li>Use NoSQL for big data, caching, real-time analytics, or when schema changes often.</li>
+                    <li>Many modern systems use both: SQL for core data, NoSQL for logs, caching, or search.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Database Access & Transaction Flowchart -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-indigo-700 flex items-center">
+            <span class="bg-indigo-100 text-indigo-600 p-2 rounded-lg mr-3">🔄</span>
+            Database Access & Transaction Flow
+        </h2>
+        <div class="bg-white border border-indigo-200 rounded-xl p-4 mb-4 flex flex-col items-center">
+            <pre class="bg-gray-50 rounded-lg p-4 text-xs font-mono text-gray-800 overflow-x-auto mb-2"
+                style="line-height: 1.5;">
++-------------------+      +-------------------+      +-------------------+
+| Application Layer |----->|  Database Driver  |----->|  Database Engine  |
++-------------------+      +-------------------+      +-------------------+
+        |                        |                        |
+        |      connect()         |                        |
+        |----------------------->|                        |
+        |                        |   SQL Query            |
+        |                        |----------------------->|
+        |                        |                        |
+        |      fetch()           |                        |
+        |<-----------------------|                        |
+        |                        |                        |
+
+        +---------------- Transaction -------------------+
+        |                                               |
+        |   +--------+   +---------+   +--------+       |
+        |   | Begin  |-->| Execute |-->|Commit  |       |
+        |   +--------+   +---------+   +--------+       |
+        |                        |                     |
+        |                        v                     |
+        |                    +--------+                |
+        |                    |Rollback|                |
+        |                    +--------+                |
+        +----------------------------------------------+
+            </pre>
+            <div class="text-xs text-gray-500 text-center mt-2">An ASCII diagram showing the steps from application to
+                database, including connection, query, transaction, commit, and rollback.</div>
+        </div>
+    </section>
+
+    <!-- Database Scaling Section -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-orange-100 bg-opacity-80 backdrop-blur-md border-4 border-orange-300 shadow-lg rounded-full text-3xl text-orange-600 transition-transform duration-200 hover:scale-110 animate-fade-in">📈</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-orange-50/80 to-white/80 backdrop-blur-md border-2 border-orange-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-orange-800 tracking-tight">Database Scaling & High
+                    Availability</h2>
+                <ul class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed">
+                    <li>Vertical scaling: Add more resources (CPU, RAM) to a single server.</li>
+                    <li>Horizontal scaling: Add more servers (sharding, replication, distributed databases).</li>
+                    <li>Replication: Keep copies of data on multiple servers for redundancy and read performance.</li>
+                    <li>Sharding: Split data across servers for write scalability.</li>
+                    <li>CAP theorem: Consistency, Availability, Partition tolerance—choose two.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Database Security Section -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-red-100 bg-opacity-80 backdrop-blur-md border-4 border-red-300 shadow-lg rounded-full text-3xl text-red-600 transition-transform duration-200 hover:scale-110 animate-fade-in">🔒</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-red-50/80 to-white/80 backdrop-blur-md border-2 border-red-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-red-800 tracking-tight">Database Security & Backups</h2>
+                <ul class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed">
+                    <li>Encryption at rest and in transit (SSL/TLS).</li>
+                    <li>Access control: Use least-privilege users and roles.</li>
+                    <li>Regular backups and tested restore procedures.</li>
+                    <li>Audit logging and monitoring for suspicious activity.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- All Code Examples (grouped by topic) -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">📝</span>Database
+            Access Examples</h2>
+        <!-- Example 1: SQLite - Creating and Querying a Table -->
+        <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8 shadow-sm">
+            <div class="flex items-center mb-3">
+                <h3 class="text-xl font-semibold text-blue-800">Example: SQLite - Creating and Querying a Table</h3>
+            </div>
+            <div class="code-editor-example mb-4">
+                <div class="code-editor-bar">
+                    <div class="code-editor-dots flex gap-2">
+                        <div class="code-editor-dot-red"></div>
+                        <div class="code-editor-dot-yellow"></div>
+                        <div class="code-editor-dot-green"></div>
+                    </div>
+                    <span class="text-gray-400 text-xs">sqlite_example.py</span>
+                </div>
+                <pre><code><span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">sqlite3</span>
+
+<span style="color: #8be9fd;">conn</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">sqlite3</span>.<span style="color: #50fa7b;">connect</span>(<span style="color: #f1fa8c;">":memory:"</span>)
+<span style="color: #8be9fd;">cur</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">conn</span>.<span style="color: #50fa7b;">cursor</span>()
+<span style="color: #8be9fd;">cur</span>.<span style="color: #50fa7b;">execute</span>(<span style="color: #f1fa8c;">"CREATE TABLE users (id INTEGER, name TEXT)"</span>)
+<span style="color: #8be9fd;">cur</span>.<span style="color: #50fa7b;">execute</span>(<span style="color: #f1fa8c;">"INSERT INTO users VALUES (?, ?)"</span>, (<span style="color: #bd93f9;">1</span>, <span style="color: #f1fa8c;">"Alice"</span>))
+<span style="color: #8be9fd;">cur</span>.<span style="color: #50fa7b;">execute</span>(<span style="color: #f1fa8c;">"INSERT INTO users VALUES (?, ?)"</span>, (<span style="color: #bd93f9;">2</span>, <span style="color: #f1fa8c;">"Bob"</span>))
+<span style="color: #8be9fd;">cur</span>.<span style="color: #50fa7b;">execute</span>(<span style="color: #f1fa8c;">"SELECT * FROM users"</span>)
+<span style="color: #8be9fd;">rows</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">cur</span>.<span style="color: #50fa7b;">fetchall</span>()
+<span style="color: #50fa7b;">print</span>(<span style="color: #8be9fd;">rows</span>)
+<span style="color: #8be9fd;">conn</span>.<span style="color: #50fa7b;">close</span>()
+</code></pre>
+                <div class="bg-gray-100 p-4 rounded-lg mt-2 text-gray-800 text-sm">
+                    <strong>Explanation:</strong> This code imports the <code>sqlite3</code> module and creates an
+                    in-memory database. It then creates a cursor, defines a <code>users</code> table, and inserts two
+                    users (Alice and Bob) using parameterized queries. It selects all users from the table, fetches the
+                    results, prints them, and finally closes the connection.
+                </div>
+            </div>
+            <div class="bg-gray-900 p-4 rounded-lg">
+                <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+                <pre class="text-green-400 text-sm"><code>[(1, 'Alice'), (2, 'Bob')]
+</code></pre>
+            </div>
+        </div>
+        <!-- Example 2: MySQL - Connecting and Querying (pseudo, with notes) -->
+        <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8 shadow-sm">
+            <div class="flex items-center mb-3">
+                <h3 class="text-xl font-semibold text-blue-800">Example: MySQL - Connecting and Querying</h3>
+            </div>
+            <div class="code-editor-example mb-4">
+                <div class="code-editor-bar">
+                    <div class="code-editor-dots flex gap-2">
+                        <div class="code-editor-dot-red"></div>
+                        <div class="code-editor-dot-yellow"></div>
+                        <div class="code-editor-dot-green"></div>
+                    </div>
+                    <span class="text-gray-400 text-xs">mysql_example.py</span>
+                </div>
+                <pre><code><span style="color: #6272a4;"># Requires: pip install mysql-connector-python</span>
+<span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">mysql.connector</span>
+
+<span style="color: #8be9fd;">conn</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">mysql</span>.<span style="color: #50fa7b;">connector</span>.<span style="color: #50fa7b;">connect</span>(
+    host<span style="color: #ff79c6;">=</span><span style="color: #f1fa8c;">'localhost'</span>,
+    user<span style="color: #ff79c6;">=</span><span style="color: #f1fa8c;">'root'</span>,
+    password<span style="color: #ff79c6;">=</span><span style="color: #f1fa8c;">'password'</span>,
+    database<span style="color: #ff79c6;">=</span><span style="color: #f1fa8c;">'testdb'</span>
+)
+<span style="color: #8be9fd;">cur</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">conn</span>.<span style="color: #50fa7b;">cursor</span>()
+<span style="color: #8be9fd;">cur</span>.<span style="color: #50fa7b;">execute</span>(<span style="color: #f1fa8c;">"SELECT * FROM users"</span>)
+<span style="color: #8be9fd;">rows</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">cur</span>.<span style="color: #50fa7b;">fetchall</span>()
+<span style="color: #50fa7b;">print</span>(<span style="color: #8be9fd;">rows</span>)
+<span style="color: #8be9fd;">conn</span>.<span style="color: #50fa7b;">close</span>()
+</code></pre>
+                <div class="bg-gray-100 p-4 rounded-lg mt-2 text-gray-800 text-sm">
+                    <strong>Explanation:</strong> This code imports the MySQL connector, connects to a MySQL database
+                    using the provided credentials, and creates a cursor. It executes a query to select all users,
+                    fetches all results, prints them, and closes the connection.
+                </div>
+            </div>
+            <div class="bg-gray-900 p-4 rounded-lg">
+                <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+                <pre class="text-green-400 text-sm"><code>[(1, 'Alice'), (2, 'Bob')]
+</code></pre>
+            </div>
+        </div>
+        <!-- Example 3: PostgreSQL - Connecting and Querying (pseudo, with notes) -->
+        <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8 shadow-sm">
+            <div class="flex items-center mb-3">
+                <h3 class="text-xl font-semibold text-blue-800">Example: PostgreSQL - Connecting and Querying</h3>
+            </div>
+            <div class="code-editor-example mb-4">
+                <div class="code-editor-bar">
+                    <div class="code-editor-dots flex gap-2">
+                        <div class="code-editor-dot-red"></div>
+                        <div class="code-editor-dot-yellow"></div>
+                        <div class="code-editor-dot-green"></div>
+                    </div>
+                    <span class="text-gray-400 text-xs">postgres_example.py</span>
+                </div>
+                <pre><code><span style="color: #6272a4;"># Requires: pip install psycopg2</span>
+<span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">psycopg2</span>
+
+<span style="color: #8be9fd;">conn</span> <span style="color: #ff79c6;">=</span> <span style="color: #50fa7b;">psycopg2</span>.<span style="color: #50fa7b;">connect</span>(
+    host<span style="color: #ff79c6;">=</span><span style="color: #f1fa8c;">'localhost'</span>,
+    user<span style="color: #ff79c6;">=</span><span style="color: #f1fa8c;">'postgres'</span>,
+    password<span style="color: #ff79c6;">=</span><span style="color: #f1fa8c;">'password'</span>,
+    dbname<span style="color: #ff79c6;">=</span><span style="color: #f1fa8c;">'testdb'</span>
+)
+<span style="color: #8be9fd;">cur</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">conn</span>.<span style="color: #50fa7b;">cursor</span>()
+<span style="color: #8be9fd;">cur</span>.<span style="color: #50fa7b;">execute</span>(<span style="color: #f1fa8c;">"SELECT * FROM users"</span>)
+<span style="color: #8be9fd;">rows</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">cur</span>.<span style="color: #50fa7b;">fetchall</span>()
+<span style="color: #50fa7b;">print</span>(<span style="color: #8be9fd;">rows</span>)
+<span style="color: #8be9fd;">conn</span>.<span style="color: #50fa7b;">close</span>()
+</code></pre>
+                <div class="bg-gray-100 p-4 rounded-lg mt-2 text-gray-800 text-sm">
+                    <strong>Explanation:</strong> This code imports the psycopg2 library, connects to a PostgreSQL
+                    database with the given credentials, and creates a cursor. It executes a query to select all users,
+                    fetches all results, prints them, and closes the connection.
+                </div>
+            </div>
+            <div class="bg-gray-900 p-4 rounded-lg">
+                <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+                <pre class="text-green-400 text-sm"><code>[(1, 'Alice'), (2, 'Bob')]
+</code></pre>
+            </div>
+        </div>
+        <!-- Example 4: Parameterized Queries and SQL Injection Demo -->
+        <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8 shadow-sm">
+            <div class="flex items-center mb-3">
+                <h3 class="text-xl font-semibold text-blue-800">Example: Parameterized Queries & SQL Injection</h3>
+            </div>
+            <div class="code-editor-example mb-4">
+                <div class="code-editor-bar">
+                    <div class="code-editor-dots flex gap-2">
+                        <div class="code-editor-dot-red"></div>
+                        <div class="code-editor-dot-yellow"></div>
+                        <div class="code-editor-dot-green"></div>
+                    </div>
+                    <span class="text-gray-400 text-xs">sql_injection_example.py</span>
+                </div>
+                <pre><code><span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">sqlite3</span>
+
+<span style="color: #8be9fd;">conn</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">sqlite3</span>.<span style="color: #50fa7b;">connect</span>(<span style="color: #f1fa8c;">":memory:"</span>)
+<span style="color: #8be9fd;">cur</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">conn</span>.<span style="color: #50fa7b;">cursor</span>()
+<span style="color: #8be9fd;">cur</span>.<span style="color: #50fa7b;">execute</span>(<span style="color: #f1fa8c;">"CREATE TABLE users (id INTEGER, name TEXT)"</span>)
+<span style="color: #8be9fd;">cur</span>.<span style="color: #50fa7b;">execute</span>(<span style="color: #f1fa8c;">"INSERT INTO users VALUES (?, ?)"</span>, (<span style="color: #bd93f9;">1</span>, <span style="color: #f1fa8c;">"Alice"</span>))
+
+<span style="color: #6272a4;"># BAD: Vulnerable to SQL injection</span>
+<span style="color: #8be9fd;">user_input</span> <span style="color: #ff79c6;">=</span> <span style="color: #f1fa8c;">"1 OR 1=1"</span>
+<span style="color: #8be9fd;">query</span> <span style="color: #ff79c6;">=</span> <span style="color: #f1fa8c;">f"SELECT * FROM users WHERE id = {user_input}"</span>
+<span style="color: #50fa7b;">print</span>(<span style="color: #8be9fd;">cur</span>.<span style="color: #50fa7b;">execute</span>(<span style="color: #8be9fd;">query</span>).<span style="color: #50fa7b;">fetchall</span>())
+
+<span style="color: #6272a4;"># GOOD: Use parameterized queries</span>
+<span style="color: #8be9fd;">cur</span>.<span style="color: #50fa7b;">execute</span>(<span style="color: #f1fa8c;">"SELECT * FROM users WHERE id = ?"</span>, (<span style="color: #bd93f9;">1</span>,))
+<span style="color: #50fa7b;">print</span>(<span style="color: #8be9fd;">cur</span>.<span style="color: #50fa7b;">fetchall</span>())
+</code></pre>
+                <div class="bg-gray-100 p-4 rounded-lg mt-2 text-gray-800 text-sm">
+                    <strong>Explanation:</strong> This code first creates a table and inserts a user. It then
+                    demonstrates a vulnerable query using string formatting, which could allow SQL injection if user
+                    input is malicious. The second query uses a parameterized statement, which safely passes the value
+                    and prevents injection. Both results are printed.
+                </div>
+            </div>
+            <div class="bg-gray-900 p-4 rounded-lg">
+                <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+                <pre class="text-green-400 text-sm"><code>[(1, 'Alice')]
+</code></pre>
+            </div>
+        </div>
+        <!-- Example 5: Transactions and Error Handling -->
+        <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8 shadow-sm">
+            <div class="flex items-center mb-3">
+                <h3 class="text-xl font-semibold text-blue-800">Example: Transactions and Error Handling</h3>
+            </div>
+            <div class="code-editor-example mb-4">
+                <div class="code-editor-bar">
+                    <div class="code-editor-dots flex gap-2">
+                        <div class="code-editor-dot-red"></div>
+                        <div class="code-editor-dot-yellow"></div>
+                        <div class="code-editor-dot-green"></div>
+                    </div>
+                    <span class="text-gray-400 text-xs">transactions_example.py</span>
+                </div>
+                <pre><code><span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">sqlite3</span>
+
+<span style="color: #ff79c6;">try</span>:
+    <span style="color: #8be9fd;">conn</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">sqlite3</span>.<span style="color: #50fa7b;">connect</span>(<span style="color: #f1fa8c;">":memory:"</span>)
+    <span style="color: #8be9fd;">cur</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">conn</span>.<span style="color: #50fa7b;">cursor</span>()
+    <span style="color: #8be9fd;">cur</span>.<span style="color: #50fa7b;">execute</span>(<span style="color: #f1fa8c;">"CREATE TABLE test (id INTEGER)"</span>)
+    <span style="color: #8be9fd;">cur</span>.<span style="color: #50fa7b;">execute</span>(<span style="color: #f1fa8c;">"INSERT INTO test VALUES (1)"</span>)
+    <span style="color: #8be9fd;">conn</span>.<span style="color: #50fa7b;">commit</span>()
+<span style="color: #ff79c6;">except</span> <span style="color: #8be9fd;">Exception</span> <span style="color: #ff79c6;">as</span> <span style="color: #8be9fd;">e</span>:
+    <span style="color: #8be9fd;">conn</span>.<span style="color: #50fa7b;">rollback</span>()
+    <span style="color: #50fa7b;">print</span>(<span style="color: #8be9fd;">e</span>)
+<span style="color: #ff79c6;">finally</span>:
+    <span style="color: #8be9fd;">conn</span>.<span style="color: #50fa7b;">close</span>()
+</code></pre>
+                <div class="bg-gray-100 p-4 rounded-lg mt-2 text-gray-800 text-sm">
+                    <strong>Explanation:</strong> This code tries to connect to an in-memory SQLite database, create a
+                    table, and insert a value. If any error occurs, it rolls back the transaction and prints the error.
+                    The <code>finally</code> block ensures the connection is closed whether or not an error happened.
+                </div>
+            </div>
+            <div class="bg-gray-900 p-4 rounded-lg">
+                <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+                <pre class="text-green-400 text-sm"><code></code></pre>
+            </div>
+        </div>
+        <!-- Example 6: Context Managers for Connections/Cursors -->
+        <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8 shadow-sm">
+            <div class="flex items-center mb-3">
+                <h3 class="text-xl font-semibold text-blue-800">Example: Context Managers for Connections/Cursors</h3>
+            </div>
+            <div class="code-editor-example mb-4">
+                <div class="code-editor-bar">
+                    <div class="code-editor-dots flex gap-2">
+                        <div class="code-editor-dot-red"></div>
+                        <div class="code-editor-dot-yellow"></div>
+                        <div class="code-editor-dot-green"></div>
+                    </div>
+                    <span class="text-gray-400 text-xs">context_manager_example.py</span>
+                </div>
+                <pre><code><span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">sqlite3</span>
+
+<span style="color: #ff79c6;">with</span> <span style="color: #8be9fd;">sqlite3</span>.<span style="color: #50fa7b;">connect</span>(<span style="color: #f1fa8c;">":memory:"</span>) <span style="color: #ff79c6;">as</span> <span style="color: #8be9fd;">conn</span>:
+    <span style="color: #8be9fd;">cur</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">conn</span>.<span style="color: #50fa7b;">cursor</span>()
+    <span style="color: #8be9fd;">cur</span>.<span style="color: #50fa7b;">execute</span>(<span style="color: #f1fa8c;">"CREATE TABLE t (id INTEGER)"</span>)
+    <span style="color: #8be9fd;">cur</span>.<span style="color: #50fa7b;">execute</span>(<span style="color: #f1fa8c;">"INSERT INTO t VALUES (1)"</span>)
+    <span style="color: #50fa7b;">print</span>(<span style="color: #8be9fd;">cur</span>.<span style="color: #50fa7b;">execute</span>(<span style="color: #f1fa8c;">"SELECT * FROM t"</span>).<span style="color: #50fa7b;">fetchall</span>())
+</code></pre>
+                <div class="bg-gray-100 p-4 rounded-lg mt-2 text-gray-800 text-sm">
+                    <strong>Explanation:</strong> This code uses a <code>with</code> statement to open a SQLite
+                    connection, which ensures the connection is closed automatically. It creates a table, inserts a
+                    value, and prints all rows from the table. The context manager handles cleanup even if an error
+                    occurs.
+                </div>
+            </div>
+            <div class="bg-gray-900 p-4 rounded-lg">
+                <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+                <pre class="text-green-400 text-sm"><code>[(1,)]
+</code></pre>
+            </div>
+        </div>
+        <!-- Example 7: ORM Example with SQLAlchemy (pseudo) -->
+        <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8 shadow-sm">
+            <div class="flex items-center mb-3">
+                <h3 class="text-xl font-semibold text-blue-800">Example: ORM with SQLAlchemy</h3>
+            </div>
+            <div class="code-editor-example mb-4">
+                <div class="code-editor-bar">
+                    <div class="code-editor-dots flex gap-2">
+                        <div class="code-editor-dot-red"></div>
+                        <div class="code-editor-dot-yellow"></div>
+                        <div class="code-editor-dot-green"></div>
+                    </div>
+                    <span class="text-gray-400 text-xs">sqlalchemy_example.py</span>
+                </div>
+                <pre><code><span style="color: #6272a4;"># Requires: pip install sqlalchemy</span>
+<span style="color: #ff79c6;">from</span> <span style="color: #8be9fd;">sqlalchemy</span> <span style="color: #ff79c6;">import</span> <span style="color: #50fa7b;">create_engine</span>, <span style="color: #50fa7b;">Column</span>, <span style="color: #50fa7b;">Integer</span>, <span style="color: #50fa7b;">String</span>, <span style="color: #50fa7b;">Base</span>
+
+<span style="color: #50fa7b;">engine</span> <span style="color: #ff79c6;">=</span> <span style="color: #50fa7b;">create_engine</span>(<span style="color: #f1fa8c;">'sqlite:///:memory:'</span>)
+
+<span style="color: #ff79c6;">class</span> <span style="color: #50fa7b;">User</span>(<span style="color: #50fa7b;">Base</span>):
+    <span style="color: #50fa7b;">__tablename__</span> <span style="color: #ff79c6;">=</span> <span style="color: #f1fa8c;">'users'</span>
+    <span style="color: #50fa7b;">id</span> <span style="color: #ff79c6;">=</span> <span style="color: #50fa7b;">Column</span>(<span style="color: #50fa7b;">Integer</span>, primary_key<span style="color: #ff79c6;">=</span><span style="color: #bd93f9;">True</span>)
+    <span style="color: #50fa7b;">name</span> <span style="color: #ff79c6;">=</span> <span style="color: #50fa7b;">Column</span>(<span style="color: #50fa7b;">String</span>)
+
+<span style="color: #50fa7b;">Base</span>.<span style="color: #50fa7b;">metadata</span>.<span style="color: #50fa7b;">create_all</span>(<span style="color: #50fa7b;">engine</span>)
+</code></pre>
+                <div class="bg-gray-100 p-4 rounded-lg mt-2 text-gray-800 text-sm">
+                    <strong>Explanation:</strong> This code imports SQLAlchemy components, creates an in-memory SQLite
+                    engine, and defines a <code>User</code> class mapped to a <code>users</code> table. The table has
+                    <code>id</code> and <code>name</code> columns. <code>Base.metadata.create_all(engine)</code> creates
+                    the table in the database.
+                </div>
+            </div>
+            <div class="bg-gray-900 p-4 rounded-lg">
+                <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+                <pre class="text-green-400 text-sm"><code>(No output, but table is created in memory)
+</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Practices -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-blue-700 flex items-center">
+            <span class="bg-blue-100 text-blue-600 p-2 rounded-lg mr-3">✅</span>
+            Best Practices for Database Access
+        </h2>
+        <ul
+            class="list-disc list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-blue-300 shadow-md rounded-xl p-6 animate-fade-in">
+            <li>Always use parameterized queries to prevent SQL injection.</li>
+            <li>Close connections and cursors using <code>with</code> or <code>finally</code> blocks.</li>
+            <li>Use connection pooling for web apps (e.g., <code>SQLAlchemy</code> or <code>mysql-connector</code>
+                pooling).</li>
+            <li>Handle exceptions and roll back transactions on errors.</li>
+            <li>Use migrations to manage schema changes safely.</li>
+            <li>Grant the minimum required privileges to database users.</li>
+            <li>Validate and sanitize all user input.</li>
+        </ul>
+    </section>
+
+    <!-- Common Pitfalls -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-red-700 flex items-center">
+            <span class="bg-red-100 text-red-600 p-2 rounded-lg mr-3">⚠️</span>
+            Common Pitfalls
+        </h2>
+        <ul
+            class="list-disc list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-red-300 shadow-md rounded-xl p-6 animate-fade-in">
+            <li>Forgetting to close connections (can exhaust DB resources).</li>
+            <li>Using string formatting for SQL queries (risk of SQL injection).</li>
+            <li>Not handling exceptions or rolling back on errors.</li>
+            <li>Assuming all databases use the same SQL dialect.</li>
+            <li>Data type mismatches between Python and SQL.</li>
+            <li>Hardcoding credentials in code (use environment variables or config files).</li>
+        </ul>
+    </section>
+
+    <!-- Try it Yourself -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-green-700 flex items-center">
+            <span class="bg-green-100 text-green-600 p-2 rounded-lg mr-3">🧪</span>
+            Try it Yourself
+        </h2>
+        <div class="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl p-6 shadow-sm mb-6">
+            <p class="text-lg leading-relaxed mb-4">
+                <strong>Comprehensive Database Task:</strong> <br>
+                Write a Python script that does all of the following using <code>sqlite3</code>:
+            </p>
+            <ul class="list-decimal list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2">
+                <li>Connect to an in-memory SQLite database using a <strong>context manager</strong>.</li>
+                <li>Create two normalized tables: <code>users</code> (<code>id</code>, <code>name</code>) and
+                    <code>orders</code> (<code>id</code>, <code>user_id</code>, <code>amount</code>).
+                </li>
+                <li>Insert at least three users and five orders using <strong>parameterized queries</strong>.</li>
+                <li>Update one user's name and delete one order, both using parameterized queries.</li>
+                <li>Query all users and their total order amounts using a <strong>JOIN</strong> and
+                    <strong>aggregation</strong> (e.g., <code>SUM</code>).
+                </li>
+                <li>Wrap all modifications in a <strong>transaction</strong> and handle errors with
+                    <code>try/except/finally</code> (rollback on error).
+                </li>
+                <li>Print the final user list and their total order amounts.</li>
+            </ul>
+            <p class="text-md text-gray-600 mt-4">This exercise covers schema design, parameterized queries,
+                transactions, context managers, and advanced SQL.</p>
+        </div>
+        <!-- Code Editor Area -->
+        <div id="code-editor-container" class="bg-gray-50 p-6 rounded-lg shadow-inner border border-gray-200"></div>
+        <script type="text/plain" id="default-code">
+import sqlite3
+
+# Connect to an in-memory SQLite database using a context manager
+with sqlite3.connect(":memory:") as conn:
+    try:
+        cur = conn.cursor()
+        # 1. Create tables: users and orders (normalized schema)
+        cur.execute("""
+            CREATE TABLE users (
+                id INTEGER PRIMARY KEY,
+                name TEXT NOT NULL
+            )
+        """)
+        cur.execute("""
+            CREATE TABLE orders (
+                id INTEGER PRIMARY KEY,
+                user_id INTEGER,
+                amount REAL,
+                FOREIGN KEY(user_id) REFERENCES users(id)
+            )
+        """)
+
+        # 2. Insert at least three users (parameterized queries)
+        users = [(1, "Alice"), (2, "Bob"), (3, "Charlie")]
+        cur.executemany("INSERT INTO users (id, name) VALUES (?, ?)", users)
+
+        # 3. Insert at least five orders (parameterized queries)
+        orders = [
+            (1, 1, 100.0),
+            (2, 1, 50.0),
+            (3, 2, 75.0),
+            (4, 3, 200.0),
+            (5, 2, 25.0)
+        ]
+        cur.executemany("INSERT INTO orders (id, user_id, amount) VALUES (?, ?, ?)", orders)
+
+        # 4. Update one user's name (parameterized query)
+        cur.execute("UPDATE users SET name = ? WHERE id = ?", ("Alicia", 1))
+
+        # 5. Delete one order (parameterized query)
+        cur.execute("DELETE FROM orders WHERE id = ?", (5,))
+
+        # 6. Query all users and their total order amounts using JOIN and aggregation (SUM)
+        cur.execute("""
+            SELECT users.name, COALESCE(SUM(orders.amount), 0) AS total_amount
+            FROM users
+            LEFT JOIN orders ON users.id = orders.user_id
+            GROUP BY users.id, users.name
+        """)
+        results = cur.fetchall()
+
+        # 7. Print the final user list and their total order amounts
+        print("User totals:")
+        for name, total in results:
+            print(f"{name}: ${total:.2f}")
+
+        # 8. Commit the transaction
+        conn.commit()
+    except Exception as e:
+        # Rollback on error
+        conn.rollback()
+        print("Error:", e)
+# The connection is automatically closed by the context manager
+        </script>
+    </section>
+
+    <!-- Challenge -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-purple-700 flex items-center">
+            <span class="bg-purple-100 text-purple-600 p-2 rounded-lg mr-3">🏆</span>
+            Project Challenge: Full-Stack ETL & Migration
+        </h2>
+        <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg border-l-4 border-purple-500">
+            <p class="text-lg leading-relaxed mb-4">
+                <strong>Scenario:</strong> Build a robust ETL (Extract, Transform, Load) pipeline in Python that moves
+                data from a SQLite database to a PostgreSQL or MySQL database. Your script should:
+            </p>
+            <ul class="list-decimal list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2">
+                <li>Connect to both databases using <strong>context managers</strong> and <strong>parameterized
+                        queries</strong>.</li>
+                <li>Extract data from normalized tables in SQLite (e.g., <code>users</code>, <code>orders</code>).</li>
+                <li>Transform the data: filter, aggregate (e.g., total order amounts per user), and demonstrate at least
+                    one <strong>JOIN</strong> or <strong>window function</strong>.</li>
+                <li>Load the transformed data into the target database, handling any data type or encoding issues.</li>
+                <li>Wrap all database modifications in <strong>transactions</strong> and handle errors with
+                    <code>try/except/finally</code> (rollback on error).
+                </li>
+                <li>Implement <strong>logging</strong> for each major step (extraction, transformation, loading,
+                    errors).</li>
+                <li>Perform a <strong>backup</strong> of the SQLite database before migration.</li>
+                <li>Document your process, including any issues with schema, data types, or encoding, and how you
+                    resolved them.</li>
+                <li>Briefly outline a plan for <strong>scaling</strong> (e.g., sharding, replication) and
+                    <strong>security</strong> (e.g., least-privilege users, input validation).
+                </li>
+            </ul>
+            <div class="bg-gray-900 p-4 rounded-lg mt-6">
+                <h3 class="text-white font-semibold mb-3">💡 Project Example Output:</h3>
+                <pre class="text-green-400 text-sm"><code>Rows extracted: 1000
+Rows loaded: 1000
+Backup created: backup.sqlite
+Log: Extraction complete
+Log: Transformation complete
+Log: Loading complete
+Log: Migration successful
+</code></pre>
+            </div>
+            <p class="text-md text-gray-600 mt-4">This project will help you master real-world database integration,
+                ETL, migration, error handling, logging, and best practices for scaling and security in Python.</p>
+        </div>
+    </section>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+        <a href="#" onclick="loadLesson('lessons/web_scraping.html')"
+            class="flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous: Web Scraping
+        </a>
+        <div class="text-gray-600">
+            <span class="text-sm">Lesson 55 of 71</span>
+        </div>
+        <a href="#" onclick="loadLesson('lessons/working_with_apis.html')"
+            class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+            Next: Working with APIs
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </a>
+    </div>
+</div>

@@ -1,0 +1,266 @@
+<!-- This file contains ONLY the content for the "Type Hints and Annotations" lesson. -->
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <div class="mb-8">
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-4xl font-extrabold text-gray-900">41. Type Hints and Annotations</h1>
+            <span
+                class="bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full whitespace-nowrap">Advanced
+                Level</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-3 mb-6">
+            <!-- Progress bar: 2/18 = 11.1% for advanced level (lessons 40-57) -->
+            <div class="bg-gradient-to-r from-indigo-500 to-purple-500 h-3 rounded-full transition-all duration-300"
+                style="width: 11.1%"></div>
+        </div>
+    </div>
+
+
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-indigo-100 bg-opacity-80 backdrop-blur-md border-4 border-indigo-300 shadow-lg rounded-full text-3xl text-indigo-600 transition-transform duration-200 hover:scale-110 animate-fade-in">🔤</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-indigo-50/80 to-white/80 backdrop-blur-md border-2 border-indigo-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-indigo-800 tracking-tight">Making Your Code More
+                    Predictable</h2>
+                <p class="text-lg leading-relaxed mb-4">
+                    Python is a dynamically typed language, meaning you don't declare the type of a variable when you
+                    create it.
+                    While this offers flexibility, it can sometimes make code harder to read and debug, especially in
+                    larger
+                    projects. <strong class="text-indigo-600">Type Hints (or Type Annotations)</strong> were introduced
+                    in
+                    Python 3.5 to address this.
+                </p>
+                <p class="text-lg leading-relaxed">
+                    Type hints are not enforced by the Python interpreter at runtime, but they provide valuable metadata
+                    that
+                    can be used by:
+                </p>
+                <ul
+                    class="list-disc list-inside ml-4 mt-2 text-lg leading-relaxed bg-white/90 border-l-4 border-indigo-300 shadow-md rounded-xl p-6 animate-fade-in">
+                    <li><strong>Other developers:</strong> To understand what type of data a function expects or
+                        returns.</li>
+                    <li><strong>IDEs and Linters:</strong> To provide better auto-completion, refactoring, and static
+                        analysis
+                        (catching potential type-related bugs before running the code).</li>
+                    <li><strong>Type Checkers (e.g., MyPy):</strong> External tools that can analyze your code and
+                        report type
+                        inconsistencies.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-indigo-100 bg-opacity-80 backdrop-blur-md border-4 border-indigo-300 shadow-lg rounded-full text-3xl text-indigo-600 transition-transform duration-200 hover:scale-110 animate-fade-in">💡</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-indigo-50/80 to-white/80 backdrop-blur-md border-2 border-indigo-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-indigo-800 tracking-tight">Syntax for Type Hints</h2>
+                <p class="text-lg leading-relaxed mb-4">
+                    Type hints are added using a colon (<code
+                        class="font-mono bg-gray-100 px-1 py-0.5 rounded">:</code>) after
+                    the variable name, parameter, or before the return arrow (<code
+                        class="font-mono bg-gray-100 px-1 py-0.5 rounded">-&gt;</code>) for functions.
+                </p>
+                <h3 class="text-xl font-medium mb-2 text-gray-700">1. Variables:</h3>
+                <div class="code-editor-example mb-6 rounded-2xl">
+                    <div class="code-editor-bar">
+                        <div class="code-editor-dots flex gap-1">
+                            <div class="code-editor-dot-red"></div>
+                            <div class="code-editor-dot-yellow"></div>
+                            <div class="code-editor-dot-green"></div>
+                        </div>
+                    </div>
+                    <span class="text-gray-400 text-xs">type_hint_variables.py</span>
+                    <pre><code><span style="color: #f8f8f2;">name</span><span style="color: #ff79c6;">:</span> <span style="color: #8be9fd;">str</span> <span style="color: #ff79c6;">=</span> <span style="color: #f1fa8c;">"Alice"</span>
+<span style="color: #f8f8f2;">age</span><span style="color: #ff79c6;">:</span> <span style="color: #8be9fd;">int</span> <span style="color: #ff79c6;">=</span> <span style="color: #bd93f9;">30</span>
+<span style="color: #f8f8f2;">price</span><span style="color: #ff79c6;">:</span> <span style="color: #8be9fd;">float</span> <span style="color: #ff79c6;">=</span> <span style="color: #bd93f9;">19.99</span>
+<span style="color: #f8f8f2;">is_active</span><span style="color: #ff79c6;">:</span> <span style="color: #8be9fd;">bool</span> <span style="color: #ff79c6;">=</span> <span style="color: #ffb86c;">True</span></code></pre>
+                </div>
+                <h3 class="text-xl font-medium mb-2 text-gray-700">2. Function Parameters and Return Values:</h3>
+                <div class="code-editor-example mb-6 rounded-2xl">
+                    <div class="code-editor-bar">
+                        <div class="code-editor-dots flex gap-1">
+                            <div class="code-editor-dot-red"></div>
+                            <div class="code-editor-dot-yellow"></div>
+                            <div class="code-editor-dot-green"></div>
+                        </div>
+                    </div>
+                    <span class="text-gray-400 text-xs">type_hint_functions.py</span>
+                    <pre><code><span style="color: #6272a4;">def</span> <span style="color: #50fa7b;">greet</span>(<span style="color: #f8f8f2;">name</span><span style="color: #ff79c6;">:</span> <span style="color: #8be9fd;">str</span>) <span style="color: #ff79c6;">-&gt;</span> <span style="color: #8be9fd;">str</span>:
+    <span style="color: #f1fa8c;">"""Greets a person by name."""</span>
+    <span style="color: #ff79c6;">return</span> <span style="color: #f1fa8c;">f"Hello, {name}!"</span>
+
+<span style="color: #6272a4;">def</span> <span style="color: #50fa7b;">add_numbers</span>(<span style="color: #f8f8f2;">a</span><span style="color: #ff79c6;">:</span> <span style="color: #8be9fd;">int</span>, <span style="color: #f8f8f2;">b</span><span style="color: #ff79c6;">:</span> <span style="color: #8be9fd;">int</span>) <span style="color: #ff79c6;">-&gt;</span> <span style="color: #8be9fd;">int</span>:
+    <span style="color: #f1fa8c;">"""Adds two integers and returns their sum."""</span>
+    <span style="color: #ff79c6;">return</span> <span style="color: #f8f8f2;">a</span> <span style="color: #ff79c6;">+</span> <span style="color: #f8f8f2;">b</span>
+
+<span style="color: #6272a4;">def</span> <span style="color: #50fa7b;">calculate_average</span>(<span style="color: #f8f8f2;">numbers</span><span style="color: #ff79c6;">:</span> <span style="color: #8be9fd;">list</span>[<span style="color: #8be9fd;">float</span>]) <span style="color: #ff79c6;">-&gt;</span> <span style="color: #8be9fd;">float</span>:
+    <span style="color: #f1fa8c;">"""Calculates the average of a list of floats."""</span>
+    <span style="color: #ff79c6;">return</span> <span style="color: #50fa7b;">sum</span>(<span style="color: #f8f8f2;">numbers</span>) <span style="color: #ff79c6;">/</span> <span style="color: #50fa7b;">len</span>(<span style="color: #f8f8f2;">numbers</span>)
+
+<span style="color: #6272a4;"># Example usage</span>
+<span style="color: #50fa7b;">print</span>(<span style="color: #50fa7b;">greet</span>(<span style="color: #f1fa8c;">"Bob"</span>))
+<span style="color: #50fa7b;">print</span>(<span style="color: #50fa7b;">add_numbers</span>(<span style="color: #bd93f9;">10</span>, <span style="color: #bd93f9;">20</span>))
+<span style="color: #50fa7b;">print</span>(<span style="color: #50fa7b;">calculate_average</span>([<span style="color: #bd93f9;">10.0</span>, <span style="color: #bd93f9;">20.0</span>, <span style="color: #bd93f9;">30.0</span>]))</code></pre>
+                </div>
+                <h3 class="text-xl font-medium mb-2 text-gray-700">3. Using <code>typing</code> Module for Complex
+                    Types:</h3>
+                <p class="text-lg leading-relaxed mb-2">
+                    For more complex types like lists, dictionaries, or optional values, you'll often import types from
+                    the
+                    built-in <code>typing</code> module.
+                </p>
+                <div class="code-editor-example mb-6 rounded-2xl">
+                    <div class="code-editor-bar">
+                        <div class="code-editor-dots flex gap-1">
+                            <div class="code-editor-dot-red"></div>
+                            <div class="code-editor-dot-yellow"></div>
+                            <div class="code-editor-dot-green"></div>
+                        </div>
+                    </div>
+                    <span class="text-gray-400 text-xs">type_hint_typing.py</span>
+                    <pre><code><span style="color: #6272a4;">from</span> <span style="color: #f8f8f2;">typing</span> <span style="color: #6272a4;">import</span> <span style="color: #8be9fd;">List</span>, <span style="color: #8be9fd;">Dict</span>, <span style="color: #8be9fd;">Optional</span>, <span style="color: #8be9fd;">Union</span>
+
+<span style="color: #6272a4;">def</span> <span style="color: #50fa7b;">process_data</span>(<span style="color: #f8f8f2;">data</span><span style="color: #ff79c6;">:</span> <span style="color: #8be9fd;">Dict</span>[<span style="color: #8be9fd;">str</span>, <span style="color: #8be9fd;">Union</span>[<span style="color: #8be9fd;">str</span>, <span style="color: #8be9fd;">int</span>]]) <span style="color: #ff79c6;">-&gt;</span> <span style="color: #8be9fd;">List</span>[<span style="color: #8be9fd;">str</span>]:
+    <span style="color: #f1fa8c;">"""
+    Processes a dictionary and returns a list of formatted strings.
+    data: a dictionary where keys are strings, and values can be strings or integers.
+    """</span>
+    <span style="color: #f8f8f2;">results</span><span style="color: #ff79c6;">:</span> <span style="color: #8be9fd;">List</span>[<span style="color: #8be9fd;">str</span>] <span style="color: #ff79c6;">=</span> []
+    <span style="color: #6272a4;">for</span> <span style="color: #f8f8f2;">key</span>, <span style="color: #f8f8f2;">value</span> <span style="color: #6272a4;">in</span> <span style="color: #f8f8f2;">data</span>.<span style="color: #50fa7b;">items</span>():
+        <span style="color: #f8f8f2;">results</span>.<span style="color: #50fa7b;">append</span>(<span style="color: #f1fa8c;">f"{key}: {value}"</span>)
+    <span style="color: #ff79c6;">return</span> <span style="color: #f8f8f2;">results</span>
+
+<span style="color: #6272a4;">def</span> <span style="color: #50fa7b;">get_user_id</span>(<span style="color: #f8f8f2;">username</span><span style="color: #ff79c6;">:</span> <span style="color: #8be9fd;">str</span>) <span style="color: #ff79c6;">-&gt;</span> <span style="color: #8be9fd;">Optional</span>[<span style="color: #8be9fd;">int</span>]:
+    <span style="color: #f1fa8c;">"""
+    Returns a user ID (int) if found, otherwise None.
+    Optional[int] means the function might return an int or None.
+    """</span>
+    <span style="color: #f8f8f2;">user_ids</span> <span style="color: #ff79c6;">=</span> {<span style="color: #f1fa8c;">"alice"</span><span style="color: #ff79c6;">:</span> <span style="color: #bd93f9;">101</span>, <span style="color: #f1fa8c;">"bob"</span><span style="color: #ff79c6;">:</span> <span style="color: #bd93f9;">102</span>}
+    <span style="color: #ff79c6;">return</span> <span style="color: #f8f8f2;">user_ids</span>.<span style="color: #50fa7b;">get</span>(<span style="color: #f8f8f2;">username</span>)
+
+<span style="color: #6272a4;"># Example usage</span>
+<span style="color: #f8f8f2;">user_profile</span> <span style="color: #ff79c6;">=</span> {<span style="color: #f1fa8c;">"name"</span><span style="color: #ff79c6;">:</span> <span style="color: #f1fa8c;">"Charlie"</span>, <span style="color: #f1fa8c;">"age"</span><span style="color: #ff79c6;">:</span> <span style="color: #bd93f9;">25</span>}
+<span style="color: #f8f8f2;">formatted_info</span> <span style="color: #ff79c6;">=</span> <span style="color: #50fa7b;">process_data</span>(<span style="color: #f8f8f2;">user_profile</span>)
+<span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">"Formatted Info:"</span>, <span style="color: #f8f8f2;">formatted_info</span>)
+
+<span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">"Alice's ID:"</span>, <span style="color: #50fa7b;">get_user_id</span>(<span style="color: #f1fa8c;">"alice"</span>))
+<span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">"Eve's ID:"</span>, <span style="color: #50fa7b;">get_user_id</span>(<span style="color: #f1fa8c;">"eve"</span>))</code></pre>
+                </div>
+                <div class="bg-gray-900 p-4 rounded-2xl mt-4">
+                    <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+                    <pre class="text-green-400 text-sm"><code>Formatted Info: ['name: Charlie', 'age: 25']
+Alice's ID: 101
+Eve's ID: None</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-green-700 flex items-center">
+            <span class="bg-green-100 text-green-600 p-2 rounded-lg mr-3">🧪</span>
+            Try it Yourself
+        </h2>
+        <div class="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl p-6 shadow-sm mb-6">
+            <p class="text-lg leading-relaxed mb-4">
+                Add type hints to the variables and functions in the editor below. Observe how they improve readability.
+            </p>
+        </div>
+        <!-- Code Editor Area -->
+        <div id="code-editor-container" class="bg-gray-50 p-6 rounded-lg shadow-inner border border-gray-200"></div>
+        <script type="text/plain" id="default-code">
+from typing import List, Tuple, Dict, Any
+
+# Annotate variables
+total_items: int = 0
+item_name: str = "Laptop"
+item_price: float = 1200.50
+is_available: bool = True
+
+print(f"Item: {item_name}, Price: ${item_price}, Available: {is_available}")
+
+# Annotate a function that calculates total price with tax
+def calculate_total_price(price: float, quantity: int, tax_rate: float) -> float:
+    subtotal: float = price * quantity
+    tax_amount: float = subtotal * tax_rate
+    final_total: float = subtotal + tax_amount
+    return final_total
+
+calculated_price = calculate_total_price(item_price, 2, 0.08) # 8% tax
+print(f"Calculated total price for 2 {item_name}s: ${calculated_price:.2f}")
+
+# Annotate a function that processes a list of names
+def process_names(names_list: List[str]) -> Tuple[int, List[str]]:
+    num_names: int = len(names_list)
+    uppercase_names: List[str] = [name.upper() for name in names_list]
+    return num_names, uppercase_names
+
+my_names: List[str] = ["alice", "bob", "charlie"]
+count, upper_names = process_names(my_names)
+print(f"Number of names: {count}, Uppercase names: {upper_names}")
+
+# You can also hint complex dictionary structures
+user_data: Dict[str, Any] = {"id": 1, "name": "Eve", "email": "eve@example.com"}
+print(f"User Data: {user_data}")
+        </script>
+    </section>
+
+    <!-- Challenge Section -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-purple-700 flex items-center">
+            <span class="bg-purple-100 text-purple-600 p-2 rounded-lg mr-3">🏆</span>
+            Challenge: Type-Safe Data Processing
+        </h2>
+        <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg border-l-4 border-purple-500">
+            <p class="text-lg leading-relaxed mb-4">
+                <strong>Advanced Challenge:</strong> Write a function that takes a list of dictionaries representing
+                products (with keys <code>name</code>, <code>price</code>, and <code>quantity</code>), uses type hints
+                throughout, and returns a summary dictionary with total value and a list of product names in uppercase.
+            </p>
+            <ul class="list-decimal list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2">
+                <li>Use <code>List</code> and <code>Dict</code> type hints for parameters and return values.</li>
+                <li>Calculate the total inventory value (sum of <code>price * quantity</code> for all products).</li>
+                <li>Return a dictionary with keys <code>total_value</code> and <code>product_names</code> (all
+                    uppercase).</li>
+                <li>Bonus: Add type hints for any helper functions you use.</li>
+            </ul>
+            <div class="bg-gray-900 p-4 rounded-lg mt-6">
+                <h3 class="text-white font-semibold mb-3">💡 Sample Output:</h3>
+                <pre
+                    class="text-green-400 text-sm"><code>Summary: {'total_value': 4301.0, 'product_names': ['LAPTOP', 'MOUSE', 'KEYBOARD']}</code></pre>
+            </div>
+            <p class="text-md text-gray-600 mt-4">This challenge will help you practice using type hints in real-world
+                data processing scenarios.</p>
+        </div>
+    </section>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+        <a href="#" onclick="loadLesson('lessons/functional_programming.html')"
+            class="flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous: Functional Programming
+        </a>
+        <div class="text-gray-600">
+            <span class="text-sm">Lesson 41 of 71</span>
+        </div>
+        <a href="#" onclick="loadLesson('lessons/async_programming.html')"
+            class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+            Next: Asynchronous programming
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </a>
+    </div>
+</div>

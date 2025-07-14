@@ -1,0 +1,250 @@
+<!-- This file contains ONLY the content for the "Data Types" lesson. -->
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <div class="mb-8">
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-4xl font-extrabold text-gray-900">5. Data Types in Python</h1>
+            <span class="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">Beginner</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-2 mb-6">
+            <div class="bg-green-500 h-2 rounded-full" style="width: 23.8%"></div>
+        </div>
+    </div>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+            <span class="bg-blue-100 text-blue-600 p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                    </path>
+                </svg>
+            </span>
+            What are Data Types?
+        </h2>
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg border-l-4 border-blue-500">
+            <p class="text-lg leading-relaxed mb-4">
+                Every value in Python has a <strong class="text-indigo-600">data type</strong>. This type tells Python
+                what kind of data it is and what operations can be performed on it. Understanding data types is crucial
+                for writing correct and efficient code.
+            </p>
+            <div class="bg-indigo-50 border-l-4 border-indigo-400 p-4 rounded-r-lg">
+                <p class="text-lg leading-relaxed">
+                    Some common built-in data types include:
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+            <span class="bg-green-100 text-green-600 p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+                    </path>
+                </svg>
+            </span>
+            Common Data Types
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <h3 class="font-semibold text-gray-800 mb-3 flex items-center">
+                    <span class="bg-blue-100 text-blue-600 p-1 rounded mr-2">int</span>
+                    Integers
+                </h3>
+                <p class="text-sm text-gray-600 mb-3">Whole numbers (positive, negative, or zero)</p>
+                <div class="bg-gray-100 p-3 rounded text-sm">
+                    <code>10, -5, 0, 1000</code>
+                </div>
+            </div>
+            <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <h3 class="font-semibold text-gray-800 mb-3 flex items-center">
+                    <span class="bg-green-100 text-green-600 p-1 rounded mr-2">float</span>
+                    Floating-Point
+                </h3>
+                <p class="text-sm text-gray-600 mb-3">Numbers with decimal points</p>
+                <div class="bg-gray-100 p-3 rounded text-sm">
+                    <code>3.14, -0.5, 2.0</code>
+                </div>
+            </div>
+            <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <h3 class="font-semibold text-gray-800 mb-3 flex items-center">
+                    <span class="bg-purple-100 text-purple-600 p-1 rounded mr-2">str</span>
+                    Strings
+                </h3>
+                <p class="text-sm text-gray-600 mb-3">Sequences of characters</p>
+                <div class="bg-gray-100 p-3 rounded text-sm">
+                    <code>"hello", 'Python', "123"</code>
+                </div>
+            </div>
+            <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <h3 class="font-semibold text-gray-800 mb-3 flex items-center">
+                    <span class="bg-yellow-100 text-yellow-600 p-1 rounded mr-2">bool</span>
+                    Booleans
+                </h3>
+                <p class="text-sm text-gray-600 mb-3">True or False values</p>
+                <div class="bg-gray-100 p-3 rounded text-sm">
+                    <code>True, False</code>
+                </div>
+            </div>
+            <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <h3 class="font-semibold text-gray-800 mb-3 flex items-center">
+                    <span class="bg-indigo-100 text-indigo-600 p-1 rounded mr-2">list</span>
+                    Lists
+                </h3>
+                <p class="text-sm text-gray-600 mb-3">Ordered, mutable collections</p>
+                <div class="bg-gray-100 p-3 rounded text-sm">
+                    <code>[1, 2, 3], ["a", "b"]</code>
+                </div>
+            </div>
+            <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <h3 class="font-semibold text-gray-800 mb-3 flex items-center">
+                    <span class="bg-red-100 text-red-600 p-1 rounded mr-2">dict</span>
+                    Dictionaries
+                </h3>
+                <p class="text-sm text-gray-600 mb-3">Key-value pairs</p>
+                <div class="bg-gray-100 p-3 rounded text-sm">
+                    <code>{"name": "Alice"}</code>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+            <span class="bg-purple-100 text-purple-600 p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z">
+                    </path>
+                </svg>
+            </span>
+            Checking Data Types
+        </h2>
+        <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+            <p class="text-lg leading-relaxed mb-4">
+                You can use the built-in <code class="font-mono bg-gray-200 px-2 py-1 rounded text-sm">type()</code>
+                function to find out the data type of any variable or value.
+            </p>
+            <div class="code-editor-example mb-4">
+                <div class="code-editor-bar">
+                    <div class="code-editor-dots flex gap-2">
+                        <div class="code-editor-dot-red"></div>
+                        <div class="code-editor-dot-yellow"></div>
+                        <div class="code-editor-dot-green"></div>
+                    </div>
+                    <span class="text-gray-400 text-xs">Data Type Examples</span>
+                </div>
+                <pre><code><span style="color: #f8f8f2;">my_integer</span> <span style="color: #ff79c6;">=</span> <span style="color: #bd93f9;">100</span>
+<span style="color: #f8f8f2;">my_float</span> <span style="color: #ff79c6;">=</span> <span style="color: #bd93f9;">25.5</span>
+<span style="color: #f8f8f2;">my_string</span> <span style="color: #ff79c6;">=</span> <span style="color: #f1fa8c;">"Hello World"</span>
+<span style="color: #f8f8f2;">my_boolean</span> <span style="color: #ff79c6;">=</span> <span style="color: #50fa7b;">True</span>
+<span style="color: #f8f8f2;">my_list</span> <span style="color: #ff79c6;">=</span> <span style="color: #ff79c6;">[</span><span style="color: #bd93f9;">1</span><span style="color: #ff79c6;">,</span> <span style="color: #bd93f9;">2</span><span style="color: #ff79c6;">,</span> <span style="color: #bd93f9;">3</span><span style="color: #ff79c6;">]</span>
+
+<span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #50fa7b;">type</span><span style="color: #ff79c6;">(</span><span style="color: #f8f8f2;">my_integer</span><span style="color: #ff79c6;">)</span><span style="color: #ff79c6;">)</span>
+<span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #50fa7b;">type</span><span style="color: #ff79c6;">(</span><span style="color: #f8f8f2;">my_float</span><span style="color: #ff79c6;">)</span><span style="color: #ff79c6;">)</span>
+<span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #50fa7b;">type</span><span style="color: #ff79c6;">(</span><span style="color: #f8f8f2;">my_string</span><span style="color: #ff79c6;">)</span><span style="color: #ff79c6;">)</span>
+<span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #50fa7b;">type</span><span style="color: #ff79c6;">(</span><span style="color: #f8f8f2;">my_boolean</span><span style="color: #ff79c6;">)</span><span style="color: #ff79c6;">)</span>
+<span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #50fa7b;">type</span><span style="color: #ff79c6;">(</span><span style="color: #f8f8f2;">my_list</span><span style="color: #ff79c6;">)</span><span style="color: #ff79c6;">)</span></code></pre>
+            </div>
+            <div class="example-output bg-gray-100 p-4 rounded-lg mt-2 border-l-4 border-green-500">
+                <h4 class="font-semibold text-gray-800 mb-2 flex items-center">
+                    <span class="text-green-600 mr-2">📤</span>
+                    Expected Output:
+                </h4>
+                <pre class="bg-gray-800 text-green-400 p-3 rounded text-sm overflow-x-auto">&lt;class 'int'&gt;
+&lt;class 'float'&gt;
+&lt;class 'str'&gt;
+&lt;class 'bool'&gt;
+&lt;class 'list'&gt;</pre>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+            <span class="bg-yellow-100 text-yellow-600 p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+            </span>
+            Try it Yourself!
+        </h2>
+        <p class="text-lg leading-relaxed mb-4">
+            Experiment with different values and use <code
+                class="font-mono bg-gray-200 px-2 py-1 rounded text-sm">type()</code> to see their data types.
+        </p>
+
+        <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 mb-4">
+            <h3 class="font-semibold text-gray-800 mb-3">Practice with Data Types:</h3>
+            <div id="code-editor-container" data-default-code="# Your code goes here
+a = 10
+b = &quot;Python&quot;
+c = 3.14159
+d = False
+e = [10, 20, 30]
+f = {&quot;name&quot;: &quot;Alice&quot;, &quot;age&quot;: 30}
+
+print(f&quot;Type of a: {type(a)}&quot;)
+print(f&quot;Type of b: {type(b)}&quot;)
+print(f&quot;Type of c: {type(c)}&quot;)
+print(f&quot;Type of d: {type(d)}&quot;)
+print(f&quot;Type of e: {type(e)}&quot;)
+print(f&quot;Type of f: {type(f)}&quot;)"></div>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+            <span class="bg-indigo-100 text-indigo-600 p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                    </path>
+                </svg>
+            </span>
+            Practice Exercise
+        </h2>
+        <div class="bg-gradient-to-r from-indigo-50 to-purple-50 p-6 rounded-lg border-l-4 border-indigo-500">
+            <p class="text-lg leading-relaxed mb-4">
+                Now it's your turn! Create variables of different types and check their data types.
+            </p>
+            <div class="bg-white p-4 rounded-lg border border-gray-200">
+                <h3 class="font-semibold text-gray-800 mb-3">Challenge:</h3>
+                <ul class="list-disc list-inside text-gray-600 space-y-2">
+                    <li>Create a variable with your age (integer)</li>
+                    <li>Create a variable with your height in meters (float)</li>
+                    <li>Create a variable with your name (string)</li>
+                    <li>Create a variable that's True if you like Python (boolean)</li>
+                    <li>Create a list with your favorite colors</li>
+                    <li>Create a dictionary with your information</li>
+                    <li>Use type() to check all their types</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation Section -->
+    <div class="mt-12 pt-8 border-t border-gray-200">
+        <div class="flex flex-col sm:flex-row justify-between items-center">
+            <button onclick="loadLesson('lessons/variables.html')"
+                class="bg-gray-600 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center mb-4 sm:mb-0">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                Previous: Variables in Python
+            </button>
+            <div class="text-gray-600 mb-4 sm:mb-0">
+                <span class="text-sm">Lesson 5 of 71</span>
+            </div>
+            <button onclick="loadLesson('lessons/input_output.html')"
+                class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center">
+                Next: Basic Input and Output
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>

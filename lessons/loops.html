@@ -1,0 +1,200 @@
+<!-- This file contains ONLY the content for the "Loops (For/While)" lesson. -->
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <div class="mb-8">
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-4xl font-extrabold text-gray-900">16. Loops (For/While)</h1>
+            <span class="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">Beginner</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-2 mb-6">
+            <div class="bg-green-500 h-2 rounded-full" style="width: 76.2%"></div>
+        </div>
+    </div>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800">Repeating Actions with Loops</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong class="text-indigo-600">Loops</strong> are used to execute a block of code repeatedly. This is
+            incredibly useful when you need to perform the same action multiple times without writing the same code over
+            and over. Python has two main types of loops: <code
+                class="font-mono bg-gray-100 px-1 py-0.5 rounded">for</code> loops and <code
+                class="font-mono bg-gray-100 px-1 py-0.5 rounded">while</code> loops.
+        </p>
+        <ul class="list-disc list-inside ml-4 mt-2 text-lg leading-relaxed">
+            <li><strong class="text-indigo-600">For Loop:</strong> Used for iterating over a sequence (like a list,
+                tuple, string, or range). It executes a block of code for each item in the sequence.</li>
+            <li><strong class="text-indigo-600">While Loop:</strong> Used to execute a block of code as long as a
+                certain condition is true. It keeps repeating until the condition becomes false.</li>
+        </ul>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800">For Loop Example</h2>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dots flex gap-2">
+                    <div class="code-editor-dot-red"></div>
+                    <div class="code-editor-dot-yellow"></div>
+                    <div class="code-editor-dot-green"></div>
+                </div>
+                <span class="text-gray-400 text-xs">For Loop Example</span>
+            </div>
+            <pre><code><span style="color: #f8f8f2;">fruits</span> <span style="color: #ff79c6;">=</span> <span style="color: #ff79c6;">[</span><span style="color: #f1fa8c;">"apple"</span><span style="color: #ff79c6;">,</span> <span style="color: #f1fa8c;">"banana"</span><span style="color: #ff79c6;">,</span> <span style="color: #f1fa8c;">"cherry"</span><span style="color: #ff79c6;">]</span>
+<span style="color: #ff79c6;">for</span> <span style="color: #f8f8f2;">fruit</span> <span style="color: #ff79c6;">in</span> <span style="color: #f8f8f2;">fruits</span><span style="color: #ff79c6;">:</span>
+    <span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f8f8f2;">fruit</span><span style="color: #ff79c6;">)</span>
+
+<span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">"\nCounting with range:"</span><span style="color: #ff79c6;">)</span>
+<span style="color: #ff79c6;">for</span> <span style="color: #f8f8f2;">i</span> <span style="color: #ff79c6;">in</span> <span style="color: #50fa7b;">range</span><span style="color: #ff79c6;">(</span><span style="color: #bd93f9;">5</span><span style="color: #ff79c6;">):</span> <span style="color: #6272a4;"># range(5) generates numbers from 0 to 4</span>
+    <span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f8f8f2;">i</span><span style="color: #ff79c6;">)</span></code></pre>
+        </div>
+        <div class="example-output bg-gray-100 p-4 rounded-lg mt-2 border-l-4 border-green-500">
+            <h4 class="font-semibold text-gray-800 mb-2 flex items-center">
+                <span class="text-green-600 mr-2">📤</span>
+                Expected Output:
+            </h4>
+            <pre class="bg-gray-800 text-green-400 p-3 rounded text-sm overflow-x-auto">apple
+banana
+cherry
+
+Counting with range:
+0
+1
+2
+3
+4</pre>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800">While Loop Example</h2>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dots flex gap-2">
+                    <div class="code-editor-dot-red"></div>
+                    <div class="code-editor-dot-yellow"></div>
+                    <div class="code-editor-dot-green"></div>
+                </div>
+                <span class="text-gray-400 text-xs">While Loop Example</span>
+            </div>
+            <pre><code><span style="color: #f8f8f2;">count</span> <span style="color: #ff79c6;">=</span> <span style="color: #bd93f9;">0</span>
+<span style="color: #ff79c6;">while</span> <span style="color: #f8f8f2;">count</span> <span style="color: #ff79c6;"><</span> <span style="color: #bd93f9;">3</span><span style="color: #ff79c6;">:</span>
+    <span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">"Count is:"</span><span style="color: #ff79c6;">,</span> <span style="color: #f8f8f2;">count</span><span style="color: #ff79c6;">)</span>
+    <span style="color: #f8f8f2;">count</span> <span style="color: #ff79c6;">+=</span> <span style="color: #bd93f9;">1</span> <span style="color: #6272a4;"># Increment count to eventually make the condition false</span></code></pre>
+        </div>
+        <div class="example-output bg-gray-100 p-4 rounded-lg mt-2 border-l-4 border-green-500">
+            <h4 class="font-semibold text-gray-800 mb-2 flex items-center">
+                <span class="text-green-600 mr-2">📤</span>
+                Expected Output:
+            </h4>
+            <pre class="bg-gray-800 text-green-400 p-3 rounded text-sm overflow-x-auto">Count is: 0
+Count is: 1
+Count is: 2</pre>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800">Try it Yourself!</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            Write your own loops to print numbers, iterate through lists, or repeat actions.
+        </p>
+        <div class="bg-gray-50 p-6 rounded-lg shadow-inner border border-gray-200">
+            <h3 class="font-semibold text-gray-800 mb-3">Practice with Loops:</h3>
+            <div id="code-editor-container"></div>
+            <script type="text/plain" id="default-code-loops">
+# Your code goes here
+# Example: Print even numbers up to 10 using a for loop
+print("Even numbers:")
+for num in range(0, 11, 2): # Start at 0, go up to (but not including) 11, step by 2
+    print(num)
+
+# Example: Countdown using a while loop
+print("\nCountdown:")
+i = 5
+while i > 0:
+    print(i)
+    i -= 1
+print("Lift off!")
+            </script>
+        </div>
+    </section>
+
+    <!-- Challenge/Homework Section -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+            <span class="bg-red-100 text-red-600 p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z">
+                    </path>
+                </svg>
+            </span>
+            🏆 Challenge: Multiplication Table Generator App
+        </h2>
+        <div class="bg-gradient-to-r from-red-50 to-pink-50 p-6 rounded-lg border-l-4 border-red-500">
+            <p class="text-lg leading-relaxed mb-4">
+                <strong>Project Goal:</strong> Create a simple interactive multiplication table generator. The user
+                should be able to specify a number (or use a variable for now), and your program will print the
+                multiplication table for that number from 1 to 10.<br>
+                <span class="text-sm text-gray-600">Then, extend it to print tables for a range of numbers (e.g., from 2
+                    to 5).</span>
+            </p>
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                    <h3 class="font-semibold text-gray-800 mb-3">📋 Requirements:</h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li>• Use a variable to set the number (e.g., <code
+                                class='bg-gray-100 px-1 rounded'>num = 7</code>).</li>
+                        <li>• Use a loop to print the multiplication table for that number (1 to 10).</li>
+                        <li>• Bonus: Use nested loops to print tables for a range of numbers (e.g., 2 to 5).</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                    <h3 class="font-semibold text-gray-800 mb-3">🎯 Bonus Ideas:</h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li>• Format the output in a nice table.</li>
+                        <li>• Allow the user to set the start and end of the range.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bg-gray-900 p-4 rounded-lg">
+                <h3 class="text-white font-semibold mb-3">💡 Sample Output:</h3>
+                <pre class="text-green-400 text-sm"><code>Multiplication Table for 7:
+7 x 1 = 7
+7 x 2 = 14
+...
+7 x 10 = 70
+
+Tables from 2 to 5:
+2 x 1 = 2
+...
+5 x 10 = 50</code></pre>
+            </div>
+            <div class="mt-6 bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg">
+                <p class="text-yellow-800 text-sm">
+                    <strong>💪 Challenge yourself:</strong> Make your app flexible and user-friendly. Try to add input
+                    validation, pretty formatting, or even a menu to select which table(s) to print!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+        <a href="#" onclick="loadLesson('lessons/dictionaries.html')"
+            class="flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous: Dictionaries
+        </a>
+        <div class="text-gray-600">
+            <span class="text-sm">Lesson 16 of 71</span>
+        </div>
+        <a href="#" onclick="loadLesson('lessons/break_continue.html')"
+            class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+            Next: Break and Continue
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </a>
+    </div>
+</div>
