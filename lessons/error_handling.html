@@ -1,0 +1,240 @@
+<!-- This file contains ONLY the content for the "Error Handling (Try-Except)" lesson. -->
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <div class="flex items-center justify-between mb-6">
+        <h1 class="text-4xl font-extrabold text-gray-900">22. Error Handling (Try-Except)</h1>
+        <span class="bg-orange-100 text-orange-800 text-sm font-medium px-3 py-1 rounded-full">Intermediate Level</span>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="mb-8">
+        <div class="w-full bg-gray-200 rounded-full h-3 mb-6">
+            <div class="bg-gradient-to-r from-orange-500 to-red-500 h-3 rounded-full transition-all duration-300"
+                style="width: 5.6%"></div>
+        </div>
+    </div>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800">Dealing with Mistakes Gracefully</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            Even the best programmers make mistakes, and sometimes unexpected things happen (like a file not existing or
+            a user entering invalid input). When an error occurs during the execution of a program, it's called an
+            <strong class="text-indigo-600">exception</strong>. Python provides a way to handle these exceptions
+            gracefully using <code class="font-mono bg-gray-100 px-1 py-0.5 rounded">try</code> and <code
+                class="font-mono bg-gray-100 px-1 py-0.5 rounded">except</code> blocks.
+        </p>
+        <p class="text-lg leading-relaxed">
+            The <code class="font-mono bg-gray-100 px-1 py-0.5 rounded">try</code> block contains the code that might
+            cause an error. If an error occurs, the code inside the <code
+                class="font-mono bg-gray-100 px-1 py-0.5 rounded">except</code> block is executed. This prevents your
+            program from crashing.
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dots flex gap-2">
+                    <div class="code-editor-dot-red"></div>
+                    <div class="code-editor-dot-yellow"></div>
+                    <div class="code-editor-dot-green"></div>
+                </div>
+            </div>
+            <span class="text-gray-400 text-xs">try-except Structure Example</span>
+            <pre><code><span style="color: #ff79c6;">try</span><span style="color: #f8f8f2;">:
+    </span><span style="color: #6272a4;"># Code that might raise an exception</span>
+    <span style="color: #6272a4;"># ...</span>
+<span style="color: #ff79c6;">except</span> <span style="color: #8be9fd;">ExceptionType</span><span style="color: #f8f8f2;">:
+    </span><span style="color: #6272a4;"># Code to handle the specific exception</span>
+    <span style="color: #6272a4;"># ...</span>
+<span style="color: #ff79c6;">else</span><span style="color: #f8f8f2;">:
+    </span><span style="color: #6272a4;"># (Optional) Code to run if no exception occurred in try block</span>
+    <span style="color: #6272a4;"># ...</span>
+<span style="color: #ff79c6;">finally</span><span style="color: #f8f8f2;">:
+    </span><span style="color: #6272a4;"># (Optional) Code to run no matter what (always executed)</span>
+    <span style="color: #6272a4;"># ...</span></code></pre>
+        </div>
+        <div class="example-output bg-gray-100 p-4 rounded-lg mt-2 border-l-4 border-blue-400">
+            <h4 class="font-semibold text-gray-800 mb-2 flex items-center">
+                <span class="text-blue-600 mr-2">📤</span>
+                Expected Output:
+            </h4>
+            <pre
+                class="bg-gray-800 text-blue-200 p-3 rounded text-sm overflow-x-auto">(No output for this structure example)</pre>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800">Example: Division by Zero</h2>
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h3 class="text-xl font-medium mb-2 text-gray-700">Example:</h3>
+            <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-gray-400 text-sm">Division Example</span>
+                    <div class="flex space-x-2">
+                        <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                        <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                        <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                    </div>
+                </div>
+                <div class="code-editor-example mb-4">
+                    <div class="code-editor-bar">
+                        <div class="code-editor-dots flex gap-2">
+                            <div class="code-editor-dot-red"></div>
+                            <div class="code-editor-dot-yellow"></div>
+                            <div class="code-editor-dot-green"></div>
+                        </div>
+                    </div>
+                    <span class="text-gray-400 text-xs">Division Example</span>
+                    <pre><code><span style="color: #ff79c6;">def</span> <span style="color: #f8f8f2;">divide(a, b):</span>
+    <span style="color: #ff79c6;">try</span><span style="color: #f8f8f2;">:</span>
+        <span style="color: #f8f8f2;">result = a / b</span>
+        <span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">f\"Result of division: {result}\"</span><span style="color: #ff79c6;">)</span>
+    <span style="color: #ff79c6;">except</span> <span style="color: #8be9fd;">ZeroDivisionError</span><span style="color: #f8f8f2;">:</span>
+        <span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">\"Error: Cannot divide by zero!\"</span><span style="color: #ff79c6;">)</span>
+    <span style="color: #ff79c6;">except</span> <span style="color: #8be9fd;">TypeError</span><span style="color: #f8f8f2;">:</span>
+        <span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">\"Error: Invalid types for division.\"</span><span style="color: #ff79c6;">)</span>
+    <span style="color: #ff79c6;">else</span><span style="color: #f8f8f2;">:</span>
+        <span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">\"Division successful (no error).\"</span><span style="color: #ff79c6;">)</span>
+    <span style="color: #ff79c6;">finally</span><span style="color: #f8f8f2;">:</span>
+        <span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">\"Division attempt finished.\"</span><span style="color: #ff79c6;">)</span>
+
+<span style="color: #50fa7b;">divide</span><span style="color: #ff79c6;">(</span><span style="color: #bd93f9;">10</span><span style="color: #f8f8f2;">, </span><span style="color: #bd93f9;">2</span><span style="color: #ff79c6;">)</span>
+<span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">"-" * 20</span><span style="color: #ff79c6;">)</span>
+<span style="color: #50fa7b;">divide</span><span style="color: #ff79c6;">(</span><span style="color: #bd93f9;">10</span><span style="color: #f8f8f2;">, </span><span style="color: #bd93f9;">0</span><span style="color: #ff79c6;">)</span>
+<span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">"-" * 20</span><span style="color: #ff79c6;">)</span>
+<span style="color: #50fa7b;">divide</span><span style="color: #ff79c6;">(</span><span style="color: #bd93f9;">10</span><span style="color: #f8f8f2;">, </span><span style="color: #f1fa8c;">"a"</span><span style="color: #ff79c6;">)</span> <span style="color: #6272a4;"># This will trigger TypeError</span></code></pre>
+                </div>
+                <div class="example-output bg-gray-100 p-4 rounded-lg mt-2 border-l-4 border-blue-400">
+                    <h4 class="font-semibold text-gray-800 mb-2 flex items-center">
+                        <span class="text-blue-600 mr-2">📤</span>
+                        Expected Output:
+                    </h4>
+                    <pre class="bg-gray-800 text-blue-200 p-3 rounded text-sm overflow-x-auto">Result of division: 5.0
+Division successful (no error).
+Division attempt finished.
+--------------------
+Error: Cannot divide by zero!
+Division attempt finished.
+--------------------
+Error: Invalid types for division.
+Division attempt finished.</pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800">Try it Yourself!</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            Write code that could cause an error and use `try-except` to handle it.
+        </p>
+
+        <!-- Code Editor Area -->
+        <div class="bg-gray-50 p-6 rounded-lg shadow-inner border border-gray-200">
+            <div class="bg-gray-900 rounded-lg p-4 mb-4">
+                <textarea id="code-editor"
+                    class="w-full h-64 p-4 bg-gray-900 text-green-400 font-mono text-sm border-0 outline-none resize-none"
+                    style="font-family: 'Courier New', monospace;"># Your code goes here
+my_list = [1, 2, 3]
+
+try:
+    # Try to access an index that doesn't exist
+    print(my_list[5])
+except IndexError:
+    print("Error: You tried to access an index that is out of range!")
+except Exception as e: # Catch any other unexpected error
+    print(f"An unexpected error occurred: {e}")
+else:
+    print("No index error occurred.")
+finally:
+    print("Finished trying to access list element.")
+
+print("\n--- Another example ---")
+try:
+    num_str = "abc"
+    num = int(num_str) # This will cause a ValueError
+    print(f"Converted number: {num}")
+except ValueError:
+    print(f"Error: Could not convert '{num_str}' to an integer.")</textarea>
+            </div>
+            <div class="flex gap-3 mb-4">
+                <button id="run-button"
+                    class="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors duration-200">
+                    <span>▶</span>
+                    Run Code
+                </button>
+                <button id="reset-button"
+                    class="flex items-center gap-2 px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors duration-200">
+                    <span>↺</span>
+                    Reset
+                </button>
+            </div>
+        </div>
+
+        <div class="bg-white border border-gray-200 rounded-lg p-4">
+            <h3 class="font-semibold text-gray-800 mb-2">Output:</h3>
+            <div id="output" class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm min-h-[60px]">
+                Click "Run Code" to see the output here...
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenge Section -->
+    <div class="max-w-2xl mx-auto my-12">
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4 text-orange-700 flex items-center">
+                <span class="bg-orange-100 text-orange-600 p-2 rounded-lg mr-3">🏆</span>
+                Challenge: Robust Calculator
+            </h2>
+            <div class="bg-orange-50 border-l-4 border-orange-400 p-6 rounded-r-lg mb-4">
+                <p class="text-lg leading-relaxed mb-4">
+                    Write a calculator program that asks the user for two numbers and an operation (+, -, *, /). Use
+                    <code class="font-mono bg-gray-100 px-1 py-0.5 rounded">try</code> and <code
+                        class="font-mono bg-gray-100 px-1 py-0.5 rounded">except</code> to handle:
+                </p>
+                <ul class="list-disc list-inside text-gray-700 mb-4">
+                    <li>Invalid input (non-numeric values)</li>
+                    <li>Division by zero</li>
+                    <li>Any other unexpected errors</li>
+                </ul>
+                <p class="text-md text-gray-700 mb-2">If an error occurs, print a helpful message and let the user try
+                    again without crashing the program.</p>
+                <div class="bg-gray-900 p-4 rounded-lg mt-4">
+                    <span class="text-gray-400 text-sm block mb-2">Sample Output:</span>
+                    <pre class="text-blue-200 text-sm overflow-x-auto">Enter first number: 10
+Enter second number: 0
+Enter operation (+, -, *, /): /
+Error: Cannot divide by zero!
+Try again...
+
+Enter first number: ten
+Error: Invalid input! Please enter a number.
+Try again...
+
+Enter first number: 8
+Enter second number: 2
+Enter operation (+, -, *, /): *
+Result: 16</pre>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+        <a href="#" onclick="loadLesson('lessons/scope_global.html')"
+            class="flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous: Scope and Global Variables
+        </a>
+        <div class="text-gray-600">
+            <span class="text-sm">Lesson 22 of 71</span>
+        </div>
+        <a href="#" onclick="loadLesson('lessons/builtin_functions.html')"
+            class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+            Next: Built-in Functions
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </a>
+    </div>
+</div>

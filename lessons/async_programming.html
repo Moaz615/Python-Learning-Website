@@ -1,0 +1,267 @@
+<!-- This file contains ONLY the content for the "Asynchronous Programming (async/await)" lesson. -->
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <div class="mb-8">
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-4xl font-extrabold text-gray-900">42. Asynchronous Programming (async/await)</h1>
+            <span
+                class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full whitespace-nowrap">Advanced
+                Level</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-3 mb-6">
+            <!-- Progress bar: (42-39)/18 = 16.7% for advanced (lessons 40-57) -->
+            <div class="bg-gradient-to-r from-indigo-500 to-purple-500 h-3 rounded-full transition-all duration-300"
+                style="width: 16.7%"></div>
+        </div>
+    </div>
+
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-blue-100 bg-opacity-80 backdrop-blur-md border-4 border-blue-300 shadow-lg rounded-full text-3xl text-blue-600 transition-transform duration-200 hover:scale-110 animate-fade-in">⚡</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-blue-50/80 to-white/80 backdrop-blur-md border-2 border-blue-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-blue-800 tracking-tight">What is Asynchronous Programming?
+                </h2>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong class="text-blue-600">Asynchronous programming</strong> is a way of writing code that allows
+                    your program to start a task and then move on to other work before that task finishes. This is
+                    especially useful for operations that spend a lot of time waiting, such as downloading files, making
+                    web requests, or reading from a database. Instead of making your whole program wait, async code lets
+                    you do more in the same amount of time.
+                </p>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong>Analogy:</strong> Imagine you are cooking dinner and doing laundry at the same time. While
+                    you wait for the water to boil, you can fold clothes. When the timer beeps, you return to the
+                    kitchen. You are not doing both things at the exact same moment (that would be parallelism), but you
+                    are switching between them efficiently, never wasting time just waiting. This is how asynchronous
+                    programming works: your program switches between tasks whenever one is waiting.
+                </p>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong>Synchronous vs Asynchronous:</strong> In synchronous (regular) code, each operation must
+                    finish before the next one starts. If you are waiting for a file to download, your whole program
+                    pauses. In asynchronous code, you can start the download, then do something else (like update the UI
+                    or start another download) while you wait. This makes your programs much faster and more responsive,
+                    especially when dealing with many slow operations.
+                </p>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong>Concurrency vs Parallelism:</strong> Concurrency means your program can handle multiple
+                    tasks at once by quickly switching between them (like our cooking/laundry example). Parallelism
+                    means actually running code on multiple CPU cores at the same time. Async programming in Python is
+                    about concurrency, not parallelism. It is perfect for I/O-bound tasks (waiting for input/output),
+                    but not for CPU-heavy calculations.
+                </p>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong>Real-world use cases:</strong>
+                <ul class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed">
+                    <li>Web servers handling thousands of simultaneous connections (e.g., FastAPI, Starlette, Sanic)
+                    </li>
+                    <li>Downloading many files or web pages at once (web scraping, data pipelines)</li>
+                    <li>Chatbots and real-time messaging apps</li>
+                    <li>Games and GUIs that need to stay responsive while doing background work</li>
+                    <li>IoT devices collecting data from many sensors at once</li>
+                    <li>Automated trading bots monitoring multiple markets</li>
+                </ul>
+                </p>
+                <p class="text-lg leading-relaxed mb-4">
+                    In Python, asynchronous programming is made possible with the <code
+                        class="font-mono bg-gray-100 px-1 py-0.5 rounded">asyncio</code> library and the <code
+                        class="font-mono bg-gray-100 px-1 py-0.5 rounded">async</code> and <code
+                        class="font-mono bg-gray-100 px-1 py-0.5 rounded">await</code> keywords. These tools let you
+                    write code that looks sequential but actually runs many operations concurrently, making your
+                    programs much more efficient.
+                </p>
+                <p class="text-lg leading-relaxed">
+                    Asynchronous programming is a powerful tool, but it requires a new way of thinking about how your
+                    code runs. Let's break down the key concepts step by step.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-blue-100 bg-opacity-80 backdrop-blur-md border-4 border-blue-300 shadow-lg rounded-full text-3xl text-blue-600 transition-transform duration-200 hover:scale-110 animate-fade-in">🔄</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-blue-50/80 to-white/80 backdrop-blur-md border-2 border-blue-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-blue-800 tracking-tight">Key Concepts (Step by Step)</h2>
+                <ul
+                    class="list-disc list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-blue-300 shadow-md rounded-xl p-6 animate-fade-in">
+                    <li><strong class="text-blue-600">Event Loop:</strong> The event loop is the heart of every async
+                        application. Think of it as a manager that keeps track of all the things your program needs to
+                        do. It checks which tasks are ready to run, and quickly switches between them. In Python, you
+                        usually start the event loop with <code>asyncio.run()</code>. The event loop is what makes it
+                        possible to run many operations "at once" (concurrently), even on a single CPU core.
+                        <br><br><em>Under the hood:</em> The event loop uses a queue to keep track of tasks. When a task
+                        is waiting (for example, for a web request to finish), the event loop moves on to another task.
+                        When the waiting is over, the event loop comes back and resumes the task right where it left
+                        off.
+                    </li>
+                    <li><strong class="text-blue-600">Coroutine:</strong> A coroutine is a special function defined with
+                        <code>async def</code>. Coroutines can pause their execution at certain points (using
+                        <code>await</code>) and let other coroutines run. This makes them perfect for tasks that spend a
+                        lot of time waiting, like network requests or file I/O. Coroutines are the building blocks of
+                        async code in Python. <br><br><em>Analogy:</em> Coroutines are like actors in a play. When one
+                        actor is waiting for their cue, another actor can step onto the stage and perform. The play
+                        keeps moving without any pauses.
+                    </li>
+                    <li><strong class="text-blue-600">await:</strong> The <code>await</code> keyword is used inside a
+                        coroutine to pause its execution until another asynchronous operation completes. While one
+                        coroutine is waiting, the event loop can run other coroutines. This is what enables true
+                        concurrency in async Python code. You can only use <code>await</code> inside
+                        <code>async def</code> functions. <br><br><em>Tip:</em> Use <code>await</code> whenever you call
+                        a function that does something slow (like network or disk access) and is marked as
+                        <code>async</code>.
+                    </li>
+                </ul>
+                <div class="mt-6">
+                    <h3 class="text-xl font-semibold text-blue-800 mb-2">Synchronous vs Asynchronous: A Visual Example
+                    </h3>
+                    <p class="text-lg leading-relaxed mb-2">Suppose you want to download 10 web pages. In synchronous
+                        code, you would download them one after another, waiting for each to finish. In asynchronous
+                        code, you can start all downloads at once and process each as soon as it finishes, saving a lot
+                        of time. This is like having 10 workers who each start a download and call you when they're
+                        done, instead of one worker doing all the downloads in a row.</p>
+                    <p class="text-lg leading-relaxed mb-2">Async code is especially powerful when you have many tasks
+                        that spend most of their time waiting (for example, web requests, database queries, or user
+                        input). If your program is mostly doing calculations (CPU-bound), async won't help much—in that
+                        case, you need parallelism (multiple CPU cores).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-blue-100 bg-opacity-80 backdrop-blur-md border-4 border-blue-300 shadow-lg rounded-full text-3xl text-blue-600 transition-transform duration-200 hover:scale-110 animate-fade-in">💡</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-blue-50/80 to-white/80 backdrop-blur-md border-2 border-blue-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-blue-800 tracking-tight">Example: Async Web Requests</h2>
+                <p class="text-lg leading-relaxed mb-4">
+                    Let's look at a simple example that simulates fetching data from two web pages at the same time.
+                    Notice how both tasks start together, and the program doesn't wait for one to finish before starting
+                    the other. This is the power of async: you can do more in less time, especially when waiting for
+                    slow operations.
+                </p>
+                <div class="code-editor-example mb-6 rounded-2xl">
+                    <div class="code-editor-bar">
+                        <div class="code-editor-dots flex gap-1">
+                            <div class="code-editor-dot-red"></div>
+                            <div class="code-editor-dot-yellow"></div>
+                            <div class="code-editor-dot-green"></div>
+                        </div>
+                    </div>
+                    <span class="text-gray-400 text-xs">async_example.py</span>
+                    <pre><code><span style="color: #6272a4;">import</span> <span style="color: #f8f8f2;">asyncio</span>
+
+<span style="color: #6272a4;">async def</span> <span style="color: #50fa7b;">fetch_data</span>(<span style="color: #f8f8f2;">url</span>):
+    <span style="color: #6272a4;">print</span>(<span style="color: #f1fa8c;">f"Fetching {url}..."</span>)
+    <span style="color: #ff79c6;">await</span> <span style="color: #f8f8f2;">asyncio</span>.<span style="color: #50fa7b;">sleep</span>(<span style="color: #bd93f9;">2</span>)  <span style="color: #6272a4;"># Simulate network delay</span>
+    <span style="color: #6272a4;">print</span>(<span style="color: #f1fa8c;">f"Done: {url}"</span>)
+    <span style="color: #ff79c6;">return</span> <span style="color: #f1fa8c;">f"Data from {url}"</span>
+
+<span style="color: #6272a4;">async def</span> <span style="color: #50fa7b;">main</span>():
+    <span style="color: #f8f8f2;">urls</span> <span style="color: #ff79c6;">=</span> [<span style="color: #f1fa8c;">"https://example.com/1"</span>, <span style="color: #f1fa8c;">"https://example.com/2"</span>]
+    <span style="color: #f8f8f2;">tasks</span> <span style="color: #ff79c6;">=</span> [<span style="color: #50fa7b;">fetch_data</span>(<span style="color: #f8f8f2;">url</span>) <span style="color: #ff79c6;">for</span> <span style="color: #f8f8f2;">url</span> <span style="color: #ff79c6;">in</span> <span style="color: #f8f8f2;">urls</span>]
+    <span style="color: #f8f8f2;">results</span> <span style="color: #ff79c6;">=</span> <span style="color: #ff79c6;">await</span> <span style="color: #f8f8f2;">asyncio</span>.<span style="color: #50fa7b;">gather</span>(*<span style="color: #f8f8f2;">tasks</span>)
+    <span style="color: #6272a4;">print</span>(<span style="color: #f1fa8c;">"Results:"</span>, <span style="color: #f8f8f2;">results</span>)
+
+<span style="color: #f8f8f2;">asyncio</span>.<span style="color: #50fa7b;">run</span>(<span style="color: #50fa7b;">main</span>())
+</code></pre>
+                </div>
+                <div class="bg-gray-900 p-4 rounded-lg">
+                    <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+                    <pre class="text-green-400 text-sm"><code>Fetching https://example.com/1...
+Fetching https://example.com/2...
+Done: https://example.com/1
+Done: https://example.com/2
+Results: ['Data from https://example.com/1', 'Data from https://example.com/2']</code></pre>
+                </div>
+                <div class="mt-6">
+                    <h3 class="text-xl font-semibold text-blue-800 mb-2">How does this work? (Step by Step)</h3>
+                    <ol class="list-decimal list-inside ml-6 text-lg leading-relaxed mb-2">
+                        <li><strong>Define async functions:</strong> <code>fetch_data</code> is an async function that
+                            simulates fetching a web page. <code>main</code> is an async function that creates and runs
+                            multiple fetch tasks.</li>
+                        <li><strong>Create tasks:</strong> In <code>main</code>, we create a list of tasks (one for each
+                            URL) using a list comprehension.</li>
+                        <li><strong>Run tasks concurrently:</strong> <code>asyncio.gather</code> runs all the tasks at
+                            the same time. When one task is waiting (because of <code>await asyncio.sleep(2)</code>),
+                            the event loop switches to another task.</li>
+                        <li><strong>Print results:</strong> When all tasks are done, we print the results. The total
+                            time is much less than if we waited for each one in order.</li>
+                    </ol>
+                    <p class="text-lg leading-relaxed mb-2">This pattern—creating many tasks and running them with
+                        <code>asyncio.gather</code>—is the foundation of most async Python programs.
+                    </p>
+                    <p class="text-lg leading-relaxed mb-2"><strong>Tip:</strong> You can use
+                        <code>asyncio.gather</code> with hundreds or thousands of tasks, as long as each one spends most
+                        of its time waiting (not doing heavy calculations).
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-indigo-700 flex items-center">
+            <span class="bg-indigo-100 text-indigo-600 p-2 rounded-lg mr-3">🏆</span>
+            Challenge: Async Web Scraper
+        </h2>
+        <div class="bg-gradient-to-r from-indigo-50 to-purple-50 p-6 rounded-lg border-l-4 border-indigo-500">
+            <p class="text-lg leading-relaxed mb-4">
+                <strong>Scenario:</strong> Build an asynchronous web scraper that fetches multiple web pages
+                concurrently and extracts their titles. Simulate network delays using <code>asyncio.sleep</code>.
+            </p>
+            <ul class="list-decimal list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2">
+                <li>Write an async function to fetch a web page (simulate with <code>asyncio.sleep</code>).</li>
+                <li>Extract the title from a given HTML string (use a simple regex or string method).</li>
+                <li>Fetch and extract titles from a list of URLs concurrently.</li>
+                <li>Print the results as a dictionary: <code>{url: title}</code>.</li>
+            </ul>
+            <div class="bg-gray-900 p-4 rounded-2xl mt-6 overflow-x-auto">
+                <h3 class="text-white font-semibold mb-3">💡 Sample Output:</h3>
+                <pre
+                    class="text-green-400 text-sm whitespace-pre-wrap"><code>Fetching https://site1.com ...
+Fetching https://site2.com ...
+Fetching https://site3.com ...
+Done: https://site1.com
+Done: https://site2.com
+Done: https://site3.com
+Results: {'https://site1.com': 'Site 1 Title', 'https://site2.com': 'Site 2 Title', 'https://site3.com': 'Site 3 Title'}</code></pre>
+            </div>
+            <p class="text-md text-gray-600 mt-4">This challenge is open-ended and requires you to design and implement
+                the full async scraper. Focus on concurrency, clarity, and using <code>async/await</code> effectively.
+                Try to break your solution into small, reusable async functions. Think about how you would handle errors
+                (e.g., what if a page doesn't respond?).</p>
+        </div>
+    </section>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+        <a href="#" onclick="loadLesson('lessons/type_hints.html')"
+            class="flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous: Type Hints and Annotations
+        </a>
+        <div class="text-gray-600">
+            <span class="text-sm">Lesson 42 of 71</span>
+        </div>
+        <a href="#" onclick="loadLesson('lessons/context_managers.html')"
+            class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+            Next: Context Managers
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </a>
+    </div>
+</div>

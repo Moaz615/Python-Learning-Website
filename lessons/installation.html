@@ -1,0 +1,209 @@
+<!-- This file contains ONLY the content for the "Installing Python & IDEs" lesson. -->
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <!-- Progress Bar -->
+    <div class="mb-8">
+        <div class="flex items-center justify-between mb-2">
+            <h1 class="text-4xl font-extrabold text-gray-900">⚙️ 2. Installing Python & IDEs</h1>
+            <span class="bg-green-100 text-green-800 text-sm font-semibold px-4 py-1 rounded-full">Beginner</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-2 mb-6">
+            <div class="bg-green-500 h-2 rounded-full" style="width: 14.3%"></div>
+        </div>
+    </div>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+            <span class="bg-blue-100 text-blue-600 p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                </svg>
+            </span>
+            Running Python Locally
+        </h2>
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg border-l-4 border-blue-500">
+            <p class="text-lg leading-relaxed mb-4">
+                While this website allows you to run Python code directly in your browser (thanks to Pyodide!), for more
+                serious development, you'll want to install Python and a good code editor or Integrated Development
+                Environment (IDE) on your own computer.
+            </p>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+            <span class="bg-green-100 text-green-600 p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+            </span>
+            How to Install Python
+        </h2>
+        <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+            <p class="text-lg leading-relaxed mb-4">
+                The official way to get Python is from its website.
+            </p>
+            <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                <ol class="list-decimal list-inside space-y-3 text-lg leading-relaxed">
+                    <li>Go to the official Python website: <a href="https://www.python.org/downloads/" target="_blank"
+                            class="text-indigo-600 hover:underline font-semibold">python.org/downloads</a></li>
+                    <li>Download the latest stable version for your operating system (Windows, macOS, Linux).</li>
+                    <li>Run the installer. <strong class="text-red-500">Important:</strong> On Windows, make sure to
+                        check the box that says "Add Python X.Y to PATH" during installation. This makes it easier to
+                        run Python from your command line.</li>
+                    <li>Open your terminal (Command Prompt on Windows, Terminal on macOS/Linux) and type <code
+                            class="font-mono bg-gray-200 px-2 py-1 rounded text-sm">python --version</code> or <code
+                            class="font-mono bg-gray-200 px-2 py-1 rounded text-sm">python3 --version</code> to verify
+                        the installation.</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+            <span class="bg-purple-100 text-purple-600 p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                    </path>
+                </svg>
+            </span>
+            Choosing an IDE or Code Editor
+        </h2>
+        <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+            <p class="text-lg leading-relaxed mb-4">
+                An IDE (Integrated Development Environment) or a powerful code editor makes writing Python code much
+                easier with features like syntax highlighting, auto-completion, debugging, and more.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                    <h3 class="font-semibold text-gray-800 mb-2 flex items-center">
+                        <span class="bg-blue-100 text-blue-600 p-1 rounded mr-2">VS</span>
+                        VS Code
+                    </h3>
+                    <p class="text-sm text-gray-600 mb-3">A very popular, free, and open-source code editor from
+                        Microsoft. It's highly customizable with extensions for Python development.</p>
+                    <a href="https://code.visualstudio.com/" target="_blank"
+                        class="text-indigo-600 hover:underline text-sm font-semibold">Download VS Code →</a>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                    <h3 class="font-semibold text-gray-800 mb-2 flex items-center">
+                        <span class="bg-green-100 text-green-600 p-1 rounded mr-2">Py</span>
+                        PyCharm
+                    </h3>
+                    <p class="text-sm text-gray-600 mb-3">A dedicated Python IDE developed by JetBrains. It has a free
+                        Community Edition and a powerful Professional Edition.</p>
+                    <a href="https://www.jetbrains.com/pycharm/download/" target="_blank"
+                        class="text-indigo-600 hover:underline text-sm font-semibold">Download PyCharm →</a>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                    <h3 class="font-semibold text-gray-800 mb-2 flex items-center">
+                        <span class="bg-purple-100 text-purple-600 p-1 rounded mr-2">J</span>
+                        Jupyter Notebook
+                    </h3>
+                    <p class="text-sm text-gray-600 mb-3">Great for data science and interactive computing. They allow
+                        you to combine code, text, and visualizations in a single document.</p>
+                    <span class="text-gray-500 text-sm">Often installed with Anaconda distribution</span>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                    <h3 class="font-semibold text-gray-800 mb-2 flex items-center">
+                        <span class="bg-yellow-100 text-yellow-600 p-1 rounded mr-2">T</span>
+                        Thonny
+                    </h3>
+                    <p class="text-sm text-gray-600 mb-3">A very simple IDE designed specifically for beginners. It's
+                        lightweight and easy to use.</p>
+                    <a href="https://thonny.org/" target="_blank"
+                        class="text-indigo-600 hover:underline text-sm font-semibold">Download Thonny →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+            <span class="bg-yellow-100 text-yellow-600 p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+            </span>
+            First Steps with Your Local Setup
+        </h2>
+        <div class="bg-gradient-to-r from-yellow-50 to-orange-50 p-6 rounded-lg border-l-4 border-yellow-500">
+            <p class="text-lg leading-relaxed mb-4">
+                Once you have Python and an editor installed:
+            </p>
+            <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                <ol class="list-decimal list-inside space-y-3 text-lg leading-relaxed">
+                    <li>Open your chosen editor.</li>
+                    <li>Create a new file and save it as <code
+                            class="font-mono bg-gray-200 px-2 py-1 rounded text-sm">hello.py</code>.</li>
+                    <li>Type <code
+                            class="font-mono bg-gray-200 px-2 py-1 rounded text-sm">print("Hello from local Python!")</code>
+                        into the file.</li>
+                    <li>Open your terminal, navigate to the directory where you saved <code
+                            class="font-mono bg-gray-200 px-2 py-1 rounded text-sm">hello.py</code>, and run: <code
+                            class="font-mono bg-gray-200 px-2 py-1 rounded text-sm">python hello.py</code> (or <code
+                            class="font-mono bg-gray-200 px-2 py-1 rounded text-sm">python3 hello.py</code>).</li>
+                </ol>
+            </div>
+            <div class="bg-green-50 border-l-4 border-green-400 p-4 rounded-r-lg mt-4">
+                <p class="text-green-800">
+                    <strong>Expected Output:</strong> You should see "Hello from local Python!" printed in your
+                    terminal.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+            <span class="bg-indigo-100 text-indigo-600 p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z">
+                    </path>
+                </svg>
+            </span>
+            Try It Here First!
+        </h2>
+        <p class="text-lg leading-relaxed mb-4">
+            Before setting up your local environment, you can practice with this simple program right in your browser:
+        </p>
+
+        <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 mb-4">
+            <h3 class="font-semibold text-gray-800 mb-3">Practice this code:</h3>
+            <div id="code-editor-container" data-default-code="# Your first local-style Python program
+print(&quot;Hello from local Python!&quot;)
+
+# Try adding your own message
+print(&quot;I'm learning Python!&quot;)
+
+# You can also print numbers
+print(&quot;Python version:&quot;, 3.11)"></div>
+        </div>
+    </section>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+        <a href="#" onclick="loadLesson('lessons/introduction.html')"
+            class="flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous: Introduction to Python
+        </a>
+        <div class="text-gray-600">
+            <span class="text-sm">Lesson 2 of 71</span>
+        </div>
+        <a href="#" onclick="loadLesson('lessons/hello_world.html')"
+            class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+            Next: Hello World Program
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </a>
+    </div>
+</div>

@@ -1,0 +1,279 @@
+<!-- This file contains ONLY the content for the "Web Development with Python" lesson. -->
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+
+    <div class="mb-8">
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-4xl font-extrabold text-gray-900">67. Web Development with Python (Flask, Django, FastAPI)
+            </h1>
+            <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full whitespace-nowrap">Expert
+                Level</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-3 mb-6">
+            <!-- Progress bar: (67-57)/19 ≈ 52.6% for expert (lessons 58-76) -->
+            <div class="bg-red-500 h-3 rounded-full transition-all duration-300" style="width: 52.6%"></div>
+        </div>
+    </div>
+
+    <!-- Why Web Development Matters -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-blue-100 bg-opacity-80 backdrop-blur-md border-4 border-blue-300 shadow-lg rounded-full text-3xl text-blue-600 transition-transform duration-200 hover:scale-110 animate-fade-in">🌐</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-blue-50/80 to-white/80 backdrop-blur-md border-2 border-blue-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-blue-800 tracking-tight">Why Web Development Matters</h2>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong class="text-blue-600">Web development</strong> with Python enables you to build everything
+                    from simple web apps to complex, scalable platforms. Python's frameworks make it easy to create REST
+                    APIs, dynamic websites, and real-time services.
+                </p>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong>Real-world applications:</strong>
+                <ul class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed">
+                    <li>Building RESTful APIs and microservices</li>
+                    <li>Developing full-stack web applications</li>
+                    <li>Rapid prototyping and MVPs</li>
+                    <li>Integrating with databases, authentication, and cloud services</li>
+                </ul>
+                </p>
+                <p class="text-lg leading-relaxed">
+                    Python's <code>Flask</code>, <code>Django</code>, and <code>FastAPI</code> are among the most
+                    popular frameworks for modern web development.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Concepts -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-green-100 bg-opacity-80 backdrop-blur-md border-4 border-green-300 shadow-lg rounded-full text-3xl text-green-600 transition-transform duration-200 hover:scale-110 animate-fade-in">💡</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-green-50/80 to-white/80 backdrop-blur-md border-2 border-green-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-green-800 tracking-tight">Key Concepts: Web Development in
+                    Python</h2>
+                <ul
+                    class="list-disc list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-green-300 shadow-md rounded-xl p-6 animate-fade-in">
+                    <li><strong class="text-green-600">Routing:</strong> Mapping URLs to Python functions (views).</li>
+                    <li><strong class="text-green-600">Templates:</strong> Generating dynamic HTML using template
+                        engines (Jinja2, Django templates).</li>
+                    <li><strong class="text-green-600">Request/Response Cycle:</strong> Handling HTTP requests and
+                        returning responses.</li>
+                    <li><strong class="text-green-600">ORM:</strong> Object-Relational Mapping for database access
+                        (SQLAlchemy, Django ORM).</li>
+                    <li><strong class="text-green-600">REST APIs:</strong> Building APIs for frontend-backend
+                        communication.</li>
+                    <li><strong class="text-green-600">Authentication:</strong> Managing user sessions and security.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flask Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🍶</span>Flask:
+            Minimal Web App</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>Flask</strong> is a lightweight web framework ideal for small apps and APIs. Here is a minimal Flask
+            app that returns "Hello, World!" at the root URL.
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dots flex gap-2">
+                    <div class="code-editor-dot-red"></div>
+                    <div class="code-editor-dot-yellow"></div>
+                    <div class="code-editor-dot-green"></div>
+                </div>
+                <span class="text-gray-400 text-xs">flask_example.py</span>
+            </div>
+            <pre><code><span style="color: #ff79c6;">from</span> <span style="color: #8be9fd;">flask</span> <span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">Flask</span>
+
+<span style="color: #8be9fd;">app</span> <span style="color: #ff79c6;">=</span> <span style="color: #50fa7b;">Flask</span>(__name__)
+
+<span style="color: #8be9fd;">@app.route</span>(<span style="color: #f1fa8c;">'/'</span>)
+<span style="color: #ff79c6;">def</span> <span style="color: #50fa7b;">home</span>():
+    <span style="color: #ff79c6;">return</span> <span style="color: #f1fa8c;">'Hello, World!'</span>
+
+<span style="color: #ff79c6;">if</span> __name__ <span style="color: #ff79c6;">==</span> <span style="color: #f1fa8c;">'__main__'</span>:
+    <span style="color: #8be9fd;">app</span>.<span style="color: #50fa7b;">run</span>(debug<span style="color: #ff79c6;">=</span><span style="color: #ff79c6;">True</span>)
+</code></pre>
+        </div>
+        <div class="bg-gray-900 p-4 rounded-lg">
+            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+            <pre class="text-green-400 text-sm"><code>Running on http://127.0.0.1:5000/
+Hello, World!
+</code></pre>
+        </div>
+    </section>
+
+    <!-- Django Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🦄</span>Django:
+            Class-Based View</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>Django</strong> is a high-level web framework for building robust, scalable applications. This
+            example shows a class-based view that returns a JSON response.
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dots flex gap-2">
+                    <div class="code-editor-dot-red"></div>
+                    <div class="code-editor-dot-yellow"></div>
+                    <div class="code-editor-dot-green"></div>
+                </div>
+                <span class="text-gray-400 text-xs">django_example.py</span>
+            </div>
+            <pre><code><span style="color: #ff79c6;">from</span> <span style="color: #8be9fd;">django.http</span> <span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">JsonResponse</span>
+<span style="color: #ff79c6;">from</span> <span style="color: #8be9fd;">django.views</span> <span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">View</span>
+
+<span style="color: #8be9fd;">class</span> <span style="color: #50fa7b;">HelloView</span>(<span style="color: #8be9fd;">View</span>):
+    <span style="color: #ff79c6;">def</span> <span style="color: #50fa7b;">get</span>(<span style="color: #8be9fd;">self</span>, <span style="color: #8be9fd;">request</span>):
+        <span style="color: #ff79c6;">return</span> <span style="color: #50fa7b;">JsonResponse</span>({<span style="color: #f1fa8c;">'message'</span>: <span style="color: #f1fa8c;">'Hello, Django!'</span>})
+</code></pre>
+        </div>
+        <div class="bg-gray-900 p-4 rounded-lg">
+            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+            <pre class="text-green-400 text-sm"><code>{"message": "Hello, Django!"}
+</code></pre>
+        </div>
+    </section>
+
+    <!-- FastAPI Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">⚡</span>FastAPI:
+            Modern API</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>FastAPI</strong> is a modern, fast (high-performance) web framework for building APIs with Python
+            3.7+ based on standard Python type hints. Here is a minimal FastAPI app.
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dots flex gap-2">
+                    <div class="code-editor-dot-red"></div>
+                    <div class="code-editor-dot-yellow"></div>
+                    <div class="code-editor-dot-green"></div>
+                </div>
+                <span class="text-gray-400 text-xs">fastapi_example.py</span>
+            </div>
+            <pre><code><span style="color: #ff79c6;">from</span> <span style="color: #8be9fd;">fastapi</span> <span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">FastAPI</span>
+
+<span style="color: #8be9fd;">app</span> <span style="color: #ff79c6;">=</span> <span style="color: #50fa7b;">FastAPI</span>()
+
+<span style="color: #8be9fd;">@app.get</span>(<span style="color: #f1fa8c;">"/"</span>)
+<span style="color: #ff79c6;">def</span> <span style="color: #50fa7b;">read_root</span>():
+    <span style="color: #ff79c6;">return</span> {<span style="color: #f1fa8c;">"message"</span>: <span style="color: #f1fa8c;">"Hello, FastAPI!"</span>}
+</code></pre>
+        </div>
+        <div class="bg-gray-900 p-4 rounded-lg">
+            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+            <pre class="text-green-400 text-sm"><code>{"message": "Hello, FastAPI!"}
+</code></pre>
+        </div>
+    </section>
+
+    <!-- Best Practices -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-blue-700 flex items-center">
+            <span class="bg-blue-100 text-blue-600 p-2 rounded-lg mr-3">✅</span>
+            Best Practices for Web Development
+        </h2>
+        <ul
+            class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-blue-300 shadow-md rounded-xl p-6 animate-fade-in">
+            <li>Use environment variables for configuration and secrets.</li>
+            <li>Validate and sanitize all user input to prevent security vulnerabilities.</li>
+            <li>Structure your project for scalability (blueprints, apps, routers).</li>
+            <li>Write tests for your routes and business logic.</li>
+            <li>Use an ORM for safe and efficient database access.</li>
+        </ul>
+    </section>
+
+    <!-- Common Pitfalls -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-red-700 flex items-center">
+            <span class="bg-red-100 text-red-600 p-2 rounded-lg mr-3">⚠️</span>
+            Common Pitfalls
+        </h2>
+        <ul
+            class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-red-300 shadow-md rounded-xl p-6 animate-fade-in">
+            <li><strong>Hardcoding secrets:</strong> Never store passwords or API keys in your codebase.</li>
+            <li><strong>Ignoring security headers:</strong> Set proper HTTP headers for security (CORS, CSP, etc.).</li>
+            <li><strong>Not handling errors:</strong> Always return meaningful error messages and status codes.</li>
+            <li><strong>Blocking the event loop:</strong> In async frameworks, avoid blocking calls.</li>
+        </ul>
+    </section>
+
+    <!-- Try it Yourself Section -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🧑‍💻</span>Try it
+            Yourself: Minimal Flask App</h2>
+        <p class="mb-4 text-lg">Practice creating a minimal Flask web app. This code returns "Hello, World!" at the root
+            URL.</p>
+        <div id="code-editor-container" class="bg-gray-50 p-6 rounded-lg shadow-inner border border-gray-200"></div>
+        <script type="text/plain" id="default-code">
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return 'Hello, World!'
+
+if __name__ == '__main__':
+    app.run(debug=True)
+        </script>
+        <div class="mt-4 text-sm text-gray-600">
+            <strong>Note:</strong> Web frameworks like Flask are not supported in the browser editor. Run this code
+            locally to see the output.
+        </div>
+    </section>
+
+    <!-- Challenge: Mini Web App Project -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-purple-700 flex items-center">
+            <span class="bg-purple-100 text-purple-600 p-2 rounded-lg mr-3">🏆</span>
+            Project Challenge: Build a REST API
+        </h2>
+        <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg border-l-4 border-purple-500">
+            <p class="text-lg leading-relaxed mb-4">
+                <strong>Scenario:</strong> Build a RESTful API for a simple todo list using Flask or FastAPI.
+            </p>
+            <ul class="list-decimal list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2">
+                <li>Implement endpoints to create, read, update, and delete todos</li>
+                <li>Store todos in memory (a Python list or dictionary)</li>
+                <li>Return JSON responses for all endpoints</li>
+                <li>Test your API with curl or Postman</li>
+            </ul>
+            <div class="bg-gray-900 p-4 rounded-lg mt-6">
+                <h3 class="text-white font-semibold mb-3">💡 Project Example Output:</h3>
+                <pre class="text-green-400 text-sm"><code>{"id": 1, "task": "Learn Python web development", "done": false}
+</code></pre>
+            </div>
+            <p class="text-md text-gray-600 mt-4">This project will help you master building APIs with Python web
+                frameworks.</p>
+        </div>
+    </section>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+        <a href="#" onclick="loadLesson('lessons/generative_ai.html')"
+            class="flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous: Generative AI
+        </a>
+        <a href="#" onclick="loadLesson('lessons/networking.html')"
+            class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+            Next: Networking
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </a>
+    </div>
+</div>

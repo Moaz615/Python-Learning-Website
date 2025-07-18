@@ -1,0 +1,270 @@
+<!-- This file contains ONLY the content for the "Natural Language Processing (NLP)" lesson. -->
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <div class="mb-8">
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-4xl font-extrabold text-gray-900">63. Natural Language Processing (NLP)</h1>
+            <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full whitespace-nowrap">Expert
+                Level</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-3 mb-6">
+            <!-- Progress bar: (63-57)/19 ≈ 31.6% for expert (lessons 58-76) -->
+            <div class="bg-red-500 h-3 rounded-full transition-all duration-300" style="width: 31.6%"></div>
+        </div>
+    </div>
+
+    <!-- Why NLP Matters -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-blue-100 bg-opacity-80 backdrop-blur-md border-4 border-blue-300 shadow-lg rounded-full text-3xl text-blue-600 transition-transform duration-200 hover:scale-110 animate-fade-in">🗣️</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-blue-50/80 to-white/80 backdrop-blur-md border-2 border-blue-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-blue-800 tracking-tight">Why NLP Matters</h2>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong class="text-blue-600">Natural Language Processing (NLP)</strong> enables computers to
+                    understand, interpret, and generate human language. NLP powers chatbots, search engines, translation
+                    services, and more.
+                </p>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong>Real-world applications:</strong>
+                <ul class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed">
+                    <li>Chatbots and virtual assistants</li>
+                    <li>Sentiment analysis for social media</li>
+                    <li>Language translation</li>
+                    <li>Spam detection and content moderation</li>
+                </ul>
+                </p>
+                <p class="text-lg leading-relaxed">
+                    Python's <code>nltk</code>, <code>spaCy</code>, and <code>transformers</code> libraries are widely
+                    used for NLP tasks.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Concepts -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-green-100 bg-opacity-80 backdrop-blur-md border-4 border-green-300 shadow-lg rounded-full text-3xl text-green-600 transition-transform duration-200 hover:scale-110 animate-fade-in">💡</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-green-50/80 to-white/80 backdrop-blur-md border-2 border-green-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-green-800 tracking-tight">Key Concepts: NLP in Python</h2>
+                <ul
+                    class="list-disc list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-green-300 shadow-md rounded-xl p-6 animate-fade-in">
+                    <li><strong class="text-green-600">Tokenization:</strong> Splitting text into words or sentences.
+                    </li>
+                    <li><strong class="text-green-600">Stemming & Lemmatization:</strong> Reducing words to their root
+                        forms.</li>
+                    <li><strong class="text-green-600">Part-of-Speech Tagging:</strong> Identifying grammatical roles.
+                    </li>
+                    <li><strong class="text-green-600">Named Entity Recognition (NER):</strong> Detecting names, places,
+                        organizations.</li>
+                    <li><strong class="text-green-600">Sentiment Analysis:</strong> Determining the emotional tone of
+                        text.</li>
+                    <li><strong class="text-green-600">Text Classification:</strong> Assigning categories to text (e.g.,
+                        spam detection).</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tokenization Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">✂️</span>Tokenization
+            Example</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>Tokenization</strong> is the process of splitting text into individual words or sentences. This is a
+            fundamental step in most NLP pipelines.
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dots flex gap-2">
+                    <div class="code-editor-dot-red"></div>
+                    <div class="code-editor-dot-yellow"></div>
+                    <div class="code-editor-dot-green"></div>
+                </div>
+                <span class="text-gray-400 text-xs">tokenization_example.py</span>
+            </div>
+            <pre><code><span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">re</span>
+
+<span style="color: #8be9fd;">text</span> <span style="color: #ff79c6;">=</span> <span style="color: #f1fa8c;">"Natural Language Processing is fun!"</span>
+<span style="color: #8be9fd;">tokens</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">re</span>.<span style="color: #50fa7b;">findall</span>(<span style="color: #f1fa8c;">r'\b\w+\b'</span>, <span style="color: #8be9fd;">text</span>)
+<span style="color: #50fa7b;">print</span>(<span style="color: #8be9fd;">tokens</span>)
+</code></pre>
+        </div>
+        <div class="bg-gray-900 p-4 rounded-lg">
+            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+            <pre class="text-green-400 text-sm"><code>['Natural', 'Language', 'Processing', 'is', 'fun']
+</code></pre>
+        </div>
+    </section>
+
+    <!-- Sentiment Analysis Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">😊</span>Sentiment
+            Analysis Example</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>Sentiment analysis</strong> is used to determine whether a piece of text is positive, negative, or
+            neutral. Here is a simple rule-based example.
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dots flex gap-2">
+                    <div class="code-editor-dot-red"></div>
+                    <div class="code-editor-dot-yellow"></div>
+                    <div class="code-editor-dot-green"></div>
+                </div>
+                <span class="text-gray-400 text-xs">sentiment_example.py</span>
+            </div>
+            <pre><code><span style="color: #ff79c6;">def</span> <span style="color: #50fa7b;">simple_sentiment</span>(<span style="color: #8be9fd;">text</span>):
+    <span style="color: #8be9fd;">positive_words</span> <span style="color: #ff79c6;">=</span> [<span style="color: #f1fa8c;">'good'</span>, <span style="color: #f1fa8c;">'great'</span>, <span style="color: #f1fa8c;">'happy'</span>, <span style="color: #f1fa8c;">'love'</span>]
+    <span style="color: #8be9fd;">negative_words</span> <span style="color: #ff79c6;">=</span> [<span style="color: #f1fa8c;">'bad'</span>, <span style="color: #f1fa8c;">'sad'</span>, <span style="color: #f1fa8c;">'hate'</span>, <span style="color: #f1fa8c;">'angry'</span>]
+    <span style="color: #8be9fd;">text</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">text.lower</span>()
+    <span style="color: #8be9fd;">score</span> <span style="color: #ff79c6;">=</span> <span style="color: #bd93f9;">0</span>
+    <span style="color: #ff79c6;">for</span> <span style="color: #8be9fd;">word</span> <span style="color: #ff79c6;">in</span> <span style="color: #8be9fd;">positive_words</span>:
+        <span style="color: #ff79c6;">if</span> <span style="color: #8be9fd;">word</span> <span style="color: #ff79c6;">in</span> <span style="color: #8be9fd;">text</span>:
+            <span style="color: #8be9fd;">score</span> <span style="color: #ff79c6;">+=</span> <span style="color: #bd93f9;">1</span>
+    <span style="color: #ff79c6;">for</span> <span style="color: #8be9fd;">word</span> <span style="color: #ff79c6;">in</span> <span style="color: #8be9fd;">negative_words</span>:
+        <span style="color: #ff79c6;">if</span> <span style="color: #8be9fd;">word</span> <span style="color: #ff79c6;">in</span> <span style="color: #8be9fd;">text</span>:
+            <span style="color: #8be9fd;">score</span> <span style="color: #ff79c6;">-=</span> <span style="color: #bd93f9;">1</span>
+    <span style="color: #ff79c6;">if</span> <span style="color: #8be9fd;">score</span> <span style="color: #ff79c6;">></span> <span style="color: #bd93f9;">0</span>:
+        <span style="color: #ff79c6;">return</span> <span style="color: #f1fa8c;">'Positive'</span>
+    <span style="color: #ff79c6;">elif</span> <span style="color: #8be9fd;">score</span> <span style="color: #ff79c6;"><</span> <span style="color: #bd93f9;">0</span>:
+        <span style="color: #ff79c6;">return</span> <span style="color: #f1fa8c;">'Negative'</span>
+    <span style="color: #ff79c6;">else</span>:
+        <span style="color: #ff79c6;">return</span> <span style="color: #f1fa8c;">'Neutral'</span>
+
+<span style="color: #50fa7b;">print</span>(simple_sentiment(<span style="color: #f1fa8c;">"I love this product!"</span>))
+<span style="color: #50fa7b;">print</span>(simple_sentiment(<span style="color: #f1fa8c;">"This is bad and I hate it."</span>))
+</code></pre>
+        </div>
+        <div class="bg-gray-900 p-4 rounded-lg">
+            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+            <pre class="text-green-400 text-sm"><code>Positive
+Negative
+</code></pre>
+        </div>
+    </section>
+
+    <!-- Best Practices -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-blue-700 flex items-center">
+            <span class="bg-blue-100 text-blue-600 p-2 rounded-lg mr-3">✅</span>
+            Best Practices for NLP
+        </h2>
+        <ul
+            class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-blue-300 shadow-md rounded-xl p-6 animate-fade-in">
+            <li>Always clean and preprocess your text data (remove punctuation, lowercase, etc.).</li>
+            <li>Use established libraries for tokenization and language models.</li>
+            <li>Test your models on real-world, messy data.</li>
+            <li>Be aware of language and cultural nuances.</li>
+            <li>Document your preprocessing and modeling steps.</li>
+        </ul>
+    </section>
+
+    <!-- Common Pitfalls -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-red-700 flex items-center">
+            <span class="bg-red-100 text-red-600 p-2 rounded-lg mr-3">⚠️</span>
+            Common Pitfalls
+        </h2>
+        <ul
+            class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-red-300 shadow-md rounded-xl p-6 animate-fade-in">
+            <li><strong>Ignoring stopwords:</strong> Common words like "the" and "is" can skew results if not removed.
+            </li>
+            <li><strong>Overfitting to training data:</strong> Use validation sets and cross-validation.</li>
+            <li><strong>Assuming all languages behave the same:</strong> NLP is highly language-dependent.</li>
+            <li><strong>Not handling emojis or special characters:</strong> These can carry important meaning.</li>
+        </ul>
+    </section>
+
+    <!-- Try it Yourself Section -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🧑‍💻</span>Try it
+            Yourself: Simple Text Classifier</h2>
+        <p class="mb-4 text-lg">Practice writing a simple text classifier that labels text as positive or negative based
+            on keywords.</p>
+        <div id="code-editor-container" class="bg-gray-50 p-6 rounded-lg shadow-inner border border-gray-200"></div>
+        <script type="text/plain" id="default-code">
+def classify_sentiment(text):
+    positive = ['good', 'great', 'happy', 'love']
+    negative = ['bad', 'sad', 'hate', 'angry']
+    text = text.lower()
+    score = 0
+    for word in positive:
+        if word in text:
+            score += 1
+    for word in negative:
+        if word in text:
+            score -= 1
+    if score > 0:
+        return 'Positive'
+    elif score < 0:
+        return 'Negative'
+    else:
+        return 'Neutral'
+
+print(classify_sentiment('I am happy!'))
+print(classify_sentiment('This is bad.'))
+        </script>
+        <div class="mt-4 text-sm text-gray-600">
+            <strong>Note:</strong> This code runs in the browser editor. For more advanced NLP, use libraries like
+            <code>nltk</code> or <code>spaCy</code> in your local environment.
+        </div>
+    </section>
+
+    <!-- Challenge: Sentiment Analyzer Project -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-purple-700 flex items-center">
+            <span class="bg-purple-100 text-purple-600 p-2 rounded-lg mr-3">🏆</span>
+            Project Challenge: Build a Sentiment Analyzer
+        </h2>
+        <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg border-l-4 border-purple-500">
+            <p class="text-lg leading-relaxed mb-4">
+                <strong>Scenario:</strong> Build a sentiment analyzer that can classify text as positive, negative, or
+                neutral. Extend your classifier to handle more complex cases, such as negation ("not good"), and test it
+                on real-world sentences.
+            </p>
+            <ul class="list-decimal list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2">
+                <li>Preprocess and clean the input text</li>
+                <li>Handle negations and intensifiers (e.g., "very good")</li>
+                <li>Test your analyzer on a variety of sentences</li>
+                <li>Document your approach and findings</li>
+            </ul>
+            <div class="bg-gray-900 p-4 rounded-lg mt-6">
+                <h3 class="text-white font-semibold mb-3">💡 Project Example Output:</h3>
+                <pre class="text-green-400 text-sm"><code>Input: "I am not happy with this."
+Output: Negative
+
+Input: "This is very good!"
+Output: Positive
+</code></pre>
+            </div>
+            <p class="text-md text-gray-600 mt-4">This project will help you master the basics of text classification
+                and sentiment analysis in NLP.</p>
+        </div>
+    </section>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+        <a href="#" onclick="loadLesson('lessons/deep_learning.html')"
+            class="flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous: Deep Learning
+        </a>
+        <a href="#" onclick="loadLesson('lessons/computer_vision.html')"
+            class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+            Next: Computer Vision
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </a>
+    </div>
+</div>

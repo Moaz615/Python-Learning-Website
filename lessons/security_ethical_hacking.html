@@ -1,0 +1,227 @@
+<!-- This file contains ONLY the content for the "Security and Ethical Hacking with Python" lesson. -->
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <div class="mb-8">
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-4xl font-extrabold text-gray-900">74. Security & Ethical Hacking with Python</h1>
+            <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full whitespace-nowrap">Expert
+                Level</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-3 mb-6">
+            <!-- Progress bar: (74-57)/19 ≈ 89.5% for expert (lessons 58-76) -->
+            <div class="bg-red-500 h-3 rounded-full transition-all duration-300" style="width: 89.5%"></div>
+        </div>
+    </div>
+
+    <!-- Why Security & Ethical Hacking Matters -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-blue-100 bg-opacity-80 backdrop-blur-md border-4 border-blue-300 shadow-lg rounded-full text-3xl text-blue-600 transition-transform duration-200 hover:scale-110 animate-fade-in">🛡️</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-blue-50/80 to-white/80 backdrop-blur-md border-2 border-blue-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-blue-800 tracking-tight">Why Security & Ethical Hacking
+                    Matters</h2>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong class="text-blue-600">Security and ethical hacking</strong> with Python helps protect
+                    systems, find vulnerabilities, and build secure applications. Python is widely used for penetration
+                    testing, automation, and security research.
+                </p>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong>Real-world applications:</strong>
+                <ul class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed">
+                    <li>Penetration testing and vulnerability scanning</li>
+                    <li>Network and web application security</li>
+                    <li>Automated security auditing</li>
+                    <li>Malware analysis and forensics</li>
+                </ul>
+                </p>
+                <p class="text-lg leading-relaxed">
+                    Python's <code>scapy</code>, <code>requests</code>, <code>cryptography</code>, and <code>nmap</code>
+                    libraries are essential for security tasks.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Concepts -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-green-100 bg-opacity-80 backdrop-blur-md border-4 border-green-300 shadow-lg rounded-full text-3xl text-green-600 transition-transform duration-200 hover:scale-110 animate-fade-in">💡</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-green-50/80 to-white/80 backdrop-blur-md border-2 border-green-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-green-800 tracking-tight">Key Concepts: Security & Ethical
+                    Hacking in Python</h2>
+                <ul
+                    class="list-disc list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-green-300 shadow-md rounded-xl p-6 animate-fade-in">
+                    <li><strong class="text-green-600">Penetration Testing:</strong> Simulate attacks to find
+                        vulnerabilities.</li>
+                    <li><strong class="text-green-600">Network Scanning:</strong> Discover hosts, ports, and services.
+                    </li>
+                    <li><strong class="text-green-600">Packet Crafting:</strong> Create and analyze network packets.
+                    </li>
+                    <li><strong class="text-green-600">Cryptography:</strong> Encrypt, decrypt, and hash data securely.
+                    </li>
+                    <li><strong class="text-green-600">Web Security:</strong> Test for common web vulnerabilities (SQLi,
+                        XSS, etc.).</li>
+                    <li><strong class="text-green-600">Ethical Hacking:</strong> Follow legal and ethical guidelines in
+                        all activities.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scapy Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">📡</span>Scapy:
+            Packet Crafting & Sniffing</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>Scapy</strong> is a powerful library for creating and analyzing network packets:
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dot-red"></div>
+                <div class="code-editor-dot-yellow"></div>
+                <div class="code-editor-dot-green"></div>
+            </div>
+            <span class="text-gray-400 text-xs">scapy_sniff.py</span>
+            <pre><code><span style="color: #ff79c6;">from</span> <span style="color: #8be9fd;">scapy.all</span> <span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">sniff</span>
+
+<span style="color: #8be9fd;">packets</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">sniff</span>(count=<span style="color: #bd93f9;">5</span>)
+<span style="color: #50fa7b;">print</span>(<span style="color: #8be9fd;">packets</span>.summary())
+</code></pre>
+        </div>
+        <div class="bg-gray-900 p-4 rounded-lg">
+            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+            <pre class="text-green-400 text-sm"><code>Prints a summary of 5 captured network packets.</code></pre>
+        </div>
+    </section>
+
+    <!-- Cryptography Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span
+                class="mr-2">🔐</span>Cryptography: Encrypt & Decrypt Data</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>cryptography</strong> is a library for secure encryption and decryption:
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dot-red"></div>
+                <div class="code-editor-dot-yellow"></div>
+                <div class="code-editor-dot-green"></div>
+            </div>
+            <span class="text-gray-400 text-xs">crypto_example.py</span>
+            <pre><code><span style="color: #ff79c6;">from</span> <span style="color: #8be9fd;">cryptography.fernet</span> <span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">Fernet</span>
+
+<span style="color: #8be9fd;">key</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">Fernet</span>.<span style="color: #50fa7b;">generate_key</span>()
+<span style="color: #8be9fd;">cipher</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">Fernet</span>(<span style="color: #8be9fd;">key</span>)
+<span style="color: #8be9fd;">token</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">cipher</span>.<span style="color: #50fa7b;">encrypt</span>(<span style="color: #f1fa8c;">b"secret data"</span>)
+<span style="color: #50fa7b;">print</span>(<span style="color: #8be9fd;">cipher</span>.<span style="color: #50fa7b;">decrypt</span>(<span style="color: #8be9fd;">token</span>))
+</code></pre>
+        </div>
+        <div class="bg-gray-900 p-4 rounded-lg">
+            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+            <pre class="text-green-400 text-sm"><code>Prints: b'secret data'</code></pre>
+        </div>
+    </section>
+
+    <!-- Best Practices -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-blue-700 flex items-center">
+            <span class="bg-blue-100 text-blue-600 p-2 rounded-lg mr-3">✅</span>
+            Best Practices for Security & Ethical Hacking
+        </h2>
+        <ul
+            class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-blue-300 shadow-md rounded-xl p-6 animate-fade-in">
+            <li>Always have permission before testing or scanning systems.</li>
+            <li>Document all actions and findings.</li>
+            <li>Use strong encryption and secure key management.</li>
+            <li>Keep security tools and libraries up to date.</li>
+            <li>Follow legal and ethical guidelines at all times.</li>
+        </ul>
+    </section>
+
+    <!-- Common Pitfalls -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-red-700 flex items-center">
+            <span class="bg-red-100 text-red-600 p-2 rounded-lg mr-3">⚠️</span>
+            Common Pitfalls
+        </h2>
+        <ul
+            class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-red-300 shadow-md rounded-xl p-6 animate-fade-in">
+            <li><strong>Unauthorized testing:</strong> Never test systems without explicit permission.</li>
+            <li><strong>Weak encryption:</strong> Avoid outdated algorithms and protocols.</li>
+            <li><strong>Ignoring logs:</strong> Always monitor and review logs for suspicious activity.</li>
+            <li><strong>Not updating tools:</strong> Use the latest versions of security libraries.</li>
+        </ul>
+    </section>
+
+    <!-- Try it Yourself Section -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🧑‍💻</span>Try it
+            Yourself: Hash a Password</h2>
+        <p class="mb-4 text-lg">Practice hashing a password securely using <code>hashlib</code>:</p>
+        <div id="code-editor-container" class="bg-gray-50 p-6 rounded-lg shadow-inner border border-gray-200"></div>
+        <script type="text/plain" id="default-code">
+import hashlib
+
+password = 'supersecret'
+hash = hashlib.sha256(password.encode()).hexdigest()
+print(hash)
+        </script>
+        <div class="mt-4 text-sm text-gray-600">
+            <strong>Note:</strong> Security code may not run in the browser editor. Run this code locally to see the
+            output.
+        </div>
+    </section>
+
+    <!-- Project Challenge: Vulnerability Scanner -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-purple-700 flex items-center">
+            <span class="bg-purple-100 text-purple-600 p-2 rounded-lg mr-3">🏆</span>
+            Project Challenge: Vulnerability Scanner
+        </h2>
+        <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg border-l-4 border-purple-500">
+            <p class="text-lg leading-relaxed mb-4">
+                <strong>Scenario:</strong> Build a Python script that scans a target for open ports and basic
+                vulnerabilities. Log findings and follow ethical guidelines.
+            </p>
+            <ul class="list-decimal list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2">
+                <li>Prompt for a target IP or hostname</li>
+                <li>Scan for open ports (e.g., using <code>socket</code> or <code>nmap</code>)</li>
+                <li>Check for common vulnerabilities (e.g., weak SSL, default credentials)</li>
+                <li>Log results and recommendations</li>
+            </ul>
+            <div class="bg-gray-900 p-4 rounded-lg mt-6">
+                <h3 class="text-white font-semibold mb-3">💡 Project Example Output:</h3>
+                <pre class="text-green-400 text-sm"><code>Open ports: 22, 80
+Vulnerability: Weak SSL detected
+</code></pre>
+            </div>
+            <p class="text-md text-gray-600 mt-4">This project will help you master ethical hacking and security
+                automation with Python.</p>
+        </div>
+    </section>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+        <a href="#" onclick="loadLesson('lessons/devops_python.html')"
+            class="flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous: DevOps with Python
+        </a>
+        <a href="#" onclick="loadLesson('lessons/python_extensions_c.html')"
+            class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+            Next: Python Extensions in C
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </a>
+    </div>
+</div>

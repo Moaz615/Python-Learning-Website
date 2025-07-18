@@ -1,0 +1,292 @@
+<!-- This file contains ONLY the content for the "Data Visualization" lesson. -->
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+
+    <div class="mb-8">
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-4xl font-extrabold text-gray-900">59. Data Visualization (Matplotlib, Seaborn, Plotly)</h1>
+            <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full whitespace-nowrap">Expert
+                Level</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-3 mb-6">
+            <!-- Progress bar: (59-57)/19 ≈ 10.5% for expert (lessons 58-76) -->
+            <div class="bg-red-500 h-3 rounded-full transition-all duration-300" style="width: 10.5%"></div>
+        </div>
+    </div>
+
+    <!-- Why Data Visualization Matters -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-blue-100 bg-opacity-80 backdrop-blur-md border-4 border-blue-300 shadow-lg rounded-full text-3xl text-blue-600 transition-transform duration-200 hover:scale-110 animate-fade-in">📊</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-blue-50/80 to-white/80 backdrop-blur-md border-2 border-blue-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-blue-800 tracking-tight">Why Data Visualization Matters
+                </h2>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong class="text-blue-600">Data visualization</strong> is the art of turning raw data into
+                    meaningful insights using charts, graphs, and interactive plots. It helps you communicate findings,
+                    spot trends, and make data-driven decisions.
+                </p>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong>Real-world applications:</strong>
+                <ul class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed">
+                    <li>Exploring relationships and trends in large datasets</li>
+                    <li>Communicating results to stakeholders</li>
+                    <li>Building dashboards and interactive reports</li>
+                </ul>
+                </p>
+                <p class="text-lg leading-relaxed">
+                    Python's <code>Matplotlib</code>, <code>Seaborn</code>, and <code>Plotly</code> are the most popular
+                    libraries for data visualization.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Concepts -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-green-100 bg-opacity-80 backdrop-blur-md border-4 border-green-300 shadow-lg rounded-full text-3xl text-green-600 transition-transform duration-200 hover:scale-110 animate-fade-in">💡</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-green-50/80 to-white/80 backdrop-blur-md border-2 border-green-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-green-800 tracking-tight">Key Concepts: Data Visualization
+                    in Python</h2>
+                <ul
+                    class="list-disc list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-green-300 shadow-md rounded-xl p-6 animate-fade-in">
+                    <li><strong class="text-green-600">Matplotlib:</strong> The foundational plotting library for static
+                        charts.</li>
+                    <li><strong class="text-green-600">Seaborn:</strong> High-level interface for attractive statistical
+                        graphics.</li>
+                    <li><strong class="text-green-600">Plotly:</strong> Interactive, web-based visualizations and
+                        dashboards.</li>
+                    <li><strong class="text-green-600">Data Exploration:</strong> Visualizing distributions,
+                        relationships, and trends.</li>
+                    <li><strong class="text-green-600">Customization:</strong> Styling, labeling, and annotating plots
+                        for clarity.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Matplotlib Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">📈</span>Matplotlib
+            Basics</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>Matplotlib</strong> is the most widely used library for creating static, interactive, and animated
+            visualizations in Python. It gives you full control over every element of your plot. This example shows how
+            to plot a simple line chart.
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dots flex gap-2">
+                    <div class="code-editor-dot-red"></div>
+                    <div class="code-editor-dot-yellow"></div>
+                    <div class="code-editor-dot-green"></div>
+                </div>
+                <span class="text-gray-400 text-xs">matplotlib_example.py</span>
+            </div>
+            <pre><code><span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">matplotlib.pyplot</span> <span style="color: #ff79c6;">as</span> <span style="color: #8be9fd;">plt</span>
+
+<span style="color: #8be9fd;">x</span> <span style="color: #ff79c6;">=</span> [<span style="color: #bd93f9;">1</span>, <span style="color: #bd93f9;">2</span>, <span style="color: #bd93f9;">3</span>, <span style="color: #bd93f9;">4</span>]
+<span style="color: #8be9fd;">y</span> <span style="color: #ff79c6;">=</span> [<span style="color: #bd93f9;">2</span>, <span style="color: #bd93f9;">4</span>, <span style="color: #bd93f9;">6</span>, <span style="color: #bd93f9;">8</span>]
+
+<span style="color: #8be9fd;">plt</span>.<span style="color: #50fa7b;">plot</span>(<span style="color: #8be9fd;">x</span>, <span style="color: #8be9fd;">y</span>)
+<span style="color: #8be9fd;">plt</span>.<span style="color: #50fa7b;">xlabel</span>(<span style="color: #f1fa8c;">'X values'</span>)
+<span style="color: #8be9fd;">plt</span>.<span style="color: #50fa7b;">ylabel</span>(<span style="color: #f1fa8c;">'Y values'</span>)
+<span style="color: #8be9fd;">plt</span>.<span style="color: #50fa7b;">title</span>(<span style="color: #f1fa8c;">'Simple Line Chart'</span>)
+<span style="color: #8be9fd;">plt</span>.<span style="color: #50fa7b;">show</span>()
+</code></pre>
+        </div>
+        <div class="bg-gray-900 p-4 rounded-lg">
+            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+            <pre class="text-green-400 text-sm"><code>A line chart window appears with the plotted data.</code></pre>
+        </div>
+    </section>
+
+    <!-- Seaborn Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🌊</span>Seaborn for
+            Statistical Plots</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>Seaborn</strong> builds on Matplotlib and makes it easy to create beautiful, informative statistical
+            graphics. It is especially useful for visualizing distributions and relationships in your data. This example
+            shows how to plot a histogram and a scatter plot.
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dots flex gap-2">
+                    <div class="code-editor-dot-red"></div>
+                    <div class="code-editor-dot-yellow"></div>
+                    <div class="code-editor-dot-green"></div>
+                </div>
+                <span class="text-gray-400 text-xs">seaborn_example.py</span>
+            </div>
+            <pre><code><span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">seaborn</span> <span style="color: #ff79c6;">as</span> <span style="color: #8be9fd;">sns</span>
+<span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">matplotlib.pyplot</span> <span style="color: #ff79c6;">as</span> <span style="color: #8be9fd;">plt</span>
+
+<span style="color: #8be9fd;">tips</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">sns</span>.<span style="color: #50fa7b;">load_dataset</span>(<span style="color: #f1fa8c;">"tips"</span>)
+<span style="color: #8be9fd;">sns</span>.<span style="color: #50fa7b;">histplot</span>(<span style="color: #8be9fd;">tips</span>[<span style="color: #f1fa8c;">"total_bill"</span>], bins=<span style="color: #bd93f9;">20</span>)
+<span style="color: #8be9fd;">plt</span>.<span style="color: #50fa7b;">show</span>()
+
+<span style="color: #8be9fd;">sns</span>.<span style="color: #50fa7b;">scatterplot</span>(x=<span style="color: #f1fa8c;">"total_bill"</span>, y=<span style="color: #f1fa8c;">"tip"</span>, data=<span style="color: #8be9fd;">tips</span>)
+<span style="color: #8be9fd;">plt</span>.<span style="color: #50fa7b;">show</span>()
+</code></pre>
+        </div>
+        <div class="bg-gray-900 p-4 rounded-lg">
+            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+            <pre
+                class="text-green-400 text-sm"><code>A histogram of total bills and a scatter plot of total bill vs. tip.</code></pre>
+        </div>
+    </section>
+
+    <!-- Plotly Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🕸️</span>Interactive
+            Plots with Plotly</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>Plotly</strong> is a powerful library for creating interactive, web-based visualizations. It is
+            ideal for dashboards and sharing results online. This example shows how to create an interactive bar chart.
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dots flex gap-2">
+                    <div class="code-editor-dot-red"></div>
+                    <div class="code-editor-dot-yellow"></div>
+                    <div class="code-editor-dot-green"></div>
+                </div>
+                <span class="text-gray-400 text-xs">plotly_example.py</span>
+            </div>
+            <pre><code><span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">plotly.express</span> <span style="color: #ff79c6;">as</span> <span style="color: #8be9fd;">px</span>
+
+<span style="color: #8be9fd;">df</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">px</span>.<span style="color: #50fa7b;">data</span>.<span style="color: #50fa7b;">gapminder</span>().<span style="color: #50fa7b;">query</span>(<span style="color: #f1fa8c;">"year == 2007"</span>)
+<span style="color: #8be9fd;">fig</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">px</span>.<span style="color: #50fa7b;">bar</span>(<span style="color: #8be9fd;">df</span>, x=<span style="color: #f1fa8c;">"continent"</span>, y=<span style="color: #f1fa8c;">"pop"</span>, color=<span style="color: #f1fa8c;">"continent"</span>, title=<span style="color: #f1fa8c;">"Population by Continent (2007)"</span>)
+<span style="color: #8be9fd;">fig</span>.<span style="color: #50fa7b;">show</span>()
+</code></pre>
+        </div>
+        <div class="bg-gray-900 p-4 rounded-lg">
+            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+            <pre
+                class="text-green-400 text-sm"><code>An interactive bar chart of population by continent for 2007.</code></pre>
+        </div>
+    </section>
+
+    <!-- Best Practices -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-blue-700 flex items-center">
+            <span class="bg-blue-100 text-blue-600 p-2 rounded-lg mr-3">✅</span>
+            Best Practices for Data Visualization
+        </h2>
+        <ul
+            class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-blue-300 shadow-md rounded-xl p-6 animate-fade-in">
+            <li>Choose the right chart type for your data and message.</li>
+            <li>Label axes, legends, and titles clearly.</li>
+            <li>Use color and size to highlight important information, not to decorate.</li>
+            <li>Keep visualizations simple and uncluttered.</li>
+            <li>Test your plots for readability and accessibility.</li>
+        </ul>
+    </section>
+
+    <!-- Common Pitfalls -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-red-700 flex items-center">
+            <span class="bg-red-100 text-red-600 p-2 rounded-lg mr-3">⚠️</span>
+            Common Pitfalls
+        </h2>
+        <ul
+            class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-red-300 shadow-md rounded-xl p-6 animate-fade-in">
+            <li>Using misleading axes or scales.</li>
+            <li>Overcomplicating charts with too much data or decoration.</li>
+            <li>Failing to provide context or explanations.</li>
+            <li>Ignoring colorblind accessibility.</li>
+            <li>Not testing visualizations on different devices or screen sizes.</li>
+        </ul>
+    </section>
+
+    <!-- Try it Yourself Section -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🧑‍💻</span>Try it
+            Yourself: Create a Bar Chart</h2>
+        <p class="mb-4 text-lg">Practice a real-world data visualization workflow: load data, create a bar chart, and
+            save it as an image using Matplotlib.</p>
+        <div id="code-editor-container" class="bg-gray-50 p-6 rounded-lg shadow-inner border border-gray-200"></div>
+        <script type="text/plain" id="default-code">
+import matplotlib.pyplot as plt
+
+# Sample data
+categories = ['A', 'B', 'C', 'D']
+values = [23, 45, 56, 78]
+
+# Create a bar chart
+plt.figure(figsize=(8, 5))
+plt.bar(categories, values, color='skyblue')
+plt.title('Category Values')
+plt.xlabel('Category')
+plt.ylabel('Value')
+plt.tight_layout()
+
+# Save the plot as a PNG file (browser compatible)
+plt.savefig('bar_chart.png')
+print("Plot saved as bar_chart.png")
+        </script>
+        <div class="mt-4 text-sm text-gray-600">
+            <strong>Note:</strong> Plot display (<code>plt.show()</code>) is not supported in the browser editor. To
+            view the chart, run this code in your local Python environment. In the browser, the plot will be saved as
+            <code>bar_chart.png</code> if supported.
+        </div>
+    </section>
+
+    <!-- Challenge: Mini Data Visualization Project -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-purple-700 flex items-center">
+            <span class="bg-purple-100 text-purple-600 p-2 rounded-lg mr-3">🏆</span>
+            Project Challenge: Exploratory Data Analysis Dashboard
+        </h2>
+        <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg border-l-4 border-purple-500">
+            <p class="text-lg leading-relaxed mb-4">
+                <strong>Scenario:</strong> Use a real-world dataset (e.g., from <a
+                    href="https://www.kaggle.com/datasets" class="text-blue-600 underline" target="_blank">Kaggle</a>)
+                to:
+            </p>
+            <ul class="list-decimal list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2">
+                <li>Load and explore the data with Pandas</li>
+                <li>Visualize distributions, relationships, and trends using Matplotlib, Seaborn, or Plotly</li>
+                <li>Build at least three different types of plots (e.g., bar, scatter, box, heatmap)</li>
+                <li>Customize your plots for clarity and impact</li>
+                <li>Document your findings and create a summary dashboard</li>
+            </ul>
+            <div class="bg-gray-900 p-4 rounded-lg mt-6">
+                <h3 class="text-white font-semibold mb-3">💡 Project Example Output:</h3>
+                <pre class="text-green-400 text-sm"><code>Dashboard created with 3+ plots
+Key insights summarized
+Visualizations are clear and well-labeled
+</code></pre>
+            </div>
+            <p class="text-md text-gray-600 mt-4">This project will help you master the art of data visualization and
+                storytelling with Python.</p>
+        </div>
+    </section>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+        <a href="#" onclick="loadLesson('lessons/data_science.html')"
+            class="flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous: Data Science
+        </a>
+        <a href="#" onclick="loadLesson('lessons/introduction_to_ai.html')"
+            class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+            Next: Introduction to AI
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </a>
+    </div>
+</div>

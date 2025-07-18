@@ -1,0 +1,414 @@
+<!-- This file contains ONLY the content for the "Deep Learning" lesson. -->
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+
+    <div class="mb-8">
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-4xl font-extrabold text-gray-900">62. Deep Learning</h1>
+            <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full whitespace-nowrap">Expert
+                Level</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-3 mb-6">
+            <!-- Progress bar: (62-57)/19 ≈ 26.3% for expert (lessons 58-76) -->
+            <div class="bg-red-500 h-3 rounded-full transition-all duration-300" style="width: 26.3%"></div>
+        </div>
+    </div>
+
+    <!-- Why Deep Learning Matters -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-blue-100 bg-opacity-80 backdrop-blur-md border-4 border-blue-300 shadow-lg rounded-full text-3xl text-blue-600 transition-transform duration-200 hover:scale-110 animate-fade-in">🧠</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-blue-50/80 to-white/80 backdrop-blur-md border-2 border-blue-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-blue-800 tracking-tight">Why Deep Learning Matters</h2>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong class="text-blue-600">Deep Learning</strong> is a subfield of machine learning based on
+                    artificial neural networks. It powers breakthroughs in computer vision, natural language processing,
+                    and generative AI.
+                </p>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong>Real-world applications:</strong>
+                <ul class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed">
+                    <li>Image and video recognition (e.g., facial recognition, object detection)</li>
+                    <li>Natural language understanding (e.g., translation, chatbots, sentiment analysis)</li>
+                    <li>Generative AI (e.g., text, images, music)</li>
+                    <li>Autonomous vehicles and robotics</li>
+                </ul>
+                </p>
+                <p class="text-lg leading-relaxed">
+                    Python, with <code>TensorFlow</code>, <code>Keras</code>, and <code>PyTorch</code>, is the leading
+                    language for deep learning development.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Concepts -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-green-100 bg-opacity-80 backdrop-blur-md border-4 border-green-300 shadow-lg rounded-full text-3xl text-green-600 transition-transform duration-200 hover:scale-110 animate-fade-in">💡</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-green-50/80 to-white/80 backdrop-blur-md border-2 border-green-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-green-800 tracking-tight">Key Concepts: Deep Learning in
+                    Python</h2>
+                <ul
+                    class="list-disc list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-green-300 shadow-md rounded-xl p-6 animate-fade-in">
+                    <li><strong class="text-green-600">Neural Networks:</strong> Layers of interconnected nodes
+                        (neurons) that learn complex patterns.</li>
+                    <li><strong class="text-green-600">Activation Functions:</strong> Non-linearities like ReLU,
+                        Sigmoid, and Tanh.</li>
+                    <li><strong class="text-green-600">Backpropagation:</strong> The algorithm for training neural
+                        networks by adjusting weights.</li>
+                    <li><strong class="text-green-600">Convolutional Neural Networks (CNNs):</strong> Specialized for
+                        image data.</li>
+                    <li><strong class="text-green-600">Recurrent Neural Networks (RNNs):</strong> Designed for
+                        sequential data (text, time series).</li>
+                    <li><strong class="text-green-600">Transformers:</strong> State-of-the-art for NLP and generative
+                        AI.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- TensorFlow/Keras Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span
+                class="mr-2">🖼️</span>TensorFlow/Keras: Build a CNN</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>Convolutional Neural Networks (CNNs)</strong> are the backbone of modern image recognition. This
+            example shows how to build a simple CNN for classifying handwritten digits from the MNIST dataset using
+            TensorFlow and Keras.
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dots flex gap-2">
+                    <div class="code-editor-dot-red"></div>
+                    <div class="code-editor-dot-yellow"></div>
+                    <div class="code-editor-dot-green"></div>
+                </div>
+                <span class="text-gray-400 text-xs">cnn_example.py</span>
+            </div>
+            <pre><code><span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">tensorflow</span> <span style="color: #ff79c6;">as</span> <span style="color: #8be9fd;">tf</span>
+<span style="color: #ff79c6;">from</span> <span style="color: #8be9fd;">tensorflow.keras</span> <span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">datasets, layers, models</span>
+
+<span style="color: #6272a4;"># Load and preprocess the data</span>
+(<span style="color: #8be9fd;">train_images</span>, <span style="color: #8be9fd;">train_labels</span>), (<span style="color: #8be9fd;">test_images</span>, <span style="color: #8be9fd;">test_labels</span>) <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">datasets</span>.<span style="color: #50fa7b;">mnist</span>.<span style="color: #50fa7b;">load_data</span>()
+<span style="color: #8be9fd;">train_images</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">train_images</span>.<span style="color: #50fa7b;">reshape</span>((<span style="color: #bd93f9;">60000</span>, <span style="color: #bd93f9;">28</span>, <span style="color: #bd93f9;">28</span>, <span style="color: #bd93f9;">1</span>)) / <span style="color: #bd93f9;">255.0</span>
+<span style="color: #8be9fd;">test_images</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">test_images</span>.<span style="color: #50fa7b;">reshape</span>((<span style="color: #bd93f9;">10000</span>, <span style="color: #bd93f9;">28</span>, <span style="color: #bd93f9;">28</span>, <span style="color: #bd93f9;">1</span>)) / <span style="color: #bd93f9;">255.0</span>
+
+<span style="color: #6272a4;"># Build the CNN model</span>
+<span style="color: #8be9fd;">model</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">models</span>.<span style="color: #50fa7b;">Sequential</span>([
+    <span style="color: #8be9fd;">layers</span>.<span style="color: #50fa7b;">Conv2D</span>(<span style="color: #bd93f9;">32</span>, (<span style="color: #bd93f9;">3</span>, <span style="color: #bd93f9;">3</span>), activation<span style="color: #ff79c6;">=</span><span style="color: #f1fa8c;">'relu'</span>, input_shape<span style="color: #ff79c6;">=</span>(<span style="color: #bd93f9;">28</span>, <span style="color: #bd93f9;">28</span>, <span style="color: #bd93f9;">1</span>)),
+    <span style="color: #8be9fd;">layers</span>.<span style="color: #50fa7b;">MaxPooling2D</span>((<span style="color: #bd93f9;">2</span>, <span style="color: #bd93f9;">2</span>)),
+    <span style="color: #8be9fd;">layers</span>.<span style="color: #50fa7b;">Conv2D</span>(<span style="color: #bd93f9;">64</span>, (<span style="color: #bd93f9;">3</span>, <span style="color: #bd93f9;">3</span>), activation<span style="color: #ff79c6;">=</span><span style="color: #f1fa8c;">'relu'</span>),
+    <span style="color: #8be9fd;">layers</span>.<span style="color: #50fa7b;">MaxPooling2D</span>((<span style="color: #bd93f9;">2</span>, <span style="color: #bd93f9;">2</span>)),
+    <span style="color: #8be9fd;">layers</span>.<span style="color: #50fa7b;">Flatten</span>(),
+    <span style="color: #8be9fd;">layers</span>.<span style="color: #50fa7b;">Dense</span>(<span style="color: #bd93f9;">64</span>, activation<span style="color: #ff79c6;">=</span><span style="color: #f1fa8c;">'relu'</span>),
+    <span style="color: #8be9fd;">layers</span>.<span style="color: #50fa7b;">Dense</span>(<span style="color: #bd93f9;">10</span>, activation<span style="color: #ff79c6;">=</span><span style="color: #f1fa8c;">'softmax'</span>)
+])
+
+<span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">"CNN Model built successfully!"</span>)
+<span style="color: #8be9fd;">model</span>.<span style="color: #50fa7b;">summary</span>()
+</code></pre>
+        </div>
+        <div class="bg-gray-900 p-4 rounded-lg">
+            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+            <pre class="text-green-400 text-sm"><code>CNN Model built successfully!
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ conv2d (Conv2D)             (None, 26, 26, 32)        320       
+                                                                 
+ max_pooling2d (MaxPooling2  (None, 13, 13, 32)        0         
+ D)                                                              
+                                                                 
+ conv2d_1 (Conv2D)           (None, 11, 11, 64)        18496     
+                                                                 
+ max_pooling2d_1 (MaxPoolin  (None, 5, 5, 64)          0         
+ g2D)                                                            
+                                                                 
+ flatten (Flatten)           (None, 1600)              0         
+                                                                 
+ dense (Dense)               (None, 64)                102464    
+                                                                 
+ dense_1 (Dense)             (None, 10)                650       
+                                                                 
+=================================================================
+Total params: 121,930
+Trainable params: 121,930
+Non-trainable params: 0
+_________________________________________________________________
+</code></pre>
+        </div>
+    </section>
+
+    <!-- PyTorch Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🔥</span>PyTorch:
+            Define a Neural Network</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>PyTorch</strong> is a popular deep learning library known for its flexibility and dynamic
+            computation graphs. Here is how you define a simple feedforward neural network for image classification.
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dots flex gap-2">
+                    <div class="code-editor-dot-red"></div>
+                    <div class="code-editor-dot-yellow"></div>
+                    <div class="code-editor-dot-green"></div>
+                </div>
+                <span class="text-gray-400 text-xs">pytorch_example.py</span>
+            </div>
+            <pre><code><span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">torch</span>
+<span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">torch.nn</span> <span style="color: #ff79c6;">as</span> <span style="color: #8be9fd;">nn</span>
+
+<span style="color: #8be9fd;">class</span> <span style="color: #50fa7b;">SimpleNet</span>(<span style="color: #8be9fd;">nn</span>.<span style="color: #50fa7b;">Module</span>):
+    <span style="color: #ff79c6;">def</span> <span style="color: #50fa7b;">__init__</span>(<span style="color: #8be9fd;">self</span>):
+        <span style="color: #8be9fd;">super</span>(<span style="color: #50fa7b;">SimpleNet</span>, <span style="color: #8be9fd;">self</span>).__init__()
+        <span style="color: #8be9fd;">self</span>.<span style="color: #50fa7b;">fc1</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">nn</span>.<span style="color: #50fa7b;">Linear</span>(<span style="color: #bd93f9;">784</span>, <span style="color: #bd93f9;">128</span>)
+        <span style="color: #8be9fd;">self</span>.<span style="color: #50fa7b;">relu</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">nn</span>.<span style="color: #50fa7b;">ReLU</span>()
+        <span style="color: #8be9fd;">self</span>.<span style="color: #50fa7b;">fc2</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">nn</span>.<span style="color: #50fa7b;">Linear</span>(<span style="color: #bd93f9;">128</span>, <span style="color: #bd93f9;">10</span>)
+    <span style="color: #ff79c6;">def</span> <span style="color: #50fa7b;">forward</span>(<span style="color: #8be9fd;">self</span>, <span style="color: #8be9fd;">x</span>):
+        <span style="color: #8be9fd;">x</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">self</span>.<span style="color: #50fa7b;">fc1</span>(<span style="color: #8be9fd;">x</span>)
+        <span style="color: #8be9fd;">x</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">self</span>.<span style="color: #50fa7b;">relu</span>(<span style="color: #8be9fd;">x</span>)
+        <span style="color: #8be9fd;">x</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">self</span>.<span style="color: #50fa7b;">fc2</span>(<span style="color: #8be9fd;">x</span>)
+        <span style="color: #ff79c6;">return</span> <span style="color: #8be9fd;">x</span>
+
+<span style="color: #8be9fd;">model</span> <span style="color: #ff79c6;">=</span> <span style="color: #50fa7b;">SimpleNet</span>()
+<span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">'PyTorch model defined!'</span>)
+</code></pre>
+        </div>
+        <div class="bg-gray-900 p-4 rounded-lg">
+            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+            <pre class="text-green-400 text-sm"><code>PyTorch model defined!
+</code></pre>
+        </div>
+    </section>
+
+    <!-- Transformers Section -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span
+                class="mr-2">🔗</span>Transformers: Modern NLP & Generative AI</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>Transformers</strong> are the foundation of state-of-the-art models for natural language processing
+            and generative AI (e.g., GPT, BERT, T5). They use self-attention mechanisms to model relationships in data,
+            enabling breakthroughs in translation, summarization, and text generation.
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dots flex gap-2">
+                    <div class="code-editor-dot-red"></div>
+                    <div class="code-editor-dot-yellow"></div>
+                    <div class="code-editor-dot-green"></div>
+                </div>
+                <span class="text-gray-400 text-xs">transformer_example.py</span>
+            </div>
+            <pre><code><span style="color: #ff79c6;">from</span> <span style="color: #8be9fd;">transformers</span> <span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">pipeline</span>
+
+<span style="color: #8be9fd;">generator</span> <span style="color: #ff79c6;">=</span> <span style="color: #50fa7b;">pipeline</span>(<span style="color: #f1fa8c;">"text-generation"</span>, model<span style="color: #ff79c6;">=</span><span style="color: #f1fa8c;">"gpt2"</span>)
+<span style="color: #50fa7b;">print</span>(<span style="color: #8be9fd;">generator</span>(<span style="color: #f1fa8c;">"Deep learning is"</span>, max_length<span style="color: #ff79c6;">=</span><span style="color: #bd93f9;">20</span>))
+</code></pre>
+        </div>
+        <div class="bg-gray-900 p-4 rounded-lg">
+            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+            <pre class="text-green-400 text-sm"><code>[{'generated_text': 'Deep learning is ...'}]
+</code></pre>
+        </div>
+    </section>
+
+    <!-- Transfer Learning Section -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🔄</span>Transfer
+            Learning: Leveraging Pre-trained Models</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>Transfer learning</strong> allows you to use models pre-trained on large datasets (like ImageNet)
+            and fine-tune them for your own tasks. This approach saves time, requires less data, and often achieves
+            better results.
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dots flex gap-2">
+                    <div class="code-editor-dot-red"></div>
+                    <div class="code-editor-dot-yellow"></div>
+                    <div class="code-editor-dot-green"></div>
+                </div>
+                <span class="text-gray-400 text-xs">transfer_learning.py</span>
+            </div>
+            <pre><code><span style="color: #ff79c6;">from</span> <span style="color: #8be9fd;">tensorflow.keras.applications</span> <span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">MobileNetV2</span>
+
+<span style="color: #8be9fd;">base_model</span> <span style="color: #ff79c6;">=</span> <span style="color: #50fa7b;">MobileNetV2</span>(weights<span style="color: #ff79c6;">=</span><span style="color: #f1fa8c;">'imagenet'</span>, include_top<span style="color: #ff79c6;">=</span><span style="color: #ff79c6;">False</span>)
+<span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">"Base model loaded. Ready for fine-tuning!"</span>)
+</code></pre>
+        </div>
+        <div class="bg-gray-900 p-4 rounded-lg">
+            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+            <pre class="text-green-400 text-sm"><code>Base model loaded. Ready for fine-tuning!
+</code></pre>
+        </div>
+    </section>
+
+    <!-- Model Evaluation & Metrics Section -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">📊</span>Model
+            Evaluation & Metrics</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            Evaluating deep learning models requires more than just accuracy. Common metrics include precision, recall,
+            F1-score, and confusion matrix. These help you understand model performance, especially on imbalanced
+            datasets.
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dots flex gap-2">
+                    <div class="code-editor-dot-red"></div>
+                    <div class="code-editor-dot-yellow"></div>
+                    <div class="code-editor-dot-green"></div>
+                </div>
+                <span class="text-gray-400 text-xs">metrics_example.py</span>
+            </div>
+            <pre><code><span style="color: #ff79c6;">from</span> <span style="color: #8be9fd;">sklearn.metrics</span> <span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">classification_report, confusion_matrix</span>
+
+<span style="color: #8be9fd;">y_true</span> <span style="color: #ff79c6;">=</span> [<span style="color: #bd93f9;">0</span>, <span style="color: #bd93f9;">1</span>, <span style="color: #bd93f9;">2</span>, <span style="color: #bd93f9;">2</span>, <span style="color: #bd93f9;">0</span>]
+<span style="color: #8be9fd;">y_pred</span> <span style="color: #ff79c6;">=</span> [<span style="color: #bd93f9;">0</span>, <span style="color: #bd93f9;">0</span>, <span style="color: #bd93f9;">2</span>, <span style="color: #bd93f9;">2</span>, <span style="color: #bd93f9;">1</span>]
+
+<span style="color: #50fa7b;">print</span>(<span style="color: #50fa7b;">confusion_matrix</span>(<span style="color: #8be9fd;">y_true</span>, <span style="color: #8be9fd;">y_pred</span>))
+<span style="color: #50fa7b;">print</span>(<span style="color: #50fa7b;">classification_report</span>(<span style="color: #8be9fd;">y_true</span>, <span style="color: #8be9fd;">y_pred</span>))
+</code></pre>
+        </div>
+        <div class="bg-gray-900 p-4 rounded-lg">
+            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+            <pre class="text-green-400 text-sm"><code>[[1 1 0]
+ [1 0 0]
+ [0 0 2]]
+
+              precision    recall  f1-score   support
+
+           0       0.50      0.50      0.50         2
+           1       0.00      0.00      0.00         1
+           2       1.00      1.00      1.00         2
+
+    accuracy                           0.60         5
+   macro avg       0.50      0.50      0.50         5
+weighted avg       0.60      0.60      0.60         5
+</code></pre>
+        </div>
+    </section>
+
+    <!-- Best Practices -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-blue-700 flex items-center">
+            <span class="bg-blue-100 text-blue-600 p-2 rounded-lg mr-3">✅</span>
+            Best Practices for Deep Learning
+        </h2>
+        <ul
+            class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-blue-300 shadow-md rounded-xl p-6 animate-fade-in">
+            <li>Start with pre-trained models (transfer learning) to save time and resources.</li>
+            <li>Normalize your input data to help the network learn effectively.</li>
+            <li>Use techniques like dropout and batch normalization to prevent overfitting.</li>
+            <li>Choose an appropriate optimizer (e.g., Adam) and tune the learning rate.</li>
+            <li>Monitor training and validation loss to diagnose issues.</li>
+        </ul>
+    </section>
+
+    <!-- Common Pitfalls -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-red-700 flex items-center">
+            <span class="bg-red-100 text-red-600 p-2 rounded-lg mr-3">⚠️</span>
+            Common Pitfalls
+        </h2>
+        <ul
+            class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-red-300 shadow-md rounded-xl p-6 animate-fade-in">
+            <li><strong>Vanishing/Exploding Gradients:</strong> Gradients become too small or large, hindering training.
+                Use ReLU activations, batch normalization, and careful initialization.</li>
+            <li><strong>Overfitting:</strong> The model performs well on training data but poorly on new data. Use
+                regularization, dropout, and more data.</li>
+            <li><strong>Computational Cost:</strong> Training deep models can be slow and expensive. Use GPUs/TPUs and
+                efficient architectures.</li>
+            <li><strong>Data Requirements:</strong> Deep learning models often require large labeled datasets to perform
+                well.</li>
+        </ul>
+    </section>
+
+    <!-- Try it Yourself Section -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🧑‍💻</span>Try it
+            Yourself: Build a Simple Neural Network</h2>
+        <p class="mb-4 text-lg">Practice building a simple neural network using TensorFlow/Keras. This code defines and
+            summarizes a model for MNIST digit classification.</p>
+        <div id="code-editor-container" class="bg-gray-50 p-6 rounded-lg shadow-inner border border-gray-200"></div>
+        <script type="text/plain" id="default-code">
+import tensorflow as tf
+from tensorflow.keras import layers, models
+
+def create_model():
+    model = models.Sequential([
+        layers.Flatten(input_shape=(28, 28)),
+        layers.Dense(128, activation='relu'),
+        layers.Dropout(0.2),
+        layers.Dense(10, activation='softmax')
+    ])
+    return model
+
+model = create_model()
+model.summary()
+print("\nModel created successfully. Ready for training with a dataset like MNIST.")
+        </script>
+        <div class="mt-4 text-sm text-gray-600">
+            <strong>Note:</strong> Training and external libraries like TensorFlow are not supported in the browser
+            editor. Run this code locally to see the full output and train the model.
+        </div>
+    </section>
+
+    <!-- Challenge: Mini Deep Learning Project -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-purple-700 flex items-center">
+            <span class="bg-purple-100 text-purple-600 p-2 rounded-lg mr-3">🏆</span>
+            Project Challenge: Image Classifier with CNN
+        </h2>
+        <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg border-l-4 border-purple-500">
+            <p class="text-lg leading-relaxed mb-4">
+                <strong>Scenario:</strong> Build, train, and evaluate a CNN to classify images from the CIFAR-10 dataset
+                (10 classes: airplane, car, bird, etc.).
+            </p>
+            <ul class="list-decimal list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2">
+                <li>Load the CIFAR-10 dataset from <code>tensorflow.keras.datasets.cifar10</code></li>
+                <li>Normalize the image data to be between 0 and 1</li>
+                <li>Build a CNN with at least two convolutional and two pooling layers</li>
+                <li>Compile the model with Adam optimizer and <code>SparseCategoricalCrossentropy</code> loss</li>
+                <li>Train and evaluate the model on test data</li>
+                <li>Aim for test accuracy above 70%</li>
+            </ul>
+            <div class="bg-gray-900 p-4 rounded-lg mt-6">
+                <h3 class="text-white font-semibold mb-3">💡 Project Example Output:</h3>
+                <pre class="text-green-400 text-sm"><code>Test accuracy: 0.72
+Model summary and evaluation metrics displayed
+</code></pre>
+            </div>
+            <p class="text-md text-gray-600 mt-4">This project will help you master deep learning for image
+                classification.</p>
+        </div>
+    </section>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+        <a href="#" onclick="loadLesson('lessons/machine_learning.html')"
+            class="flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous: Machine Learning
+        </a>
+        <a href="#" onclick="loadLesson('lessons/nlp.html')"
+            class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+            Next: NLP
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </a>
+    </div>
+</div>

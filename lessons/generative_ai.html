@@ -1,0 +1,210 @@
+<!-- This file contains ONLY the content for the "Generative AI" lesson. -->
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <div class="mb-8">
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-4xl font-extrabold text-gray-900">66. Generative AI</h1>
+            <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full whitespace-nowrap">Expert
+                Level</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-3 mb-6">
+            <!-- Progress bar: (66-57)/19 ≈ 47.4% for expert (lessons 58-76) -->
+            <div class="bg-red-500 h-3 rounded-full transition-all duration-300" style="width: 47.4%"></div>
+        </div>
+    </div>
+
+    <!-- Why Generative AI Matters -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-blue-100 bg-opacity-80 backdrop-blur-md border-4 border-blue-300 shadow-lg rounded-full text-3xl text-blue-600 transition-transform duration-200 hover:scale-110 animate-fade-in">🧠</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-blue-50/80 to-white/80 backdrop-blur-md border-2 border-blue-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-blue-800 tracking-tight">Why Generative AI Matters</h2>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong class="text-blue-600">Generative AI</strong> refers to models that can create new content,
+                    such as text, images, music, or code. It powers chatbots, image generators, and creative tools.
+                </p>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong>Real-world applications:</strong>
+                <ul class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed">
+                    <li>Text generation (e.g., GPT, chatbots)</li>
+                    <li>Image generation (e.g., DALL·E, Stable Diffusion)</li>
+                    <li>Music and art creation</li>
+                    <li>Code generation and completion</li>
+                </ul>
+                </p>
+                <p class="text-lg leading-relaxed">
+                    Python's <code>transformers</code>, <code>diffusers</code>, and <code>markovify</code> are popular
+                    libraries for generative AI.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Concepts -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-green-100 bg-opacity-80 backdrop-blur-md border-4 border-green-300 shadow-lg rounded-full text-3xl text-green-600 transition-transform duration-200 hover:scale-110 animate-fade-in">💡</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-green-50/80 to-white/80 backdrop-blur-md border-2 border-green-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-green-800 tracking-tight">Key Concepts: Generative AI</h2>
+                <ul
+                    class="list-disc list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-green-300 shadow-md rounded-xl p-6 animate-fade-in">
+                    <li><strong class="text-green-600">Language Models:</strong> Generate text by predicting the next
+                        word (e.g., GPT).</li>
+                    <li><strong class="text-green-600">Diffusion Models:</strong> Generate images by iteratively
+                        refining noise.</li>
+                    <li><strong class="text-green-600">GANs:</strong> Generative Adversarial Networks for images and
+                        more.</li>
+                    <li><strong class="text-green-600">Markov Chains:</strong> Simple probabilistic models for text
+                        generation.</li>
+                    <li><strong class="text-green-600">Prompt Engineering:</strong> Crafting inputs to guide generative
+                        models.</li>
+                    <li><strong class="text-green-600">Ethics & Bias:</strong> Responsible use and evaluation of
+                        generated content.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Text Generation Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">✍️</span>Text
+            Generation Example (Markov Chain)</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>Text generation</strong> can be done with simple probabilistic models. Here’s a basic Markov chain
+            text generator:
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dots flex gap-2">
+                    <div class="code-editor-dot-red"></div>
+                    <div class="code-editor-dot-yellow"></div>
+                    <div class="code-editor-dot-green"></div>
+                </div>
+                <span class="text-gray-400 text-xs">markov_text_example.py</span>
+            </div>
+            <pre><code><span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">random</span>
+
+<span style="color: #8be9fd;">words</span> <span style="color: #ff79c6;">=</span> [<span style="color: #f1fa8c;">'hello'</span>, <span style="color: #f1fa8c;">'world'</span>, <span style="color: #f1fa8c;">'python'</span>, <span style="color: #f1fa8c;">'ai'</span>]
+<span style="color: #8be9fd;">text</span> <span style="color: #ff79c6;">=</span> <span style="color: #f1fa8c;">''</span>
+<span style="color: #ff79c6;">for</span> <span style="color: #8be9fd;">_</span> <span style="color: #ff79c6;">in</span> <span style="color: #bd93f9;">5</span>:
+    <span style="color: #8be9fd;">text</span> <span style="color: #ff79c6;">+=</span> <span style="color: #8be9fd;">random.choice</span>(<span style="color: #8be9fd;">words</span>) <span style="color: #ff79c6;">+</span> <span style="color: #f1fa8c;">' '</span>
+<span style="color: #50fa7b;">print</span>(<span style="color: #8be9fd;">text</span>)
+</code></pre>
+        </div>
+        <div class="bg-gray-900 p-4 rounded-lg">
+            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+            <pre class="text-green-400 text-sm"><code>python ai hello world python 
+</code></pre>
+        </div>
+    </section>
+
+    <!-- Best Practices -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-blue-700 flex items-center">
+            <span class="bg-blue-100 text-blue-600 p-2 rounded-lg mr-3">✅</span>
+            Best Practices for Generative AI
+        </h2>
+        <ul
+            class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-blue-300 shadow-md rounded-xl p-6 animate-fade-in">
+            <li>Always review generated content for quality and safety.</li>
+            <li>Use temperature and randomness controls for diversity.</li>
+            <li>Document prompts and model settings.</li>
+            <li>Be transparent about AI-generated content.</li>
+            <li>Test on diverse inputs and edge cases.</li>
+        </ul>
+    </section>
+
+    <!-- Common Pitfalls -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-red-700 flex items-center">
+            <span class="bg-red-100 text-red-600 p-2 rounded-lg mr-3">⚠️</span>
+            Common Pitfalls
+        </h2>
+        <ul
+            class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-red-300 shadow-md rounded-xl p-6 animate-fade-in">
+            <li><strong>Bias in training data:</strong> Generated content may reflect unwanted biases.</li>
+            <li><strong>Overfitting to small datasets:</strong> Use large, diverse corpora for training.</li>
+            <li><strong>Ignoring copyright and ethical issues:</strong> Generated content may have legal implications.
+            </li>
+            <li><strong>Unrealistic expectations:</strong> Simple models have limited creativity and coherence.</li>
+        </ul>
+    </section>
+
+    <!-- Try it Yourself Section -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🧑‍💻</span>Try it
+            Yourself: Simple Text Generator</h2>
+        <p class="mb-4 text-lg">Practice writing a simple random text generator using Python's <code>random</code>
+            module.</p>
+        <div id="code-editor-container" class="bg-gray-50 p-6 rounded-lg shadow-inner border border-gray-200"></div>
+        <script type="text/plain" id="default-code">
+import random
+
+words = ['hello', 'world', 'python', 'ai']
+text = ''
+for _ in range(5):
+    text += random.choice(words) + ' '
+print(text)
+        </script>
+        <div class="mt-4 text-sm text-gray-600">
+            <strong>Note:</strong> For advanced generative AI, use libraries like <code>transformers</code> or
+            <code>diffusers</code> in your local environment.
+        </div>
+    </section>
+
+    <!-- Challenge: Generative AI Project -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-purple-700 flex items-center">
+            <span class="bg-purple-100 text-purple-600 p-2 rounded-lg mr-3">🏆</span>
+            Project Challenge: Build a Basic Chatbot
+        </h2>
+        <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg border-l-4 border-purple-500">
+            <p class="text-lg leading-relaxed mb-4">
+                <strong>Scenario:</strong> Build a basic chatbot that generates responses using a simple rule-based or
+                random approach. For advanced users, try using a pre-trained language model.
+            </p>
+            <ul class="list-decimal list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2">
+                <li>Define a set of possible responses</li>
+                <li>Randomly select or match responses to user input</li>
+                <li>Test your chatbot with different prompts</li>
+                <li>Document your approach and findings</li>
+            </ul>
+            <div class="bg-gray-900 p-4 rounded-lg mt-6">
+                <h3 class="text-white font-semibold mb-3">💡 Project Example Output:</h3>
+                <pre class="text-green-400 text-sm"><code>User: Hello!
+Bot: Hi there!
+
+User: Tell me about AI.
+Bot: AI stands for Artificial Intelligence.
+</code></pre>
+            </div>
+            <p class="text-md text-gray-600 mt-4">This project will help you understand the basics of generative models
+                and chatbot logic.</p>
+        </div>
+    </section>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+        <a href="#" onclick="loadLesson('lessons/reinforcement_learning.html')"
+            class="flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous: Reinforcement Learning
+        </a>
+        <a href="#" onclick="loadLesson('lessons/web_development.html')"
+            class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+            Next: Web Development
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </a>
+    </div>
+</div>

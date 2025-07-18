@@ -1,0 +1,403 @@
+<!-- This file contains ONLY the content for the "Logical and Comparison Operators" lesson. -->
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <div class="mb-8">
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-4xl font-extrabold text-gray-900">11. Logical and Comparison Operators</h1>
+            <span class="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">Beginner</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-2 mb-6">
+            <div class="bg-green-500 h-2 rounded-full" style="width: 52.4%"></div>
+        </div>
+    </div>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+            <span class="bg-indigo-100 text-indigo-600 p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+            </span>
+            Combining Conditions and Making Comparisons
+        </h2>
+        <p class="text-lg leading-relaxed mb-4">
+            In Python, <strong class="text-indigo-600">operators</strong> are special symbols that perform operations on
+            values and variables. We've already looked at arithmetic operators. Now, let's dive into **Comparison
+            Operators** (which you briefly saw in the Arithmetic & Comparison Operators lesson) and **Logical
+            Operators**, which are crucial for making decisions in your code.
+        </p>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+            <span class="bg-blue-100 text-blue-600 p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+            </span>
+            Comparison Operators (Revisit)
+        </h2>
+        <p class="text-lg leading-relaxed mb-4">
+            These operators compare two values and always return a Boolean result (`True` or `False`). They are the
+            foundation for conditional statements.
+        </p>
+        <div class="grid md:grid-cols-2 gap-6 mb-4">
+            <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                <h3 class="font-semibold text-gray-800 mb-3">Basic Comparisons:</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><code class="bg-gray-100 px-1 rounded">==</code> - Equal to</li>
+                    <li><code class="bg-gray-100 px-1 rounded">!=</code> - Not equal to</li>
+                    <li><code class="bg-gray-100 px-1 rounded">></code> - Greater than</li>
+                    <li><code class="bg-gray-100 px-1 rounded"><</code> - Less than</li>
+                    <li><code class="bg-gray-100 px-1 rounded">>=</code> - Greater than or equal to</li>
+                    <li><code class="bg-gray-100 px-1 rounded"><=</code> - Less than or equal to</li>
+                </ul>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                <h3 class="font-semibold text-gray-800 mb-3">String Comparisons:</h3>
+                <ul class="space-y-2 text-sm">
+                    <li>Strings are compared lexicographically</li>
+                    <li>Case-sensitive by default</li>
+                    <li>Use <code class="bg-gray-100 px-1 rounded">.lower()</code> for case-insensitive</li>
+                    <li>Numbers come before letters</li>
+                </ul>
+            </div>
+        </div>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dots flex gap-2">
+                    <div class="code-editor-dot-red"></div>
+                    <div class="code-editor-dot-yellow"></div>
+                    <div class="code-editor-dot-green"></div>
+                </div>
+                <span class="text-gray-400 text-xs">Comparison Example</span>
+            </div>
+            <pre><code><span style="color: #f8f8f2;">num1</span> <span style="color: #ff79c6;">=</span> <span style="color: #bd93f9;">15</span>
+<span style="color: #f8f8f2;">num2</span> <span style="color: #ff79c6;">=</span> <span style="color: #bd93f9;">10</span>
+<span style="color: #f8f8f2;">string1</span> <span style="color: #ff79c6;">=</span> <span style="color: #f1fa8c;">"hello"</span>
+<span style="color: #f8f8f2;">string2</span> <span style="color: #ff79c6;">=</span> <span style="color: #f1fa8c;">"Hello"</span>
+
+<span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">f"{num1} == {num2}: {num1 == num2}"</span><span style="color: #ff79c6;">)</span>
+<span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">f"{num1} != {num2}: {num1 != num2}"</span><span style="color: #ff79c6;">)</span>
+<span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">f"{num1} > {num2}: {num1 > num2}"</span><span style="color: #ff79c6;">)</span>
+<span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">f"{string1} == {string2}: {string1 == string2}"</span><span style="color: #ff79c6;">)</span> <span style="color: #6272a4;"># Case sensitive!</span>
+<span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">f"{string1.lower()} == {string2.lower()}: {string1.lower() == string2.lower()}"</span><span style="color: #ff79c6;">)</span>
+            </code></pre>
+        </div>
+        <div
+            class="example-output bg-gray-100 p-2 sm:p-4 rounded-lg mt-2 border-l-4 border-green-500 w-full max-w-full">
+            <h4 class="font-semibold text-gray-800 mb-2 flex items-center">
+                <span class="text-green-600 mr-2">📤</span>
+                Expected Output:
+            </h4>
+            <pre
+                class="bg-gray-800 text-green-400 p-2 sm:p-4 rounded text-xs sm:text-sm overflow-x-auto w-full max-w-full">15 == 10: False
+15 != 10: True
+15 > 10: True
+hello == Hello: False
+hello == hello: True</pre>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+            <span class="bg-green-100 text-green-600 p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M7 16l-4-4m0 0l4-4m-4 4h18"></path>
+                </svg>
+            </span>
+            Logical Operators
+        </h2>
+        <p class="text-lg leading-relaxed mb-4">
+            Logical operators are used to combine conditional statements (expressions that evaluate to `True` or
+            `False`) and return a Boolean result. They are essential for building more complex decision-making logic in
+            your programs.
+        </p>
+        <div class="grid md:grid-cols-3 gap-6 mb-4">
+            <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                <h3 class="font-semibold text-gray-800 mb-3">AND Operator:</h3>
+                <p class="text-sm text-gray-600 mb-2">Returns <code class="bg-gray-100 px-1 rounded">True</code> if BOTH
+                    conditions are true.</p>
+                <div class="bg-gray-100 p-2 rounded text-xs">
+                    <code>True and True = True</code><br>
+                    <code>True and False = False</code><br>
+                    <code>False and False = False</code>
+                </div>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                <h3 class="font-semibold text-gray-800 mb-3">OR Operator:</h3>
+                <p class="text-sm text-gray-600 mb-2">Returns <code class="bg-gray-100 px-1 rounded">True</code> if AT
+                    LEAST ONE condition is true.</p>
+                <div class="bg-gray-100 p-2 rounded text-xs">
+                    <code>True or True = True</code><br>
+                    <code>True or False = True</code><br>
+                    <code>False or False = False</code>
+                </div>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                <h3 class="font-semibold text-gray-800 mb-3">NOT Operator:</h3>
+                <p class="text-sm text-gray-600 mb-2">Reverses the boolean result.</p>
+                <div class="bg-gray-100 p-2 rounded text-xs">
+                    <code>not True = False</code><br>
+                    <code>not False = True</code>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+            <span class="bg-purple-100 text-purple-600 p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </span>
+            Examples of Logical Operators
+        </h2>
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h3 class="text-xl font-medium mb-2 text-gray-700">Real-World Examples:</h3>
+            <div class="code-editor-example mb-4">
+                <div class="code-editor-bar">
+                    <div class="code-editor-dots flex gap-2">
+                        <div class="code-editor-dot-red"></div>
+                        <div class="code-editor-dot-yellow"></div>
+                        <div class="code-editor-dot-green"></div>
+                    </div>
+                    <span class="text-gray-400 text-xs">Logical Operators Example</span>
+                </div>
+                <pre><code><span style="color: #6272a4;"># --- AND operator ---</span>
+<span style="color: #f8f8f2;">age</span> <span style="color: #ff79c6;">=</span> <span style="color: #bd93f9;">25</span>
+<span style="color: #f8f8f2;">has_license</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">True</span>
+
+<span style="color: #ff79c6;">if</span> <span style="color: #f8f8f2;">age</span> <span style="color: #ff79c6;">>=</span> <span style="color: #bd93f9;">18</span> <span style="color: #ff79c6;">and</span> <span style="color: #f8f8f2;">has_license</span><span style="color: #ff79c6;">:</span>
+    <span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">"You can drive."</span><span style="color: #ff79c6;">)</span>
+<span style="color: #ff79c6;">else</span><span style="color: #ff79c6;">:</span>
+    <span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">"You cannot drive."</span><span style="color: #ff79c6;">)</span>
+
+<span style="color: #6272a4;"># --- OR operator ---</span>
+<span style="color: #f8f8f2;">is_weekend</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">True</span>
+<span style="color: #f8f8f2;">has_holiday</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">False</span>
+
+<span style="color: #ff79c6;">if</span> <span style="color: #f8f8f2;">is_weekend</span> <span style="color: #ff79c6;">or</span> <span style="color: #f8f8f2;">has_holiday</span><span style="color: #ff79c6;">:</span>
+    <span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">"It's time to relax!"</span><span style="color: #ff79c6;">)</span>
+<span style="color: #ff79c6;">else</span><span style="color: #ff79c6;">:</span>
+    <span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">"It's a workday."</span><span style="color: #ff79c6;">)</span>
+
+<span style="color: #6272a4;"># --- NOT operator ---</span>
+<span style="color: #f8f8f2;">is_raining</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">False</span>
+<span style="color: #ff79c6;">if</span> <span style="color: #ff79c6;">not</span> <span style="color: #f8f8f2;">is_raining</span><span style="color: #ff79c6;">:</span>
+    <span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">"It's not raining, go outside!"</span><span style="color: #ff79c6;">)</span>
+<span style="color: #ff79c6;">else</span><span style="color: #ff79c6;">:</span>
+    <span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">"It's raining, stay inside."</span><span style="color: #ff79c6;">)</span>
+            </code></pre>
+            </div>
+        </div>
+        <div class="example-output bg-gray-100 p-4 rounded-lg mt-2 border-l-4 border-green-500">
+            <h4 class="font-semibold text-gray-800 mb-2 flex items-center">
+                <span class="text-green-600 mr-2">📤</span>
+                Expected Output:
+            </h4>
+            <pre class="bg-gray-800 text-green-400 p-3 rounded text-sm overflow-x-auto">You can drive.
+It's time to relax!
+It's not raining, go outside!</pre>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+            <span class="bg-yellow-100 text-yellow-600 p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                    </path>
+                </svg>
+            </span>
+            Operator Precedence
+        </h2>
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-4">
+            <h3 class="text-xl font-medium mb-2 text-gray-700">Order of Operations:</h3>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <h4 class="font-semibold text-gray-800 mb-2">High Priority:</h4>
+                    <ul class="space-y-1 text-sm">
+                        <li>• <code class="bg-gray-100 px-1 rounded">not</code></li>
+                        <li>• <code class="bg-gray-100 px-1 rounded">and</code></li>
+                        <li>• <code class="bg-gray-100 px-1 rounded">or</code></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-gray-800 mb-2">Use Parentheses:</h4>
+                    <p class="text-sm text-gray-600">When in doubt, use parentheses to make the order clear:</p>
+                    <div class="bg-gray-100 p-2 rounded text-xs mt-2">
+                        <code>(a and b) or (c and d)</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+            <span class="bg-indigo-100 text-indigo-600 p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+            </span>
+            Try it Yourself!
+        </h2>
+        <p class="text-lg leading-relaxed mb-4">
+            Experiment with different combinations of conditions using comparison and logical operators.
+        </p>
+
+        <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 mb-4">
+            <h3 class="font-semibold text-gray-800 mb-3">Practice with Logical Operators:</h3>
+            <textarea id="code-editor"
+                class="w-full h-64 p-4 font-mono text-sm bg-gray-900 text-green-400 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"># Your code goes here
+score = 75
+attendance = 90
+
+# Check if student passed (score >= 60 AND attendance >= 80)
+if score >= 60 and attendance >= 80:
+    print("Student passed the course!")
+else:
+    print("Student did not pass the course.")
+
+print("\n--- Another example ---")
+is_member = True
+has_coupon = False
+total_bill = 120
+
+# Check for discount (member OR has coupon AND bill > 100)
+if (is_member or has_coupon) and total_bill > 100:
+    print("You qualify for a discount!")
+else:
+    print("No discount applied.")
+
+# Try changing the variables above to see different results!
+# What if the bill was 80?
+# What if is_member was False and has_coupon was True?</textarea>
+            <div class="mt-4 flex space-x-4">
+                <button id="run-button"
+                    class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-200">
+                    ▶ Run Code
+                </button>
+                <button
+                    class="bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-200">
+                    ↺ Reset
+                </button>
+            </div>
+        </div>
+
+        <div class="bg-white border border-gray-200 rounded-lg p-4">
+            <h3 class="font-semibold text-gray-800 mb-2">Output:</h3>
+            <div id="output" class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm min-h-[60px]">
+                Click "Run Code" to see the output here...
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenge/Homework Section -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+            <span class="bg-red-100 text-red-600 p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z">
+                    </path>
+                </svg>
+            </span>
+            🏆 Challenge: Advanced Access Control System
+        </h2>
+        <div class="bg-gradient-to-r from-red-50 to-pink-50 p-6 rounded-lg border-l-4 border-red-500">
+            <p class="text-lg leading-relaxed mb-4">
+                <strong>Project Goal:</strong> Create a sophisticated access control system that uses logical operators
+                to determine user permissions and access levels based on multiple criteria.
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                    <h3 class="font-semibold text-gray-800 mb-3">📋 Requirements:</h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li>• Check user age and membership status</li>
+                        <li>• Verify payment status and subscription level</li>
+                        <li>• Use AND, OR, NOT operators for complex logic</li>
+                        <li>• Implement different access levels (Basic, Premium, VIP)</li>
+                        <li>• Handle special cases (admin override, trial users)</li>
+                        <li>• Provide detailed access reports</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                    <h3 class="font-semibold text-gray-800 mb-3">🎯 Bonus Challenges:</h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li>• Add time-based access restrictions</li>
+                        <li>• Implement role-based permissions</li>
+                        <li>• Create a security audit log</li>
+                        <li>• Add emergency access protocols</li>
+                        <li>• Build a permission hierarchy system</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-gray-900 p-4 rounded-lg">
+                <h3 class="text-white font-semibold mb-3">💡 Sample Output:</h3>
+                <pre class="text-green-400 text-sm"><code>=== Access Control System ===
+👤 User: John Doe (Age: 25)
+💳 Membership: Premium (Active)
+💰 Payment: Up to date
+⏰ Time: 14:30 (Business hours)
+
+🔐 Access Level: PREMIUM
+✅ Can access: All features
+✅ Can download: Unlimited
+✅ Can share: Yes
+✅ Priority support: Yes
+
+🔒 Security Check: PASSED
+✅ Age verification: OK
+✅ Payment status: OK
+✅ Membership active: OK
+✅ Business hours: OK
+
+📊 Access Summary:
+   • Basic features: ✅
+   • Premium features: ✅
+   • VIP features: ❌ (Requires VIP membership)
+   • Admin features: ❌ (Admin only)
+========================</code></pre>
+            </div>
+
+            <div class="mt-6 bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg">
+                <p class="text-yellow-800 text-sm">
+                    <strong>💪 Challenge yourself:</strong> Create a comprehensive access control system that handles
+                    edge cases!
+                    Use all logical operators (AND, OR, NOT) to build complex permission logic that's both secure and
+                    user-friendly.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+        <a href="#" onclick="loadLesson('lessons/control_flow.html')"
+            class="flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous: Conditional Statements
+        </a>
+        <div class="text-gray-600">
+            <span class="text-sm">Lesson 11 of 71</span>
+        </div>
+        <a href="#" onclick="loadLesson('lessons/lists.html')"
+            class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+            Next: Lists
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </a>
+    </div>
+</div>

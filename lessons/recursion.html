@@ -1,0 +1,259 @@
+<!-- This file contains ONLY the content for the "Recursion" lesson. -->
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <div class="mb-8">
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-4xl font-extrabold text-gray-900">36. Recursion</h1>
+            <span class="bg-orange-100 text-orange-800 text-sm font-medium px-3 py-1 rounded-full">Intermediate
+                Level</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-3 mb-6">
+            <!-- Progress bar: (36-21)/18 = 83.3% for intermediate (lessons 22-39) -->
+            <div class="bg-gradient-to-r from-orange-500 to-red-500 h-3 rounded-full transition-all duration-300"
+                style="width: 83.3%"></div>
+        </div>
+    </div>
+
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-blue-100 bg-opacity-80 backdrop-blur-md border-4 border-blue-300 shadow-lg rounded-full text-3xl text-blue-600 transition-transform duration-200 hover:scale-110 animate-fade-in">🔄</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-blue-50/80 to-white/80 backdrop-blur-md border-2 border-blue-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-blue-800 tracking-tight">What is Recursion?</h2>
+                <p class="text-lg leading-relaxed mb-2">
+                    <strong class="text-blue-700">Recursion</strong> is a programming technique where a function calls
+                    itself, either directly or indirectly, to solve a problem. It's a powerful approach for problems
+                    that can be broken down into smaller, self-similar sub-problems.
+                </p>
+                <p class="text-lg leading-relaxed mb-0">
+                    Every recursive function must have two main parts:
+                </p>
+                <ul
+                    class="list-disc list-inside ml-4 mt-2 text-lg leading-relaxed bg-white/90 border-l-4 border-blue-300 shadow-md rounded-xl p-6 animate-fade-in">
+                    <li><strong class="text-blue-700">Base Case:</strong> This is the condition that stops the
+                        recursion. Without a base case, the function would call itself indefinitely, leading to an
+                        infinite loop and eventually a <code>RecursionError</code> (stack overflow).</li>
+                    <li><strong class="text-blue-700">Recursive Step:</strong> This is where the function calls itself
+                        with a modified input, moving closer to the base case.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-blue-100 bg-opacity-80 backdrop-blur-md border-4 border-blue-300 shadow-lg rounded-full text-3xl text-blue-600 transition-transform duration-200 hover:scale-110 animate-fade-in">💡</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-blue-50/80 to-white/80 backdrop-blur-md border-2 border-blue-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-blue-800 tracking-tight">Why Use Recursion?</h2>
+                <p class="text-lg leading-relaxed mb-4">
+                    Recursion can make code more elegant and easier to understand for certain types of problems that
+                    have a naturally recursive structure. Common applications include:
+                </p>
+                <ul
+                    class="list-disc list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-blue-300 shadow-md rounded-xl p-6 animate-fade-in">
+                    <li>Traversing tree-like data structures (e.g., file systems, XML/HTML parsing).</li>
+                    <li>Solving mathematical problems like factorial calculation, Fibonacci sequence.</li>
+                    <li>Backtracking algorithms (e.g., solving mazes, N-Queens problem).</li>
+                </ul>
+                <p class="text-lg leading-relaxed mt-4">
+                    However, recursion can sometimes be less efficient than iterative solutions (using loops) due to the
+                    overhead of function calls and memory usage on the call stack.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-blue-100 bg-opacity-80 backdrop-blur-md border-4 border-blue-300 shadow-lg rounded-full text-3xl text-blue-600 transition-transform duration-200 hover:scale-110 animate-fade-in">✍️</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-blue-50/80 to-white/80 backdrop-blur-md border-2 border-blue-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-blue-800 tracking-tight">Recursion Example: Factorial</h2>
+                <div class="bg-white/90 border-2 border-blue-200 shadow-xl rounded-2xl p-0 mb-8 animate-fade-in">
+                    <div class="p-8 pb-4">
+                        <div class="flex items-center mb-3">
+                            <span class="text-blue-500 text-xl mr-2">💡</span>
+                            <h3 class="text-xl font-semibold text-blue-800">Example: Calculating Factorial Recursively
+                            </h3>
+                        </div>
+                        <div class="code-editor-example mb-6 rounded-2xl">
+                            <div class="code-editor-bar">
+                                <div class="code-editor-dots flex gap-1">
+                                    <div class="code-editor-dot-red"></div>
+                                    <div class="code-editor-dot-yellow"></div>
+                                    <div class="code-editor-dot-green"></div>
+                                </div>
+                            </div>
+                            <span class="text-gray-400 text-xs">factorial_recursion.py</span>
+                            <pre><code><span style="color: #6272a4;"># Factorial of a non-negative integer n is the product of all positive integers less than or equal to n.</span>
+<span style="color: #6272a4;"># Example: 5! = 5 * 4 * 3 * 2 * 1 = 120</span>
+<span style="color: #6272a4;"># Recursive definition: n! = n * (n-1)!</span>
+<span style="color: #6272a4;"># Base case: 0! = 1</span>
+
+<span style="color: #ff79c6;">def</span> <span style="color: #50fa7b;">factorial</span>(<span style="color: #f8f8f2;">n</span>):
+    <span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">f"Calculating factorial({n})..."</span>)
+    <span style="color: #ff79c6;">if</span> <span style="color: #f8f8f2;">n</span> <span style="color: #ff79c6;">==</span> <span style="color: #bd93f9;">0</span>:
+        <span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">f"Base case reached: factorial(0) = 1"</span>)
+        <span style="color: #ff79c6;">return</span> <span style="color: #bd93f9;">1</span>  <span style="color: #6272a4;"># Base case</span>
+    <span style="color: #ff79c6;">else</span>:
+        <span style="color: #f8f8f2;">result</span> <span style="color: #ff79c6;">=</span> <span style="color: #f8f8f2;">n</span> <span style="color: #ff79c6;">*</span> <span style="color: #50fa7b;">factorial</span>(<span style="color: #f8f8f2;">n</span> <span style="color: #ff79c6;">-</span> <span style="color: #bd93f9;">1</span>) <span style="color: #6272a4;"># Recursive step</span>
+        <span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">f"Returning {n} * factorial({n-1}) = {result}"</span>)
+        <span style="color: #ff79c6;">return</span> <span style="color: #f8f8f2;">result</span>
+
+<span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">"\n--- Factorial of 3 ---"</span>)
+<span style="color: #f8f8f2;">fact_3</span> <span style="color: #ff79c6;">=</span> <span style="color: #50fa7b;">factorial</span>(<span style="color: #bd93f9;">3</span>)
+<span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">f"Factorial of 3 is: {fact_3}"</span>)
+
+<span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">"\n--- Factorial of 5 ---"</span>)
+<span style="color: #f8f8f2;">fact_5</span> <span style="color: #ff79c6;">=</span> <span style="color: #50fa7b;">factorial</span>(<span style="color: #bd93f9;">5</span>)
+<span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">f"Factorial of 5 is: {fact_5}"</span>)
+</code></pre>
+                        </div>
+                    </div>
+                    <div class="bg-gray-900 p-4 rounded-2xl mt-4">
+                        <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+                        <pre class="text-green-400 text-sm"><code>--- Factorial of 3 ---
+Calculating factorial(3)...
+Calculating factorial(2)...
+Calculating factorial(1)...
+Calculating factorial(0)...
+Base case reached: factorial(0) = 1
+Returning 1 * factorial(0) = 1
+Returning 2 * factorial(1) = 2
+Returning 3 * factorial(2) = 6
+Factorial of 3 is: 6
+
+--- Factorial of 5 ---
+Calculating factorial(5)...
+Calculating factorial(4)...
+Calculating factorial(3)...
+Calculating factorial(2)...
+Calculating factorial(1)...
+Calculating factorial(0)...
+Base case reached: factorial(0) = 1
+Returning 1 * factorial(0) = 1
+Returning 2 * factorial(1) = 2
+Returning 3 * factorial(2) = 6
+Returning 4 * factorial(3) = 24
+Returning 5 * factorial(4) = 120
+Factorial of 5 is: 120
+</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-green-700 flex items-center">
+            <span class="bg-green-100 text-green-600 p-2 rounded-lg mr-3">🧪</span>
+            Try it Yourself
+        </h2>
+        <div class="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl p-6 shadow-sm mb-6">
+            <p class="text-lg leading-relaxed mb-4">
+                Implement a recursive function to calculate the Nth Fibonacci number. The Fibonacci sequence starts with
+                0 and 1, and each subsequent number is the sum of the two preceding ones (e.g., 0, 1, 1, 2, 3, 5, 8...).
+                <br>
+                <strong class="text-red-500">Hint:</strong> The base cases are <code
+                    class="font-mono bg-gray-100 px-1 py-0.5 rounded">F(0) = 0</code> and <code
+                    class="font-mono bg-gray-100 px-1 py-0.5 rounded">F(1) = 1</code>.
+            </p>
+        </div>
+        <!-- Code Editor Area -->
+        <div id="code-editor-container" class="bg-gray-50 p-6 rounded-lg shadow-inner border border-gray-200"></div>
+        <script type="text/plain" id="default-code">
+# Your code goes here
+
+def fibonacci(n):
+    """
+    Calculates the Nth Fibonacci number recursively.
+    Base cases:
+    fibonacci(0) = 0
+    fibonacci(1) = 1
+    """
+    if n <= 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibonacci(n - 1) + fibonacci(n - 2)
+
+print("--- Fibonacci Sequence ---")
+for i in range(10):
+    print(f"Fibonacci({i}) = {fibonacci(i)}")
+
+print("\nFibonacci(7) should be 13:")
+print(f"Result: {fibonacci(7)}")
+
+print("\nFibonacci(10) should be 55:")
+print(f"Result: {fibonacci(10)}")
+        </script>
+    </section>
+
+    <!-- Challenge Section -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-orange-700 flex items-center">
+            <span class="bg-orange-100 text-orange-600 p-2 rounded-lg mr-3">🏆</span>
+            Challenge: Recursive Maze Solver
+        </h2>
+        <div class="bg-gradient-to-r from-orange-50 to-pink-50 p-6 rounded-lg border-l-4 border-orange-500">
+            <p class="text-lg leading-relaxed mb-4">
+                <strong>Very Hard Challenge:</strong> Write a <span class="font-bold text-orange-700">recursive maze
+                    solver</span> that finds a path from the start to the end in a 2D maze represented as a grid. Your
+                function should:
+            </p>
+            <ul class="list-decimal list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2">
+                <li>Accept a 2D list (matrix) representing the maze, with 0 for open paths and 1 for walls.</li>
+                <li>Return the path as a list of coordinates from start to end, or indicate if no path exists.</li>
+                <li>Demonstrate with a sample maze and print the solution path.</li>
+                <li>Bonus: Find all possible paths, or the shortest path.</li>
+            </ul>
+            <div class="bg-gray-900 p-4 rounded-lg mt-6">
+                <h3 class="text-white font-semibold mb-3">💡 Sample Output:</h3>
+                <pre class="text-green-400 text-sm"><code>Maze:
+0 1 0 0 0
+0 1 0 1 0
+0 0 0 1 0
+1 1 0 1 0
+0 0 0 0 0
+
+Path found:
+[(0, 0), (1, 0), (2, 0), (2, 1), (2, 2), (3, 2), (4, 2), (4, 3), (4, 4)]
+</code></pre>
+            </div>
+            <p class="text-md text-gray-600 mt-4">This challenge is open-ended and requires advanced recursion,
+                backtracking, and pathfinding. Focus on clarity, correctness, and demonstrating mastery of recursive
+                problem solving.</p>
+        </div>
+    </section>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+        <a href="#" onclick="loadLesson('lessons/decorators.html')"
+            class="flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous: Decorators
+        </a>
+        <div class="text-gray-600">
+            <span class="text-sm">Lesson 36 of 71</span>
+        </div>
+        <a href="#" onclick="loadLesson('lessons/regex.html')"
+            class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+            Next: Regular Expressions (re module)
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </a>
+    </div>
+</div>

@@ -1,0 +1,233 @@
+<!-- This file contains ONLY the content for the "Packaging and Distribution (setup.py, PyPI)" lesson. -->
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <div class="mb-8">
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-4xl font-extrabold text-gray-900">47. Packaging and Distribution (setup.py, PyPI)</h1>
+            <span
+                class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full whitespace-nowrap">Advanced
+                Level</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-3 mb-6">
+            <!-- Progress bar: (47-39)/18 = 44.4% for advanced (lessons 40-57) -->
+            <div class="bg-gradient-to-r from-indigo-500 to-purple-500 h-3 rounded-full transition-all duration-300"
+                style="width: 44.4%"></div>
+        </div>
+    </div>
+
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-blue-100 bg-opacity-80 backdrop-blur-md border-4 border-blue-300 shadow-lg rounded-full text-3xl text-blue-600 transition-transform duration-200 hover:scale-110 animate-fade-in">📦</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-blue-50/80 to-white/80 backdrop-blur-md border-2 border-blue-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-blue-800 tracking-tight">Why Packaging & Distribution
+                    Matter</h2>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong class="text-blue-600">Packaging</strong> is the process of preparing your Python code so it
+                    can be easily installed and reused by others. <strong>Distribution</strong> means sharing your
+                    package with the world—often by uploading it to the Python Package Index (<a
+                        href="https://pypi.org/" class="text-indigo-600 underline" target="_blank">PyPI</a>).
+                </p>
+                <p class="text-lg leading-relaxed mb-4">
+                    Professional Python projects are almost always packaged for reuse, versioning, and easy
+                    installation. Learning to package and distribute your code is essential for open source, team
+                    projects, and even private deployments.
+                </p>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong>Real-world scenarios:</strong>
+                <ul class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed">
+                    <li>Publishing a library for others to use (e.g., on PyPI)</li>
+                    <li>Sharing internal tools within your company</li>
+                    <li>Versioning and dependency management for large projects</li>
+                    <li>Automating deployment and installation in CI/CD pipelines</li>
+                </ul>
+                </p>
+                <p class="text-lg leading-relaxed">
+                    Python packaging is evolving, but <code
+                        class="font-mono bg-gray-100 px-1 py-0.5 rounded">setup.py</code> and <code
+                        class="font-mono bg-gray-100 px-1 py-0.5 rounded">pyproject.toml</code> are the most common ways
+                    to define your package.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-blue-100 bg-opacity-80 backdrop-blur-md border-4 border-blue-300 shadow-lg rounded-full text-3xl text-blue-600 transition-transform duration-200 hover:scale-110 animate-fade-in">💡</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-blue-50/80 to-white/80 backdrop-blur-md border-2 border-blue-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-blue-800 tracking-tight">Key Concepts: setup.py & PyPI</h2>
+                <ul
+                    class="list-disc list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-blue-300 shadow-md rounded-xl p-6 animate-fade-in">
+                    <li><strong class="text-blue-600">setup.py:</strong> The traditional file for defining your
+                        package's metadata, dependencies, and entry points. Used by <code>setuptools</code>.</li>
+                    <li><strong class="text-blue-600">pyproject.toml:</strong> The modern standard for Python packaging.
+                        Used by tools like <code>poetry</code> and <code>flit</code>, and now supported by
+                        <code>pip</code>.
+                    </li>
+                    <li><strong class="text-blue-600">MANIFEST.in:</strong> Specifies extra files to include in your
+                        package (e.g., README, data files).</li>
+                    <li><strong class="text-blue-600">Building & Uploading:</strong> Use
+                        <code>python setup.py sdist bdist_wheel</code> and <code>twine upload</code> to build and upload
+                        your package to PyPI.
+                    </li>
+                    <li><strong class="text-blue-600">Versioning:</strong> Use semantic versioning (<code>1.2.3</code>)
+                        to track changes and releases.</li>
+                </ul>
+                <div class="mt-6">
+                    <h3 class="text-xl font-semibold text-blue-800 mb-2">Example: Minimal setup.py</h3>
+                    <div class="code-editor-example mb-6 rounded-2xl">
+                        <div class="code-editor-bar">
+                            <div class="code-editor-dots flex gap-1">
+                                <div class="code-editor-dot-red"></div>
+                                <div class="code-editor-dot-yellow"></div>
+                                <div class="code-editor-dot-green"></div>
+                            </div>
+                        </div>
+                        <span class="text-gray-400 text-xs">setup.py</span>
+                        <pre><code><span style="color: #6272a4;">from</span> <span style="color: #f8f8f2;">setuptools</span> <span style="color: #6272a4;">import</span> <span style="color: #50fa7b;">setup</span>, <span style="color: #50fa7b;">find_packages</span>
+
+<span style="color: #50fa7b;">setup</span>(
+    <span style="color: #f1fa8c;">name</span><span style="color: #ff79c6;">=</span><span style="color: #f1fa8c;">"mycoolpackage"</span>,
+    <span style="color: #f1fa8c;">version</span><span style="color: #ff79c6;">=</span><span style="color: #f1fa8c;">"0.1.0"</span>,
+    <span style="color: #f1fa8c;">packages</span><span style="color: #ff79c6;">=</span><span style="color: #50fa7b;">find_packages</span>(),
+    <span style="color: #f1fa8c;">install_requires</span><span style="color: #ff79c6;">=</span>[<span style="color: #f1fa8c;">"requests"</span>],
+    <span style="color: #f1fa8c;">author</span><span style="color: #ff79c6;">=</span><span style="color: #f1fa8c;">"Your Name"</span>,
+    <span style="color: #f1fa8c;">description</span><span style="color: #ff79c6;">=</span><span style="color: #f1fa8c;">"A cool Python package"</span>,
+)
+</code></pre>
+                    </div>
+                    <div class="bg-gray-900 p-4 rounded-2xl mt-4">
+                        <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+                        <pre class="text-green-400 text-sm"><code>Package metadata is defined. Run:
+python setup.py sdist bdist_wheel
+twine upload dist/*
+</code></pre>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <h3 class="text-xl font-semibold text-blue-800 mb-2">Example: pyproject.toml (Modern)</h3>
+                    <div class="code-editor-example mb-6 rounded-2xl">
+                        <div class="code-editor-bar">
+                            <div class="code-editor-dots flex gap-1">
+                                <div class="code-editor-dot-red"></div>
+                                <div class="code-editor-dot-yellow"></div>
+                                <div class="code-editor-dot-green"></div>
+                            </div>
+                        </div>
+                        <span class="text-gray-400 text-xs">pyproject.toml</span>
+                        <pre><code><span style="color: #f8f8f2;">[build-system]</span>
+<span style="color: #f8f8f2;">requires = ["setuptools", "wheel"]</span>
+<span style="color: #f8f8f2;">build-backend = "setuptools.build_meta"</span>
+
+<span style="color: #f8f8f2;">[project]</span>
+<span style="color: #f8f8f2;">name = "mycoolpackage"</span>
+<span style="color: #f8f8f2;">version = "0.1.0"</span>
+<span style="color: #f8f8f2;">description = "A cool Python package"</span>
+<span style="color: #f8f8f2;">authors = [ { name = "Your Name" } ]</span>
+<span style="color: #f8f8f2;">dependencies = ["requests"]</span>
+</code></pre>
+                    </div>
+                    <div class="bg-gray-900 p-4 rounded-2xl mt-4">
+                        <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+                        <pre class="text-green-400 text-sm"><code>Modern build system metadata defined. Run:
+pip install build
+python -m build
+twine upload dist/*
+</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-green-700 flex items-center">
+            <span class="bg-green-100 text-green-600 p-2 rounded-lg mr-3">🧪</span>
+            Try it Yourself
+        </h2>
+        <div class="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl p-6 shadow-sm mb-6">
+            <p class="text-lg leading-relaxed mb-4">
+                Write a minimal <code>setup.py</code> for a package called <code>mathutils</code> with version
+                <code>1.0.0</code> and a dependency on <code>numpy</code>.
+            </p>
+        </div>
+        <!-- Code Editor Area -->
+        <div id="code-editor-container" class="bg-gray-50 p-6 rounded-lg shadow-inner border border-gray-200"></div>
+        <script type="text/plain" id="default-code">
+from setuptools import setup, find_packages
+
+setup(
+    name="mathutils",
+    version="1.0.0",
+    packages=find_packages(),
+    install_requires=["numpy"],
+    author="Your Name",
+    description="A utility package for math operations",
+)
+        </script>
+    </section>
+
+    <!-- Challenge Section -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-purple-700 flex items-center">
+            <span class="bg-purple-100 text-purple-600 p-2 rounded-lg mr-3">🏆</span>
+            Project Challenge: Package & Distribute a Real Library
+        </h2>
+        <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg border-l-4 border-purple-500">
+            <p class="text-lg leading-relaxed mb-4">
+                <strong>Real-World Project:</strong> Package and prepare a multi-module Python library (e.g.,
+                <code>datatools</code> or <code>webutils</code>) for distribution on PyPI. This project requires you to
+                think about structure, metadata, dependencies, and documentation.
+            </p>
+            <ul class="list-decimal list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2">
+                <li>Organize your code into a package with submodules (e.g., <code>datatools/cleaning.py</code>,
+                    <code>datatools/analysis.py</code>).
+                </li>
+                <li>Write a <code>setup.py</code> or <code>pyproject.toml</code> with metadata, dependencies, and entry
+                    points.</li>
+                <li>Include a <code>README.md</code> and <code>LICENSE</code> file.</li>
+                <li>Build your package and test installation locally.</li>
+                <li>Prepare for upload to PyPI (test on <a href="https://test.pypi.org/"
+                        class="text-indigo-600 underline" target="_blank">TestPyPI</a> first).</li>
+                <li>Bonus: Add automated tests and CI/CD integration for publishing.</li>
+            </ul>
+            <div class="bg-gray-900 p-4 rounded-lg mt-6">
+                <h3 class="text-white font-semibold mb-3">💡 Project Example Output:</h3>
+                <pre class="text-green-400 text-sm"><code>Successfully built datatools-1.0.0-py3-none-any.whl
+Uploaded to TestPyPI: https://test.pypi.org/project/datatools/
+Install with: pip install -i https://test.pypi.org/simple/ datatools
+</code></pre>
+            </div>
+            <p class="text-md text-gray-600 mt-4">This project will challenge you to design, document, and distribute a
+                real Python package for others to use.</p>
+        </div>
+    </section>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+        <a href="#" onclick="loadLesson('lessons/debugging.html')"
+            class="flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous: Debugging
+        </a>
+        <div class="text-gray-600">
+            <span class="text-sm">Lesson 47 of 71</span>
+        </div>
+        <a href="#" onclick="loadLesson('lessons/design_patterns.html')"
+            class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+            Next: Design Patterns
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </a>
+    </div>
+</div>

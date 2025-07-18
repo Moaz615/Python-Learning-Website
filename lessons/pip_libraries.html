@@ -1,0 +1,254 @@
+<!-- This file contains ONLY the content for the "pip and Installing Libraries" lesson. -->
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <div class="mb-8">
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-4xl font-extrabold text-gray-900">39. pip and Installing Libraries</h1>
+            <span class="bg-orange-100 text-orange-800 text-sm font-medium px-3 py-1 rounded-full">Intermediate
+                Level</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-3 mb-6">
+            <!-- Progress bar: (39-21)/18 = 100% for intermediate (lessons 22-39) -->
+            <div class="bg-gradient-to-r from-orange-500 to-red-500 h-3 rounded-full transition-all duration-300"
+                style="width: 100%"></div>
+        </div>
+    </div>
+
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-blue-100 bg-opacity-80 backdrop-blur-md border-4 border-blue-300 shadow-lg rounded-full text-3xl text-blue-600 transition-transform duration-200 hover:scale-110 animate-fade-in">📦</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-blue-50/80 to-white/80 backdrop-blur-md border-2 border-blue-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-blue-800 tracking-tight">What is pip?</h2>
+                <p class="text-lg leading-relaxed mb-2">
+                    <strong class="text-blue-700">pip</strong> is the standard package installer for Python. It allows
+                    you to install and manage additional libraries and dependencies that are not part of the Python
+                    Standard Library. These external libraries, often referred to as "packages" or "modules" (though
+                    technically a package is a collection of modules), extend Python's capabilities significantly.
+                </p>
+                <p class="text-lg leading-relaxed mb-0">
+                    pip connects to the <a href="https://pypi.org/" target="_blank"
+                        class="text-blue-600 hover:underline">Python Package Index (PyPI)</a>, which is a vast
+                    repository of Python software. When you use `pip install`, it downloads the specified package from
+                    PyPI and installs it into your Python environment.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-blue-100 bg-opacity-80 backdrop-blur-md border-4 border-blue-300 shadow-lg rounded-full text-3xl text-blue-600 transition-transform duration-200 hover:scale-110 animate-fade-in">🛠️</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-blue-50/80 to-white/80 backdrop-blur-md border-2 border-blue-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-blue-800 tracking-tight">Common pip Commands</h2>
+                <p class="text-lg leading-relaxed mb-4">
+                    Here are the most frequently used `pip` commands:
+                </p>
+                <ul
+                    class="list-disc list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-blue-300 shadow-md rounded-xl p-6 animate-fade-in">
+                    <li><strong class="text-blue-700">Install a package:</strong>
+                        <pre class="bg-gray-800 text-white p-4 rounded-md overflow-x-auto text-sm mt-2"><code>pip install package_name
+# Example: pip install requests</code></pre>
+                    </li>
+                    <li><strong class="text-blue-700">Install a specific version:</strong>
+                        <pre
+                            class="bg-gray-800 text-white p-4 rounded-md overflow-x-auto text-sm mt-2"><code>pip install package_name==1.2.3</code></pre>
+                    </li>
+                    <li><strong class="text-blue-700">Upgrade a package:</strong>
+                        <pre
+                            class="bg-gray-800 text-white p-4 rounded-md overflow-x-auto text-sm mt-2"><code>pip install --upgrade package_name</code></pre>
+                    </li>
+                    <li><strong class="text-blue-700">Uninstall a package:</strong>
+                        <pre
+                            class="bg-gray-800 text-white p-4 rounded-md overflow-x-auto text-sm mt-2"><code>pip uninstall package_name</code></pre>
+                    </li>
+                    <li><strong class="text-blue-700">List installed packages:</strong>
+                        <pre class="bg-gray-800 text-white p-4 rounded-md overflow-x-auto text-sm mt-2"><code>pip list
+# or pip freeze (often used to generate requirements.txt)</code></pre>
+                    </li>
+                    <li><strong class="text-blue-700">Generate requirements file:</strong>
+                        <pre
+                            class="bg-gray-800 text-white p-4 rounded-md overflow-x-auto text-sm mt-2"><code>pip freeze > requirements.txt</code></pre>
+                        This creates a `requirements.txt` file listing all installed packages and their versions, making
+                        it easy to recreate the exact environment for others or on different machines.
+                    </li>
+                    <li><strong class="text-blue-700">Install from requirements file:</strong>
+                        <pre
+                            class="bg-gray-800 text-white p-4 rounded-md overflow-x-auto text-sm mt-2"><code>pip install -r requirements.txt</code></pre>
+                    </li>
+                </ul>
+                <p class="text-lg leading-relaxed mt-4">
+                    <strong class="text-red-500">Important:</strong> Always use `pip` within an activated <a href="#"
+                        data-lesson-path="lessons/virtual_environments.html"
+                        class="text-blue-600 hover:underline">virtual environment</a> to avoid conflicts and manage
+                    project dependencies effectively.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-blue-100 bg-opacity-80 backdrop-blur-md border-4 border-blue-300 shadow-lg rounded-full text-3xl text-blue-600 transition-transform duration-200 hover:scale-110 animate-fade-in">✍️</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-blue-50/80 to-white/80 backdrop-blur-md border-2 border-blue-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-blue-800 tracking-tight">Using an Installed Library Example
+                </h2>
+                <div class="bg-white/90 border-2 border-blue-200 shadow-xl rounded-2xl p-0 mb-8 animate-fade-in">
+                    <div class="p-8 pb-4">
+                        <div class="flex items-center mb-3">
+                            <span class="text-blue-500 text-xl mr-2">💡</span>
+                            <h3 class="text-xl font-semibold text-blue-800">Example: Using the `requests` Library</h3>
+                        </div>
+                        <div class="code-editor-example mb-6 rounded-2xl">
+                            <div class="code-editor-bar">
+                                <div class="code-editor-dots flex gap-1">
+                                    <div class="code-editor-dot-red"></div>
+                                    <div class="code-editor-dot-yellow"></div>
+                                    <div class="code-editor-dot-green"></div>
+                                </div>
+                                <span class="text-gray-400 text-xs">web_fetcher.py</span>
+                            </div>
+                            <pre><code><span style="color: #6272a4;"># This example assumes 'requests' library is installed in your environment.</span>
+<span style="color: #6272a4;"># In a real local setup, you would first do:</span>
+<span style="color: #6272a4;"># python3 -m venv myenv</span>
+<span style="color: #6272a4;"># source myenv/bin/activate</span>
+<span style="color: #6272a4;"># pip install requests</span>
+<span style="color: #6272a4;"># python web_fetcher.py</span>
+
+<span style="color: #ff79c6;">import</span> <span style="color: #f8f8f2;">requests</span>
+
+<span style="color: #f8f8f2;">url</span> <span style="color: #ff79c6;">=</span> <span style="color: #f1fa8c;">"https://jsonplaceholder.typicode.com/posts/1"</span>
+
+<span style="color: #ff79c6;">try</span>:
+    <span style="color: #f8f8f2;">response</span> <span style="color: #ff79c6;">=</span> <span style="color: #f8f8f2;">requests</span>.<span style="color: #50fa7b;">get</span>(<span style="color: #f8f8f2;">url</span>)
+    <span style="color: #f8f8f2;">response</span>.<span style="color: #50fa7b;">raise_for_status</span>() <span style="color: #6272a4;"># Raise an HTTPError for bad responses (4xx or 5xx)</span>
+
+    <span style="color: #f8f8f2;">data</span> <span style="color: #ff79c6;">=</span> <span style="color: #f8f8f2;">response</span>.<span style="color: #50fa7b;">json</span>() <span style="color: #6272a4;"># Parse JSON response</span>
+
+    <span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">f"Successfully fetched data from {url}"</span>)
+    <span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">f"Title: {data['title']}"</span>)
+    <span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">f"Body (first 50 chars): {data['body'][:50]}..."</span>)
+
+<span style="color: #ff79c6;">except</span> <span style="color: #f8f8f2;">requests</span>.<span style="color: #f8f8f2;">exceptions</span>.<span style="color: #f8f8f2;">HTTPError</span> <span style="color: #ff79c6;">as</span> <span style="color: #f8f8f2;">err</span>:
+    <span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">f"HTTP error occurred: {err}"</span>)
+<span style="color: #ff79c6;">except</span> <span style="color: #f8f8f2;">requests</span>.<span style="color: #f8f8f2;">exceptions</span>.<span style="color: #f8f8f2;">ConnectionError</span> <span style="color: #ff79c6;">as</span> <span style="color: #f8f8f2;">err</span>:
+    <span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">f"Connection error occurred: {err}"</span>)
+<span style="color: #ff79c6;">except</span> <span style="color: #f8f8f2;">Exception</span> <span style="color: #ff79c6;">as</span> <span style="color: #f8f8f2;">err</span>:
+    <span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">f"An unexpected error occurred: {err}"</span>)
+                            </code></pre>
+                        </div>
+                        <div class="bg-gray-900 p-4 rounded-2xl mt-4">
+                            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+                            <pre
+                                class="text-green-400 text-sm"><code>Successfully fetched data from https://jsonplaceholder.typicode.com/posts/1
+Title: sunt aut facere repellat provident occaecati excepturi optio reprehenderit
+Body (first 50 chars): quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto...</code></pre>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-lg leading-relaxed mt-4">
+                    <strong class="text-red-500">Note:</strong> This interactive environment has some common libraries
+                    like `requests` pre-installed for demonstration purposes. In a fresh virtual environment on your
+                    local machine, you would always need to `pip install` them first.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-green-700 flex items-center">
+            <span class="bg-green-100 text-green-600 p-2 rounded-lg mr-3">🧪</span>
+            Try it Yourself
+        </h2>
+        <div class="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl p-6 shadow-sm mb-6">
+            <p class="text-lg leading-relaxed mb-4">
+                Imagine you have installed the `numpy` library (a popular library for numerical operations). Write
+                Python code that uses `numpy` to perform a simple array operation.
+                <br>
+                <strong class="text-red-500">Note:</strong> While `numpy` is often used, it's a large library. For this
+                in-browser environment, we'll simulate its usage. The code will run, but the actual `numpy` library
+                might not be fully loaded or optimized as it would be in a local environment.
+            </p>
+        </div>
+        <!-- Code Editor Area -->
+        <div id="code-editor-container" class="bg-gray-50 p-6 rounded-lg shadow-inner border border-gray-200"></div>
+        <script type="text/plain" id="default-code">
+# Your code goes here
+
+# In a real environment, you would have done: pip install numpy
+# For this browser environment, we'll assume it's available or simulate.
+
+# We'll create a simple list and convert it to a "numpy-like" array for conceptual demo.
+# If numpy was fully available, you'd use: import numpy as np; my_array = np.array([1, 2, 3, 4, 5])
+
+class MockNumpyArray: # A simplified class to simulate numpy array behavior
+    def __init__(self, data):
+        self.data = list(data) # Ensure it's a list
+
+    def __str__(self):
+        return f"MockNumpyArray({self.data})"
+
+    def __add__(self, other):
+        if isinstance(other, (int, float)):
+            return MockNumpyArray([x + other for x in self.data])
+        elif isinstance(other, MockNumpyArray):
+            if len(self.data) != len(other.data):
+                raise ValueError("Arrays must have same length for addition")
+            return MockNumpyArray([x + y for x, y in zip(self.data, other.data)])
+        return NotImplemented
+
+    def mean(self):
+        if not self.data:
+            return 0
+        return sum(self.data) / len(self.data)
+
+# Simulate numpy usage
+my_data = MockNumpyArray([10, 20, 30, 40, 50])
+print(f"Original data: {my_data}")
+
+# Simulate adding a scalar to all elements
+added_scalar = my_data + 5
+print(f"Data + 5: {added_scalar}")
+
+# Simulate element-wise addition (conceptually)
+other_data = MockNumpyArray([1, 2, 3, 4, 5])
+element_wise_sum = my_data + other_data
+print(f"Element-wise sum: {element_wise_sum}")
+
+# Simulate calculating the mean
+data_mean = my_data.mean()
+print(f"Mean of data: {data_mean}")
+        </script>
+    </section>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+        <a href="#" onclick="loadLesson('lessons/virtual_environments.html')"
+            class="flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous: Virtual Environments (venv)
+        </a>
+        <div class="text-gray-600">
+            <span class="text-sm">Lesson 39 of 71</span>
+        </div>
+        <a href="#" onclick="loadLesson('lessons/intermediate_quiz.html')"
+            class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+            Next: Intermediate Level Quiz
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </a>
+    </div>
+</div>

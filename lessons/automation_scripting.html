@@ -1,0 +1,208 @@
+<!-- This file contains ONLY the content for the "Automation and Scripting" lesson. -->
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <div class="mb-8">
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-4xl font-extrabold text-gray-900">70. Automation and Scripting</h1>
+            <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full whitespace-nowrap">Expert
+                Level</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-3 mb-6">
+            <!-- Progress bar: (70-57)/19 ≈ 68.4% for expert (lessons 58-76) -->
+            <div class="bg-red-500 h-3 rounded-full transition-all duration-300" style="width: 68.4%"></div>
+        </div>
+    </div>
+
+    <!-- Why Automation Matters -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-blue-100 bg-opacity-80 backdrop-blur-md border-4 border-blue-300 shadow-lg rounded-full text-3xl text-blue-600 transition-transform duration-200 hover:scale-110 animate-fade-in">🤖</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-blue-50/80 to-white/80 backdrop-blur-md border-2 border-blue-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-blue-800 tracking-tight">Why Automation Matters</h2>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong class="text-blue-600">Automation and scripting</strong> with Python saves time, reduces
+                    errors, and increases productivity. Automate repetitive tasks, manage files, interact with web APIs,
+                    and more.
+                </p>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong>Real-world applications:</strong>
+                <ul class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed">
+                    <li>Batch file renaming and organization</li>
+                    <li>Automated data collection and web scraping</li>
+                    <li>System monitoring and reporting</li>
+                    <li>Automating software builds and deployments</li>
+                </ul>
+                </p>
+                <p class="text-lg leading-relaxed">
+                    Python's <code>os</code>, <code>shutil</code>, <code>subprocess</code>, and <code>requests</code>
+                    libraries are essential for automation.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Concepts -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-green-100 bg-opacity-80 backdrop-blur-md border-4 border-green-300 shadow-lg rounded-full text-3xl text-green-600 transition-transform duration-200 hover:scale-110 animate-fade-in">💡</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-green-50/80 to-white/80 backdrop-blur-md border-2 border-green-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-green-800 tracking-tight">Key Concepts: Automation in
+                    Python</h2>
+                <ul
+                    class="list-disc list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-green-300 shadow-md rounded-xl p-6 animate-fade-in">
+                    <li><strong class="text-green-600">File Operations:</strong> Reading, writing, and renaming files.
+                    </li>
+                    <li><strong class="text-green-600">Web Scraping:</strong> Collecting data from websites
+                        automatically.</li>
+                    <li><strong class="text-green-600">Scheduling:</strong> Running scripts at specific times (e.g.,
+                        with cron or sched).</li>
+                    <li><strong class="text-green-600">System Commands:</strong> Automating shell commands with
+                        <code>subprocess</code>.</li>
+                    <li><strong class="text-green-600">API Automation:</strong> Interacting with web APIs using
+                        <code>requests</code>.</li>
+                    <li><strong class="text-green-600">Error Handling:</strong> Making scripts robust and reliable.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- File Renaming Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🗂️</span>File
+            Renaming Example</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>Batch file renaming</strong> is a common automation task. Here’s how to rename all <code>.txt</code>
+            files in a folder:
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dots flex gap-2">
+                    <div class="code-editor-dot-red"></div>
+                    <div class="code-editor-dot-yellow"></div>
+                    <div class="code-editor-dot-green"></div>
+                </div>
+                <span class="text-gray-400 text-xs">rename_files_example.py</span>
+            </div>
+            <pre><code><span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">os</span>
+
+<span style="color: #8be9fd;">folder</span> <span style="color: #ff79c6;">=</span> <span style="color: #f1fa8c;">'./my_folder'</span>
+<span style="color: #ff79c6;">for</span> <span style="color: #8be9fd;">filename</span> <span style="color: #ff79c6;">in</span> <span style="color: #8be9fd;">os.listdir</span>(<span style="color: #8be9fd;">folder</span>):
+    <span style="color: #ff79c6;">if</span> <span style="color: #8be9fd;">filename.endswith</span>(<span style="color: #f1fa8c;">'.txt'</span>):
+        <span style="color: #8be9fd;">new_name</span> <span style="color: #ff79c6;">=</span> <span style="color: #f1fa8c;">'renamed_'</span> <span style="color: #ff79c6;">+</span> <span style="color: #8be9fd;">filename</span>
+        <span style="color: #8be9fd;">os.rename</span>(<span style="color: #8be9fd;">os.path.join</span>(<span style="color: #8be9fd;">folder</span>, <span style="color: #8be9fd;">filename</span>),
+                  <span style="color: #8be9fd;">os.path.join</span>(<span style="color: #8be9fd;">folder</span>, <span style="color: #8be9fd;">new_name</span>))
+</code></pre>
+        </div>
+        <div class="bg-gray-900 p-4 rounded-lg">
+            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+            <pre class="text-green-400 text-sm"><code>All .txt files in ./my_folder are renamed with the prefix 'renamed_'.
+</code></pre>
+        </div>
+    </section>
+
+    <!-- Best Practices -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-blue-700 flex items-center">
+            <span class="bg-blue-100 text-blue-600 p-2 rounded-lg mr-3">✅</span>
+            Best Practices for Automation
+        </h2>
+        <ul
+            class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-blue-300 shadow-md rounded-xl p-6 animate-fade-in">
+            <li>Test scripts on sample data before running on important files.</li>
+            <li>Use logging to track script actions and errors.</li>
+            <li>Handle exceptions and edge cases gracefully.</li>
+            <li>Document script usage and parameters.</li>
+            <li>Schedule regular backups before automation runs.</li>
+        </ul>
+    </section>
+
+    <!-- Common Pitfalls -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-red-700 flex items-center">
+            <span class="bg-red-100 text-red-600 p-2 rounded-lg mr-3">⚠️</span>
+            Common Pitfalls
+        </h2>
+        <ul
+            class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-red-300 shadow-md rounded-xl p-6 animate-fade-in">
+            <li><strong>Overwriting important files:</strong> Always check file names and paths.</li>
+            <li><strong>Hardcoding paths:</strong> Use variables and config files for flexibility.</li>
+            <li><strong>Ignoring errors:</strong> Always handle exceptions and log errors.</li>
+            <li><strong>Not testing on sample data:</strong> Avoid running untested scripts on real data.</li>
+        </ul>
+    </section>
+
+    <!-- Try it Yourself Section -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🧑‍💻</span>Try it
+            Yourself: Automate File Creation</h2>
+        <p class="mb-4 text-lg">Practice automating file creation. This script creates 5 text files in a folder.</p>
+        <div id="code-editor-container" class="bg-gray-50 p-6 rounded-lg shadow-inner border border-gray-200"></div>
+        <script type="text/plain" id="default-code">
+import os
+
+folder = './my_folder'
+os.makedirs(folder, exist_ok=True)
+for i in range(5):
+    with open(os.path.join(folder, f'file_{i}.txt'), 'w') as f:
+        f.write(f'This is file {i}')
+print('Files created!')
+        </script>
+        <div class="mt-4 text-sm text-gray-600">
+            <strong>Note:</strong> File operations are not supported in the browser editor. Run this code locally to see
+            the output.
+        </div>
+    </section>
+
+    <!-- Challenge: Batch File Renamer Project -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-purple-700 flex items-center">
+            <span class="bg-purple-100 text-purple-600 p-2 rounded-lg mr-3">🏆</span>
+            Project Challenge: Build a Batch File Renamer
+        </h2>
+        <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg border-l-4 border-purple-500">
+            <p class="text-lg leading-relaxed mb-4">
+                <strong>Scenario:</strong> Build a script that renames, moves, or organizes files in a directory based
+                on user-defined rules. Add logging and error handling for robustness.
+            </p>
+            <ul class="list-decimal list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2">
+                <li>Prompt the user for a folder and renaming pattern</li>
+                <li>Rename or move files according to the pattern</li>
+                <li>Log all actions and errors</li>
+                <li>Test on sample data before running on real files</li>
+            </ul>
+            <div class="bg-gray-900 p-4 rounded-lg mt-6">
+                <h3 class="text-white font-semibold mb-3">💡 Project Example Output:</h3>
+                <pre class="text-green-400 text-sm"><code>Renamed file_0.txt to project_0.txt
+Renamed file_1.txt to project_1.txt
+...</code></pre>
+            </div>
+            <p class="text-md text-gray-600 mt-4">This project will help you master practical automation and scripting
+                in Python.</p>
+        </div>
+    </section>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+        <a href="#" onclick="loadLesson('lessons/game_development.html')"
+            class="flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous: Game Development
+        </a>
+        <a href="#" onclick="loadLesson('lessons/working_with_excel.html')"
+            class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+            Next: Working with Excel
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </a>
+    </div>
+</div>

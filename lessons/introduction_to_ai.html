@@ -1,0 +1,207 @@
+<!-- This file contains ONLY the content for the "Introduction to Artificial Intelligence (AI)" lesson. -->
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+
+    <div class="mb-8">
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-4xl font-extrabold text-gray-900">60. Introduction to Artificial Intelligence (AI)</h1>
+            <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full whitespace-nowrap">Expert
+                Level</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-3 mb-6">
+            <!-- Progress bar: (60-57)/19 ≈ 15.8% for expert (lessons 58-76) -->
+            <div class="bg-red-500 h-3 rounded-full transition-all duration-300" style="width: 15.8%"></div>
+        </div>
+    </div>
+
+    <!-- Why AI Matters -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-blue-100 bg-opacity-80 backdrop-blur-md border-4 border-blue-300 shadow-lg rounded-full text-3xl text-blue-600 transition-transform duration-200 hover:scale-110 animate-fade-in">🤖</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-blue-50/80 to-white/80 backdrop-blur-md border-2 border-blue-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-blue-800 tracking-tight">Why AI Matters</h2>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong class="text-blue-600">Artificial Intelligence (AI)</strong> is transforming industries by
+                    enabling machines to perform tasks that typically require human intelligence. AI powers applications
+                    like voice assistants, recommendation systems, self-driving cars, and more.
+                </p>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong>Real-world applications:</strong>
+                <ul class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed">
+                    <li>Chatbots and virtual assistants</li>
+                    <li>Image and speech recognition</li>
+                    <li>Recommendation engines</li>
+                    <li>Autonomous vehicles</li>
+                </ul>
+                </p>
+                <p class="text-lg leading-relaxed">
+                    AI is a broad field that includes machine learning, deep learning, natural language processing, and
+                    more.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Concepts -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-green-100 bg-opacity-80 backdrop-blur-md border-4 border-green-300 shadow-lg rounded-full text-3xl text-green-600 transition-transform duration-200 hover:scale-110 animate-fade-in">💡</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-green-50/80 to-white/80 backdrop-blur-md border-2 border-green-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-green-800 tracking-tight">Key Concepts: What is AI?</h2>
+                <ul
+                    class="list-disc list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-green-300 shadow-md rounded-xl p-6 animate-fade-in">
+                    <li><strong class="text-green-600">Artificial Intelligence:</strong> Enabling machines to mimic
+                        human intelligence.</li>
+                    <li><strong class="text-green-600">Machine Learning:</strong> Algorithms that learn from data.</li>
+                    <li><strong class="text-green-600">Deep Learning:</strong> Neural networks with many layers for
+                        complex tasks.</li>
+                    <li><strong class="text-green-600">Narrow vs. General AI:</strong> Specialized vs. human-level
+                        intelligence.</li>
+                    <li><strong class="text-green-600">Supervised/Unsupervised Learning:</strong> Learning with or
+                        without labeled data.</li>
+                    <li><strong class="text-green-600">Ethics & Bias:</strong> Responsible and fair use of AI.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simple Rule-Based AI Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🧠</span>Simple
+            Rule-Based AI Example</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            Not all AI is machine learning! Here’s a simple rule-based chatbot that responds to greetings.
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dots flex gap-2">
+                    <div class="code-editor-dot-red"></div>
+                    <div class="code-editor-dot-yellow"></div>
+                    <div class="code-editor-dot-green"></div>
+                </div>
+                <span class="text-gray-400 text-xs">rule_based_ai.py</span>
+            </div>
+            <pre><code><span style="color: #ff79c6;">def</span> <span style="color: #50fa7b;">chatbot_response</span>(<span style="color: #8be9fd;">message</span>):
+    <span style="color: #ff79c6;">if</span> <span style="color: #8be9fd;">message.lower</span>() <span style="color: #ff79c6;">in</span> [<span style="color: #f1fa8c;">'hi'</span>, <span style="color: #f1fa8c;">'hello'</span>, <span style="color: #f1fa8c;">'hey'</span>]:
+        <span style="color: #ff79c6;">return</span> <span style="color: #f1fa8c;">'Hello! How can I help you?'</span>
+    <span style="color: #ff79c6;">else</span>:
+        <span style="color: #ff79c6;">return</span> <span style="color: #f1fa8c;">'I am just a simple bot.'</span>
+
+<span style="color: #ff79c6;">print</span>(chatbot_response(<span style="color: #f1fa8c;">'Hi'</span>))
+<span style="color: #ff79c6;">print</span>(chatbot_response(<span style="color: #f1fa8c;">'What is Python?'</span>))
+</code></pre>
+        </div>
+        <div class="bg-gray-900 p-4 rounded-lg">
+            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+            <pre class="text-green-400 text-sm"><code>Hello! How can I help you?
+I am just a simple bot.
+</code></pre>
+        </div>
+    </section>
+
+    <!-- Best Practices -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-blue-700 flex items-center">
+            <span class="bg-blue-100 text-blue-600 p-2 rounded-lg mr-3">✅</span>
+            Best Practices for AI
+        </h2>
+        <ul
+            class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-blue-300 shadow-md rounded-xl p-6 animate-fade-in">
+            <li>Start with simple rule-based logic before moving to machine learning.</li>
+            <li>Understand the data and problem before choosing an AI approach.</li>
+            <li>Test your AI with real-world scenarios.</li>
+            <li>Be aware of ethical considerations and bias.</li>
+        </ul>
+    </section>
+
+    <!-- Common Pitfalls -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-red-700 flex items-center">
+            <span class="bg-red-100 text-red-600 p-2 rounded-lg mr-3">⚠️</span>
+            Common Pitfalls
+        </h2>
+        <ul
+            class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-red-300 shadow-md rounded-xl p-6 animate-fade-in">
+            <li><strong>Overcomplicating early projects:</strong> Start simple and build up.</li>
+            <li><strong>Ignoring data quality:</strong> AI is only as good as the data it learns from.</li>
+            <li><strong>Not testing edge cases:</strong> Always test your AI with unexpected inputs.</li>
+            <li><strong>Ethical blind spots:</strong> Consider the impact of your AI.</li>
+        </ul>
+    </section>
+
+    <!-- Try it Yourself Section -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🧑‍💻</span>Try it
+            Yourself: Rule-Based Chatbot</h2>
+        <p class="mb-4 text-lg">Practice writing a simple rule-based chatbot that responds to greetings and unknown
+            messages.</p>
+        <div id="code-editor-container" class="bg-gray-50 p-6 rounded-lg shadow-inner border border-gray-200"></div>
+        <script type="text/plain" id="default-code">
+def chatbot_response(message):
+    if message.lower() in ['hi', 'hello', 'hey']:
+        return 'Hello! How can I help you?'
+    else:
+        return 'I am just a simple bot.'
+
+print(chatbot_response('Hi'))
+print(chatbot_response('What is Python?'))
+        </script>
+        <div class="mt-4 text-sm text-gray-600">
+            <strong>Note:</strong> This code runs in the browser editor. Try different messages to see the responses.
+        </div>
+    </section>
+
+    <!-- Challenge: Rule-Based Chatbot Project -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-purple-700 flex items-center">
+            <span class="bg-purple-100 text-purple-600 p-2 rounded-lg mr-3">🏆</span>
+            Project Challenge: Build a Rule-Based Chatbot
+        </h2>
+        <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg border-l-4 border-purple-500">
+            <p class="text-lg leading-relaxed mb-4">
+                <strong>Scenario:</strong> Build a rule-based chatbot that can answer greetings, farewells, and unknown
+                questions.
+            </p>
+            <ul class="list-decimal list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2">
+                <li>Respond to greetings (hi, hello, hey)</li>
+                <li>Respond to farewells (bye, goodbye)</li>
+                <li>Handle unknown questions with a default response</li>
+                <li>Test your chatbot with various inputs</li>
+            </ul>
+            <div class="bg-gray-900 p-4 rounded-lg mt-6">
+                <h3 class="text-white font-semibold mb-3">💡 Project Example Output:</h3>
+                <pre class="text-green-400 text-sm"><code>Hello! How can I help you?
+Goodbye!
+I am just a simple bot.
+</code></pre>
+            </div>
+            <p class="text-md text-gray-600 mt-4">This project will help you understand the basics of AI logic and
+                control flow.</p>
+        </div>
+    </section>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+        <a href="#" onclick="loadLesson('lessons/data_visualization.html')"
+            class="flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous: Data Visualization
+        </a>
+        <a href="#" onclick="loadLesson('lessons/machine_learning.html')"
+            class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+            Next: Machine Learning
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </a>
+    </div>
+</div>

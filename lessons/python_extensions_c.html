@@ -1,0 +1,259 @@
+<!-- This file contains ONLY the content for the "Writing Python Extensions in C" lesson. -->
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <div class="mb-8">
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-4xl font-extrabold text-gray-900">75. Writing Python Extensions in C</h1>
+            <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full whitespace-nowrap">Expert
+                Level</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-3 mb-6">
+            <!-- Progress bar: (75-57)/19 ≈ 94.7% for expert (lessons 58-76) -->
+            <div class="bg-red-500 h-3 rounded-full transition-all duration-300" style="width: 94.7%"></div>
+        </div>
+    </div>
+
+    <!-- Why Write Python Extensions in C? -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-blue-100 bg-opacity-80 backdrop-blur-md border-4 border-blue-300 shadow-lg rounded-full text-3xl text-blue-600 transition-transform duration-200 hover:scale-110 animate-fade-in">⚡</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-blue-50/80 to-white/80 backdrop-blur-md border-2 border-blue-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-blue-800 tracking-tight">Why Write Python Extensions in C?
+                </h2>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong class="text-blue-600">Writing Python extensions in C</strong> allows you to speed up
+                    performance-critical code, access low-level system features, and reuse existing C libraries in
+                    Python projects.
+                </p>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong>Real-world applications:</strong>
+                <ul class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed">
+                    <li>Accelerating computationally intensive tasks</li>
+                    <li>Integrating legacy C code with Python</li>
+                    <li>Building Python bindings for C/C++ libraries</li>
+                    <li>Accessing system-level APIs and hardware</li>
+                </ul>
+                </p>
+                <p class="text-lg leading-relaxed">
+                    Python's <code>ctypes</code>, <code>cffi</code>, and the Python/C API are essential for extension
+                    development.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Concepts -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-green-100 bg-opacity-80 backdrop-blur-md border-4 border-green-300 shadow-lg rounded-full text-3xl text-green-600 transition-transform duration-200 hover:scale-110 animate-fade-in">💡</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-green-50/80 to-white/80 backdrop-blur-md border-2 border-green-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-green-800 tracking-tight">Key Concepts: Python/C
+                    Integration</h2>
+                <ul
+                    class="list-disc list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-green-300 shadow-md rounded-xl p-6 animate-fade-in">
+                    <li><strong class="text-green-600">Python/C API:</strong> Write C functions callable from Python.
+                    </li>
+                    <li><strong class="text-green-600">ctypes:</strong> Call C functions from shared libraries.</li>
+                    <li><strong class="text-green-600">cffi:</strong> Interact with C code using a higher-level
+                        interface.</li>
+                    <li><strong class="text-green-600">Memory Management:</strong> Handle reference counting and object
+                        lifetimes.</li>
+                    <li><strong class="text-green-600">Compiling Extensions:</strong> Use <code>setuptools</code> or
+                        <code>distutils</code> to build modules.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Python/C API Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🔬</span>Python/C
+            API: Simple Extension</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>Python/C API</strong> lets you write C functions callable from Python. Here’s a minimal example:
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dot-red"></div>
+                <div class="code-editor-dot-yellow"></div>
+                <div class="code-editor-dot-green"></div>
+            </div>
+            <span class="text-gray-400 text-xs">myext.c</span>
+            <pre><code><span style="color: #6272a4;">// myext.c</span>
+<span style="color: #ff79c6;">#include</span> <span style="color: #f1fa8c;">&lt;Python.h&gt;</span>
+
+<span style="color: #8be9fd;">static</span> <span style="color: #8be9fd;">PyObject</span>* <span style="color: #50fa7b;">add</span>(<span style="color: #8be9fd;">PyObject</span>* <span style="color: #8be9fd;">self</span>, <span style="color: #8be9fd;">PyObject</span>* <span style="color: #8be9fd;">args</span>) {
+    <span style="color: #8be9fd;">int</span> <span style="color: #8be9fd;">a</span>, <span style="color: #8be9fd;">b</span>;
+    <span style="color: #ff79c6;">if</span> (!<span style="color: #50fa7b;">PyArg_ParseTuple</span>(<span style="color: #8be9fd;">args</span>, <span style="color: #f1fa8c;">"ii"</span>, &<span style="color: #8be9fd;">a</span>, &<span style="color: #8be9fd;">b</span>))
+        <span style="color: #ff79c6;">return</span> <span style="color: #ff79c6;">NULL</span>;
+    <span style="color: #ff79c6;">return</span> <span style="color: #50fa7b;">PyLong_FromLong</span>(<span style="color: #8be9fd;">a</span> + <span style="color: #8be9fd;">b</span>);
+}
+
+<span style="color: #8be9fd;">static</span> <span style="color: #8be9fd;">PyMethodDef</span> <span style="color: #50fa7b;">methods</span>[] = {
+    {<span style="color: #f1fa8c;">"add"</span>, <span style="color: #50fa7b;">add</span>, <span style="color: #bd93f9;">METH_VARARGS</span>, <span style="color: #f1fa8c;">"Add two numbers."</span>},
+    {<span style="color: #ff79c6;">NULL</span>, <span style="color: #ff79c6;">NULL</span>, <span style="color: #bd93f9;">0</span>, <span style="color: #ff79c6;">NULL</span>}
+};
+
+<span style="color: #8be9fd;">static</span> <span style="color: #8be9fd;">struct</span> <span style="color: #50fa7b;">PyModuleDef</span> <span style="color: #50fa7b;">module</span> = {
+    <span style="color: #f1fa8c;">PyModuleDef_HEAD_INIT</span>, <span style="color: #f1fa8c;">"myext"</span>, <span style="color: #f1fa8c;">NULL</span>, <span style="color: #bd93f9;">-1</span>, <span style="color: #50fa7b;">methods</span>
+};
+
+<span style="color: #8be9fd;">PyMODINIT_FUNC</span> <span style="color: #50fa7b;">PyInit_myext</span>(<span style="color: #8be9fd;">void</span>) {
+    <span style="color: #ff79c6;">return</span> <span style="color: #50fa7b;">PyModule_Create</span>(&<span style="color: #50fa7b;">module</span>);
+}
+</code></pre>
+        </div>
+        <div class="bg-gray-900 p-4 rounded-lg">
+            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+            <pre
+                class="text-green-400 text-sm"><code>Compiles to a Python module with an add(a, b) function callable from Python.</code></pre>
+        </div>
+    </section>
+
+    <!-- ctypes Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🔗</span>ctypes: Call
+            C from Python</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>ctypes</strong> lets you call C functions from shared libraries. Here’s a simple example:
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dot-red"></div>
+                <div class="code-editor-dot-yellow"></div>
+                <div class="code-editor-dot-green"></div>
+            </div>
+            <span class="text-gray-400 text-xs">ctypes_example.py</span>
+            <pre><code><span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">ctypes</span>
+
+<span style="color: #8be9fd;">libc</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">ctypes</span>.<span style="color: #50fa7b;">CDLL</span>(<span style="color: #f1fa8c;">'libc.so.6'</span>)
+<span style="color: #50fa7b;">print</span>(<span style="color: #8be9fd;">libc</span>.<span style="color: #50fa7b;">abs</span>(<span style="color: #bd93f9;">-42</span>))
+</code></pre>
+        </div>
+        <div class="bg-gray-900 p-4 rounded-lg">
+            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+            <pre class="text-green-400 text-sm"><code>Prints: 42</code></pre>
+        </div>
+    </section>
+
+    <!-- Best Practices -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-blue-700 flex items-center">
+            <span class="bg-blue-100 text-blue-600 p-2 rounded-lg mr-3">✅</span>
+            Best Practices for Python/C Extensions
+        </h2>
+        <ul
+            class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-blue-300 shadow-md rounded-xl p-6 animate-fade-in">
+            <li>Validate all arguments and handle errors gracefully.</li>
+            <li>Manage memory and reference counts carefully.</li>
+            <li>Document the API and usage of your extension.</li>
+            <li>Use automated tests for extension code.</li>
+            <li>Distribute extensions as wheels for easy installation.</li>
+        </ul>
+    </section>
+
+    <!-- Common Pitfalls -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-red-700 flex items-center">
+            <span class="bg-red-100 text-red-600 p-2 rounded-lg mr-3">⚠️</span>
+            Common Pitfalls
+        </h2>
+        <ul
+            class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-red-300 shadow-md rounded-xl p-6 animate-fade-in">
+            <li><strong>Memory leaks:</strong> Always free memory and manage references.</li>
+            <li><strong>Platform-specific code:</strong> Test on all target platforms.</li>
+            <li><strong>ABI incompatibility:</strong> Match Python and C library versions.</li>
+            <li><strong>Poor error handling:</strong> Return proper error codes and messages.</li>
+        </ul>
+    </section>
+
+    <!-- Try it Yourself Section -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🧑‍💻</span>Try it
+            Yourself: Build a Simple C Extension</h2>
+        <p class="mb-4 text-lg">Practice writing a minimal C extension for Python. (Requires a C compiler and Python
+            headers.)</p>
+        <div id="code-editor-container" class="bg-gray-50 p-6 rounded-lg shadow-inner border border-gray-200"></div>
+        <script type="text/plain" id="default-code">
+// myext.c
+#include <Python.h>
+
+static PyObject* square(PyObject* self, PyObject* args) {
+    int x;
+    if (!PyArg_ParseTuple(args, "i", &x))
+        return NULL;
+    return PyLong_FromLong(x * x);
+}
+
+static PyMethodDef methods[] = {
+    {"square", square, METH_VARARGS, "Square a number."},
+    {NULL, NULL, 0, NULL}
+};
+
+static struct PyModuleDef module = {
+    PyModuleDef_HEAD_INIT, "myext", NULL, -1, methods
+};
+
+PyMODINIT_FUNC PyInit_myext(void) {
+    return PyModule_Create(&module);
+}
+        </script>
+        <div class="mt-4 text-sm text-gray-600">
+            <strong>Note:</strong> C extensions cannot be built or run in the browser editor. Try this locally with a C
+            compiler and Python headers.
+        </div>
+    </section>
+
+    <!-- Project Challenge: C Extension for Performance -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-purple-700 flex items-center">
+            <span class="bg-purple-100 text-purple-600 p-2 rounded-lg mr-3">🏆</span>
+            Project Challenge: C Extension for Performance
+        </h2>
+        <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg border-l-4 border-purple-500">
+            <p class="text-lg leading-relaxed mb-4">
+                <strong>Scenario:</strong> Build a C extension that accelerates a slow Python function (e.g., a math or
+                string operation). Compare performance and document the results.
+            </p>
+            <ul class="list-decimal list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2">
+                <li>Write a C function and expose it to Python</li>
+                <li>Benchmark against the pure Python version</li>
+                <li>Handle errors and memory management</li>
+                <li>Document usage and performance gains</li>
+            </ul>
+            <div class="bg-gray-900 p-4 rounded-lg mt-6">
+                <h3 class="text-white font-semibold mb-3">💡 Project Example Output:</h3>
+                <pre class="text-green-400 text-sm"><code>Python: 1.23s
+C Extension: 0.12s
+</code></pre>
+            </div>
+            <p class="text-md text-gray-600 mt-4">This project will help you master Python/C integration and performance
+                optimization.</p>
+        </div>
+    </section>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+        <a href="#" onclick="loadLesson('lessons/security_ethical_hacking.html')"
+            class="flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous: Security & Ethical Hacking
+        </a>
+        <a href="#" onclick="loadLesson('lessons/open_source_contributions.html')"
+            class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+            Next: Open Source Contributions
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </a>
+    </div>
+</div>

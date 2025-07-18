@@ -1,0 +1,265 @@
+<!-- This file contains ONLY the content for the "Working with Excel" lesson. -->
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <div class="mb-8">
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-4xl font-extrabold text-gray-900">71. Working with Excel</h1>
+            <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full whitespace-nowrap">Expert
+                Level</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-3 mb-6">
+            <!-- Progress bar: (71-57)/19 ≈ 73.7% for expert (lessons 58-76) -->
+            <div class="bg-red-500 h-3 rounded-full transition-all duration-300" style="width: 73.7%"></div>
+        </div>
+    </div>
+
+    <!-- Why Excel Automation Matters -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-blue-100 bg-opacity-80 backdrop-blur-md border-4 border-blue-300 shadow-lg rounded-full text-3xl text-blue-600 transition-transform duration-200 hover:scale-110 animate-fade-in">📊</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-blue-50/80 to-white/80 backdrop-blur-md border-2 border-blue-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-blue-800 tracking-tight">Why Excel Automation Matters</h2>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong class="text-blue-600">Excel automation</strong> with Python streamlines data analysis,
+                    reporting, and business processes. Automate repetitive spreadsheet tasks, generate reports, and
+                    manipulate data programmatically.
+                </p>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong>Real-world applications:</strong>
+                <ul class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed">
+                    <li>Automated report generation</li>
+                    <li>Data cleaning and transformation</li>
+                    <li>Bulk updates to spreadsheets</li>
+                    <li>Integrating Excel with databases and APIs</li>
+                </ul>
+                </p>
+                <p class="text-lg leading-relaxed">
+                    Python's <code>openpyxl</code> and <code>pandas</code> libraries are essential for working with
+                    Excel files.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Concepts -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-green-100 bg-opacity-80 backdrop-blur-md border-4 border-green-300 shadow-lg rounded-full text-3xl text-green-600 transition-transform duration-200 hover:scale-110 animate-fade-in">💡</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-green-50/80 to-white/80 backdrop-blur-md border-2 border-green-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-green-800 tracking-tight">Key Concepts: Excel Automation in
+                    Python</h2>
+                <ul
+                    class="list-disc list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-green-300 shadow-md rounded-xl p-6 animate-fade-in">
+                    <li><strong class="text-green-600">Reading/Writing Excel:</strong> Load, modify, and save
+                        spreadsheets.</li>
+                    <li><strong class="text-green-600">DataFrames:</strong> Use <code>pandas</code> for tabular data
+                        manipulation.</li>
+                    <li><strong class="text-green-600">Formatting:</strong> Style cells, add formulas, and format
+                        tables.</li>
+                    <li><strong class="text-green-600">Bulk Operations:</strong> Update many cells/rows at once.</li>
+                    <li><strong class="text-green-600">Charts & Visualization:</strong> Generate charts
+                        programmatically.</li>
+                    <li><strong class="text-green-600">Integration:</strong> Combine Excel with databases, APIs, or
+                        other files.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reading Excel Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">📥</span>Reading
+            Excel Files</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>Read data</strong> from Excel using <code>pandas</code>:
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dots flex gap-2">
+                    <div class="code-editor-dot-red"></div>
+                    <div class="code-editor-dot-yellow"></div>
+                    <div class="code-editor-dot-green"></div>
+                </div>
+                <span class="text-gray-400 text-xs">read_excel_example.py</span>
+            </div>
+            <pre><code><span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">pandas</span> <span style="color: #ff79c6;">as</span> <span style="color: #8be9fd;">pd</span>
+
+<span style="color: #8be9fd;">df</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">pd</span>.<span style="color: #50fa7b;">read_excel</span>(<span style="color: #f1fa8c;">'data.xlsx'</span>)
+<span style="color: #50fa7b;">print</span>(<span style="color: #8be9fd;">df</span>.head())
+</code></pre>
+        </div>
+        <div class="bg-gray-900 p-4 rounded-lg">
+            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+            <pre
+                class="text-green-400 text-sm"><code>Displays the first 5 rows of the Excel file as a DataFrame.</code></pre>
+        </div>
+    </section>
+
+    <!-- Writing Excel Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">📤</span>Writing
+            Excel Files</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>Write data</strong> to Excel using <code>pandas</code>:
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dots flex gap-2">
+                    <div class="code-editor-dot-red"></div>
+                    <div class="code-editor-dot-yellow"></div>
+                    <div class="code-editor-dot-green"></div>
+                </div>
+                <span class="text-gray-400 text-xs">write_excel_example.py</span>
+            </div>
+            <pre><code><span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">pandas</span> <span style="color: #ff79c6;">as</span> <span style="color: #8be9fd;">pd</span>
+
+<span style="color: #8be9fd;">data</span> <span style="color: #ff79c6;">=</span> {<span style="color: #f1fa8c;">'Name'</span>: [<span style="color: #f1fa8c;">'Alice'</span>, <span style="color: #f1fa8c;">'Bob'</span>], <span style="color: #f1fa8c;">'Score'</span>: [<span style="color: #bd93f9;">90</span>, <span style="color: #bd93f9;">85</span>]}
+<span style="color: #8be9fd;">df</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">pd</span>.<span style="color: #50fa7b;">DataFrame</span>(<span style="color: #8be9fd;">data</span>)
+<span style="color: #8be9fd;">df</span>.<span style="color: #50fa7b;">to_excel</span>(<span style="color: #f1fa8c;">'output.xlsx'</span>, <span style="color: #ff79c6;">index</span>=<span style="color: #ff79c6;">False</span>)
+</code></pre>
+        </div>
+        <div class="bg-gray-900 p-4 rounded-lg">
+            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+            <pre
+                class="text-green-400 text-sm"><code>Creates an Excel file 'output.xlsx' with Name and Score columns.</code></pre>
+        </div>
+    </section>
+
+    <!-- Formatting Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🎨</span>Formatting
+            Cells</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>Format cells</strong> using <code>openpyxl</code>:
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dots flex gap-2">
+                    <div class="code-editor-dot-red"></div>
+                    <div class="code-editor-dot-yellow"></div>
+                    <div class="code-editor-dot-green"></div>
+                </div>
+                <span class="text-gray-400 text-xs">formatting_example.py</span>
+            </div>
+            <pre><code><span style="color: #ff79c6;">from</span> <span style="color: #8be9fd;">openpyxl</span> <span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">Workbook</span>
+<span style="color: #8be9fd;">wb</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">Workbook</span>()
+<span style="color: #8be9fd;">ws</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">wb</span>.<span style="color: #50fa7b;">active</span>
+<span style="color: #8be9fd;">ws</span>[<span style="color: #f1fa8c;">'A1'</span>] <span style="color: #ff79c6;">=</span> <span style="color: #f1fa8c;">'Hello'</span>
+<span style="color: #8be9fd;">ws</span>[<span style="color: #f1fa8c;">'A1'</span>].<span style="color: #50fa7b;">font</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">Font</span>(bold=<span style="color: #ff79c6;">True</span>, color=<span style="color: #f1fa8c;">'FF0000'</span>)
+<span style="color: #8be9fd;">wb</span>.<span style="color: #50fa7b;">save</span>(<span style="color: #f1fa8c;">'styled.xlsx'</span>)
+</code></pre>
+        </div>
+        <div class="bg-gray-900 p-4 rounded-lg">
+            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+            <pre
+                class="text-green-400 text-sm"><code>Creates 'styled.xlsx' with 'Hello' in bold red font in cell A1.</code></pre>
+        </div>
+    </section>
+
+    <!-- Best Practices -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-blue-700 flex items-center">
+            <span class="bg-blue-100 text-blue-600 p-2 rounded-lg mr-3">✅</span>
+            Best Practices for Excel Automation
+        </h2>
+        <ul
+            class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-blue-300 shadow-md rounded-xl p-6 animate-fade-in">
+            <li>Validate data before writing to Excel files.</li>
+            <li>Use context managers to handle file operations safely.</li>
+            <li>Document your scripts and expected input/output.</li>
+            <li>Back up important files before running automation scripts.</li>
+            <li>Test scripts on sample data before production use.</li>
+        </ul>
+    </section>
+
+    <!-- Common Pitfalls -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-red-700 flex items-center">
+            <span class="bg-red-100 text-red-600 p-2 rounded-lg mr-3">⚠️</span>
+            Common Pitfalls
+        </h2>
+        <ul
+            class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-red-300 shadow-md rounded-xl p-6 animate-fade-in">
+            <li><strong>Overwriting important data:</strong> Always back up files before making changes.</li>
+            <li><strong>Hardcoding file paths:</strong> Use variables and config files for flexibility.</li>
+            <li><strong>Ignoring data types:</strong> Ensure correct types when reading/writing data.</li>
+            <li><strong>Not handling exceptions:</strong> Use try/except blocks for robust scripts.</li>
+        </ul>
+    </section>
+
+    <!-- Try it Yourself Section -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🧑‍💻</span>Try it
+            Yourself: Create and Format an Excel File</h2>
+        <p class="mb-4 text-lg">Practice creating and formatting an Excel file. This script creates a file and writes
+            data with formatting.</p>
+        <div id="code-editor-container" class="bg-gray-50 p-6 rounded-lg shadow-inner border border-gray-200"></div>
+        <script type="text/plain" id="default-code">
+from openpyxl import Workbook
+from openpyxl.styles import Font
+
+wb = Workbook()
+ws = wb.active
+ws['A1'] = 'Python'
+ws['A1'].font = Font(bold=True, color='0000FF')
+wb.save('python.xlsx')
+        </script>
+        <div class="mt-4 text-sm text-gray-600">
+            <strong>Note:</strong> File operations are not supported in the browser editor. Run this code locally to see
+            the output.
+        </div>
+    </section>
+
+    <!-- Project Challenge: Excel Data Processor -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-purple-700 flex items-center">
+            <span class="bg-purple-100 text-purple-600 p-2 rounded-lg mr-3">🏆</span>
+            Project Challenge: Excel Data Processor
+        </h2>
+        <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg border-l-4 border-purple-500">
+            <p class="text-lg leading-relaxed mb-4">
+                <strong>Scenario:</strong> Build a script that reads an Excel file, processes the data (e.g., filters,
+                aggregates, or formats), and writes the results to a new file. Add error handling and logging.
+            </p>
+            <ul class="list-decimal list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2">
+                <li>Read data from an input Excel file</li>
+                <li>Process or transform the data (e.g., filter rows, calculate totals)</li>
+                <li>Write the processed data to a new Excel file</li>
+                <li>Log actions and handle errors gracefully</li>
+            </ul>
+            <div class="bg-gray-900 p-4 rounded-lg mt-6">
+                <h3 class="text-white font-semibold mb-3">💡 Project Example Output:</h3>
+                <pre class="text-green-400 text-sm"><code>Processed data written to 'results.xlsx'
+Rows filtered: 10
+</code></pre>
+            </div>
+            <p class="text-md text-gray-600 mt-4">This project will help you master Excel automation and data processing
+                in Python.</p>
+        </div>
+    </section>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+        <a href="#" onclick="loadLesson('lessons/automation_scripting.html')"
+            class="flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous: Automation & Scripting
+        </a>
+        <a href="#" onclick="loadLesson('lessons/testing_automation.html')"
+            class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+            Next: Testing Automation
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </a>
+    </div>
+</div>

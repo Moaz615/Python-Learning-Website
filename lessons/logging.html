@@ -1,0 +1,244 @@
+<!-- This file contains ONLY the content for the "Logging" lesson. -->
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <div class="mb-8">
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-4xl font-extrabold text-gray-900">44. Logging</h1>
+            <span
+                class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full whitespace-nowrap">Advanced
+                Level</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-3 mb-6">
+            <!-- Progress bar: (44-39)/18 = 27.8% for advanced (lessons 40-57) -->
+            <div class="bg-gradient-to-r from-indigo-500 to-purple-500 h-3 rounded-full transition-all duration-300"
+                style="width: 27.8%"></div>
+        </div>
+    </div>
+
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-blue-100 bg-opacity-80 backdrop-blur-md border-4 border-blue-300 shadow-lg rounded-full text-3xl text-blue-600 transition-transform duration-200 hover:scale-110 animate-fade-in">📝</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-blue-50/80 to-white/80 backdrop-blur-md border-2 border-blue-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-blue-800 tracking-tight">Why Logging Matters</h2>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong class="text-blue-600">Logging</strong> is the process of recording events, errors, and
+                    informational messages from your program. Good logging is essential for debugging, monitoring, and
+                    maintaining real-world applications—especially as they grow in size and complexity.
+                </p>
+                <p class="text-lg leading-relaxed mb-4">
+                    Unlike <code>print()</code> statements, logging can be configured to record messages at different
+                    severity levels, write to files, send alerts, and integrate with monitoring tools. It helps you
+                    understand what your code is doing, track down bugs, and even audit user actions.
+                </p>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong>Real-world scenarios:</strong>
+                <ul class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed">
+                    <li>Debugging issues in production without stopping the app</li>
+                    <li>Tracking user activity and errors in web servers</li>
+                    <li>Auditing financial transactions or security events</li>
+                    <li>Monitoring long-running data pipelines or background jobs</li>
+                    <li>Integrating with tools like Sentry, ELK stack, or cloud logging services</li>
+                </ul>
+                </p>
+                <p class="text-lg leading-relaxed">
+                    Python's built-in <code class="font-mono bg-gray-100 px-1 py-0.5 rounded">logging</code> module is
+                    powerful, flexible, and used in nearly every professional Python project.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-blue-100 bg-opacity-80 backdrop-blur-md border-4 border-blue-300 shadow-lg rounded-full text-3xl text-blue-600 transition-transform duration-200 hover:scale-110 animate-fade-in">💡</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-blue-50/80 to-white/80 backdrop-blur-md border-2 border-blue-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-blue-800 tracking-tight">Key Concepts: Logging in Python
+                </h2>
+                <ul
+                    class="list-disc list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-blue-300 shadow-md rounded-xl p-6 animate-fade-in">
+                    <li><strong class="text-blue-600">Log Levels:</strong> Control the importance of messages. Common
+                        levels: <code>DEBUG</code>, <code>INFO</code>, <code>WARNING</code>, <code>ERROR</code>,
+                        <code>CRITICAL</code>.
+                    </li>
+                    <li><strong class="text-blue-600">Handlers:</strong> Decide where logs go (console, file, email,
+                        etc.).</li>
+                    <li><strong class="text-blue-600">Formatters:</strong> Control how log messages look (add
+                        timestamps, module names, etc.).</li>
+                    <li><strong class="text-blue-600">Logger Hierarchy:</strong> Supports modular logging for large
+                        projects (e.g., <code>app.module.submodule</code>).</li>
+                </ul>
+                <div class="mt-6">
+                    <h3 class="text-xl font-semibold text-blue-800 mb-2">Basic Logging Example</h3>
+                    <div class="code-editor-example mb-6 rounded-2xl">
+                        <div class="code-editor-bar">
+                            <div class="code-editor-dots flex gap-1">
+                                <div class="code-editor-dot-red"></div>
+                                <div class="code-editor-dot-yellow"></div>
+                                <div class="code-editor-dot-green"></div>
+                            </div>
+                        </div>
+                        <span class="text-gray-400 text-xs">basic_logging.py</span>
+                        <pre><code><span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">logging</span>
+
+<span style="color: #8be9fd;">logging</span>.<span style="color: #50fa7b;">basicConfig</span>(level<span style="color: #ff79c6;">=</span><span style="color: #50fa7b;">logging</span>.<span style="color: #50fa7b;">INFO</span>)
+<span style="color: #8be9fd;">logger</span> <span style="color: #ff79c6;">=</span> <span style="color: #50fa7b;">logging</span>.<span style="color: #50fa7b;">getLogger</span>(<span style="color: #f1fa8c;">'myapp'</span>)
+
+<span style="color: #8be9fd;">logger</span>.<span style="color: #50fa7b;">info</span>(<span style="color: #f1fa8c;">'This is an info message'</span>)
+<span style="color: #8be9fd;">logger</span>.<span style="color: #50fa7b;">warning</span>(<span style="color: #f1fa8c;">'This is a warning'</span>)
+<span style="color: #8be9fd;">logger</span>.<span style="color: #50fa7b;">error</span>(<span style="color: #f1fa8c;">'This is an error'</span>)
+</code></pre>
+                    </div>
+                    <div class="bg-gray-900 p-4 rounded-2xl mt-4">
+                        <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+                        <pre class="text-green-400 text-sm"><code>INFO:root:This is an info message.
+WARNING:root:This is a warning.
+ERROR:root:This is an error!</code></pre>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <h3 class="text-xl font-semibold text-blue-800 mb-2">Customizing Log Format and Handlers</h3>
+                    <div class="code-editor-example mb-6 rounded-2xl">
+                        <div class="code-editor-bar">
+                            <div class="code-editor-dots flex gap-1">
+                                <div class="code-editor-dot-red"></div>
+                                <div class="code-editor-dot-yellow"></div>
+                                <div class="code-editor-dot-green"></div>
+                            </div>
+                        </div>
+                        <span class="text-gray-400 text-xs">custom_logging.py</span>
+                        <pre><code><span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">logging</span>
+
+<span style="color: #8be9fd;">logger</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">logging</span>.<span style="color: #50fa7b;">getLogger</span>(<span style="color: #f1fa8c;">"myapp"</span>)
+<span style="color: #8be9fd;">handler</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">logging</span>.<span style="color: #50fa7b;">StreamHandler</span>()
+<span style="color: #8be9fd;">formatter</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">logging</span>.<span style="color: #50fa7b;">Formatter</span>(<span style="color: #f1fa8c;">'%(asctime)s %(levelname)s [%(name)s]: %(message)s'</span>)
+<span style="color: #8be9fd;">handler</span>.<span style="color: #50fa7b;">setFormatter</span>(<span style="color: #8be9fd;">formatter</span>)
+<span style="color: #8be9fd;">logger</span>.<span style="color: #50fa7b;">addHandler</span>(<span style="color: #8be9fd;">handler</span>)
+<span style="color: #8be9fd;">logger</span>.<span style="color: #50fa7b;">setLevel</span>(<span style="color: #8be9fd;">logging</span>.<span style="color: #f8f8f2;">DEBUG</span>)
+
+<span style="color: #8be9fd;">logger</span>.<span style="color: #50fa7b;">debug</span>(<span style="color: #f1fa8c;">"Debug message"</span>)
+<span style="color: #8be9fd;">logger</span>.<span style="color: #50fa7b;">info</span>(<span style="color: #f1fa8c;">"Info message"</span>)
+<span style="color: #8be9fd;">logger</span>.<span style="color: #50fa7b;">error</span>(<span style="color: #f1fa8c;">"Error message"</span>)
+</code></pre>
+                    </div>
+                    <div class="bg-gray-900 p-4 rounded-2xl mt-4">
+                        <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+                        <pre class="text-green-400 text-sm"><code>2024-05-01 12:00:00,000 DEBUG [myapp]: Debug message
+2024-05-01 12:00:00,001 INFO [myapp]: Info message
+2024-05-01 12:00:00,002 ERROR [myapp]: Error message</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-green-700 flex items-center">
+            <span class="bg-green-100 text-green-600 p-2 rounded-lg mr-3">🧪</span>
+            Try it Yourself
+        </h2>
+        <div class="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl p-6 shadow-sm mb-6">
+            <p class="text-lg leading-relaxed mb-4">
+                Set up a logger that writes <code>WARNING</code> and higher messages to a file called
+                <code>app.log</code>, and <code>INFO</code> and higher messages to the console. Try logging messages at
+                different levels and check the output.
+            </p>
+        </div>
+        <!-- Code Editor Area -->
+        <div id="code-editor-container" class="bg-gray-50 p-6 rounded-lg shadow-inner border border-gray-200"></div>
+        <script type="text/plain" id="default-code">
+import logging
+
+# File handler for warnings and above
+file_handler = logging.FileHandler('app.log')
+file_handler.setLevel(logging.WARNING)
+
+# Console handler for info and above
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO)
+
+formatter = logging.Formatter('%(levelname)s: %(message)s')
+file_handler.setFormatter(formatter)
+console_handler.setFormatter(formatter)
+
+logger = logging.getLogger('myproject')
+logger.setLevel(logging.DEBUG)
+logger.addHandler(file_handler)
+logger.addHandler(console_handler)
+
+logger.debug('Debug message')
+logger.info('Info message')
+logger.warning('Warning message')
+logger.error('Error message')
+        </script>
+    </section>
+
+    <!-- Challenge Section -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-purple-700 flex items-center">
+            <span class="bg-purple-100 text-purple-600 p-2 rounded-lg mr-3">🏆</span>
+            Project Challenge: Multi-Module Logging System
+        </h2>
+        <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg border-l-4 border-purple-500">
+            <p class="text-lg leading-relaxed mb-4">
+                <strong>Real-World Project:</strong> Design and implement a robust logging system for a multi-module
+                Python application (e.g., a web server, data pipeline, or microservice). This project requires careful
+                planning and creative problem-solving—think about scalability, maintainability, and real-world needs.
+            </p>
+            <ul class="list-decimal list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2">
+                <li>Define a logger hierarchy (e.g., <code>myapp.api</code>, <code>myapp.db</code>,
+                    <code>myapp.utils</code>).
+                </li>
+                <li>Configure different handlers and formatters for each module (e.g., errors to
+                    <code>errors.log</code>, info to <code>app.log</code>).
+                </li>
+                <li>Support log rotation (e.g., using <code>RotatingFileHandler</code> or
+                    <code>TimedRotatingFileHandler</code>).
+                </li>
+                <li>Integrate with a third-party service (e.g., email alerts for critical errors, or sending logs to a
+                    cloud service).</li>
+                <li>Document your design: explain your choices, how to add new modules, and how to test the logging
+                    system.</li>
+                <li>Bonus: Add contextual information (user IDs, request IDs, etc.) to your logs for better
+                    traceability.</li>
+            </ul>
+            <div class="bg-gray-900 p-4 rounded-lg mt-6">
+                <h3 class="text-white font-semibold mb-3">💡 Project Example Output:</h3>
+                <pre class="text-green-400 text-sm"><code>2024-05-01 12:00:00,000 INFO [myapp.api]: Received request from user 42
+2024-05-01 12:00:00,001 ERROR [myapp.db]: Database connection failed!
+2024-05-01 12:00:00,002 CRITICAL [myapp.api]: Unhandled exception! Email sent to admin@example.com
+2024-05-01 12:00:00,003 INFO [myapp.utils]: Cleaned up temporary files</code></pre>
+            </div>
+            <p class="text-md text-gray-600 mt-4">This project will challenge you to design a scalable, maintainable
+                logging system for real-world applications. Think about modularity, error handling, and how your logs
+                will be used by others.</p>
+        </div>
+    </section>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+        <a href="#" onclick="loadLesson('lessons/context_managers.html')"
+            class="flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous: Context Managers
+        </a>
+        <div class="text-gray-600">
+            <span class="text-sm">Lesson 44 of 71</span>
+        </div>
+        <a href="#" onclick="loadLesson('lessons/unit_testing.html')"
+            class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+            Next: Unit Testing
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </a>
+    </div>
+</div>

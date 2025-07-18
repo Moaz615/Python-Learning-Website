@@ -1,0 +1,366 @@
+<!-- This file contains ONLY the content for the "Lambda Functions" lesson. -->
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <div class="mb-8">
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-4xl font-extrabold text-gray-900">24. Lambda Functions</h1>
+            <span class="bg-orange-100 text-orange-800 text-sm font-medium px-3 py-1 rounded-full">Intermediate
+                Level</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-3 mb-6">
+            <div class="bg-gradient-to-r from-orange-500 to-red-500 h-3 rounded-full transition-all duration-300"
+                style="width: 16.7%"></div>
+        </div>
+    </div>
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">⚡</span>Small,
+            Anonymous Functions</h2>
+        <div class="bg-indigo-50 border-l-4 border-indigo-400 p-4 rounded-lg mb-4">
+            <p class="text-lg leading-relaxed mb-2">
+                A <strong class="text-indigo-600">lambda function</strong> (also known as an anonymous function) is a
+                small, single-expression function that you don't need to define with the <code
+                    class="font-mono bg-gray-100 px-1 py-0.5 rounded">def</code> keyword. Lambda functions are typically
+                used for short, simple operations where a full function definition would be overkill.
+            </p>
+            <p class="text-lg leading-relaxed mb-0">
+                The syntax for a lambda function is: <code
+                    class="font-mono bg-gray-100 px-1 py-0.5 rounded">lambda arguments: expression</code>
+            </p>
+            <ul class="list-disc list-inside ml-4 mt-2 text-lg leading-relaxed">
+                <li><code class="font-mono bg-gray-100 px-1 py-0.5 rounded">arguments</code>: These are the inputs to
+                    the lambda function, similar to parameters in a regular function.</li>
+                <li><code class="font-mono bg-gray-100 px-1 py-0.5 rounded">expression</code>: This is a single
+                    expression whose result is the return value of the lambda function.</li>
+            </ul>
+        </div>
+    </section>
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🧪</span>Lambda
+            Function Examples</h2>
+        <div class="example-section bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8 shadow-sm">
+            <div class="flex items-center mb-3">
+                <span class="text-blue-500 text-xl mr-2">💡</span>
+                <h3 class="text-xl font-semibold text-blue-800">Example: Simple Addition</h3>
+            </div>
+            <div class="code-editor-example mb-4">
+                <div class="code-editor-bar">
+                    <div class="code-editor-dots flex gap-2">
+                        <div class="code-editor-dot-red"></div>
+                        <div class="code-editor-dot-yellow"></div>
+                        <div class="code-editor-dot-green"></div>
+                    </div>
+                    <span class="text-gray-400 text-xs">Simple Addition</span>
+                </div>
+                <pre><code><span style="color: #6272a4;"># A regular function for addition</span>
+def <span style="color: #50fa7b;">add_normal</span>(<span style="color: #f8f8f2;">a</span>, <span style="color: #f8f8f2;">b</span>):
+    <span style="color: #ff79c6;">return</span> <span style="color: #f8f8f2;">a</span> <span style="color: #ff79c6;">+</span> <span style="color: #f8f8f2;">b</span>
+
+<span style="color: #6272a4;"># An equivalent lambda function for addition</span>
+<span style="color: #f8f8f2;">add_lambda</span> <span style="color: #ff79c6;">=</span> <span style="color: #ff79c6;">lambda</span> <span style="color: #f8f8f2;">a</span>, <span style="color: #f8f8f2;">b</span>: <span style="color: #f8f8f2;">a</span> <span style="color: #ff79c6;">+</span> <span style="color: #f8f8f2;">b</span>
+
+<span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">"Normal function result: {add_normal(5, 3)}"</span>)
+<span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">"Lambda function result: {add_lambda(5, 3)}"</span>)</code></pre>
+            </div>
+            <div class="example-output bg-green-50 border-l-4 border-green-400 p-4 rounded-lg mt-2">
+                <h4 class="font-semibold text-green-700 mb-2 flex items-center">
+                    <span class="text-green-500 mr-2">📤</span>
+                    Expected Output
+                </h4>
+                <pre class="bg-gray-900 text-green-400 p-3 rounded text-sm overflow-x-auto">Normal function result: 8
+Lambda function result: 8</pre>
+            </div>
+        </div>
+        <div class="example-section bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8 shadow-sm">
+            <div class="flex items-center mb-3">
+                <span class="text-blue-500 text-xl mr-2">💡</span>
+                <h3 class="text-xl font-semibold text-blue-800">Example: Lambda with Filter</h3>
+            </div>
+            <div class="code-editor-example mb-4">
+                <div class="code-editor-bar">
+                    <div class="code-editor-dots flex gap-2">
+                        <div class="code-editor-dot-red"></div>
+                        <div class="code-editor-dot-yellow"></div>
+                        <div class="code-editor-dot-green"></div>
+                    </div>
+                    <span class="text-gray-400 text-xs">Lambda with Filter</span>
+                </div>
+                <pre><code><span style="color: #6272a4;"># Filter out even numbers from a list</span>
+<span style="color: #f8f8f2;">numbers</span> <span style="color: #ff79c6;">=</span> [<span style="color: #bd93f9;">1</span>, <span style="color: #bd93f9;">2</span>, <span style="color: #bd93f9;">3</span>, <span style="color: #bd93f9;">4</span>, <span style="color: #bd93f9;">5</span>, <span style="color: #bd93f9;">6</span>, <span style="color: #bd93f9;">7</span>, <span style="color: #bd93f9;">8</span>, <span style="color: #bd93f9;">9</span>, <span style="color: #bd93f9;">10</span>]
+
+<span style="color: #6272a4;"># Using a regular function with filter</span>
+<span style="color: #ff79c6;">def</span> <span style="color: #50fa7b;">is_even</span>(<span style="color: #f8f8f2;">num</span>):
+    <span style="color: #ff79c6;">return</span> <span style="color: #f8f8f2;">num</span> <span style="color: #ff79c6;">%</span> <span style="color: #bd93f9;">2</span> <span style="color: #ff79c6;">==</span> <span style="color: #bd93f9;">0</span>
+<span style="color: #f8f8f2;">even_numbers_normal</span> <span style="color: #ff79c6;">=</span> <span style="color: #50fa7b;">list</span>(<span style="color: #50fa7b;">filter</span>(<span style="color: #50fa7b;">is_even</span>, <span style="color: #f8f8f2;">numbers</span>))
+<span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">"Even numbers (normal function): {even_numbers_normal}"</span>)
+
+<span style="color: #6272a4;"># Using a lambda function with filter</span>
+<span style="color: #f8f8f2;">even_numbers_lambda</span> <span style="color: #ff79c6;">=</span> <span style="color: #50fa7b;">list</span>(<span style="color: #50fa7b;">filter</span>(<span style="color: #ff79c6;">lambda</span> <span style="color: #f8f8f2;">num</span>: <span style="color: #f8f8f2;">num</span> <span style="color: #ff79c6;">%</span> <span style="color: #bd93f9;">2</span> <span style="color: #ff79c6;">==</span> <span style="color: #bd93f9;">0</span>, <span style="color: #f8f8f2;">numbers</span>))
+<span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">"Even numbers (lambda function): {even_numbers_lambda}"</span>)</code></pre>
+            </div>
+            <div class="example-output bg-green-50 border-l-4 border-green-400 p-4 rounded-lg mt-2">
+                <h4 class="font-semibold text-green-700 mb-2 flex items-center">
+                    <span class="text-green-500 mr-2">📤</span>
+                    Expected Output
+                </h4>
+                <pre class="bg-gray-900 text-green-400 p-3 rounded text-sm overflow-x-auto">Even numbers (normal function): [2, 4, 6, 8, 10]
+Even numbers (lambda function): [2, 4, 6, 8, 10]</pre>
+            </div>
+        </div>
+        <div class="example-section bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8 shadow-sm">
+            <div class="flex items-center mb-3">
+                <span class="text-blue-500 text-xl mr-2">💡</span>
+                <h3 class="text-xl font-semibold text-blue-800">Example: Lambda with Map</h3>
+            </div>
+            <div class="code-editor-example mb-4">
+                <div class="code-editor-bar">
+                    <div class="code-editor-dots flex gap-2">
+                        <div class="code-editor-dot-red"></div>
+                        <div class="code-editor-dot-yellow"></div>
+                        <div class="code-editor-dot-green"></div>
+                    </div>
+                    <span class="text-gray-400 text-xs">Lambda with Map</span>
+                </div>
+                <pre><code><span style="color: #6272a4;"># Square each number in a list</span>
+<span style="color: #f8f8f2;">numbers</span> <span style="color: #ff79c6;">=</span> [<span style="color: #bd93f9;">1</span>, <span style="color: #bd93f9;">2</span>, <span style="color: #bd93f9;">3</span>, <span style="color: #bd93f9;">4</span>, <span style="color: #bd93f9;">5</span>]
+
+<span style="color: #6272a4;"># Using a regular function with map</span>
+<span style="color: #ff79c6;">def</span> <span style="color: #50fa7b;">square</span>(<span style="color: #f8f8f2;">num</span>):
+    <span style="color: #ff79c6;">return</span> <span style="color: #f8f8f2;">num</span> <span style="color: #ff79c6;">*</span> <span style="color: #f8f8f2;">num</span>
+<span style="color: #f8f8f2;">squared_numbers_normal</span> <span style="color: #ff79c6;">=</span> <span style="color: #50fa7b;">list</span>(<span style="color: #50fa7b;">map</span>(<span style="color: #50fa7b;">square</span>, <span style="color: #f8f8f2;">numbers</span>))
+<span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">"Squared numbers (normal function): {squared_numbers_normal}"</span>)
+
+<span style="color: #6272a4;"># Using a lambda function with map</span>
+<span style="color: #f8f8f2;">squared_numbers_lambda</span> <span style="color: #ff79c6;">=</span> <span style="color: #50fa7b;">list</span>(<span style="color: #50fa7b;">map</span>(<span style="color: #ff79c6;">lambda</span> <span style="color: #f8f8f2;">num</span>: <span style="color: #f8f8f2;">num</span> <span style="color: #ff79c6;">*</span> <span style="color: #f8f8f2;">num</span>, <span style="color: #f8f8f2;">numbers</span>))
+<span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">"Squared numbers (lambda function): {squared_numbers_lambda}"</span>)</code></pre>
+            </div>
+            <div class="example-output bg-green-50 border-l-4 border-green-400 p-4 rounded-lg mt-2">
+                <h4 class="font-semibold text-green-700 mb-2 flex items-center">
+                    <span class="text-green-500 mr-2">📤</span>
+                    Expected Output
+                </h4>
+                <pre class="bg-gray-900 text-green-400 p-3 rounded text-sm overflow-x-auto">Squared numbers (normal function): [1, 4, 9, 16, 25]
+Squared numbers (lambda function): [1, 4, 9, 16, 25]</pre>
+            </div>
+        </div>
+        <div class="example-section bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8 shadow-sm">
+            <div class="flex items-center mb-3">
+                <span class="text-blue-500 text-xl mr-2">💡</span>
+                <h3 class="text-xl font-semibold text-blue-800">Example: Lambda with Sorted (Custom Sort Key)</h3>
+            </div>
+            <div class="code-editor-example mb-4">
+                <div class="code-editor-bar">
+                    <div class="code-editor-dots flex gap-2">
+                        <div class="code-editor-dot-red"></div>
+                        <div class="code-editor-dot-yellow"></div>
+                        <div class="code-editor-dot-green"></div>
+                    </div>
+                    <span class="text-gray-400 text-xs">Lambda with Sorted (Custom Sort Key)</span>
+                </div>
+                <pre><code><span style="color: #6272a4;"># Sort a list of tuples by the second element</span>
+<span style="color: #f8f8f2;">pairs</span> <span style="color: #ff79c6;">=</span> [(<span style="color: #bd93f9;">1</span>, <span style="color: #f1fa8c;">'c'</span>), (<span style="color: #bd93f9;">3</span>, <span style="color: #f1fa8c;">'a'</span>), (<span style="color: #bd93f9;">2</span>, <span style="color: #f1fa8c;">'b'</span>)]
+
+<span style="color: #6272a4;"># Sort using a lambda function as the key</span>
+<span style="color: #f8f8f2;">sorted_pairs</span> <span style="color: #ff79c6;">=</span> <span style="color: #50fa7b;">sorted</span>(<span style="color: #f8f8f2;">pairs</span>, <span style="color: #f8f8f2;">key</span><span style="color: #ff79c6;">=</span><span style="color: #ff79c6;">lambda</span> <span style="color: #f8f8f2;">item</span>: <span style="color: #f8f8f2;">item</span>[<span style="color: #bd93f9;">1</span>])
+<span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">"Sorted pairs by second element: {sorted_pairs}"</span>)
+
+<span style="color: #6272a4;"># Sort a list of strings by their length</span>
+<span style="color: #f8f8f2;">words</span> <span style="color: #ff79c6;">=</span> [<span style="color: #f1fa8c;">"apple"</span>, <span style="color: #f1fa8c;">"banana"</span>, <span style="color: #f1fa8c;">"kiwi"</span>, <span style="color: #f1fa8c;">"grape"</span>]
+<span style="color: #f8f8f2;">sorted_words_by_length</span> <span style="color: #ff79c6;">=</span> <span style="color: #50fa7b;">sorted</span>(<span style="color: #f8f8f2;">words</span>, <span style="color: #f8f8f2;">key</span><span style="color: #ff79c6;">=</span><span style="color: #ff79c6;">lambda</span> <span style="color: #f8f8f2;">word</span>: <span style="color: #50fa7b;">len</span>(<span style="color: #f8f8f2;">word</span>))
+<span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">"Sorted words by length: {sorted_words_by_length}"</span>)</code></pre>
+            </div>
+            <div class="example-output bg-green-50 border-l-4 border-green-400 p-4 rounded-lg mt-2">
+                <h4 class="font-semibold text-green-700 mb-2 flex items-center">
+                    <span class="text-green-500 mr-2">📤</span>
+                    Expected Output
+                </h4>
+                <pre class="bg-gray-900 text-green-400 p-3 rounded text-sm overflow-x-auto">Sorted pairs by second element: [(3, 'a'), (2, 'b'), (1, 'c')]
+Sorted words by length: ['kiwi', 'apple', 'grape', 'banana']</pre>
+            </div>
+        </div>
+    </section>
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">💡</span>When to Use
+            Lambda Functions</h2>
+        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-lg">
+            <p class="text-lg leading-relaxed mb-4">
+                Lambda functions are best suited for:
+            </p>
+            <ul class="list-disc list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2">
+                <li>Simple, one-time operations.</li>
+                <li>As arguments to higher-order functions (like <code
+                        class="font-mono bg-gray-100 px-1 py-0.5 rounded">map()</code>, <code
+                        class="font-mono bg-gray-100 px-1 py-0.5 rounded">filter()</code>, <code
+                        class="font-mono bg-gray-100 px-1 py-0.5 rounded">sorted()</code>, <code
+                        class="font-mono bg-gray-100 px-1 py-0.5 rounded">min()</code>, <code
+                        class="font-mono bg-gray-100 px-1 py-0.5 rounded">max()</code>).</li>
+                <li>When you need a quick function without formally defining it.</li>
+            </ul>
+            <p class="text-lg leading-relaxed mb-0">
+                For more complex logic or functions that will be reused, a regular <code
+                    class="font-mono bg-gray-100 px-1 py-0.5 rounded">def</code> function is always preferred for
+                readability and maintainability.
+            </p>
+        </div>
+    </section>
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800">🧪 Try it Yourself</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            Create your own lambda functions and use them with <code
+                class="font-mono bg-gray-100 px-1 py-0.5 rounded">map()</code> and <code
+                class="font-mono bg-gray-100 px-1 py-0.5 rounded">filter()</code>.
+        </p>
+        <div id="code-editor-container" data-default-code="# Your code goes here
+
+# 1. Use a lambda function with map() to convert a list of Celsius temperatures to Fahrenheit.
+# Formula: Fahrenheit = (Celsius * 9/5) + 32
+celsius_temps = [0, 10, 20, 30, 37]
+fahrenheit_temps = list(map(lambda c: (c * 9/5) + 32, celsius_temps))
+print(f" Celsius: {celsius_temps}") print(f"Fahrenheit: {fahrenheit_temps}") print("\n---") # 2. Use a lambda function
+            with filter() to get all strings from a list that start with 'P' . words=["Python", "Java" , "C++" , "Perl"
+            , "JavaScript" ] p_words=list(filter(lambda word: word.startswith('P'), words)) print(f"Original words:
+            {words}") print(f"Words starting with 'P' : {p_words}") print("\n---") # 3. Sort a list of dictionaries by
+            the 'price' key using a lambda function. products=[ {"name": "Laptop" , "price" : 1200}, {"name": "Mouse"
+            , "price" : 25}, {"name": "Keyboard" , "price" : 75}, {"name": "Monitor" , "price" : 300} ]
+            sorted_products=sorted(products, key=lambda product: product['price']) print("Products sorted by price:")
+            for product in sorted_products: print(product)"></div>
+    </section>
+    <!-- Challenge/Homework Section -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-orange-700 flex items-center">
+            <span class="bg-orange-100 text-orange-600 p-2 rounded-lg mr-3">🏆</span>
+            Challenge: Mini Student Analyzer with Lambdas
+        </h2>
+        <div class="bg-gradient-to-r from-orange-50 to-pink-50 p-6 rounded-lg border-l-4 border-orange-500">
+            <p class="text-lg leading-relaxed mb-4">
+                <strong>Project Goal:</strong> Build a mini student analyzer that uses <span
+                    class="text-indigo-600 font-semibold">lambda functions</span> together with Level 1 concepts
+                (variables, lists, loops, conditionals, etc.). You'll practice combining lambdas with <code
+                    class="font-mono bg-gray-100 px-1 py-0.5 rounded">map()</code>, <code
+                    class="font-mono bg-gray-100 px-1 py-0.5 rounded">filter()</code>, and <code
+                    class="font-mono bg-gray-100 px-1 py-0.5 rounded">sorted()</code> to analyze student data.
+            </p>
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                    <h3 class="font-semibold text-gray-800 mb-3">📋 Requirements:</h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li>• Create a list of student dictionaries, each with a <code
+                                class="bg-gray-100 px-1 rounded">'name'</code> and <code
+                                class="bg-gray-100 px-1 rounded">'score'</code>.</li>
+                        <li>• Use <code class="bg-gray-100 px-1 rounded">filter()</code> with a lambda to find students
+                            who passed (score ≥ 60).</li>
+                        <li>• Use <code class="bg-gray-100 px-1 rounded">map()</code> with a lambda to add a new key
+                            <code class="bg-gray-100 px-1 rounded">'grade'</code> (A/B/C/D/F) to each student based on
+                            their score.
+                        </li>
+                        <li>• Use <code class="bg-gray-100 px-1 rounded">sorted()</code> with a lambda to sort students
+                            by score (highest to lowest).</li>
+                        <li>• Print a summary report: all students, passing students, and the sorted list with grades.
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                    <h3 class="font-semibold text-gray-800 mb-3">🎯 Bonus Ideas:</h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li>• Use a lambda with <code class="bg-gray-100 px-1 rounded">max()</code> or <code
+                                class="bg-gray-100 px-1 rounded">min()</code> to find the top or lowest scoring student.
+                        </li>
+                        <li>• Use a lambda with <code class="bg-gray-100 px-1 rounded">any()</code> or <code
+                                class="bg-gray-100 px-1 rounded">all()</code> to check if all students passed or if any
+                            got an A.</li>
+                        <li>• Add user input to enter new students and scores (optional).</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bg-gray-900 p-4 rounded-lg">
+                <h3 class="text-white font-semibold mb-3">💡 Sample Output:</h3>
+                <pre class="text-green-400 text-sm whitespace-pre-wrap break-words"><code>All Students:
+{'name': 'Alice', 'score': 85}
+{'name': 'Bob', 'score': 58}
+{'name': 'Charlie', 'score': 92}
+{'name': 'Diana', 'score': 73}
+{'name': 'Eve', 'score': 66}
+
+Passing Students (score ≥ 60):
+{'name': 'Alice', 'score': 85}
+{'name': 'Charlie', 'score': 92}
+{'name': 'Diana', 'score': 73}
+{'name': 'Eve', 'score': 66}
+
+Sorted with Grades:
+{'name': 'Charlie', 'score': 92, 'grade': 'A'}
+{'name': 'Alice', 'score': 85, 'grade': 'B'}
+{'name': 'Diana', 'score': 73, 'grade': 'C'}
+{'name': 'Eve', 'score': 66, 'grade': 'D'}
+{'name': 'Bob', 'score': 58, 'grade': 'F'}
+</code></pre>
+            </div>
+            <div class="mt-6 bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg">
+                <p class="text-yellow-800 text-sm">
+                    <strong>💪 Challenge yourself:</strong> Try to use lambda functions for as many steps as possible,
+                    and combine them with your knowledge from Level 1 (lists, loops, conditionals, etc.) for a complete
+                    solution!
+                </p>
+            </div>
+        </div>
+    </section>
+    <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+        <a href="#" onclick="loadLesson('lessons/builtin_functions.html')"
+            class="flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous: Built-in Functions
+        </a>
+        <div class="text-gray-600">
+            <span class="text-sm">Lesson 24 of 71</span>
+        </div>
+        <a href="#" onclick="loadLesson('lessons/map_filter_reduce.html')"
+            class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+            Next: Map, Filter, Reduce
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </a>
+    </div>
+</div>
+
+<script type="text/plain" id="default-code-lambda-try-it">
+# 1. Use a lambda function with map() to convert a list of Celsius temperatures to Fahrenheit.
+# Formula: Fahrenheit = (Celsius * 9/5) + 32
+celsius_temps = [0, 10, 20, 30, 37]
+fahrenheit_temps = list(map(lambda c: (c * 9/5) + 32, celsius_temps))
+print(f"Celsius: {celsius_temps}")
+print(f"Fahrenheit: {fahrenheit_temps}")
+print("\n---")
+
+# 2. Use a lambda function with filter() to get all strings from a list that start with 'P'.
+words = ["Python", "Java", "C++", "Perl", "JavaScript"]
+p_words = list(filter(lambda word: word.startswith('P'), words))
+print(f"Original words: {words}")
+print(f"Words starting with 'P': {p_words}")
+print("\n---")
+
+# 3. Sort a list of dictionaries by the 'price' key using a lambda function.
+products = [
+    {"name": "Laptop", "price": 1200},
+    {"name": "Mouse", "price": 25},
+    {"name": "Keyboard", "price": 75},
+    {"name": "Monitor", "price": 300}
+]
+sorted_products = sorted(products, key=lambda product: product['price'])
+print("Products sorted by price:")
+for product in sorted_products:
+    print(product)
+</script>
+
+<script>
+    // Patch the Try it Yourself code editor to use the fixed code
+    (function () {
+        var container = document.getElementById('code-editor-container');
+        if (container && !container.querySelector('textarea')) {
+            var codeScript = document.getElementById('default-code-lambda-try-it');
+            if (codeScript) {
+                container.setAttribute('data-default-code', codeScript.textContent.trim());
+            }
+        }
+    })();
+</script>

@@ -1,0 +1,416 @@
+<!-- This file contains ONLY the content for the "Game Development" lesson. -->
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <div class="mb-8">
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-4xl font-extrabold text-gray-900">69. Game Development (Pygame)</h1>
+            <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full whitespace-nowrap">Expert
+                Level</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-3 mb-6">
+            <!-- Progress bar: (69-57)/19 ≈ 63.2% for expert (lessons 58-76) -->
+            <div class="bg-red-500 h-3 rounded-full transition-all duration-300" style="width: 63.2%"></div>
+        </div>
+    </div>
+
+    <!-- Why Game Development Matters -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-blue-100 bg-opacity-80 backdrop-blur-md border-4 border-blue-300 shadow-lg rounded-full text-3xl text-blue-600 transition-transform duration-200 hover:scale-110 animate-fade-in">🎮</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-blue-50/80 to-white/80 backdrop-blur-md border-2 border-blue-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-blue-800 tracking-tight">Why Game Development Matters</h2>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong class="text-blue-600">Game development</strong> with Python is a fun and creative way to
+                    learn programming, logic, and graphics. Pygame is a popular library for building 2D games and
+                    interactive applications.
+                </p>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong>Real-world applications:</strong>
+                <ul class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed">
+                    <li>Building 2D games and prototypes</li>
+                    <li>Interactive simulations and visualizations</li>
+                    <li>Educational and training tools</li>
+                    <li>Creative coding and art projects</li>
+                </ul>
+                </p>
+                <p class="text-lg leading-relaxed">
+                    Python's <code>pygame</code> library is widely used for game development and rapid prototyping.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Concepts -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-green-100 bg-opacity-80 backdrop-blur-md border-4 border-green-300 shadow-lg rounded-full text-3xl text-green-600 transition-transform duration-200 hover:scale-110 animate-fade-in">💡</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-green-50/80 to-white/80 backdrop-blur-md border-2 border-green-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-green-800 tracking-tight">Key Concepts: Game Development in
+                    Python</h2>
+                <ul
+                    class="list-disc list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-green-300 shadow-md rounded-xl p-6 animate-fade-in">
+                    <li><strong class="text-green-600">Game Loop:</strong> The main loop that updates and renders the
+                        game.</li>
+                    <li><strong class="text-green-600">Event Handling:</strong> Responding to user input (keyboard,
+                        mouse).</li>
+                    <li><strong class="text-green-600">Sprites & Surfaces:</strong> Drawing and moving objects on the
+                        screen.</li>
+                    <li><strong class="text-green-600">Collision Detection:</strong> Checking for interactions between
+                        objects.</li>
+                    <li><strong class="text-green-600">Sound & Music:</strong> Adding audio to games.</li>
+                    <li><strong class="text-green-600">Game State:</strong> Managing levels, scores, and game logic.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pygame Window Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🖥️</span>Pygame:
+            Basic Window & Event Loop</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>Pygame</strong> makes it easy to create windows, draw graphics, and handle events. Here’s how to
+            open a window and respond to the quit event:
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dots flex gap-2">
+                    <div class="code-editor-dot-red"></div>
+                    <div class="code-editor-dot-yellow"></div>
+                    <div class="code-editor-dot-green"></div>
+                </div>
+                <span class="text-gray-400 text-xs">pygame_window_example.py</span>
+            </div>
+            <pre><code><span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">pygame</span>
+
+<span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">init</span>()
+<span style="color: #8be9fd;">screen</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">display.set_mode</span>((<span style="color: #bd93f9;">640</span>, <span style="color: #bd93f9;">480</span>))
+<span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">display.set_caption</span>(<span style="color: #f1fa8c;">"My Game"</span>)
+
+<span style="color: #8be9fd;">running</span> <span style="color: #ff79c6;">=</span> <span style="color: #ff79c6;">True</span>
+<span style="color: #ff79c6;">while</span> <span style="color: #8be9fd;">running</span>:
+    <span style="color: #ff79c6;">for</span> <span style="color: #8be9fd;">event</span> <span style="color: #ff79c6;">in</span> <span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">event.get</span>():
+        <span style="color: #ff79c6;">if</span> <span style="color: #8be9fd;">event.type</span> <span style="color: #ff79c6;">==</span> <span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">QUIT</span>:
+            <span style="color: #8be9fd;">running</span> <span style="color: #ff79c6;">=</span> <span style="color: #ff79c6;">False</span>
+
+<span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">quit</span>()
+</code></pre>
+        </div>
+        <div class="bg-gray-900 p-4 rounded-lg">
+            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+            <pre class="text-green-400 text-sm"><code>A window titled "My Game" opens and closes when you click the close button.
+</code></pre>
+        </div>
+    </section>
+
+    <!-- Sprites and Movement Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🚀</span>Sprites and
+            Movement</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>Sprites</strong> are objects that can move and interact in your game. Pygame provides a Sprite class
+            to help manage them. Here’s how to move a rectangle with arrow keys:
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dots flex gap-2">
+                    <div class="code-editor-dot-red"></div>
+                    <div class="code-editor-dot-yellow"></div>
+                    <div class="code-editor-dot-green"></div>
+                </div>
+                <span class="text-gray-400 text-xs">sprite_movement_example.py</span>
+            </div>
+            <pre><code><span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">pygame</span>
+
+<span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">init</span>()
+<span style="color: #8be9fd;">screen</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">display.set_mode</span>((<span style="color: #bd93f9;">640</span>, <span style="color: #bd93f9;">480</span>))
+<span style="color: #8be9fd;">x</span>, <span style="color: #8be9fd;">y</span> <span style="color: #ff79c6;">=</span> <span style="color: #bd93f9;">320</span>, <span style="color: #bd93f9;">240</span>
+
+<span style="color: #8be9fd;">running</span> <span style="color: #ff79c6;">=</span> <span style="color: #ff79c6;">True</span>
+<span style="color: #ff79c6;">while</span> <span style="color: #8be9fd;">running</span>:
+    <span style="color: #ff79c6;">for</span> <span style="color: #8be9fd;">event</span> <span style="color: #ff79c6;">in</span> <span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">event.get</span>():
+        <span style="color: #ff79c6;">if</span> <span style="color: #8be9fd;">event.type</span> <span style="color: #ff79c6;">==</span> <span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">QUIT</span>:
+            <span style="color: #8be9fd;">running</span> <span style="color: #ff79c6;">=</span> <span style="color: #ff79c6;">False</span>
+    <span style="color: #8be9fd;">keys</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">key.get_pressed</span>()
+    <span style="color: #ff79c6;">if</span> <span style="color: #8be9fd;">keys</span>[<span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">K_LEFT</span>]: <span style="color: #8be9fd;">x</span> <span style="color: #ff79c6;">-=</span> <span style="color: #bd93f9;">5</span>
+    <span style="color: #ff79c6;">if</span> <span style="color: #8be9fd;">keys</span>[<span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">K_RIGHT</span>]: <span style="color: #8be9fd;">x</span> <span style="color: #ff79c6;">+=</span> <span style="color: #bd93f9;">5</span>
+    <span style="color: #ff79c6;">if</span> <span style="color: #8be9fd;">keys</span>[<span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">K_UP</span>]: <span style="color: #8be9fd;">y</span> <span style="color: #ff79c6;">-=</span> <span style="color: #bd93f9;">5</span>
+    <span style="color: #ff79c6;">if</span> <span style="color: #8be9fd;">keys</span>[<span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">K_DOWN</span>]: <span style="color: #8be9fd;">y</span> <span style="color: #ff79c6;">+=</span> <span style="color: #bd93f9;">5</span>
+    <span style="color: #8be9fd;">screen</span>.<span style="color: #50fa7b;">fill</span>((<span style="color: #bd93f9;">255</span>, <span style="color: #bd93f9;">255</span>, <span style="color: #bd93f9;">255</span>))
+    <span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">draw.rect</span>(<span style="color: #8be9fd;">screen</span>, (<span style="color: #bd93f9;">0</span>, <span style="color: #bd93f9;">128</span>, <span style="color: #bd93f9;">255</span>), (<span style="color: #8be9fd;">x</span>, <span style="color: #8be9fd;">y</span>, <span style="color: #bd93f9;">60</span>, <span style="color: #bd93f9;">60</span>))
+    <span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">display.flip</span>()
+
+<span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">quit</span>()
+</code></pre>
+        </div>
+        <div class="bg-gray-900 p-4 rounded-lg">
+            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+            <pre class="text-green-400 text-sm"><code>A blue rectangle moves with the arrow keys.</code></pre>
+        </div>
+    </section>
+
+    <!-- Collision Detection Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🎯</span>Collision
+            Detection</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>Collision detection</strong> is essential for games. Here’s how to check if two rectangles overlap:
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dots flex gap-2">
+                    <div class="code-editor-dot-red"></div>
+                    <div class="code-editor-dot-yellow"></div>
+                    <div class="code-editor-dot-green"></div>
+                </div>
+                <span class="text-gray-400 text-xs">collision_example.py</span>
+            </div>
+            <pre><code><span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">pygame</span>
+
+<span style="color: #8be9fd;">rect1</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">Rect</span>(<span style="color: #bd93f9;">100</span>, <span style="color: #bd93f9;">100</span>, <span style="color: #bd93f9;">50</span>, <span style="color: #bd93f9;">50</span>)
+<span style="color: #8be9fd;">rect2</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">Rect</span>(<span style="color: #bd93f9;">120</span>, <span style="color: #bd93f9;">120</span>, <span style="color: #bd93f9;">50</span>, <span style="color: #bd93f9;">50</span>)
+
+<span style="color: #ff79c6;">if</span> <span style="color: #8be9fd;">rect1.colliderect</span>(<span style="color: #8be9fd;">rect2</span>):
+    <span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">"Collision!"</span>)
+</code></pre>
+        </div>
+        <div class="bg-gray-900 p-4 rounded-lg">
+            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+            <pre class="text-green-400 text-sm"><code>Collision!</code></pre>
+        </div>
+    </section>
+
+    <!-- Sound and Music Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🔊</span>Sound and
+            Music</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>Pygame</strong> can play sound effects and music. Here’s how to play a sound file:
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dots flex gap-2">
+                    <div class="code-editor-dot-red"></div>
+                    <div class="code-editor-dot-yellow"></div>
+                    <div class="code-editor-dot-green"></div>
+                </div>
+                <span class="text-gray-400 text-xs">sound_example.py</span>
+            </div>
+            <pre><code><span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">pygame</span>
+
+<span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">init</span>()
+<span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">mixer.music.load</span>(<span style="color: #f1fa8c;">'sound.mp3'</span>)
+<span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">mixer.music.play</span>()
+
+<span style="color: #8be9fd;">input</span>(<span style="color: #f1fa8c;">'Press Enter to stop...'</span>)
+<span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">mixer.music.stop</span>()
+<span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">quit</span>()
+</code></pre>
+        </div>
+        <div class="bg-gray-900 p-4 rounded-lg">
+            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+            <pre class="text-green-400 text-sm"><code>Plays 'sound.mp3' until you press Enter.</code></pre>
+        </div>
+    </section>
+
+    <!-- Game State and Scoring Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🏆</span>Game State
+            and Scoring</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>Game state</strong> and <strong>scoring</strong> are key to gameplay. Here’s how to display a score
+            on the screen:
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dots flex gap-2">
+                    <div class="code-editor-dot-red"></div>
+                    <div class="code-editor-dot-yellow"></div>
+                    <div class="code-editor-dot-green"></div>
+                </div>
+                <span class="text-gray-400 text-xs">score_example.py</span>
+            </div>
+            <pre><code><span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">pygame</span>
+
+<span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">init</span>()
+<span style="color: #8be9fd;">screen</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">display.set_mode</span>((<span style="color: #bd93f9;">640</span>, <span style="color: #bd93f9;">480</span>))
+<span style="color: #8be9fd;">font</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">font.SysFont</span>(<span style="color: #f1fa8c;">None</span>, <span style="color: #bd93f9;">48</span>)
+<span style="color: #8be9fd;">score</span> <span style="color: #ff79c6;">=</span> <span style="color: #bd93f9;">0</span>
+
+<span style="color: #8be9fd;">running</span> <span style="color: #ff79c6;">=</span> <span style="color: #ff79c6;">True</span>
+<span style="color: #ff79c6;">while</span> <span style="color: #8be9fd;">running</span>:
+    <span style="color: #ff79c6;">for</span> <span style="color: #8be9fd;">event</span> <span style="color: #ff79c6;">in</span> <span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">event.get</span>():
+        <span style="color: #ff79c6;">if</span> <span style="color: #8be9fd;">event.type</span> <span style="color: #ff79c6;">==</span> <span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">QUIT</span>:
+            <span style="color: #8be9fd;">running</span> <span style="color: #ff79c6;">=</span> <span style="color: #ff79c6;">False</span>
+    <span style="color: #8be9fd;">screen</span>.<span style="color: #50fa7b;">fill</span>((<span style="color: #bd93f9;">255</span>, <span style="color: #bd93f9;">255</span>, <span style="color: #bd93f9;">255</span>))
+    <span style="color: #8be9fd;">score_text</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">font.render</span>(<span style="color: #f1fa8c;">f"Score: {score}"</span>, <span style="color: #ff79c6;">True</span>, (<span style="color: #bd93f9;">0</span>, <span style="color: #bd93f9;">0</span>, <span style="color: #bd93f9;">0</span>))
+    <span style="color: #8be9fd;">screen</span>.<span style="color: #50fa7b;">blit</span>(<span style="color: #8be9fd;">score_text</span>, (<span style="color: #bd93f9;">250</span>, <span style="color: #bd93f9;">220</span>))
+    <span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">display.flip</span>()
+
+<span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">quit</span>()
+</code></pre>
+        </div>
+        <div class="bg-gray-900 p-4 rounded-lg">
+            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+            <pre class="text-green-400 text-sm"><code>Score: 0 is displayed in the center of the window.</code></pre>
+        </div>
+    </section>
+
+    <!-- Adding Images/Assets Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🖼️</span>Adding
+            Images and Assets</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>Pygame</strong> can load and display images (sprites). Here’s how to load and draw an image:
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dots flex gap-2">
+                    <div class="code-editor-dot-red"></div>
+                    <div class="code-editor-dot-yellow"></div>
+                    <div class="code-editor-dot-green"></div>
+                </div>
+                <span class="text-gray-400 text-xs">image_asset_example.py</span>
+            </div>
+            <pre><code><span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">pygame</span>
+
+<span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">init</span>()
+<span style="color: #8be9fd;">screen</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">display.set_mode</span>((<span style="color: #bd93f9;">640</span>, <span style="color: #bd93f9;">480</span>))
+<span style="color: #8be9fd;">image</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">image.load</span>(<span style="color: #f1fa8c;">'player.png'</span>)
+
+<span style="color: #8be9fd;">running</span> <span style="color: #ff79c6;">=</span> <span style="color: #ff79c6;">True</span>
+<span style="color: #ff79c6;">while</span> <span style="color: #8be9fd;">running</span>:
+    <span style="color: #ff79c6;">for</span> <span style="color: #8be9fd;">event</span> <span style="color: #ff79c6;">in</span> <span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">event.get</span>():
+        <span style="color: #ff79c6;">if</span> <span style="color: #8be9fd;">event.type</span> <span style="color: #ff79c6;">==</span> <span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">QUIT</span>:
+            <span style="color: #8be9fd;">running</span> <span style="color: #ff79c6;">=</span> <span style="color: #ff79c6;">False</span>
+    <span style="color: #8be9fd;">screen</span>.<span style="color: #50fa7b;">fill</span>((<span style="color: #bd93f9;">255</span>, <span style="color: #bd93f9;">255</span>, <span style="color: #bd93f9;">255</span>))
+    <span style="color: #8be9fd;">screen</span>.<span style="color: #50fa7b;">blit</span>(<span style="color: #8be9fd;">image</span>, (<span style="color: #bd93f9;">300</span>, <span style="color: #bd93f9;">220</span>))
+    <span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">display.flip</span>()
+
+<span style="color: #8be9fd;">pygame</span>.<span style="color: #50fa7b;">quit</span>()
+</code></pre>
+        </div>
+        <div class="bg-gray-900 p-4 rounded-lg">
+            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+            <pre
+                class="text-green-400 text-sm"><code>The image 'player.png' is displayed at the center of the window.</code></pre>
+        </div>
+    </section>
+
+    <!-- Best Practices -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-blue-700 flex items-center">
+            <span class="bg-blue-100 text-blue-600 p-2 rounded-lg mr-3">✅</span>
+            Best Practices for Game Development
+        </h2>
+        <ul
+            class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-blue-300 shadow-md rounded-xl p-6 animate-fade-in">
+            <li>Keep your game loop efficient and avoid blocking operations.</li>
+            <li>Organize code using classes for sprites and game objects.</li>
+            <li>Use asset loading (images, sounds) outside the main loop.</li>
+            <li>Test on different screen sizes and platforms.</li>
+            <li>Document controls and gameplay for users.</li>
+        </ul>
+    </section>
+
+    <!-- Common Pitfalls -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-red-700 flex items-center">
+            <span class="bg-red-100 text-red-600 p-2 rounded-lg mr-3">⚠️</span>
+            Common Pitfalls
+        </h2>
+        <ul
+            class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-red-300 shadow-md rounded-xl p-6 animate-fade-in">
+            <li><strong>Not calling <code>pygame.quit()</code>:</strong> Always clean up resources on exit.</li>
+            <li><strong>Ignoring frame rate:</strong> Use <code>pygame.time.Clock()</code> to control FPS.</li>
+            <li><strong>Hardcoding values:</strong> Use variables for screen size, colors, etc.</li>
+            <li><strong>Not handling user input:</strong> Always check for events in the game loop.</li>
+        </ul>
+    </section>
+
+    <!-- Try it Yourself Section -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🧑‍💻</span>Try it
+            Yourself: Draw a Circle with Pygame</h2>
+        <p class="mb-4 text-lg">Practice drawing a shape in a Pygame window. This code draws a red circle in the center
+            of the screen.</p>
+        <div id="code-editor-container" class="bg-gray-50 p-6 rounded-lg shadow-inner border border-gray-200"></div>
+        <script type="text/plain" id="default-code">
+import pygame
+
+pygame.init()
+screen = pygame.display.set_mode((640, 480))
+pygame.display.set_caption("Draw a Circle")
+
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+    screen.fill((255, 255, 255))
+    pygame.draw.circle(screen, (255, 0, 0), (320, 240), 50)
+    pygame.display.flip()
+
+pygame.quit()
+        </script>
+        <div class="mt-4 text-sm text-gray-600">
+            <strong>Note:</strong> Pygame is not supported in the browser editor. Run this code locally to see the
+            output.
+        </div>
+    </section>
+
+    <!-- Project Challenge: Build a Simple Game -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-purple-700 flex items-center">
+            <span class="bg-purple-100 text-purple-600 p-2 rounded-lg mr-3">🏆</span>
+            Project Challenge: Build a Simple Game
+        </h2>
+        <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg border-l-4 border-purple-500">
+            <p class="text-lg leading-relaxed mb-4">
+                <strong>Scenario:</strong> Build a simple game (e.g., Pong, Snake, or a clicker) using Pygame. Implement
+                basic controls, scoring, and graphics.
+            </p>
+            <ul class="list-decimal list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2">
+                <li>Set up the game window and main loop</li>
+                <li>Draw and move game objects (sprites)</li>
+                <li>Handle user input and collisions</li>
+                <li>Track and display the score</li>
+            </ul>
+            <div class="bg-gray-900 p-4 rounded-lg mt-6">
+                <h3 class="text-white font-semibold mb-3">💡 Project Example Output:</h3>
+                <pre class="text-green-400 text-sm"><code>Score: 10
+Game Over!
+    </code></pre>
+            </div>
+            <p class="text-md text-gray-600 mt-4">This project will help you master the basics of game development and
+                interactive graphics in Python.</p>
+        </div>
+    </section>
+
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+        <a href="#" onclick="loadLesson('lessons/networking.html')"
+            class="flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous: Networking
+        </a>
+        <a href="#" onclick="loadLesson('lessons/automation_scripting.html')"
+            class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+            Next: Automation & Scripting
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </a>
+    </div>
+</div>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome | Python Educational Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Amiri:wght@700&display=swap&subset=arabic">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .soft-bg {
+            background: linear-gradient(135deg, #f7fafc 0%, #e0e7ef 100%);
+        }
+
+        .arabic-basmala {
+            font-family: 'Amiri', serif;
+            font-size: 4rem;
+            color: #4338ca;
+            /* Indigo-700, matches site accent */
+            text-align: center;
+            margin-top: 2.5rem;
+            margin-bottom: 2.5rem;
+            letter-spacing: 2px;
+            font-weight: 900;
+            line-height: 1.1;
+            border-radius: 2rem;
+            box-shadow: 0 4px 24px 0 rgba(67, 56, 202, 0.10);
+            padding: 1.5rem 0;
+            direction: rtl;
+        }
+
+        @media (max-width: 600px) {
+            .arabic-basmala {
+                font-size: 2.2rem;
+                padding: 0.9rem 0;
+            }
+        }
+    </style>
+    <script>
+        // Smooth scroll to contact
+        function scrollToContact(event) {
+            event.preventDefault();
+            const contact = document.getElementById('contact');
+            if (contact) {
+                contact.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+</head>
+
+<body class="soft-bg min-h-screen flex flex-col">
+    <!-- Navigation Bar -->
+    <nav
+        class="w-full bg-white/80 backdrop-blur-md shadow-md py-4 px-6 flex flex-wrap justify-center gap-12 items-center sticky top-0 z-30 border-b border-gray-200">
+        <a href="home.html"
+            class="flex items-center gap-2 px-2 py-1 rounded-lg font-extrabold text-indigo-700 hover:bg-indigo-50 transition text-lg"
+            style="font-weight: 700;">
+            <img src="logo.png" alt="Home"
+                class="h-7 w-7 rounded-full border-2 border-yellow-300 bg-white object-contain" />
+            Home
+        </a>
+        <a href="index.html#lessons/introduction.html"
+            class="px-2 py-1 rounded-lg font-extrabold text-green-700 hover:bg-green-50 transition text-lg"
+            style="font-weight: 700;">Beginner Lessons</a>
+        <a href="index.html#lessons/error_handling.html"
+            class="px-2 py-1 rounded-lg font-extrabold text-amber-700 hover:bg-amber-50 transition text-lg"
+            style="font-weight: 700;">Intermediate Lessons</a>
+        <a href="index.html#lessons/functional_programming.html"
+            class="px-2 py-1 rounded-lg font-extrabold text-blue-700 hover:bg-blue-50 transition text-lg"
+            style="font-weight: 700;">Advanced Lessons</a>
+        <a href="index.html#lessons/data_science.html"
+            class="px-2 py-1 rounded-lg font-extrabold text-red-700 hover:bg-red-50 transition text-lg"
+            style="font-weight: 700;">Expert Lessons</a>
+        <a href="#contact" onclick="scrollToContact(event)"
+            class="ml-auto px-2 py-1 rounded-lg font-semibold text-indigo-700 hover:bg-indigo-50 transition text-lg">Contact</a>
+    </nav>
+    <!-- Basmala Arabic Calligraphy -->
+    <div class="arabic-basmala"><span style="font-size:1.2em; vertical-align:middle;">﴿</span> <span
+            style="margin:0 0.5em;">﷽</span> <span style="font-size:1.2em; vertical-align:middle;">﴾</span></div>
+
+    <!-- Hero Section -->
+    <section class="relative flex-1 flex flex-col items-center justify-center min-h-[60vh] py-12 px-4 overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute -top-32 -left-32 w-96 h-96 bg-yellow-100 rounded-full opacity-20 blur-3xl"></div>
+            <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-indigo-100 rounded-full opacity-20 blur-3xl"></div>
+        </div>
+        <div class="relative z-10 max-w-3xl w-full text-center">
+            <img src="logo.png" alt="Python Logo"
+                class="h-20 w-20 rounded-full border-4 border-yellow-400 bg-white object-contain mx-auto mb-6 shadow-lg" />
+            <h1 class="text-5xl sm:text-6xl font-extrabold text-indigo-800 mb-4 drop-shadow-lg">Master Python, Step by
+                Step</h1>
+            <p class="text-xl sm:text-2xl text-gray-700 mb-8 font-medium">Interactive lessons, real coding, quizzes, and
+                certificates — all in your browser.</p>
+            <div class="flex flex-wrap justify-center gap-4 mb-4">
+                <a href="index.html#lessons/introduction.html"
+                    class="px-10 py-4 bg-gradient-to-r from-green-400 to-blue-500 text-white text-2xl font-bold rounded-xl shadow-lg hover:scale-105 transition-all duration-200">Start
+                    Learning</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Learn Python Section -->
+    <section class="max-w-5xl mx-auto px-4 py-10">
+        <h2 class="text-3xl font-extrabold text-indigo-700 mb-6 text-center">Why Learn Python?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white/80 rounded-2xl shadow p-6 flex flex-col items-center">
+                <span class="text-4xl mb-2">🚀</span>
+                <h3 class="font-bold text-lg text-indigo-700 mb-1">In-Demand Skill</h3>
+                <p class="text-gray-600 text-center">Python is one of the most popular programming languages in the
+                    world, used by top companies and startups alike.</p>
+            </div>
+            <div class="bg-white/80 rounded-2xl shadow p-6 flex flex-col items-center">
+                <span class="text-4xl mb-2">🤖</span>
+                <h3 class="font-bold text-lg text-indigo-700 mb-1">Versatile & Powerful</h3>
+                <p class="text-gray-600 text-center">From web development to AI, data science, automation, and more —
+                    Python does it all.</p>
+            </div>
+            <div class="bg-white/80 rounded-2xl shadow p-6 flex flex-col items-center">
+                <span class="text-4xl mb-2">🌱</span>
+                <h3 class="font-bold text-lg text-indigo-700 mb-1">Beginner Friendly</h3>
+                <p class="text-gray-600 text-center">Python's simple syntax makes it perfect for beginners and
+                    professionals alike.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="max-w-5xl mx-auto px-4 py-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+        <div
+            class="bg-white/90 rounded-2xl shadow-lg p-6 flex flex-col items-center hover:shadow-2xl transition-shadow duration-200">
+            <span class="text-4xl mb-3">💻</span>
+            <h3 class="font-bold text-lg text-indigo-700 mb-1">Interactive Lessons</h3>
+            <p class="text-gray-600 text-sm text-center">Learn Python concepts with hands-on code editors and instant
+                feedback.</p>
+        </div>
+        <div
+            class="bg-white/90 rounded-2xl shadow-lg p-6 flex flex-col items-center hover:shadow-2xl transition-shadow duration-200">
+            <span class="text-4xl mb-3">📝</span>
+            <h3 class="font-bold text-lg text-green-700 mb-1">Quizzes & Challenges</h3>
+            <p class="text-gray-600 text-sm text-center">Test your knowledge with quizzes and grand challenges at every
+                level.</p>
+        </div>
+        <div
+            class="bg-white/90 rounded-2xl shadow-lg p-6 flex flex-col items-center hover:shadow-2xl transition-shadow duration-200">
+            <span class="text-4xl mb-3">🏆</span>
+            <h3 class="font-bold text-lg text-yellow-700 mb-1">Earn Certificates</h3>
+            <p class="text-gray-600 text-sm text-center">Showcase your achievements with downloadable certificates as
+                you complete tracks.</p>
+        </div>
+        <div
+            class="bg-white/90 rounded-2xl shadow-lg p-6 flex flex-col items-center hover:shadow-2xl transition-shadow duration-200">
+            <span class="text-4xl mb-3">🌐</span>
+            <h3 class="font-bold text-lg text-blue-700 mb-1">All in Your Browser</h3>
+            <p class="text-gray-600 text-sm text-center">No installation needed. Learn and code Python directly in your
+                browser, anytime, anywhere.</p>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <!-- (Removed) -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="max-w-2xl mx-auto px-4 py-12 mb-8">
+        <h2 class="text-3xl font-extrabold text-indigo-700 mb-6 text-center">Contact Us</h2>
+        <!-- Replace 'your-form-id' with your actual Formspree form ID -->
+        <form action="https://formspree.io/f/xldldorr" method="POST"
+            class="bg-white/90 rounded-2xl shadow-lg p-8 flex flex-col gap-4">
+            <input type="text" name="name" placeholder="Your Name" required
+                class="px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-300 outline-none" />
+            <input type="email" name="email" placeholder="Your Email" required
+                class="px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-300 outline-none" />
+            <textarea name="message" placeholder="Your Message" rows="4" required
+                class="px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-300 outline-none"></textarea>
+            <button type="submit"
+                class="mt-2 px-6 py-3 bg-indigo-600 text-white font-bold rounded-lg hover:bg-indigo-700 transition">Send
+                Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="w-full py-6 bg-white/80 text-center text-gray-500 text-base border-t mt-8 shadow-inner">
+        &copy; 2024 Python Educational Website. All rights reserved.
+    </footer>
+</body>
+
+</html>

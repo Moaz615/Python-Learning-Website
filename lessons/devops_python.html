@@ -1,0 +1,231 @@
+<!-- This file contains ONLY the content for the "DevOps with Python" lesson. -->
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <div class="mb-8">
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-4xl font-extrabold text-gray-900">73. DevOps with Python</h1>
+            <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full whitespace-nowrap">Expert
+                Level</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-3 mb-6">
+            <!-- Progress bar: (73-57)/19 ≈ 84.2% for expert (lessons 58-76) -->
+            <div class="bg-red-500 h-3 rounded-full transition-all duration-300" style="width: 84.2%"></div>
+        </div>
+    </div>
+
+    <!-- Why DevOps with Python Matters -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-blue-100 bg-opacity-80 backdrop-blur-md border-4 border-blue-300 shadow-lg rounded-full text-3xl text-blue-600 transition-transform duration-200 hover:scale-110 animate-fade-in">⚙️</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-blue-50/80 to-white/80 backdrop-blur-md border-2 border-blue-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-blue-800 tracking-tight">Why DevOps with Python Matters
+                </h2>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong class="text-blue-600">DevOps</strong> with Python enables automation of infrastructure,
+                    deployment, monitoring, and testing. Python scripts and tools streamline CI/CD pipelines,
+                    configuration management, and cloud operations.
+                </p>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong>Real-world applications:</strong>
+                <ul class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed">
+                    <li>Automating server provisioning and configuration</li>
+                    <li>Continuous integration and deployment (CI/CD)</li>
+                    <li>Monitoring and alerting systems</li>
+                    <li>Cloud resource management (AWS, Azure, GCP)</li>
+                </ul>
+                </p>
+                <p class="text-lg leading-relaxed">
+                    Python's <code>fabric</code>, <code>invoke</code>, <code>paramiko</code>, and cloud SDKs are
+                    essential for DevOps automation.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Concepts -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-green-100 bg-opacity-80 backdrop-blur-md border-4 border-green-300 shadow-lg rounded-full text-3xl text-green-600 transition-transform duration-200 hover:scale-110 animate-fade-in">💡</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-green-50/80 to-white/80 backdrop-blur-md border-2 border-green-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-green-800 tracking-tight">Key Concepts: DevOps Automation
+                    in Python</h2>
+                <ul
+                    class="list-disc list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-green-300 shadow-md rounded-xl p-6 animate-fade-in">
+                    <li><strong class="text-green-600">Infrastructure as Code (IaC):</strong> Automate infrastructure
+                        setup (e.g., with Terraform, Ansible, or Python scripts).</li>
+                    <li><strong class="text-green-600">CI/CD Pipelines:</strong> Automate build, test, and deployment
+                        workflows.</li>
+                    <li><strong class="text-green-600">Remote Execution:</strong> Run commands on remote servers (SSH,
+                        Fabric, Paramiko).</li>
+                    <li><strong class="text-green-600">Monitoring & Logging:</strong> Collect and analyze logs, metrics,
+                        and alerts.</li>
+                    <li><strong class="text-green-600">Cloud Automation:</strong> Manage cloud resources with Python
+                        SDKs (boto3, google-cloud, azure-mgmt).</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fabric Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🔗</span>Fabric:
+            Remote Command Execution</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>Fabric</strong> is a Python library for automating SSH commands on remote servers:
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dot-red"></div>
+                <div class="code-editor-dot-yellow"></div>
+                <div class="code-editor-dot-green"></div>
+            </div>
+            <span class="text-gray-400 text-xs">fabfile.py</span>
+            <pre><code><span style="color: #ff79c6;">from</span> <span style="color: #8be9fd;">fabric</span> <span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">Connection</span>
+
+<span style="color: #8be9fd;">c</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">Connection</span>(<span style="color: #f1fa8c;">'user@host'</span>)
+<span style="color: #8be9fd;">c</span>.<span style="color: #50fa7b;">run</span>(<span style="color: #f1fa8c;">'uname -a'</span>)
+</code></pre>
+        </div>
+        <div class="bg-gray-900 p-4 rounded-lg">
+            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+            <pre
+                class="text-green-400 text-sm"><code>Runs 'uname -a' on the remote server and prints the output.</code></pre>
+        </div>
+    </section>
+
+    <!-- Boto3 Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">☁️</span>Boto3: AWS
+            Automation</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>Boto3</strong> is the AWS SDK for Python. Here’s how to list S3 buckets:
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dot-red"></div>
+                <div class="code-editor-dot-yellow"></div>
+                <div class="code-editor-dot-green"></div>
+            </div>
+            <span class="text-gray-400 text-xs">list_s3_buckets.py</span>
+            <pre><code><span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">boto3</span>
+
+<span style="color: #8be9fd;">s3</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">boto3</span>.<span style="color: #50fa7b;">client</span>(<span style="color: #f1fa8c;">'s3'</span>)
+<span style="color: #ff79c6;">for</span> <span style="color: #8be9fd;">bucket</span> <span style="color: #ff79c6;">in</span> <span style="color: #8be9fd;">s3</span>.<span style="color: #50fa7b;">list_buckets</span>()['Buckets']:
+    <span style="color: #50fa7b;">print</span>(<span style="color: #8be9fd;">bucket</span>['Name'])
+</code></pre>
+        </div>
+        <div class="bg-gray-900 p-4 rounded-lg">
+            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+            <pre
+                class="text-green-400 text-sm"><code>Prints the names of all S3 buckets in your AWS account.</code></pre>
+        </div>
+    </section>
+
+    <!-- Best Practices -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-blue-700 flex items-center">
+            <span class="bg-blue-100 text-blue-600 p-2 rounded-lg mr-3">✅</span>
+            Best Practices for DevOps Automation
+        </h2>
+        <ul
+            class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-blue-300 shadow-md rounded-xl p-6 animate-fade-in">
+            <li>Use version control for all scripts and configuration files.</li>
+            <li>Automate testing and deployment in CI/CD pipelines.</li>
+            <li>Secure credentials and secrets (never hardcode them).</li>
+            <li>Monitor and log all automated actions.</li>
+            <li>Document automation workflows and scripts.</li>
+        </ul>
+    </section>
+
+    <!-- Common Pitfalls -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-red-700 flex items-center">
+            <span class="bg-red-100 text-red-600 p-2 rounded-lg mr-3">⚠️</span>
+            Common Pitfalls
+        </h2>
+        <ul
+            class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-red-300 shadow-md rounded-xl p-6 animate-fade-in">
+            <li><strong>Hardcoding credentials:</strong> Use environment variables or secret managers.</li>
+            <li><strong>Not testing automation scripts:</strong> Always test in a safe environment first.</li>
+            <li><strong>Ignoring error handling:</strong> Add try/except blocks and logging.</li>
+            <li><strong>Not monitoring automation:</strong> Set up alerts and dashboards.</li>
+        </ul>
+    </section>
+
+    <!-- Try it Yourself Section -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🧑‍💻</span>Try it
+            Yourself: Automate a Deployment Script</h2>
+        <p class="mb-4 text-lg">Practice writing a deployment automation script. This example uses
+            <code>subprocess</code> to run shell commands.</p>
+        <div id="code-editor-container" class="bg-gray-50 p-6 rounded-lg shadow-inner border border-gray-200"></div>
+        <script type="text/plain" id="default-code">
+import subprocess
+
+# Example: Pull latest code and restart a service
+def deploy():
+    subprocess.run(["git", "pull"])
+    subprocess.run(["systemctl", "restart", "myapp.service"])
+
+deploy()
+        </script>
+        <div class="mt-4 text-sm text-gray-600">
+            <strong>Note:</strong> System commands are not supported in the browser editor. Run this code locally to see
+            the output.
+        </div>
+    </section>
+
+    <!-- Project Challenge: CI/CD Pipeline Script -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-purple-700 flex items-center">
+            <span class="bg-purple-100 text-purple-600 p-2 rounded-lg mr-3">🏆</span>
+            Project Challenge: CI/CD Pipeline Script
+        </h2>
+        <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg border-l-4 border-purple-500">
+            <p class="text-lg leading-relaxed mb-4">
+                <strong>Scenario:</strong> Build a Python script that automates a CI/CD pipeline: run tests, build
+                artifacts, and deploy to a server or cloud. Add logging and error handling.
+            </p>
+            <ul class="list-decimal list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2">
+                <li>Run automated tests and collect results</li>
+                <li>Build or package the application</li>
+                <li>Deploy to a server or cloud environment</li>
+                <li>Log all actions and handle errors gracefully</li>
+            </ul>
+            <div class="bg-gray-900 p-4 rounded-lg mt-6">
+                <h3 class="text-white font-semibold mb-3">💡 Project Example Output:</h3>
+                <pre class="text-green-400 text-sm"><code>Tests passed.
+Build complete.
+Deployed to production.
+</code></pre>
+            </div>
+            <p class="text-md text-gray-600 mt-4">This project will help you master DevOps automation and CI/CD with
+                Python.</p>
+        </div>
+    </section>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+        <a href="#" onclick="loadLesson('lessons/testing_automation.html')"
+            class="flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous: Testing Automation
+        </a>
+        <a href="#" onclick="loadLesson('lessons/security_ethical_hacking.html')"
+            class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+            Next: Security & Ethical Hacking
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </a>
+    </div>
+</div>

@@ -1,0 +1,287 @@
+<!-- This file contains ONLY the content for the "Decorators" lesson. -->
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <div class="mb-8">
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-4xl font-extrabold text-gray-900">35. Decorators</h1>
+            <span class="bg-orange-100 text-orange-800 text-sm font-medium px-3 py-1 rounded-full">Intermediate
+                Level</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-3 mb-6">
+            <!-- Progress bar: (35-21)/18 = 77.8% for intermediate (lessons 22-39) -->
+            <div class="bg-gradient-to-r from-orange-500 to-red-500 h-3 rounded-full transition-all duration-300"
+                style="width: 77.8%"></div>
+        </div>
+    </div>
+
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-blue-100 bg-opacity-80 backdrop-blur-md border-4 border-blue-300 shadow-lg rounded-full text-3xl text-blue-600 transition-transform duration-200 hover:scale-110 animate-fade-in">🎀</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-blue-50/80 to-white/80 backdrop-blur-md border-2 border-blue-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-blue-800 tracking-tight">What are Decorators?</h2>
+                <p class="text-lg leading-relaxed mb-2">
+                    In Python, a <strong class="text-blue-700">decorator</strong> is a design pattern that allows you to
+                    modify or extend the functionality of a function or method without explicitly changing its source
+                    code. Decorators are essentially functions that take another function as an argument, add some
+                    functionality, and then return the modified function.
+                </p>
+                <p class="text-lg leading-relaxed mb-2">
+                    They are a powerful and elegant way to wrap functions with additional behavior, such as logging,
+                    timing, authentication, or synchronization, without cluttering the original function's code.
+                </p>
+                <p class="text-lg leading-relaxed">
+                    The syntax for using a decorator is the <code
+                        class="font-mono bg-gray-100 px-1 py-0.5 rounded">@</code> symbol followed by the decorator
+                    function name, placed directly above the function definition you want to decorate.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-blue-100 bg-opacity-80 backdrop-blur-md border-4 border-blue-300 shadow-lg rounded-full text-3xl text-blue-600 transition-transform duration-200 hover:scale-110 animate-fade-in">🧩</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-blue-50/80 to-white/80 backdrop-blur-md border-2 border-blue-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-blue-800 tracking-tight">How Decorators Work (Under the
+                    Hood)</h2>
+                <p class="text-lg leading-relaxed mb-4">
+                    To understand decorators, it's important to recall that functions in Python are <strong
+                        class="text-blue-700">first-class objects</strong>. This means they can be:
+                </p>
+                <ul
+                    class="list-disc list-inside ml-4 text-lg leading-relaxed mb-4 bg-white/90 border-l-4 border-blue-300 shadow-md rounded-xl p-6 animate-fade-in">
+                    <li>Assigned to variables.</li>
+                    <li>Passed as arguments to other functions.</li>
+                    <li>Returned as values from other functions.</li>
+                </ul>
+                <p class="text-lg leading-relaxed mb-4">
+                    A decorator function typically looks like this:
+                </p>
+                <div class="code-editor-example mb-6 rounded-2xl">
+                    <div class="code-editor-bar">
+                        <div class="code-editor-dots flex gap-1">
+                            <div class="code-editor-dot-red"></div>
+                            <div class="code-editor-dot-yellow"></div>
+                            <div class="code-editor-dot-green"></div>
+                        </div>
+                        <span class="text-gray-400 text-xs">decorator_syntax.py</span>
+                    </div>
+                    <pre><code>def my_decorator(func):
+    def wrapper(*args, **kwargs):
+        # Do something before the function call
+        result = func(*args, **kwargs) # Call the original function
+        # Do something after the function call
+        return result
+    return wrapper
+
+@my_decorator
+def my_function():
+    pass
+</code></pre>
+                </div>
+                <p class="text-lg leading-relaxed">
+                    The <code class="font-mono bg-gray-100 px-1 py-0.5 rounded">@my_decorator</code> syntax is just
+                    syntactic sugar for: <code
+                        class="font-mono bg-gray-100 px-1 py-0.5 rounded">my_function = my_decorator(my_function)</code>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-blue-100 bg-opacity-80 backdrop-blur-md border-4 border-blue-300 shadow-lg rounded-full text-3xl text-blue-600 transition-transform duration-200 hover:scale-110 animate-fade-in">✍️</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-blue-50/80 to-white/80 backdrop-blur-md border-2 border-blue-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-blue-800 tracking-tight">Decorator Example: Logging
+                    Function Calls</h2>
+                <div class="bg-white/90 border-2 border-blue-200 shadow-xl rounded-2xl p-0 mb-8 animate-fade-in">
+                    <div class="p-8 pb-4">
+                        <div class="flex items-center mb-3">
+                            <span class="text-blue-500 text-xl mr-2">💡</span>
+                            <h3 class="text-xl font-semibold text-blue-800">Example: Logging Function Calls</h3>
+                        </div>
+                        <div class="code-editor-example mb-6 rounded-2xl">
+                            <div class="code-editor-bar">
+                                <div class="code-editor-dots flex gap-1">
+                                    <div class="code-editor-dot-red"></div>
+                                    <div class="code-editor-dot-yellow"></div>
+                                    <div class="code-editor-dot-green"></div>
+                                </div>
+                                <span class="text-gray-400 text-xs">logging_decorator.py</span>
+                                <pre><code>def log_function_call(func):
+    def wrapper(*args, **kwargs):
+        print(f"Calling function: {func.__name__} with args: {args}, kwargs: {kwargs}")
+        result = func(*args, **kwargs)
+        print(f"Function {func.__name__} returned: {result}")
+        return result
+    return wrapper
+
+@log_function_call
+def add(a, b):
+    return a + b
+
+@log_function_call
+def greet(name, greeting_word="Hello"):
+    return f"{greeting_word}, {name}!"
+
+print("\n--- Calling decorated add function ---")
+sum_result = add(10, 20)
+print(f"Result of add: {sum_result}")
+
+print("\n--- Calling decorated greet function ---")
+greeting_message = greet("Alice")
+print(f"Result of greet: {greeting_message}")
+
+print("\n--- Calling decorated greet with custom greeting ---")
+custom_greeting = greet("Bob", greeting_word="Hi")
+print(f"Result of custom greet: {custom_greeting}")
+</code></pre>
+                            </div>
+                        </div>
+                        <div class="bg-gray-900 p-4 rounded-2xl mt-4">
+                            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+                            <pre class="text-green-400 text-sm"><code>--- Calling decorated add function ---
+Calling function: add with args: (10, 20), kwargs: {}
+Function add returned: 30
+Result of add: 30
+
+--- Calling decorated greet function ---
+Calling function: greet with args: ('Alice',), kwargs: {}
+Function greet returned: Hello, Alice!
+Result of greet: Hello, Alice!
+
+--- Calling decorated greet with custom greeting ---
+Calling function: greet with args: ('Bob',), kwargs: {'greeting_word': 'Hi'}
+Function greet returned: Hi, Bob!
+Result of custom greet: Hi, Bob!
+</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-green-700 flex items-center">
+            <span class="bg-green-100 text-green-600 p-2 rounded-lg mr-3">🧪</span>
+            Try it Yourself
+        </h2>
+        <div class="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl p-6 shadow-sm mb-6">
+            <p class="text-lg leading-relaxed mb-4">
+                Create a decorator called <code class="font-mono bg-gray-100 px-1 py-0.5 rounded">timer</code> that
+                measures the execution time of any function it decorates.
+            </p>
+        </div>
+        <!-- Code Editor Area -->
+        <div id="code-editor-container" class="bg-gray-50 p-6 rounded-lg shadow-inner border border-gray-200"></div>
+        <script type="text/plain" id="default-code">
+# Your code goes here
+
+import time
+
+def timer(func):
+    """A decorator that measures the execution time of the decorated function."""
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        end_time = time.time()
+        execution_time = end_time - start_time
+        print(f"Function '{func.__name__}' executed in {execution_time:.4f} seconds.")
+        return result
+    return wrapper
+
+@timer
+def long_running_function(limit):
+    """A function that simulates a long-running task."""
+    total = 0
+    for i in range(limit):
+        total += i * i
+    return total
+
+@timer
+def greet_and_wait(name, delay=0.1):
+    """A simple function that waits for a bit."""
+    time.sleep(delay) # Pause execution for 'delay' seconds
+    return f"Hello, {name}!"
+
+print("--- Testing long_running_function ---")
+sum_of_squares = long_running_function(1000000)
+print(f"Sum of squares: {sum_of_squares}")
+
+print("\n--- Testing greet_and_wait ---")
+message = greet_and_wait("Charlie", delay=0.5)
+print(f"Message: {message}")
+        </script>
+    </section>
+
+    <!-- Challenge Section -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-orange-700 flex items-center">
+            <span class="bg-orange-100 text-orange-600 p-2 rounded-lg mr-3">🏆</span>
+            Challenge: Decorator Pipeline
+        </h2>
+        <div class="bg-gradient-to-r from-orange-50 to-pink-50 p-6 rounded-lg border-l-4 border-orange-500">
+            <p class="text-lg leading-relaxed mb-4">
+                <strong>Very Hard Challenge:</strong> Create a <span class="font-bold text-orange-700">decorator
+                    pipeline system</span> that allows you to stack and compose multiple decorators dynamically at
+                runtime. Your system should:
+            </p>
+            <ul class="list-decimal list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2">
+                <li>Allow users to register any number of decorators and apply them in a specified order to a target
+                    function.</li>
+                <li>Support both function and class-based decorators.</li>
+                <li>Demonstrate with at least three different decorators (e.g., logging, timing, caching) and show the
+                    effect of changing their order.</li>
+                <li>Bonus: Allow decorators to be added or removed from the pipeline at runtime.</li>
+            </ul>
+            <div class="bg-gray-900 p-4 rounded-lg mt-6">
+                <h3 class="text-white font-semibold mb-3">💡 Sample Output:</h3>
+                <pre class="text-green-400 text-sm"><code>--- Pipeline: [logging, timing, caching] ---
+Calling function: compute with args: (10,), kwargs: {}
+Function 'compute' executed in 0.0001 seconds.
+Result: 55
+
+--- Pipeline: [caching, logging, timing] ---
+Result: 55
+Calling function: compute with args: (10,), kwargs: {}
+Function 'compute' executed in 0.0000 seconds.
+</code></pre>
+            </div>
+            <p class="text-md text-gray-600 mt-4">This challenge is open-ended and requires advanced use of decorators,
+                higher-order functions, and dynamic programming. Focus on flexibility, clarity, and demonstrating
+                mastery of Python decorators.</p>
+        </div>
+    </section>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+        <a href="#" onclick="loadLesson('lessons/iterators_generators.html')"
+            class="flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous: Iterators and Generators
+        </a>
+        <div class="text-gray-600">
+            <span class="text-sm">Lesson 35 of 71</span>
+        </div>
+        <a href="#" onclick="loadLesson('lessons/recursion.html')"
+            class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+            Next: Recursion
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </a>
+    </div>
+</div>

@@ -1,0 +1,465 @@
+<!-- This file contains ONLY the content for the "Data Science with Python" lesson. -->
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <!-- Welcome Message for Expert Level -->
+    <div
+        class="mb-8 p-6 bg-gradient-to-r from-red-100 to-white border-l-8 border-red-400 rounded-xl shadow flex items-center">
+        <span class="text-3xl mr-4">🎓</span>
+        <div>
+            <h2 class="text-2xl font-bold text-red-700 mb-1">Welcome to the Expert Level!</h2>
+            <p class="text-lg text-red-800">Congratulations on reaching the most advanced section of your Python
+                journey through our website. Here, you'll master specialized topics and real-world data science skills.
+                Let's dive in!</p>
+        </div>
+    </div>
+    <div class="mb-8">
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-4xl font-extrabold text-gray-900">58. Data Science with Python (NumPy, Pandas)</h1>
+            <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full whitespace-nowrap">Expert
+                Level</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-3 mb-6">
+            <!-- Progress bar: (58-57)/19 ≈ 5.3% for expert (lessons 58-76) -->
+            <div class="bg-red-500 h-3 rounded-full transition-all duration-300" style="width: 5.3%"></div>
+        </div>
+    </div>
+
+    <!-- Why Data Science Matters -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-blue-100 bg-opacity-80 backdrop-blur-md border-4 border-blue-300 shadow-lg rounded-full text-3xl text-blue-600 transition-transform duration-200 hover:scale-110 animate-fade-in">📊</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-blue-50/80 to-white/80 backdrop-blur-md border-2 border-blue-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-blue-800 tracking-tight">Why Data Science Matters</h2>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong class="text-blue-600">Data Science</strong> is the art and science of extracting insights
+                    from data. Python is the most popular language for data science, thanks to its powerful libraries
+                    and active community.
+                </p>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong>Real-world applications:</strong>
+                <ul class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed">
+                    <li>Predicting trends in finance, healthcare, and business</li>
+                    <li>Analyzing customer behavior and preferences</li>
+                    <li>Building recommendation systems and AI models</li>
+                </ul>
+                </p>
+                <p class="text-lg leading-relaxed">
+                    Python's <code>NumPy</code>, <code>Pandas</code>, and <code>scikit-learn</code> are the core tools
+                    for data science workflows.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Concepts -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-green-100 bg-opacity-80 backdrop-blur-md border-4 border-green-300 shadow-lg rounded-full text-3xl text-green-600 transition-transform duration-200 hover:scale-110 animate-fade-in">💡</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-green-50/80 to-white/80 backdrop-blur-md border-2 border-green-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-green-800 tracking-tight">Key Concepts: Data Science in
+                    Python</h2>
+                <ul
+                    class="list-disc list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-green-300 shadow-md rounded-xl p-6 animate-fade-in">
+                    <li><strong class="text-green-600">NumPy:</strong> Fast numerical operations and arrays.</li>
+                    <li><strong class="text-green-600">Pandas:</strong> DataFrames for tabular data, cleaning, and
+                        analysis.</li>
+                    <li><strong class="text-green-600">Data Cleaning:</strong> Handling missing values, outliers, and
+                        data types.</li>
+                    <li><strong class="text-green-600">Feature Engineering:</strong> Creating new features for better
+                        models.</li>
+                    <li><strong class="text-green-600">scikit-learn:</strong> Machine learning algorithms and model
+                        evaluation.</li>
+                    <li><strong class="text-green-600">Matplotlib/Seaborn:</strong> Data visualization and exploration.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- NumPy Basics Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🔢</span>NumPy Basics
+        </h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>NumPy</strong> is the foundational library for numerical computing in Python. It provides fast,
+            memory-efficient arrays and a wide range of mathematical operations. In data science, NumPy is used for
+            everything from basic statistics to advanced linear algebra.
+        </p>
+        <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8 shadow-sm">
+            <div class="flex items-center mb-3">
+                <span class="text-blue-500 text-xl mr-2">💡</span>
+                <h3 class="text-xl font-semibold text-blue-800">Example: Array Operations with NumPy</h3>
+            </div>
+            <div class="code-editor-example mb-4">
+                <div class="code-editor-bar">
+                    <div class="code-editor-dots flex gap-2">
+                        <div class="code-editor-dot-red"></div>
+                        <div class="code-editor-dot-yellow"></div>
+                        <div class="code-editor-dot-green"></div>
+                    </div>
+                    <span class="text-gray-400 text-xs">numpy_example.py</span>
+                </div>
+                <pre><code><span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">numpy</span> <span style="color: #ff79c6;">as</span> <span style="color: #8be9fd;">np</span>
+
+<span style="color: #8be9fd;">a</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">np</span>.<span style="color: #50fa7b;">array</span>([<span style="color: #bd93f9;">1</span>, <span style="color: #bd93f9;">2</span>, <span style="color: #bd93f9;">3</span>])
+<span style="color: #8be9fd;">b</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">np</span>.<span style="color: #50fa7b;">array</span>([<span style="color: #bd93f9;">4</span>, <span style="color: #bd93f9;">5</span>, <span style="color: #bd93f9;">6</span>])
+<span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">"Sum:"</span>, <span style="color: #8be9fd;">a</span> <span style="color: #ff79c6;">+</span> <span style="color: #8be9fd;">b</span>)
+<span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">"Dot product:"</span>, <span style="color: #8be9fd;">np</span>.<span style="color: #50fa7b;">dot</span>(<span style="color: #8be9fd;">a</span>, <span style="color: #8be9fd;">b</span>))
+</code></pre>
+            </div>
+            <div class="bg-gray-900 p-4 rounded-lg">
+                <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+                <pre class="text-green-400 text-sm"><code>Sum: [5 7 9]
+Dot product: 32
+</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pandas Data Cleaning Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🧹</span>Pandas Data
+            Cleaning</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>Pandas</strong> makes it easy to load, clean, and analyze tabular data. Handling missing values is a
+            crucial step in any data science workflow, as real-world data is often incomplete or messy. This example
+            shows how to fill missing values with the mean of each column.
+        </p>
+        <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8 shadow-sm">
+            <div class="flex items-center mb-3">
+                <span class="text-blue-500 text-xl mr-2">🧠</span>
+                <h3 class="text-xl font-semibold text-blue-800">Example: Handling Missing Data with Pandas</h3>
+            </div>
+            <div class="code-editor-example mb-4">
+                <div class="code-editor-bar">
+                    <div class="code-editor-dots flex gap-2">
+                        <div class="code-editor-dot-red"></div>
+                        <div class="code-editor-dot-yellow"></div>
+                        <div class="code-editor-dot-green"></div>
+                    </div>
+                    <span class="text-gray-400 text-xs">pandas_cleaning.py</span>
+                </div>
+                <pre><code><span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">pandas</span> <span style="color: #ff79c6;">as</span> <span style="color: #8be9fd;">pd</span>
+
+<span style="color: #8be9fd;">data</span> <span style="color: #ff79c6;">=</span> {
+    <span style="color: #f1fa8c;">'A'</span>: [<span style="color: #bd93f9;">1</span>, <span style="color: #bd93f9;">2</span>, <span style="color: #6272a4;">None</span>],
+    <span style="color: #f1fa8c;">'B'</span>: [<span style="color: #bd93f9;">4</span>, <span style="color: #6272a4;">None</span>, <span style="color: #bd93f9;">6</span>]
+}
+<span style="color: #8be9fd;">df</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">pd</span>.<span style="color: #50fa7b;">DataFrame</span>(<span style="color: #8be9fd;">data</span>)
+<span style="color: #50fa7b;">print</span>(<span style="color: #8be9fd;">df</span>.<span style="color: #50fa7b;">fillna</span>(<span style="color: #8be9fd;">df</span>.<span style="color: #50fa7b;">mean</span>()))
+</code></pre>
+            </div>
+            <div class="bg-gray-900 p-4 rounded-lg">
+                <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+                <pre class="text-green-400 text-sm"><code>     A    B
+0  1.0  4.0
+1  2.0  5.0
+2  1.5  6.0
+</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Engineering Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🛠️</span>Feature
+            Engineering</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>Feature engineering</strong> is the process of creating new input features from your existing data
+            to improve model performance. In this example, we calculate the Body Mass Index (BMI) from height and weight
+            columns, adding a new, meaningful feature to the dataset.
+        </p>
+        <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8 shadow-sm">
+            <div class="flex items-center mb-3">
+                <span class="text-blue-500 text-xl mr-2">✨</span>
+                <h3 class="text-xl font-semibold text-blue-800">Example: Creating New Features</h3>
+            </div>
+            <div class="code-editor-example mb-4">
+                <div class="code-editor-bar">
+                    <div class="code-editor-dots flex gap-2">
+                        <div class="code-editor-dot-red"></div>
+                        <div class="code-editor-dot-yellow"></div>
+                        <div class="code-editor-dot-green"></div>
+                    </div>
+                    <span class="text-gray-400 text-xs">feature_engineering.py</span>
+                </div>
+                <pre><code><span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">pandas</span> <span style="color: #ff79c6;">as</span> <span style="color: #8be9fd;">pd</span>
+
+<span style="color: #8be9fd;">df</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">pd</span>.<span style="color: #50fa7b;">DataFrame</span>({
+    <span style="color: #f1fa8c;">'height_m'</span>: [<span style="color: #bd93f9;">1.70</span>, <span style="color: #bd93f9;">1.80</span>, <span style="color: #bd93f9;">1.65</span>],
+    <span style="color: #f1fa8c;">'weight_kg'</span>: [<span style="color: #bd93f9;">65</span>, <span style="color: #bd93f9;">80</span>, <span style="color: #bd93f9;">55</span>]
+})
+<span style="color: #8be9fd;">df</span>[<span style="color: #f1fa8c;">'BMI'</span>] <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">df</span>[<span style="color: #f1fa8c;">'weight_kg'</span>] <span style="color: #ff79c6;">/</span> (<span style="color: #8be9fd;">df</span>[<span style="color: #f1fa8c;">'height_m'</span>] <span style="color: #ff79c6;">**</span> <span style="color: #bd93f9;">2</span>)
+<span style="color: #50fa7b;">print</span>(<span style="color: #8be9fd;">df</span>)
+</code></pre>
+            </div>
+            <div class="bg-gray-900 p-4 rounded-lg">
+                <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+                <pre class="text-green-400 text-sm"><code>   height_m  weight_kg        BMI
+0      1.70         65  22.491349
+1      1.80         80  24.691358
+2      1.65         55  20.202020
+</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Model Training Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🤖</span>Model
+            Training with scikit-learn</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>scikit-learn</strong> is the go-to library for machine learning in Python. This example demonstrates
+            how to train a simple linear regression model, which learns the relationship between input features and a
+            target variable. Model training is a core step in predictive data science workflows.
+        </p>
+        <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8 shadow-sm">
+            <div class="flex items-center mb-3">
+                <span class="text-blue-500 text-xl mr-2">🏁</span>
+                <h3 class="text-xl font-semibold text-blue-800">Example: Linear Regression</h3>
+            </div>
+            <div class="code-editor-example mb-4">
+                <div class="code-editor-bar">
+                    <div class="code-editor-dots flex gap-2">
+                        <div class="code-editor-dot-red"></div>
+                        <div class="code-editor-dot-yellow"></div>
+                        <div class="code-editor-dot-green"></div>
+                    </div>
+                    <span class="text-gray-400 text-xs">linear_regression.py</span>
+                </div>
+                <pre><code><span style="color: #ff79c6;">from</span> <span style="color: #8be9fd;">sklearn.linear_model</span> <span style="color: #ff79c6;">import</span> <span style="color: #50fa7b;">LinearRegression</span>
+<span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">numpy</span> <span style="color: #ff79c6;">as</span> <span style="color: #8be9fd;">np</span>
+
+<span style="color: #8be9fd;">X</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">np</span>.<span style="color: #50fa7b;">array</span>([[<span style="color: #bd93f9;">1</span>], [<span style="color: #bd93f9;">2</span>], [<span style="color: #bd93f9;">3</span>], [<span style="color: #bd93f9;">4</span>]])
+<span style="color: #8be9fd;">y</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">np</span>.<span style="color: #50fa7b;">array</span>([<span style="color: #bd93f9;">2</span>, <span style="color: #bd93f9;">4</span>, <span style="color: #bd93f9;">6</span>, <span style="color: #bd93f9;">8</span>])
+
+<span style="color: #8be9fd;">model</span> <span style="color: #ff79c6;">=</span> <span style="color: #50fa7b;">LinearRegression</span>()
+<span style="color: #8be9fd;">model</span>.<span style="color: #50fa7b;">fit</span>(<span style="color: #8be9fd;">X</span>, <span style="color: #8be9fd;">y</span>)
+<span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">"Predictions:"</span>, <span style="color: #8be9fd;">model</span>.<span style="color: #50fa7b;">predict</span>(<span style="color: #8be9fd;">X</span>))
+</code></pre>
+            </div>
+            <div class="bg-gray-900 p-4 rounded-lg">
+                <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+                <pre class="text-green-400 text-sm"><code>Predictions: [2. 4. 6. 8.]
+</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Visualization Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">📈</span>Data
+            Visualization with Matplotlib</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>Matplotlib</strong> is the most widely used library for creating static, interactive, and animated
+            visualizations in Python. Visualizing your data helps you spot trends, outliers, and patterns that are not
+            obvious from raw numbers. This example shows how to plot a simple line chart.
+        </p>
+        <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8 shadow-sm">
+            <div class="flex items-center mb-3">
+                <span class="text-blue-500 text-xl mr-2">🎨</span>
+                <h3 class="text-xl font-semibold text-blue-800">Example: Plotting a Line Chart</h3>
+            </div>
+            <div class="code-editor-example mb-4">
+                <div class="code-editor-bar">
+                    <div class="code-editor-dots flex gap-2">
+                        <div class="code-editor-dot-red"></div>
+                        <div class="code-editor-dot-yellow"></div>
+                        <div class="code-editor-dot-green"></div>
+                    </div>
+                    <span class="text-gray-400 text-xs">matplotlib_example.py</span>
+                </div>
+                <pre><code><span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">matplotlib.pyplot</span> <span style="color: #ff79c6;">as</span> <span style="color: #8be9fd;">plt</span>
+
+<span style="color: #8be9fd;">x</span> <span style="color: #ff79c6;">=</span> [<span style="color: #bd93f9;">1</span>, <span style="color: #bd93f9;">2</span>, <span style="color: #bd93f9;">3</span>, <span style="color: #bd93f9;">4</span>]
+<span style="color: #8be9fd;">y</span> <span style="color: #ff79c6;">=</span> [<span style="color: #bd93f9;">2</span>, <span style="color: #bd93f9;">4</span>, <span style="color: #bd93f9;">6</span>, <span style="color: #bd93f9;">8</span>]
+
+<span style="color: #8be9fd;">plt</span>.<span style="color: #50fa7b;">plot</span>(<span style="color: #8be9fd;">x</span>, <span style="color: #8be9fd;">y</span>)
+<span style="color: #8be9fd;">plt</span>.<span style="color: #50fa7b;">xlabel</span>(<span style="color: #f1fa8c;">'X values'</span>)
+<span style="color: #8be9fd;">plt</span>.<span style="color: #50fa7b;">ylabel</span>(<span style="color: #f1fa8c;">'Y values'</span>)
+<span style="color: #8be9fd;">plt</span>.<span style="color: #50fa7b;">title</span>(<span style="color: #f1fa8c;">'Simple Line Chart'</span>)
+<span style="color: #8be9fd;">plt</span>.<span style="color: #50fa7b;">show</span>()
+</code></pre>
+            </div>
+            <div class="bg-gray-900 p-4 rounded-lg">
+                <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+                <pre
+                    class="text-green-400 text-sm"><code>A line chart window appears with the plotted data.</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Code Example: Data Analysis Workflow -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">📝</span>Data
+            Analysis Example</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            This example demonstrates a typical data analysis workflow: creating a DataFrame, displaying it, and
+            calculating a summary statistic (the average salary). These are the building blocks of most data science
+            projects.
+        </p>
+        <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8 shadow-sm">
+            <div class="flex items-center mb-3">
+                <span class="text-blue-500 text-xl mr-2">🔑</span>
+                <h3 class="text-xl font-semibold text-blue-800">Example: Analyzing a CSV with Pandas</h3>
+            </div>
+            <div class="code-editor-example mb-4">
+                <div class="code-editor-bar">
+                    <div class="code-editor-dots flex gap-2">
+                        <div class="code-editor-dot-red"></div>
+                        <div class="code-editor-dot-yellow"></div>
+                        <div class="code-editor-dot-green"></div>
+                    </div>
+                    <span class="text-gray-400 text-xs">pandas_example.py</span>
+                </div>
+                <pre><code><span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">pandas</span> <span style="color: #ff79c6;">as</span> <span style="color: #8be9fd;">pd</span>
+
+<span style="color: #8be9fd;">data</span> <span style="color: #ff79c6;">=</span> {
+    <span style="color: #f1fa8c;">'Name'</span>: [<span style="color: #bd93f9;">'Alice'</span>, <span style="color: #bd93f9;">'Bob'</span>, <span style="color: #bd93f9;">'Charlie'</span>, <span style="color: #bd93f9;">'David'</span>],
+    <span style="color: #f1fa8c;">'Age'</span>: [<span style="color: #bd93f9;">25</span>, <span style="color: #bd93f9;">30</span>, <span style="color: #bd93f9;">35</span>, <span style="color: #bd93f9;">40</span>],
+    <span style="color: #f1fa8c;">'Salary'</span>: [<span style="color: #bd93f9;">70000</span>, <span style="color: #bd93f9;">80000</span>, <span style="color: #bd93f9;">120000</span>, <span style="color: #bd93f9;">90000</span>]
+}
+<span style="color: #8be9fd;">df</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">pd</span>.<span style="color: #50fa7b;">DataFrame</span>(<span style="color: #8be9fd;">data</span>)
+<span style="color: #50fa7b;">print</span>(<span style="color: #8be9fd;">df</span>)
+<span style="color: #50fa7b;">print</span>(<span style="color: #f1fa8c;">"\nAverage salary:"</span>, <span style="color: #8be9fd;">df</span>[<span style="color: #f1fa8c;">'Salary'</span>].<span style="color: #50fa7b;">mean</span>())
+</code></pre>
+            </div>
+            <div class="bg-gray-900 p-4 rounded-lg">
+                <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+                <pre class="text-green-400 text-sm"><code>      Name  Age  Salary
+0    Alice   25   70000
+1      Bob   30   80000
+2  Charlie   35  120000
+3    David   40   90000
+
+Average salary: 90000.0
+</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Practices -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-blue-700 flex items-center">
+            <span class="bg-blue-100 text-blue-600 p-2 rounded-lg mr-3">✅</span>
+            Best Practices for Data Science
+        </h2>
+        <ul
+            class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-blue-300 shadow-md rounded-xl p-6 animate-fade-in">
+            <li>Always inspect and clean your data before analysis.</li>
+            <li>Visualize data to spot trends and outliers.</li>
+            <li>Split data into training and test sets for machine learning.</li>
+            <li>Document your workflow and code for reproducibility.</li>
+            <li>Use version control for data and code.</li>
+        </ul>
+    </section>
+
+    <!-- Common Pitfalls -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-red-700 flex items-center">
+            <span class="bg-red-100 text-red-600 p-2 rounded-lg mr-3">⚠️</span>
+            Common Pitfalls
+        </h2>
+        <ul
+            class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-red-300 shadow-md rounded-xl p-6 animate-fade-in">
+            <li>Ignoring missing or inconsistent data.</li>
+            <li>Overfitting models to training data.</li>
+            <li>Not validating results with test data.</li>
+            <li>Misinterpreting statistical significance.</li>
+            <li>Failing to document data sources and changes.</li>
+        </ul>
+    </section>
+
+    <!-- Try it Yourself -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🧑‍💻</span>Try it
+            Yourself: Data Cleaning & Analysis</h2>
+        <p class="mb-4 text-lg">Practice a real-world data science workflow: load data, clean missing values, calculate
+            statistics, and print the results.</p>
+        <div id="code-editor-container" class="bg-gray-50 p-6 rounded-lg shadow-inner border border-gray-200"></div>
+        <script type="text/plain" id="default-code">
+import pandas as pd
+
+# Sample data with missing values
+raw_data = {
+    'Name': ['Alice', 'Bob', 'Charlie', 'David'],
+    'Age': [25, None, 35, 40],
+    'Salary': [70000, 80000, None, 90000]
+}
+df = pd.DataFrame(raw_data)
+
+# Fill missing values in 'Age' and 'Salary' with their respective means
+df['Age'].fillna(df['Age'].mean(), inplace=True)
+df['Salary'].fillna(df['Salary'].mean(), inplace=True)
+
+# Calculate the average salary
+average_salary = df['Salary'].mean()
+
+# Print the cleaned DataFrame and the average salary
+print("Cleaned Data:")
+print(df)
+print(f"\nAverage Salary: {average_salary:.2f}")
+</script>
+        <div class="mt-4 text-sm text-gray-600">
+            <strong>Note:</strong> The browser editor may not support external libraries like <code>pandas</code>. For
+            best results, run this code in your local Python environment.
+        </div>
+    </section>
+
+    <!-- Challenge: Mini Data Science Project -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-purple-700 flex items-center">
+            <span class="bg-purple-100 text-purple-600 p-2 rounded-lg mr-3">🏆</span>
+            Project Challenge: Predicting House Prices
+        </h2>
+        <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg border-l-4 border-purple-500">
+            <p class="text-lg leading-relaxed mb-4">
+                <strong>Scenario:</strong> Use a dataset (e.g., from <a
+                    href="https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data"
+                    class="text-blue-600 underline" target="_blank">Kaggle</a>) to:
+            </p>
+            <ul class="list-decimal list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2">
+                <li>Load and clean the data with Pandas</li>
+                <li>Explore and visualize key features</li>
+                <li>Build a simple regression model with scikit-learn</li>
+                <li>Evaluate the model's performance</li>
+                <li>Document your process and findings</li>
+            </ul>
+            <div class="bg-gray-900 p-4 rounded-lg mt-6">
+                <h3 class="text-white font-semibold mb-3">💡 Project Example Output:</h3>
+                <pre class="text-green-400 text-sm"><code>Model R^2 score: 0.82
+Top features: OverallQual, GrLivArea, GarageCars
+Missing values handled: Yes
+Visualizations created: 3
+</code></pre>
+            </div>
+            <p class="text-md text-gray-600 mt-4">This project will help you master the end-to-end workflow of data
+                science in Python.</p>
+        </div>
+    </section>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+        <a href="#" onclick="loadLesson('lessons/database_access.html')"
+            class="flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous: Database Access
+        </a>
+        <a href="#" onclick="loadLesson('lessons/data_visualization.html')"
+            class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+            Next: Data Visualization
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </a>
+    </div>
+</div>

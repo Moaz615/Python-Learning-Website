@@ -1,0 +1,53 @@
+<div class="max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-2xl border border-indigo-200">
+    <h1 class="text-3xl font-extrabold mb-4 text-indigo-700 text-center">🏆 Intermediate Level Grand Challenge</h1>
+    <p class="mb-6 text-lg text-gray-700 text-center">Put your Python skills to the test! Create a game that combines
+        everything you've learned in the Intermediate Level. This is your chance to be creative and show off your coding
+        abilities.</p>
+    <div class="bg-gradient-to-r from-indigo-50 to-blue-50 border border-indigo-100 rounded-xl p-6 shadow mb-8">
+        <h2 class="text-2xl font-bold text-indigo-800 mb-2">Challenge: Build an Interactive Python Game</h2>
+        <ul class="list-disc list-inside text-lg text-gray-800 space-y-2 mb-4">
+            <li>Design a text-based game (adventure, quiz, puzzle, or your own idea).</li>
+            <li>Use <span class="font-semibold text-indigo-700">classes and objects</span> to structure your game logic.
+            </li>
+            <li>Organize your code with <span class="font-semibold text-indigo-700">functions</span> and, if possible,
+                <span class="font-semibold text-indigo-700">modules</span>.
+            </li>
+            <li>Include <span class="font-semibold text-indigo-700">file I/O</span> (e.g., save/load progress, high
+                scores, or game data).</li>
+            <li>Implement <span class="font-semibold text-indigo-700">error handling</span> for user input and file
+                operations.</li>
+            <li>Use at least one <span class="font-semibold text-indigo-700">decorator</span> to enhance your game
+                (e.g., logging, timing, or access control).</li>
+            <li>Make your game interactive and fun! Add creative features, story, or challenges.</li>
+        </ul>
+        <div class="bg-blue-100 border-l-4 border-blue-400 p-4 rounded mb-2 text-blue-800">
+            <strong>Tip:</strong> Think about how you can combine OOP, functions, and file handling to make your game
+            robust and replayable. For example, a quiz game with random questions, a saveable adventure, or a puzzle
+            with a leaderboard.
+        </div>
+    </div>
+    <div class="mb-6">
+        <h3 class="text-xl font-semibold text-indigo-700 mb-2">Start Coding Your Game</h3>
+        <div id="code-editor-container" class="bg-gray-50 p-6 rounded-lg shadow-inner border border-gray-200"
+            data-default-code="class Game:\n    def __init__(self):\n        pass # Set up your game state here\n\ndef main():\n    game = Game()\n    # Start your game loop here\n\nif __name__ == '__main__':\n    main()">
+        </div>
+    </div>
+    <div class="flex justify-between items-center mt-10 pt-8 border-t border-gray-200">
+        <a href="#" onclick="loadLesson('lessons/intermediate_quiz.html')"
+            class="flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200 font-semibold">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous: Intermediate Level Quiz
+        </a>
+        <div class="text-gray-600">
+            <span class="text-sm">Intermediate Level Grand Challenge</span>
+        </div>
+        <a href="#" onclick="loadLesson('lessons/functional_programming.html')"
+            class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200 font-semibold">
+            Next: Functional Programming
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </a>
+    </div>

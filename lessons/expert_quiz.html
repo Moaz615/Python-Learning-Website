@@ -1,0 +1,605 @@
+<!-- This file contains ONLY the content for the "Expert Level Quiz" at the end of the expert track. -->
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <div class="mb-8">
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-4xl font-extrabold text-indigo-800">Expert Level Quiz</h1>
+            <span
+                class="bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full whitespace-nowrap">Expert
+                Track</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-3 mb-6">
+            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-3 rounded-full transition-all duration-300"
+                style="width: 100%"></div>
+        </div>
+    </div>
+
+    <!-- Quiz Introduction -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-indigo-100 bg-opacity-80 backdrop-blur-md border-4 border-indigo-300 shadow-lg rounded-full text-3xl text-indigo-600 transition-transform duration-200 hover:scale-110 animate-fade-in">📝</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-indigo-50/80 to-white/80 backdrop-blur-md border-2 border-indigo-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-indigo-800 tracking-tight">Expert Level Quiz: Code Mastery
+                    Assessment</h2>
+                <p class="text-lg leading-relaxed mb-4">
+                    This <strong class="text-indigo-600">challenging quiz</strong> tests your mastery of expert Python
+                    topics through code-based questions. Analyze the code and select the correct output or behavior.
+                </p>
+                <div class="mt-4 flex items-center space-x-4">
+                    <div class="flex items-center">
+                        <span class="text-indigo-600 mr-2">✅</span>
+                        <span class="text-sm text-gray-600">20 Code-Based Questions</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-purple-600 mr-2">📊</span>
+                        <span class="text-sm text-gray-600">Expert Assessment</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <form id="expert-quiz-form" class="space-y-8">
+        <!-- 20 code-based expert questions -->
+        <!-- Q1 -->
+        <div class="bg-indigo-50 rounded-xl shadow border border-indigo-100 p-6 quiz-question" data-q="1">
+            <div class="flex items-center mb-2"><span
+                    class="w-8 h-8 flex items-center justify-center rounded-full bg-indigo-200 text-indigo-700 font-bold mr-3">1</span><span
+                    class="font-semibold text-lg">What is the output?</span></div>
+            <pre class="bg-gray-900 text-green-200 rounded p-4 text-sm mb-2">import numpy as np
+x = np.array([1, 2, 3])
+print(x * 2)</pre>
+            <div class="space-y-2 mt-2">
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q1" value="a" class="accent-indigo-600 w-5 h-5"> a) [1, 2, 3, 1, 2,
+                    3]</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q1" value="b" class="accent-indigo-600 w-5 h-5"> b) [2, 4, 6]</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q1" value="c" class="accent-indigo-600 w-5 h-5"> c) [1, 4, 9]</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q1" value="d" class="accent-indigo-600 w-5 h-5"> d) Error</label>
+            </div>
+            <div class="answer-feedback mt-4 hidden"></div>
+        </div>
+        <!-- Q2 -->
+        <div class="bg-indigo-50 rounded-xl shadow border border-indigo-100 p-6 quiz-question" data-q="2">
+            <div class="flex items-center mb-2"><span
+                    class="w-8 h-8 flex items-center justify-center rounded-full bg-indigo-200 text-indigo-700 font-bold mr-3">2</span><span
+                    class="font-semibold text-lg">What is the output?</span></div>
+            <pre class="bg-gray-900 text-green-200 rounded p-4 text-sm mb-2">import pandas as pd
+df = pd.DataFrame({'A': [1, 2], 'B': [3, 4]})
+print(df.iloc[1, 0])</pre>
+            <div class="space-y-2 mt-2">
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q2" value="a" class="accent-indigo-600 w-5 h-5"> a) 1</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q2" value="b" class="accent-indigo-600 w-5 h-5"> b) 2</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q2" value="c" class="accent-indigo-600 w-5 h-5"> c) 3</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q2" value="d" class="accent-indigo-600 w-5 h-5"> d) Error</label>
+            </div>
+            <div class="answer-feedback mt-4 hidden"></div>
+        </div>
+        <!-- Q3 -->
+        <div class="bg-indigo-50 rounded-xl shadow border border-indigo-100 p-6 quiz-question" data-q="3">
+            <div class="flex items-center mb-2"><span
+                    class="w-8 h-8 flex items-center justify-center rounded-full bg-indigo-200 text-indigo-700 font-bold mr-3">3</span><span
+                    class="font-semibold text-lg">What is the output?</span></div>
+            <pre class="bg-gray-900 text-green-200 rounded p-4 text-sm mb-2">import tensorflow as tf
+x = tf.constant([1, 2, 3])
+print(tf.reduce_sum(x).numpy())</pre>
+            <div class="space-y-2 mt-2">
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q3" value="a" class="accent-indigo-600 w-5 h-5"> a) 6</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q3" value="b" class="accent-indigo-600 w-5 h-5"> b) [1, 2, 3]</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q3" value="c" class="accent-indigo-600 w-5 h-5"> c) Error</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q3" value="d" class="accent-indigo-600 w-5 h-5"> d) 1</label>
+            </div>
+            <div class="answer-feedback mt-4 hidden"></div>
+        </div>
+        <!-- Q4 -->
+        <div class="bg-indigo-50 rounded-xl shadow border border-indigo-100 p-6 quiz-question" data-q="4">
+            <div class="flex items-center mb-2"><span
+                    class="w-8 h-8 flex items-center justify-center rounded-full bg-indigo-200 text-indigo-700 font-bold mr-3">4</span><span
+                    class="font-semibold text-lg">What is the output?</span></div>
+            <pre class="bg-gray-900 text-green-200 rounded p-4 text-sm mb-2">import torch
+x = torch.tensor([1, 2, 3])
+print(x.float().mean().item())</pre>
+            <div class="space-y-2 mt-2">
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q4" value="a" class="accent-indigo-600 w-5 h-5"> a) 2.0</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q4" value="b" class="accent-indigo-600 w-5 h-5"> b) 6.0</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q4" value="c" class="accent-indigo-600 w-5 h-5"> c) [1, 2, 3]</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q4" value="d" class="accent-indigo-600 w-5 h-5"> d) Error</label>
+            </div>
+            <div class="answer-feedback mt-4 hidden"></div>
+        </div>
+        <!-- Q5 -->
+        <div class="bg-indigo-50 rounded-xl shadow border border-indigo-100 p-6 quiz-question" data-q="5">
+            <div class="flex items-center mb-2"><span
+                    class="w-8 h-8 flex items-center justify-center rounded-full bg-indigo-200 text-indigo-700 font-bold mr-3">5</span><span
+                    class="font-semibold text-lg">What is the output?</span></div>
+            <pre class="bg-gray-900 text-green-200 rounded p-4 text-sm mb-2">import re
+text = 'AI123ML456'
+print(re.findall(r'\d+', text))</pre>
+            <div class="space-y-2 mt-2">
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q5" value="a" class="accent-indigo-600 w-5 h-5"> a) ['A', 'I', 'M',
+                    'L']</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q5" value="b" class="accent-indigo-600 w-5 h-5"> b) ['123', '456']</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q5" value="c" class="accent-indigo-600 w-5 h-5"> c) ['AI', 'ML']</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q5" value="d" class="accent-indigo-600 w-5 h-5"> d) Error</label>
+            </div>
+            <div class="answer-feedback mt-4 hidden"></div>
+        </div>
+        <!-- Q6 -->
+        <div class="bg-indigo-50 rounded-xl shadow border border-indigo-100 p-6 quiz-question" data-q="6">
+            <div class="flex items-center mb-2"><span
+                    class="w-8 h-8 flex items-center justify-center rounded-full bg-indigo-200 text-indigo-700 font-bold mr-3">6</span><span
+                    class="font-semibold text-lg">What is the output?</span></div>
+            <pre class="bg-gray-900 text-green-200 rounded p-4 text-sm mb-2">import asyncio
+async def main():
+    await asyncio.sleep(0.1)
+    return 'done'
+print(asyncio.run(main()))</pre>
+            <div class="space-y-2 mt-2">
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q6" value="a" class="accent-indigo-600 w-5 h-5"> a) done</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q6" value="b" class="accent-indigo-600 w-5 h-5"> b) None</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q6" value="c" class="accent-indigo-600 w-5 h-5"> c) Error</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q6" value="d" class="accent-indigo-600 w-5 h-5"> d) 'done'</label>
+            </div>
+            <div class="answer-feedback mt-4 hidden"></div>
+        </div>
+        <!-- Q7 -->
+        <div class="bg-indigo-50 rounded-xl shadow border border-indigo-100 p-6 quiz-question" data-q="7">
+            <div class="flex items-center mb-2"><span
+                    class="w-8 h-8 flex items-center justify-center rounded-full bg-indigo-200 text-indigo-700 font-bold mr-3">7</span><span
+                    class="font-semibold text-lg">What is the output?</span></div>
+            <pre class="bg-gray-900 text-green-200 rounded p-4 text-sm mb-2">def f():
+    try:
+        return 1
+    finally:
+        return 2
+print(f())</pre>
+            <div class="space-y-2 mt-2">
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q7" value="a" class="accent-indigo-600 w-5 h-5"> a) 1</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q7" value="b" class="accent-indigo-600 w-5 h-5"> b) None</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q7" value="c" class="accent-indigo-600 w-5 h-5"> c) 2</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q7" value="d" class="accent-indigo-600 w-5 h-5"> d) Error</label>
+            </div>
+            <div class="answer-feedback mt-4 hidden"></div>
+        </div>
+        <!-- Q8 -->
+        <div class="bg-indigo-50 rounded-xl shadow border border-indigo-100 p-6 quiz-question" data-q="8">
+            <div class="flex items-center mb-2"><span
+                    class="w-8 h-8 flex items-center justify-center rounded-full bg-indigo-200 text-indigo-700 font-bold mr-3">8</span><span
+                    class="font-semibold text-lg">What is the output?</span></div>
+            <pre class="bg-gray-900 text-green-200 rounded p-4 text-sm mb-2">class A:
+    def __init__(self):
+        self.x = 1
+    def __getattr__(self, name):
+        return 42
+obj = A()
+print(obj.x, obj.y)</pre>
+            <div class="space-y-2 mt-2">
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q8" value="a" class="accent-indigo-600 w-5 h-5"> a) 1 42</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q8" value="b" class="accent-indigo-600 w-5 h-5"> b) 1 1</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q8" value="c" class="accent-indigo-600 w-5 h-5"> c) 42 1</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q8" value="d" class="accent-indigo-600 w-5 h-5"> d) Error</label>
+            </div>
+            <div class="answer-feedback mt-4 hidden"></div>
+        </div>
+        <!-- Q9 -->
+        <div class="bg-indigo-50 rounded-xl shadow border border-indigo-100 p-6 quiz-question" data-q="9">
+            <div class="flex items-center mb-2"><span
+                    class="w-8 h-8 flex items-center justify-center rounded-full bg-indigo-200 text-indigo-700 font-bold mr-3">9</span><span
+                    class="font-semibold text-lg">What is the output?</span></div>
+            <pre class="bg-gray-900 text-green-200 rounded p-4 text-sm mb-2">def f():
+    yield 1
+    yield 2
+print(list(f()))</pre>
+            <div class="space-y-2 mt-2">
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q9" value="a" class="accent-indigo-600 w-5 h-5"> a) [1, 2]</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q9" value="b" class="accent-indigo-600 w-5 h-5"> b) 1 2</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q9" value="c" class="accent-indigo-600 w-5 h-5"> c) [2, 1]</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q9" value="d" class="accent-indigo-600 w-5 h-5"> d) Error</label>
+            </div>
+            <div class="answer-feedback mt-4 hidden"></div>
+        </div>
+        <!-- Q10 -->
+        <div class="bg-indigo-50 rounded-xl shadow border border-indigo-100 p-6 quiz-question" data-q="10">
+            <div class="flex items-center mb-2"><span
+                    class="w-8 h-8 flex items-center justify-center rounded-full bg-indigo-200 text-indigo-700 font-bold mr-3">10</span><span
+                    class="font-semibold text-lg">What is the output?</span></div>
+            <pre class="bg-gray-900 text-green-200 rounded p-4 text-sm mb-2">import os
+os.environ['TEST'] = '123'
+print(os.getenv('TEST'))</pre>
+            <div class="space-y-2 mt-2">
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q10" value="a" class="accent-indigo-600 w-5 h-5"> a) None</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q10" value="b" class="accent-indigo-600 w-5 h-5"> b) TEST</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q10" value="c" class="accent-indigo-600 w-5 h-5"> c) Error</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q10" value="d" class="accent-indigo-600 w-5 h-5"> d) 123</label>
+            </div>
+            <div class="answer-feedback mt-4 hidden"></div>
+        </div>
+        <!-- Q11 -->
+        <div class="bg-indigo-50 rounded-xl shadow border border-indigo-100 p-6 quiz-question" data-q="11">
+            <div class="flex items-center mb-2"><span
+                    class="w-8 h-8 flex items-center justify-center rounded-full bg-indigo-200 text-indigo-700 font-bold mr-3">11</span><span
+                    class="font-semibold text-lg">What is the output?</span></div>
+            <pre class="bg-gray-900 text-green-200 rounded p-4 text-sm mb-2">import sys
+print(sys.version_info.major >= 3)</pre>
+            <div class="space-y-2 mt-2">
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q11" value="a" class="accent-indigo-600 w-5 h-5"> a) True</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q11" value="b" class="accent-indigo-600 w-5 h-5"> b) False</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q11" value="c" class="accent-indigo-600 w-5 h-5"> c) 3</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q11" value="d" class="accent-indigo-600 w-5 h-5"> d) Error</label>
+            </div>
+            <div class="answer-feedback mt-4 hidden"></div>
+        </div>
+        <!-- Q12 -->
+        <div class="bg-indigo-50 rounded-xl shadow border border-indigo-100 p-6 quiz-question" data-q="12">
+            <div class="flex items-center mb-2"><span
+                    class="w-8 h-8 flex items-center justify-center rounded-full bg-indigo-200 text-indigo-700 font-bold mr-3">12</span><span
+                    class="font-semibold text-lg">What is the output?</span></div>
+            <pre class="bg-gray-900 text-green-200 rounded p-4 text-sm mb-2">def f(x=[]):
+    x.append(1)
+    return x
+print(f(), f())</pre>
+            <div class="space-y-2 mt-2">
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q12" value="a" class="accent-indigo-600 w-5 h-5"> a) [1] [1]</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q12" value="b" class="accent-indigo-600 w-5 h-5"> b) [1] [1, 1]</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q12" value="c" class="accent-indigo-600 w-5 h-5"> c) [1, 1] [1, 1]</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q12" value="d" class="accent-indigo-600 w-5 h-5"> d) Error</label>
+            </div>
+            <div class="answer-feedback mt-4 hidden"></div>
+        </div>
+        <!-- Q13 -->
+        <div class="bg-indigo-50 rounded-xl shadow border border-indigo-100 p-6 quiz-question" data-q="13">
+            <div class="flex items-center mb-2"><span
+                    class="w-8 h-8 flex items-center justify-center rounded-full bg-indigo-200 text-indigo-700 font-bold mr-3">13</span><span
+                    class="font-semibold text-lg">What is the output?</span></div>
+            <pre class="bg-gray-900 text-green-200 rounded p-4 text-sm mb-2">import multiprocessing as mp
+def f(x):
+    return x * x
+if __name__ == '__main__':
+    with mp.Pool(2) as pool:
+        print(pool.map(f, [1, 2, 3]))</pre>
+            <div class="space-y-2 mt-2">
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q13" value="a" class="accent-indigo-600 w-5 h-5"> a) [1, 4, 9]</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q13" value="b" class="accent-indigo-600 w-5 h-5"> b) [1, 2, 3]</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q13" value="c" class="accent-indigo-600 w-5 h-5"> c) Error</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q13" value="d" class="accent-indigo-600 w-5 h-5"> d) None</label>
+            </div>
+            <div class="answer-feedback mt-4 hidden"></div>
+        </div>
+        <!-- Q14 -->
+        <div class="bg-indigo-50 rounded-xl shadow border border-indigo-100 p-6 quiz-question" data-q="14">
+            <div class="flex items-center mb-2"><span
+                    class="w-8 h-8 flex items-center justify-center rounded-full bg-indigo-200 text-indigo-700 font-bold mr-3">14</span><span
+                    class="font-semibold text-lg">What is the output?</span></div>
+            <pre class="bg-gray-900 text-green-200 rounded p-4 text-sm mb-2">import ctypes
+libc = ctypes.CDLL(None)
+print(libc.abs(-10))</pre>
+            <div class="space-y-2 mt-2">
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q14" value="a" class="accent-indigo-600 w-5 h-5"> a) 10</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q14" value="b" class="accent-indigo-600 w-5 h-5"> b) -10</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q14" value="c" class="accent-indigo-600 w-5 h-5"> c) Error</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q14" value="d" class="accent-indigo-600 w-5 h-5"> d) None</label>
+            </div>
+            <div class="answer-feedback mt-4 hidden"></div>
+        </div>
+        <!-- Q15 -->
+        <div class="bg-indigo-50 rounded-xl shadow border border-indigo-100 p-6 quiz-question" data-q="15">
+            <div class="flex items-center mb-2"><span
+                    class="w-8 h-8 flex items-center justify-center rounded-full bg-indigo-200 text-indigo-700 font-bold mr-3">15</span><span
+                    class="font-semibold text-lg">What is the output?</span></div>
+            <pre class="bg-gray-900 text-green-200 rounded p-4 text-sm mb-2">import requests
+r = requests.get('https://httpbin.org/status/404')
+print(r.status_code)</pre>
+            <div class="space-y-2 mt-2">
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q15" value="a" class="accent-indigo-600 w-5 h-5"> a) 200</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q15" value="b" class="accent-indigo-600 w-5 h-5"> b) 500</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q15" value="c" class="accent-indigo-600 w-5 h-5"> c) Error</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q15" value="d" class="accent-indigo-600 w-5 h-5"> d) 404</label>
+            </div>
+            <div class="answer-feedback mt-4 hidden"></div>
+        </div>
+        <!-- Q16 -->
+        <div class="bg-indigo-50 rounded-xl shadow border border-indigo-100 p-6 quiz-question" data-q="16">
+            <div class="flex items-center mb-2"><span
+                    class="w-8 h-8 flex items-center justify-center rounded-full bg-indigo-200 text-indigo-700 font-bold mr-3">16</span><span
+                    class="font-semibold text-lg">What is the output?</span></div>
+            <pre class="bg-gray-900 text-green-200 rounded p-4 text-sm mb-2">import socket
+s = socket.socket()
+try:
+    s.connect(('localhost', 9999))
+except Exception as e:
+    print(type(e).__name__)</pre>
+            <div class="space-y-2 mt-2">
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q16" value="a" class="accent-indigo-600 w-5 h-5"> a) OSError</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q16" value="b" class="accent-indigo-600 w-5 h-5"> b)
+                    ConnectionRefusedError</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q16" value="c" class="accent-indigo-600 w-5 h-5"> c) ValueError</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q16" value="d" class="accent-indigo-600 w-5 h-5"> d) None</label>
+            </div>
+            <div class="answer-feedback mt-4 hidden"></div>
+        </div>
+        <!-- Q17 -->
+        <div class="bg-indigo-50 rounded-xl shadow border border-indigo-100 p-6 quiz-question" data-q="17">
+            <div class="flex items-center mb-2"><span
+                    class="w-8 h-8 flex items-center justify-center rounded-full bg-indigo-200 text-indigo-700 font-bold mr-3">17</span><span
+                    class="font-semibold text-lg">What is the output?</span></div>
+            <pre class="bg-gray-900 text-green-200 rounded p-4 text-sm mb-2">import os
+print(os.path.basename('/usr/local/bin/python'))</pre>
+            <div class="space-y-2 mt-2">
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q17" value="a" class="accent-indigo-600 w-5 h-5"> a) python</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q17" value="b" class="accent-indigo-600 w-5 h-5"> b) bin</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q17" value="c" class="accent-indigo-600 w-5 h-5"> c) /usr/local/bin</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q17" value="d" class="accent-indigo-600 w-5 h-5"> d) Error</label>
+            </div>
+            <div class="answer-feedback mt-4 hidden"></div>
+        </div>
+        <!-- Q18 -->
+        <div class="bg-indigo-50 rounded-xl shadow border border-indigo-100 p-6 quiz-question" data-q="18">
+            <div class="flex items-center mb-2"><span
+                    class="w-8 h-8 flex items-center justify-center rounded-full bg-indigo-200 text-indigo-700 font-bold mr-3">18</span><span
+                    class="font-semibold text-lg">What is the output?</span></div>
+            <pre class="bg-gray-900 text-green-200 rounded p-4 text-sm mb-2">import sys
+print(hasattr(sys, 'exit'))</pre>
+            <div class="space-y-2 mt-2">
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q18" value="a" class="accent-indigo-600 w-5 h-5"> a) False</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q18" value="b" class="accent-indigo-600 w-5 h-5"> b) None</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q18" value="c" class="accent-indigo-600 w-5 h-5"> c) True</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q18" value="d" class="accent-indigo-600 w-5 h-5"> d) Error</label>
+            </div>
+            <div class="answer-feedback mt-4 hidden"></div>
+        </div>
+        <!-- Q19 -->
+        <div class="bg-indigo-50 rounded-xl shadow border border-indigo-100 p-6 quiz-question" data-q="19">
+            <div class="flex items-center mb-2"><span
+                    class="w-8 h-8 flex items-center justify-center rounded-full bg-indigo-200 text-indigo-700 font-bold mr-3">19</span><span
+                    class="font-semibold text-lg">What is the output?</span></div>
+            <pre class="bg-gray-900 text-green-200 rounded p-4 text-sm mb-2">import platform
+print(platform.system() in ['Linux', 'Windows', 'Darwin'])</pre>
+            <div class="space-y-2 mt-2">
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q19" value="a" class="accent-indigo-600 w-5 h-5"> a) False</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q19" value="b" class="accent-indigo-600 w-5 h-5"> b) None</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q19" value="c" class="accent-indigo-600 w-5 h-5"> c) Error</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q19" value="d" class="accent-indigo-600 w-5 h-5"> d) True</label>
+            </div>
+            <div class="answer-feedback mt-4 hidden"></div>
+        </div>
+        <!-- Q20 -->
+        <div class="bg-indigo-50 rounded-xl shadow border border-indigo-100 p-6 quiz-question" data-q="20">
+            <div class="flex items-center mb-2"><span
+                    class="w-8 h-8 flex items-center justify-center rounded-full bg-indigo-200 text-indigo-700 font-bold mr-3">20</span><span
+                    class="font-semibold text-lg">What is the output?</span></div>
+            <pre class="bg-gray-900 text-green-200 rounded p-4 text-sm mb-2">import hashlib
+print(hashlib.sha256(b'python').hexdigest()[:6])</pre>
+            <div class="space-y-2 mt-2">
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q20" value="a" class="accent-indigo-600 w-5 h-5"> a) 5e8848</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q20" value="b" class="accent-indigo-600 w-5 h-5"> b) 718e1f</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q20" value="c" class="accent-indigo-600 w-5 h-5"> c) 9e107d</label>
+                <label
+                    class="flex items-center gap-3 cursor-pointer hover:bg-indigo-100 rounded px-2 py-1 transition"><input
+                        type="radio" name="q20" value="d" class="accent-indigo-600 w-5 h-5"> d) Error</label>
+            </div>
+            <div class="answer-feedback mt-4 hidden"></div>
+        </div>
+        <button type="submit"
+            class="w-full mt-8 px-6 py-3 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 transition-colors duration-200 font-bold text-lg tracking-wide shadow-lg">Submit</button>
+    </form>
+    <div id="quiz-result" class="mt-10 text-xl font-bold text-center"></div>
+    <div class="flex justify-between items-center mt-12 pt-8 border-t border-gray-200">
+        <a href="#" onclick="loadLesson('lessons/open_source_contributions.html')"
+            class="flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200 font-semibold">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous: Open Source Contributions
+        </a>
+    </div>
+    <script>
+        document.getElementById('expert-quiz-form').onsubmit = function (event) {
+            event.preventDefault();
+            const answers = {
+                q1: 'b', q2: 'b', q3: 'a', q4: 'a', q5: 'b',
+                q6: 'd', q7: 'c', q8: 'a', q9: 'a', q10: 'd',
+                q11: 'a', q12: 'b', q13: 'a', q14: 'a', q15: 'd',
+                q16: 'b', q17: 'a', q18: 'c', q19: 'd', q20: 'b'
+            };
+            let score = 0, total = 20;
+            for (let i = 1; i <= total; i++) {
+                const qName = 'q' + i;
+                const selected = document.querySelector('input[name="' + qName + '"]:checked');
+                const card = selected ? selected.closest('.quiz-question') : document.querySelectorAll('.quiz-question')[i - 1];
+                card.classList.remove('border-green-500', 'border-red-500', 'border-yellow-500');
+                let oldFeedback = card.querySelector('.answer-feedback');
+                if (oldFeedback) oldFeedback.classList.add('hidden');
+                let feedback = card.querySelector('.answer-feedback');
+                if (!feedback) {
+                    feedback = document.createElement('div');
+                    feedback.className = 'answer-feedback mt-4';
+                    card.appendChild(feedback);
+                }
+                feedback.classList.remove('hidden', 'text-green-700', 'text-red-700', 'text-yellow-700');
+                if (selected && selected.value === answers[qName]) {
+                    score++;
+                    card.classList.add('border-green-500');
+                    feedback.textContent = 'Correct!';
+                    feedback.classList.add('text-green-700');
+                } else if (selected) {
+                    card.classList.add('border-red-500');
+                    feedback.innerHTML = 'Incorrect. Correct answer: <span class="font-mono">' + answers[qName].toUpperCase() + '</span>';
+                    feedback.classList.add('text-red-700');
+                } else {
+                    card.classList.add('border-yellow-500');
+                    feedback.textContent = 'No answer selected. Correct answer: ' + answers[qName].toUpperCase();
+                    feedback.classList.add('text-yellow-700');
+                }
+                feedback.classList.remove('hidden');
+            }
+            const resultDiv = document.getElementById('quiz-result');
+            if (score >= 16) {
+                resultDiv.innerHTML = `<span class="text-green-700">🎉 Excellent! You scored ${score} out of ${total}! You have mastered the expert track.</span>`;
+            } else if (score >= 12) {
+                resultDiv.innerHTML = `<span class="text-orange-700">Good job! You scored ${score} out of ${total}. Review any missed topics and try again!</span>`;
+            } else {
+                resultDiv.innerHTML = `<span class="text-red-700">You scored ${score} out of ${total}. Keep practicing and try again!</span>`;
+            }
+        };
+    </script>
+</div>

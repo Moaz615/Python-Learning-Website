@@ -1,0 +1,219 @@
+<!-- This file contains ONLY the content for the "Reinforcement Learning" lesson. -->
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <div class="mb-8">
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-4xl font-extrabold text-gray-900">65. Reinforcement Learning</h1>
+            <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full whitespace-nowrap">Expert
+                Level</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-3 mb-6">
+            <!-- Progress bar: (65-57)/19 ≈ 42.1% for expert (lessons 58-76) -->
+            <div class="bg-red-500 h-3 rounded-full transition-all duration-300" style="width: 42.1%"></div>
+        </div>
+    </div>
+
+    <!-- Why Reinforcement Learning Matters -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-blue-100 bg-opacity-80 backdrop-blur-md border-4 border-blue-300 shadow-lg rounded-full text-3xl text-blue-600 transition-transform duration-200 hover:scale-110 animate-fade-in">🎮</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-blue-50/80 to-white/80 backdrop-blur-md border-2 border-blue-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-blue-800 tracking-tight">Why Reinforcement Learning Matters
+                </h2>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong class="text-blue-600">Reinforcement Learning (RL)</strong> is a branch of AI where agents
+                    learn to make decisions by interacting with an environment. RL powers game-playing AIs, robotics,
+                    and autonomous systems.
+                </p>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong>Real-world applications:</strong>
+                <ul class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed">
+                    <li>Game AI (e.g., AlphaGo, Atari agents)</li>
+                    <li>Robotics and autonomous vehicles</li>
+                    <li>Recommendation systems</li>
+                    <li>Industrial automation and control</li>
+                </ul>
+                </p>
+                <p class="text-lg leading-relaxed">
+                    Python's <code>gym</code>, <code>stable-baselines3</code>, and <code>RLlib</code> are popular RL
+                    libraries.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Concepts -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-green-100 bg-opacity-80 backdrop-blur-md border-4 border-green-300 shadow-lg rounded-full text-3xl text-green-600 transition-transform duration-200 hover:scale-110 animate-fade-in">💡</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-green-50/80 to-white/80 backdrop-blur-md border-2 border-green-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-green-800 tracking-tight">Key Concepts: Reinforcement
+                    Learning</h2>
+                <ul
+                    class="list-disc list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-green-300 shadow-md rounded-xl p-6 animate-fade-in">
+                    <li><strong class="text-green-600">Agent & Environment:</strong> The agent interacts with the
+                        environment to achieve a goal.</li>
+                    <li><strong class="text-green-600">State, Action, Reward:</strong> The agent observes a state, takes
+                        an action, and receives a reward.</li>
+                    <li><strong class="text-green-600">Policy:</strong> The strategy the agent uses to choose actions.
+                    </li>
+                    <li><strong class="text-green-600">Value Function:</strong> Estimates how good a state or action is.
+                    </li>
+                    <li><strong class="text-green-600">Q-Learning:</strong> A popular RL algorithm for learning value
+                        functions.</li>
+                    <li><strong class="text-green-600">Exploration vs. Exploitation:</strong> Balancing trying new
+                        actions and using known rewards.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Q-Learning Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🔁</span>Q-Learning
+            Example</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>Q-Learning</strong> is a foundational RL algorithm. Here’s a minimal example of updating a Q-value
+            for a state-action pair:
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dots flex gap-2">
+                    <div class="code-editor-dot-red"></div>
+                    <div class="code-editor-dot-yellow"></div>
+                    <div class="code-editor-dot-green"></div>
+                </div>
+                <span class="text-gray-400 text-xs">q_learning_example.py</span>
+            </div>
+            <pre><code><span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">numpy</span> <span style="color: #ff79c6;">as</span> <span style="color: #8be9fd;">np</span>
+
+<span style="color: #8be9fd;">Q</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">np.zeros</span>((<span style="color: #bd93f9;">5</span>, <span style="color: #bd93f9;">2</span>))  <span style="color: #6272a4;"># 5 states, 2 actions</span>
+<span style="color: #8be9fd;">state</span>, <span style="color: #8be9fd;">action</span>, <span style="color: #8be9fd;">reward</span>, <span style="color: #8be9fd;">next_state</span> <span style="color: #ff79c6;">=</span> <span style="color: #bd93f9;">0</span>, <span style="color: #bd93f9;">1</span>, <span style="color: #bd93f9;">1</span>, <span style="color: #bd93f9;">1</span>
+<span style="color: #8be9fd;">alpha</span>, <span style="color: #8be9fd;">gamma</span> <span style="color: #ff79c6;">=</span> <span style="color: #bd93f9;">0.1</span>, <span style="color: #bd93f9;">0.9</span>
+
+<span style="color: #8be9fd;">Q</span>[state, action] <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">Q</span>[state, action] <span style="color: #ff79c6;">+</span> <span style="color: #8be9fd;">alpha</span> * (<span style="color: #8be9fd;">reward</span> <span style="color: #ff79c6;">+</span> <span style="color: #8be9fd;">gamma</span> * <span style="color: #8be9fd;">np.max</span>(<span style="color: #8be9fd;">Q</span>[next_state]) <span style="color: #ff79c6;">-</span> <span style="color: #8be9fd;">Q</span>[state, action])
+<span style="color: #50fa7b;">print</span>(<span style="color: #8be9fd;">Q</span>)
+</code></pre>
+        </div>
+        <div class="bg-gray-900 p-4 rounded-lg">
+            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+            <pre class="text-green-400 text-sm"><code>[[0.   0.19]
+ [0.   0.  ]
+ [0.   0.  ]
+ [0.   0.  ]
+ [0.   0.  ]]
+</code></pre>
+        </div>
+    </section>
+
+    <!-- Best Practices -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-blue-700 flex items-center">
+            <span class="bg-blue-100 text-blue-600 p-2 rounded-lg mr-3">✅</span>
+            Best Practices for Reinforcement Learning
+        </h2>
+        <ul
+            class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-blue-300 shadow-md rounded-xl p-6 animate-fade-in">
+            <li>Start with simple environments (e.g., gridworld) before complex ones.</li>
+            <li>Visualize agent behavior and learning curves.</li>
+            <li>Use exploration strategies (e.g., epsilon-greedy).</li>
+            <li>Monitor for overfitting to specific environments.</li>
+            <li>Document hyperparameters and results.</li>
+        </ul>
+    </section>
+
+    <!-- Common Pitfalls -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-red-700 flex items-center">
+            <span class="bg-red-100 text-red-600 p-2 rounded-lg mr-3">⚠️</span>
+            Common Pitfalls
+        </h2>
+        <ul
+            class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-red-300 shadow-md rounded-xl p-6 animate-fade-in">
+            <li><strong>Not enough exploration:</strong> The agent may get stuck in suboptimal behavior.</li>
+            <li><strong>Improper reward design:</strong> Poorly designed rewards can lead to unintended behaviors.</li>
+            <li><strong>Ignoring environment randomness:</strong> Test with different seeds and scenarios.</li>
+            <li><strong>Overfitting to a single environment:</strong> Validate on multiple tasks if possible.</li>
+        </ul>
+    </section>
+
+    <!-- Try it Yourself Section -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🧑‍💻</span>Try it
+            Yourself: Q-Value Update</h2>
+        <p class="mb-4 text-lg">Practice updating a Q-value for a state-action pair in a simple RL setting.</p>
+        <div id="code-editor-container" class="bg-gray-50 p-6 rounded-lg shadow-inner border border-gray-200"></div>
+        <script type="text/plain" id="default-code">
+import numpy as np
+
+Q = np.zeros((3, 2))
+state, action, reward, next_state = 0, 1, 1, 1
+alpha, gamma = 0.5, 0.9
+
+Q[state, action] = Q[state, action] + alpha * (reward + gamma * np.max(Q[next_state]) - Q[state, action])
+print(Q)
+        </script>
+        <div class="mt-4 text-sm text-gray-600">
+            <strong>Note:</strong> RL libraries like gym are not supported in the browser editor. This code demonstrates
+            the Q-value update step only.
+        </div>
+    </section>
+
+    <!-- Challenge: RL Agent Project -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-purple-700 flex items-center">
+            <span class="bg-purple-100 text-purple-600 p-2 rounded-lg mr-3">🏆</span>
+            Project Challenge: Build a Simple RL Agent
+        </h2>
+        <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg border-l-4 border-purple-500">
+            <p class="text-lg leading-relaxed mb-4">
+                <strong>Scenario:</strong> Build a simple RL agent for a gridworld or game environment. Implement
+                Q-learning, train your agent, and visualize its learning progress.
+            </p>
+            <ul class="list-decimal list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2">
+                <li>Define the environment and reward structure</li>
+                <li>Implement the Q-learning algorithm</li>
+                <li>Train and evaluate your agent</li>
+                <li>Visualize the agent's path and learning curve</li>
+            </ul>
+            <div class="bg-gray-900 p-4 rounded-lg mt-6">
+                <h3 class="text-white font-semibold mb-3">💡 Project Example Output:</h3>
+                <pre class="text-green-400 text-sm"><code>Episode 100: Total Reward = 10
+Q-table:
+[[0.   0.19]
+ [0.   0.  ]
+ [0.   0.  ]
+ [0.   0.  ]
+ [0.   0.  ]]
+</code></pre>
+            </div>
+            <p class="text-md text-gray-600 mt-4">This project will help you master the basics of RL algorithms and
+                agent training.</p>
+        </div>
+    </section>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+        <a href="#" onclick="loadLesson('lessons/computer_vision.html')"
+            class="flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous: Computer Vision
+        </a>
+        <a href="#" onclick="loadLesson('lessons/generative_ai.html')"
+            class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+            Next: Generative AI
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </a>
+    </div>
+</div>

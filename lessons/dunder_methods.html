@@ -1,0 +1,178 @@
+<!-- This file contains ONLY the content for the "Dunder (Magic) Methods" lesson. -->
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <div class="mb-8">
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-4xl font-extrabold text-gray-900">33. Dunder (Magic) Methods</h1>
+            <span class="bg-orange-100 text-orange-800 text-sm font-medium px-3 py-1 rounded-full">Intermediate
+                Level</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-3 mb-6">
+            <!-- Progress bar: (33-21)/18 = 66.7% for intermediate (lessons 22-39) -->
+            <div class="bg-gradient-to-r from-orange-500 to-red-500 h-3 rounded-full transition-all duration-300"
+                style="width: 66.7%"></div>
+        </div>
+    </div>
+
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-blue-100 bg-opacity-80 backdrop-blur-md border-4 border-blue-300 shadow-lg rounded-full text-3xl text-blue-600 transition-transform duration-200 hover:scale-110 animate-fade-in">✨</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-blue-50/80 to-white/80 backdrop-blur-md border-2 border-blue-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-blue-800 tracking-tight">What are Dunder Methods?</h2>
+                <p class="text-lg leading-relaxed mb-2">
+                    In Python, <strong class="text-blue-700">Dunder methods</strong> (short for "Double Underscore
+                    methods") are special methods that have two leading and two trailing underscores, like <code
+                        class="font-mono bg-gray-100 px-1 py-0.5 rounded">__init__</code> or <code
+                        class="font-mono bg-gray-100 px-1 py-0.5 rounded">__str__</code>. They are also known as "magic
+                    methods" because they allow you to define how your objects behave with built-in functions and
+                    operators.
+                </p>
+                <p class="text-lg leading-relaxed mb-0">
+                    These methods are not meant to be called directly by you (except for <code>__init__</code> in
+                    <code>super()</code>), but rather by Python itself in response to certain operations or functions.
+                    They enable Python's rich object model and allow for powerful features like operator overloading and
+                    custom object representation.
+                </p>
+            </div>
+        </div>
+
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-blue-100 bg-opacity-80 backdrop-blur-md border-4 border-blue-300 shadow-lg rounded-full text-3xl text-blue-600 transition-transform duration-200 hover:scale-110 animate-fade-in">🔍</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-blue-50/80 to-white/80 backdrop-blur-md border-2 border-blue-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-blue-800 tracking-tight">Common Dunder Methods</h2>
+                <p class="text-lg leading-relaxed mb-6">
+                    Here are some of the most commonly used and important dunder methods:
+                </p>
+                <ul
+                    class="list-disc list-inside ml-4 text-lg leading-relaxed space-y-3 bg-white/90 border-l-4 border-blue-300 shadow-md rounded-xl p-6 animate-fade-in">
+                    <li><code class="font-mono bg-gray-100 px-1 py-0.5 rounded">__init__(self, ...)</code>: The
+                        constructor. Called when a new object is created.</li>
+                    <li><code class="font-mono bg-gray-100 px-1 py-0.5 rounded">__str__(self)</code>: Defines the
+                        "informal" string representation of an object. Called by <code>str()</code>,
+                        <code>print()</code>. Should be readable for end-users.
+                    </li>
+                    <li><code class="font-mono bg-gray-100 px-1 py-0.5 rounded">__repr__(self)</code>: Defines the
+                        "official" string representation of an object. Called by <code>repr()</code>. Should be
+                        unambiguous and, if possible, allow recreation of the object.</li>
+                    <li><code class="font-mono bg-gray-100 px-1 py-0.5 rounded">__len__(self)</code>: Defines the
+                        behavior for the <code>len()</code> function.</li>
+                    <li><code class="font-mono bg-gray-100 px-1 py-0.5 rounded">__add__(self, other)</code>: Defines
+                        behavior for the <code>+</code> operator.</li>
+                    <li><code class="font-mono bg-gray-100 px-1 py-0.5 rounded">__eq__(self, other)</code>: Defines
+                        behavior for the <code>==</code> (equality) operator.</li>
+                    <li><code class="font-mono bg-gray-100 px-1 py-0.5 rounded">__lt__(self, other)</code>, <code
+                            class="font-mono bg-gray-100 px-1 py-0.5 rounded">__le__(self, other)</code>, etc.: Define
+                        behavior for comparison operators (<code><</code>, <code><=</code>, etc.).</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-green-700 flex items-center">
+            <span class="bg-green-100 text-green-600 p-2 rounded-lg mr-3">🧪</span>
+            Try it Yourself
+        </h2>
+        <div class="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl p-6 shadow-sm mb-6">
+            <p class="text-lg leading-relaxed mb-4">
+                Create a <code class="font-mono bg-gray-100 px-1 py-0.5 rounded">Vector</code> class that represents a
+                2D vector (e.g., <code class="font-mono bg-gray-100 px-1 py-0.5 rounded">Vector(x, y)</code>). Implement
+                the following dunder methods:
+            </p>
+            <ol
+                class="list-decimal list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2 bg-white rounded-lg shadow p-4 border border-green-100">
+                <li><code class="font-mono bg-gray-100 px-1 py-0.5 rounded">__init__</code>: To initialize
+                    <code>x</code> and <code>y</code> components.
+                </li>
+                <li><code class="font-mono bg-gray-100 px-1 py-0.5 rounded">__str__</code>: To return a user-friendly
+                    string like "Vector(x=..., y=...)".</li>
+                <li><code class="font-mono bg-gray-100 px-1 py-0.5 rounded">__add__</code>: To enable vector addition
+                    (add corresponding x and y components).</li>
+                <li><code class="font-mono bg-gray-100 px-1 py-0.5 rounded">__mul__</code>: To enable scalar
+                    multiplication (multiply both x and y by a number).</li>
+                <li><code class="font-mono bg-gray-100 px-1 py-0.5 rounded">__eq__</code>: To compare two vectors for
+                    equality.</li>
+            </ol>
+        </div>
+        <!-- Code Editor Area -->
+        <div id="code-editor-container" class="bg-gray-50 p-6 rounded-lg shadow-inner border border-gray-200"></div>
+        <script type="text/plain" id="default-code">
+# Your code goes here
+
+class Vector:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __str__(self):
+        return f"Vector(x={self.x}, y={self.y})"
+
+    def __add__(self, other):
+        if isinstance(other, Vector):
+            return Vector(self.x + other.x, self.y + other.y)
+        return NotImplemented # Or raise an error
+
+    def __mul__(self, scalar):
+        if isinstance(scalar, (int, float)):
+            return Vector(self.x * scalar, self.y * scalar)
+        return NotImplemented
+
+    def __eq__(self, other):
+        if isinstance(other, Vector):
+            return self.x == other.x and self.y == other.y
+        return NotImplemented
+
+# Test your Vector class
+v1 = Vector(2, 3)
+v2 = Vector(1, -1)
+v3 = Vector(2, 3)
+
+print(f"Vector 1: {v1}")
+print(f"Vector 2: {v2}")
+
+# Test addition
+v_sum = v1 + v2
+print(f"v1 + v2 = {v_sum}")
+
+# Test scalar multiplication
+v_scaled = v1 * 3
+print(f"v1 * 3 = {v_scaled}")
+
+# Test equality
+print(f"v1 == v2: {v1 == v2}")
+print(f"v1 == v3: {v1 == v3}")
+
+# Test multiplication with float
+v_float_scaled = v2 * 2.5
+print(f"v2 * 2.5 = {v_float_scaled}")
+        </script>
+    </section>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+        <a href="#" onclick="loadLesson('lessons/polymorphism_encapsulation.html')"
+            class="flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous: Polymorphism and Encapsulation
+        </a>
+        <div class="text-gray-600">
+            <span class="text-sm">Lesson 33 of 71</span>
+        </div>
+        <a href="#" onclick="loadLesson('lessons/iterators_generators.html')"
+            class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+            Next: Iterators and Generators
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </a>
+    </div>
+</div>

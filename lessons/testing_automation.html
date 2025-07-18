@@ -1,0 +1,240 @@
+<!-- This file contains ONLY the content for the "Testing Automation" lesson. -->
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <div class="mb-8">
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-4xl font-extrabold text-gray-900">72. Testing Automation</h1>
+            <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full whitespace-nowrap">Expert
+                Level</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-3 mb-6">
+            <!-- Progress bar: (72-57)/19 ≈ 78.9% for expert (lessons 58-76) -->
+            <div class="bg-red-500 h-3 rounded-full transition-all duration-300" style="width: 78.9%"></div>
+        </div>
+    </div>
+
+    <!-- Why Testing Automation Matters -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-blue-100 bg-opacity-80 backdrop-blur-md border-4 border-blue-300 shadow-lg rounded-full text-3xl text-blue-600 transition-transform duration-200 hover:scale-110 animate-fade-in">🧪</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-blue-50/80 to-white/80 backdrop-blur-md border-2 border-blue-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-blue-800 tracking-tight">Why Testing Automation Matters
+                </h2>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong class="text-blue-600">Testing automation</strong> ensures your code works as expected,
+                    reduces bugs, and increases confidence in deployments. Automated tests save time and enable
+                    continuous integration and delivery.
+                </p>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong>Real-world applications:</strong>
+                <ul class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed">
+                    <li>Automated unit, integration, and end-to-end testing</li>
+                    <li>Continuous integration pipelines</li>
+                    <li>Regression testing for large codebases</li>
+                    <li>Testing APIs, web apps, and GUIs</li>
+                </ul>
+                </p>
+                <p class="text-lg leading-relaxed">
+                    Python's <code>unittest</code>, <code>pytest</code>, and <code>selenium</code> libraries are
+                    essential for testing automation.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Concepts -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-green-100 bg-opacity-80 backdrop-blur-md border-4 border-green-300 shadow-lg rounded-full text-3xl text-green-600 transition-transform duration-200 hover:scale-110 animate-fade-in">💡</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-green-50/80 to-white/80 backdrop-blur-md border-2 border-green-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-green-800 tracking-tight">Key Concepts: Testing Automation
+                    in Python</h2>
+                <ul
+                    class="list-disc list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-green-300 shadow-md rounded-xl p-6 animate-fade-in">
+                    <li><strong class="text-green-600">Unit Testing:</strong> Test individual functions and classes.
+                    </li>
+                    <li><strong class="text-green-600">Integration Testing:</strong> Test how components work together.
+                    </li>
+                    <li><strong class="text-green-600">Test Discovery:</strong> Automatically find and run tests.</li>
+                    <li><strong class="text-green-600">Fixtures:</strong> Set up and tear down test environments.</li>
+                    <li><strong class="text-green-600">Mocking:</strong> Simulate dependencies and external systems.
+                    </li>
+                    <li><strong class="text-green-600">Test Automation Tools:</strong> Use <code>pytest</code>,
+                        <code>unittest</code>, and <code>selenium</code> for different testing needs.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pytest Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">📝</span>Pytest:
+            Simple Test Example</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>Pytest</strong> is a popular testing framework. Here’s a simple test:
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dots flex gap-2">
+                    <div class="code-editor-dot-red"></div>
+                    <div class="code-editor-dot-yellow"></div>
+                    <div class="code-editor-dot-green"></div>
+                </div>
+                <span class="text-gray-400 text-xs">test_sample.py</span>
+            </div>
+            <pre><code><span style="color: #ff79c6;">def</span> <span style="color: #50fa7b;">add</span>(<span style="color: #8be9fd;">a</span>, <span style="color: #8be9fd;">b</span>):
+    <span style="color: #ff79c6;">return</span> <span style="color: #8be9fd;">a</span> <span style="color: #ff79c6;">+</span> <span style="color: #8be9fd;">b</span>
+
+def <span style="color: #50fa7b;">test_add</span>():
+    <span style="color: #ff79c6;">assert</span> <span style="color: #50fa7b;">add</span>(<span style="color: #bd93f9;">2</span>, <span style="color: #bd93f9;">3</span>) <span style="color: #ff79c6;">==</span> <span style="color: #bd93f9;">5</span>
+</code></pre>
+        </div>
+        <div class="bg-gray-900 p-4 rounded-lg">
+            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+            <pre class="text-green-400 text-sm"><code>Test passes if add(2, 3) returns 5.</code></pre>
+        </div>
+    </section>
+
+    <!-- Selenium Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🌐</span>Selenium:
+            Web Automation Test</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>Selenium</strong> automates browsers for end-to-end testing. Here’s a simple test (requires browser
+            driver):
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dots flex gap-2">
+                    <div class="code-editor-dot-red"></div>
+                    <div class="code-editor-dot-yellow"></div>
+                    <div class="code-editor-dot-green"></div>
+                </div>
+                <span class="text-gray-400 text-xs">test_google.py</span>
+            </div>
+            <pre><code><span style="color: #ff79c6;">from</span> <span style="color: #8be9fd;">selenium</span> <span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">webdriver</span>
+
+<span style="color: #8be9fd;">driver</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">webdriver</span>.<span style="color: #50fa7b;">Chrome</span>()
+<span style="color: #8be9fd;">driver</span>.<span style="color: #50fa7b;">get</span>(<span style="color: #f1fa8c;">'https://www.google.com'</span>)
+<span style="color: #ff79c6;">assert</span> <span style="color: #8be9fd;">"Google"</span> <span style="color: #ff79c6;">in</span> <span style="color: #8be9fd;">driver</span>.<span style="color: #50fa7b;">title</span>
+<span style="color: #8be9fd;">driver</span>.<span style="color: #50fa7b;">quit</span>()
+</code></pre>
+        </div>
+        <div class="bg-gray-900 p-4 rounded-lg">
+            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+            <pre
+                class="text-green-400 text-sm"><code>Opens Chrome, navigates to Google, and checks the page title.</code></pre>
+        </div>
+    </section>
+
+    <!-- Best Practices -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-blue-700 flex items-center">
+            <span class="bg-blue-100 text-blue-600 p-2 rounded-lg mr-3">✅</span>
+            Best Practices for Testing Automation
+        </h2>
+        <ul
+            class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-blue-300 shadow-md rounded-xl p-6 animate-fade-in">
+            <li>Write clear, independent, and repeatable tests.</li>
+            <li>Use fixtures for setup and teardown.</li>
+            <li>Automate tests in CI/CD pipelines.</li>
+            <li>Mock external dependencies for reliability.</li>
+            <li>Keep tests fast to encourage frequent runs.</li>
+        </ul>
+    </section>
+
+    <!-- Common Pitfalls -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-red-700 flex items-center">
+            <span class="bg-red-100 text-red-600 p-2 rounded-lg mr-3">⚠️</span>
+            Common Pitfalls
+        </h2>
+        <ul
+            class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-red-300 shadow-md rounded-xl p-6 animate-fade-in">
+            <li><strong>Not running tests regularly:</strong> Integrate tests into your workflow.</li>
+            <li><strong>Ignoring failed tests:</strong> Always investigate and fix failures.</li>
+            <li><strong>Hardcoding test data:</strong> Use fixtures and parameterization.</li>
+            <li><strong>Not cleaning up resources:</strong> Use teardown methods or context managers.</li>
+        </ul>
+    </section>
+
+    <!-- Try it Yourself Section -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🧑‍💻</span>Try it
+            Yourself: Write a Unit Test</h2>
+        <p class="mb-4 text-lg">Practice writing a unit test using <code>unittest</code>. This script tests a simple
+            function.</p>
+        <div id="code-editor-container" class="bg-gray-50 p-6 rounded-lg shadow-inner border border-gray-200"></div>
+        <script type="text/plain" id="default-code">
+import unittest
+
+def multiply(a, b):
+    return a * b
+
+class TestMultiply(unittest.TestCase):
+    def test_multiply(self):
+        self.assertEqual(multiply(2, 4), 8)
+
+if __name__ == '__main__':
+    unittest.main()
+        </script>
+        <div class="mt-4 text-sm text-gray-600">
+            <strong>Note:</strong> Some testing frameworks may not run in the browser editor. Run this code locally to
+            see the output.
+        </div>
+    </section>
+
+    <!-- Project Challenge: Automated Test Suite -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-purple-700 flex items-center">
+            <span class="bg-purple-100 text-purple-600 p-2 rounded-lg mr-3">🏆</span>
+            Project Challenge: Automated Test Suite
+        </h2>
+        <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg border-l-4 border-purple-500">
+            <p class="text-lg leading-relaxed mb-4">
+                <strong>Scenario:</strong> Build an automated test suite for a small Python project. Include unit,
+                integration, and (optionally) end-to-end tests. Integrate with a CI tool (e.g., GitHub Actions or Travis
+                CI).
+            </p>
+            <ul class="list-decimal list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2">
+                <li>Write unit and integration tests for your code</li>
+                <li>Automate test discovery and execution</li>
+                <li>Mock external dependencies as needed</li>
+                <li>Set up CI to run tests on every commit</li>
+            </ul>
+            <div class="bg-gray-900 p-4 rounded-lg mt-6">
+                <h3 class="text-white font-semibold mb-3">💡 Project Example Output:</h3>
+                <pre class="text-green-400 text-sm"><code>All tests passed!
+CI: Tests run on push and pull request.
+</code></pre>
+            </div>
+            <p class="text-md text-gray-600 mt-4">This project will help you master automated testing and CI/CD in
+                Python.</p>
+        </div>
+    </section>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+        <a href="#" onclick="loadLesson('lessons/working_with_excel.html')"
+            class="flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous: Working with Excel
+        </a>
+        <a href="#" onclick="loadLesson('lessons/devops_python.html')"
+            class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+            Next: DevOps with Python
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </a>
+    </div>
+</div>

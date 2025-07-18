@@ -1,0 +1,271 @@
+<!-- This file contains ONLY the content for the "Sets" lesson. -->
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <!-- Progress Bar -->
+    <div class="mb-8">
+        <div class="flex items-center justify-between mb-2">
+            <h1 class="text-4xl font-extrabold text-gray-900">14. Sets</h1>
+            <span class="bg-green-100 text-green-800 text-sm font-semibold px-4 py-1 rounded-full">Beginner</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-2 mb-6">
+            <div class="bg-green-500 h-2 rounded-full" style="width: 66.7%"></div>
+        </div>
+    </div>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+            <span class="bg-blue-100 text-blue-600 p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+                    </path>
+                </svg>
+            </span>
+            Unique and Unordered Collections
+        </h2>
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg border-l-4 border-blue-500">
+            <p class="text-lg leading-relaxed mb-4">
+                A <strong class="text-indigo-600">set</strong> is an unordered collection of unique items. This means
+                that a set cannot have duplicate elements. Sets are useful when you need to store a collection of items
+                and ensure that each item appears only once. Sets are defined by enclosing items in curly braces <code
+                    class="font-mono bg-gray-200 px-2 py-1 rounded text-sm">{}</code>, similar to dictionaries, but they
+                only contain values, not key-value pairs.
+            </p>
+            <div class="bg-indigo-50 border-l-4 border-indigo-400 p-4 rounded-r-lg">
+                <p class="text-lg leading-relaxed">
+                    You can also create an empty set using <code
+                        class="font-mono bg-gray-200 px-2 py-1 rounded text-sm">set()</code>, as <code
+                        class="font-mono bg-gray-200 px-2 py-1 rounded text-sm">{}</code> creates an empty dictionary.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+            <span class="bg-green-100 text-green-600 p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+            </span>
+            Set Operations Example
+        </h2>
+        <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+            <p class="text-lg leading-relaxed mb-4">
+                Let's explore the basic operations you can perform on sets, including adding, removing, and set
+                operations like union and intersection.
+            </p>
+            <div class="code-editor-example mb-4">
+                <div class="code-editor-bar">
+                    <div class="code-editor-dots flex gap-2">
+                        <div class="code-editor-dot-red"></div>
+                        <div class="code-editor-dot-yellow"></div>
+                        <div class="code-editor-dot-green"></div>
+                    </div>
+                </div>
+                <span class="text-gray-400 text-xs">Set Operations Example</span>
+            </div>
+            <pre><code><span style="color: #f8f8f2;">fruits</span> <span style="color: #ff79c6;">=</span> <span style="color: #ff79c6;">{</span><span style="color: #f1fa8c;">"apple"</span><span style="color: #ff79c6;">,</span> <span style="color: #f1fa8c;">"banana"</span><span style="color: #ff79c6;">,</span> <span style="color: #f1fa8c;">"cherry"</span><span style="color: #ff79c6;">}</span>
+<span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">"Original set:"</span><span style="color: #ff79c6;">,</span> <span style="color: #f8f8f2;">fruits</span><span style="color: #ff79c6;">)</span>
+
+<span style="color: #6272a4;"># Adding an element</span>
+<span style="color: #f8f8f2;">fruits</span><span style="color: #ff79c6;">.</span><span style="color: #50fa7b;">add</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">"orange"</span><span style="color: #ff79c6;">)</span>
+<span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">"After adding orange:"</span><span style="color: #ff79c6;">,</span> <span style="color: #f8f8f2;">fruits</span><span style="color: #ff79c6;">)</span>
+
+<span style="color: #6272a4;"># Removing an element</span>
+<span style="color: #f8f8f2;">fruits</span><span style="color: #ff79c6;">.</span><span style="color: #50fa7b;">remove</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">"banana"</span><span style="color: #ff79c6;">)</span>
+<span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">"After removing banana:"</span><span style="color: #ff79c6;">,</span> <span style="color: #f8f8f2;">fruits</span><span style="color: #ff79c6;">)</span>
+
+<span style="color: #6272a4;"># Membership test</span>
+<span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">"Is apple in set?"</span><span style="color: #ff79c6;">,</span> <span style="color: #f1fa8c;">"apple"</span> <span style="color: #ff79c6;">in</span> <span style="color: #f8f8f2;">fruits</span><span style="color: #ff79c6;">)</span>
+
+<span style="color: #6272a4;"># Iterating</span>
+<span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">"All elements:"</span><span style="color: #ff79c6;">)</span>
+<span style="color: #ff79c6;">for</span> <span style="color: #f8f8f2;">fruit</span> <span style="color: #ff79c6;">in</span> <span style="color: #f8f8f2;">fruits</span><span style="color: #ff79c6;">:</span>
+    <span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f8f8f2;">fruit</span><span style="color: #ff79c6;">)</span>
+
+<span style="color: #6272a4;"># Set operations</span>
+<span style="color: #f8f8f2;">odds</span> <span style="color: #ff79c6;">=</span> <span style="color: #ff79c6;">{</span><span style="color: #bd93f9;">1</span><span style="color: #ff79c6;">,</span> <span style="color: #bd93f9;">3</span><span style="color: #ff79c6;">,</span> <span style="color: #bd93f9;">5</span><span style="color: #ff79c6;">,</span> <span style="color: #bd93f9;">7</span><span style="color: #ff79c6;">}</span>
+<span style="color: #f8f8f2;">evens</span> <span style="color: #ff79c6;">=</span> <span style="color: #ff79c6;">{</span><span style="color: #bd93f9;">2</span><span style="color: #ff79c6;">,</span> <span style="color: #bd93f9;">4</span><span style="color: #ff79c6;">,</span> <span style="color: #bd93f9;">6</span><span style="color: #ff79c6;">,</span> <span style="color: #bd93f9;">8</span><span style="color: #ff79c6;">}</span>
+<span style="color: #f8f8f2;">primes</span> <span style="color: #ff79c6;">=</span> <span style="color: #ff79c6;">{</span><span style="color: #bd93f9;">2</span><span style="color: #ff79c6;">,</span> <span style="color: #bd93f9;">3</span><span style="color: #ff79c6;">,</span> <span style="color: #bd93f9;">5</span><span style="color: #ff79c6;">,</span> <span style="color: #bd93f9;">7</span><span style="color: #ff79c6;">}</span>
+<span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">"Union:"</span><span style="color: #ff79c6;">,</span> <span style="color: #f8f8f2;">odds</span> <span style="color: #ff79c6;">|</span> <span style="color: #f8f8f2;">evens</span><span style="color: #ff79c6;">)</span>
+<span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">"Intersection:"</span><span style="color: #ff79c6;">,</span> <span style="color: #f8f8f2;">odds</span> <span style="color: #ff79c6;">&</span> <span style="color: #f8f8f2;">primes</span><span style="color: #ff79c6;">)</span>
+<span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">"Difference:"</span><span style="color: #ff79c6;">,</span> <span style="color: #f8f8f2;">odds</span> <span style="color: #ff79c6;">-</span> <span style="color: #f8f8f2;">primes</span><span style="color: #ff79c6;">)</span></code></pre>
+            <div
+                class="example-output bg-gray-100 p-2 sm:p-4 rounded-lg mt-2 border-l-4 border-green-500 w-full max-w-full">
+                <h4 class="font-semibold text-gray-800 mb-2 flex items-center">
+                    <span class="text-green-600 mr-2">📤</span>
+                    Expected Output:
+                </h4>
+                <pre
+                    class="bg-gray-800 text-green-400 p-2 sm:p-4 rounded text-xs sm:text-sm overflow-x-auto w-full max-w-full">Original set: {'banana', 'cherry', 'apple'}
+After adding orange: {'banana', 'cherry', 'orange', 'apple'}
+After removing banana: {'cherry', 'orange', 'apple'}
+Is apple in set? True
+All elements:
+cherry
+orange
+apple
+Union: {1, 2, 3, 4, 5, 6, 7, 8}
+Intersection: {3, 5, 7}
+Difference: {1}</pre>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+            <span class="bg-purple-100 text-purple-600 p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z">
+                    </path>
+                </svg>
+            </span>
+            Common Set Methods
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <h3 class="font-semibold text-gray-800 mb-3 flex items-center">
+                    <span class="bg-blue-100 text-blue-600 p-1 rounded mr-2">Add/Remove</span>
+                    Basic Operations
+                </h3>
+                <ul class="space-y-2 text-sm text-gray-600">
+                    <li><code class="bg-gray-100 px-1 rounded">add(item)</code> - Add an element</li>
+                    <li><code class="bg-gray-100 px-1 rounded">remove(item)</code> - Remove element (raises error if not
+                        found)</li>
+                    <li><code class="bg-gray-100 px-1 rounded">discard(item)</code> - Remove element (no error if not
+                        found)</li>
+                    <li><code class="bg-gray-100 px-1 rounded">pop()</code> - Remove and return arbitrary element</li>
+                    <li><code class="bg-gray-100 px-1 rounded">clear()</code> - Remove all elements</li>
+                </ul>
+            </div>
+            <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <h3 class="font-semibold text-gray-800 mb-3 flex items-center">
+                    <span class="bg-green-100 text-green-600 p-1 rounded mr-2">Operations</span>
+                    Set Operations
+                </h3>
+                <ul class="space-y-2 text-sm text-gray-600">
+                    <li><code class="bg-gray-100 px-1 rounded">union(other)</code> - All elements from both sets</li>
+                    <li><code class="bg-gray-100 px-1 rounded">intersection(other)</code> - Common elements</li>
+                    <li><code class="bg-gray-100 px-1 rounded">difference(other)</code> - Elements in first but not
+                        second</li>
+                    <li><code class="bg-gray-100 px-1 rounded">symmetric_difference(other)</code> - Elements in either
+                        but not both</li>
+                    <li><code class="bg-gray-100 px-1 rounded">issubset(other)</code> - Check if all elements are in
+                        other set</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+            <span class="bg-yellow-100 text-yellow-600 p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+            </span>
+            Try it Yourself!
+        </h2>
+        <p class="text-lg leading-relaxed mb-4">
+            Create your own sets and experiment with adding, removing, and set operations like union and intersection.
+        </p>
+
+        <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 mb-4">
+            <h3 class="font-semibold text-gray-800 mb-3">Practice with Sets:</h3>
+            <div id="code-editor-container" data-default-code="# Your code goes here
+numbers = {1, 2, 3, 4, 5, 2, 1} # Duplicates are automatically handled
+print(" Numbers set:", numbers) # Add a new number numbers.add(6) print("After adding 6:", numbers) # Remove a number
+                numbers.discard(3) # discard() won't raise error if item not found print("After discarding 3:", numbers)
+                # Create another set even_numbers={2, 4, 6, 8} # Find common elements
+                common=numbers.intersection(even_numbers) print("Common elements:", common) # All unique elements from
+                both sets all_unique=numbers.union(even_numbers) print("All unique elements:", all_unique) # Try more
+                set operations! fruits={"apple", "banana" , "orange" } colors={"red", "yellow" , "orange" } # Find
+                fruits that are also colors fruit_colors=fruits.intersection(colors) print("Fruits that are also
+                colors:", fruit_colors)"></div>
+        </div>
+    </section>
+
+    <!-- Challenge/Homework Section -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+            <span class="bg-red-100 text-red-600 p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z">
+                    </path>
+                </svg>
+            </span>
+            🏆 Challenge: Student Enrollment System
+        </h2>
+        <div class="bg-gradient-to-r from-red-50 to-pink-50 p-6 rounded-lg border-l-4 border-red-500">
+            <p class="text-lg leading-relaxed mb-4">
+                <strong>Project Goal:</strong> Create a student enrollment system that uses sets to manage course
+                enrollments, track student registrations, and analyze enrollment patterns.
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                    <h3 class="font-semibold text-gray-800 mb-3">📋 Requirements:</h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li>• Create sets for different courses and students</li>
+                        <li>• Add/remove students from courses</li>
+                        <li>• Find students taking multiple courses</li>
+                        <li>• Find courses with no students</li>
+                        <li>• Calculate enrollment statistics</li>
+                        <li>• Generate enrollment reports</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                    <h3 class="font-semibold text-gray-800 mb-3">🎯 Bonus Challenges:</h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li>• Implement course prerequisites using sets</li>
+                        <li>• Find students eligible for advanced courses</li>
+                        <li>• Create course recommendation system</li>
+                        <li>• Track enrollment trends over time</li>
+                        <li>• Generate conflict-free exam schedules</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-gray-900 p-4 rounded-lg">
+                <h3 class="text-white font-semibold mb-3">💡 Sample Output:</h3>
+                <pre class="text-green-400 text-sm"><code>=== Enrollment Report ===
+📚 Python Course: 15 students
+📚 Math Course: 12 students
+📚 Science Course: 8 students
+==================
+👥 Students in multiple courses: 5
+📊 Total unique students: 25
+🎯 Most popular course: Python (15 students)
+📈 Average enrollment: 11.7 students
+==================</code></pre>
+            </div>
+
+            <div class="mt-6 bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg">
+                <p class="text-yellow-800 text-sm">
+                    <strong>💪 Challenge yourself:</strong> Use sets to efficiently manage relationships between
+                    students and courses. Think about how sets can help you quickly find overlaps, differences, and
+                    unique elements in your data.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between mt-8 pt-6 border-t border-gray-200">
+        <a href="#" onclick="loadLesson('lessons/tuples.html')"
+            class="px-6 py-3 bg-gray-600 text-white font-bold rounded-lg shadow-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-75 transition-all duration-200 transform hover:scale-105">
+            ← Previous: Tuples
+        </a>
+        <div class="text-gray-600">
+            <span class="text-sm">Lesson 14 of 71</span>
+        </div>
+        <a href="#" onclick="loadLesson('lessons/dictionaries.html')"
+            class="px-6 py-3 bg-indigo-600 text-white font-bold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75 transition-all duration-200 transform hover:scale-105">
+            Next: Dictionaries →
+        </a>
+    </div>
+</div>

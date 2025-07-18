@@ -1,0 +1,316 @@
+<!-- This file contains ONLY the content for the "Machine Learning" lesson. -->
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+
+    <div class="mb-8">
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-4xl font-extrabold text-gray-900">61. Machine Learning (scikit-learn, TensorFlow, PyTorch)
+            </h1>
+            <span class="bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full whitespace-nowrap">Expert
+                Level</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-3 mb-6">
+            <!-- Progress bar: (61-57)/19 ≈ 21.1% for expert (lessons 58-76) -->
+            <div class="bg-red-500 h-3 rounded-full transition-all duration-300" style="width: 21.1%"></div>
+        </div>
+    </div>
+
+    <!-- Why Machine Learning Matters -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-blue-100 bg-opacity-80 backdrop-blur-md border-4 border-blue-300 shadow-lg rounded-full text-3xl text-blue-600 transition-transform duration-200 hover:scale-110 animate-fade-in">🤖</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-blue-50/80 to-white/80 backdrop-blur-md border-2 border-blue-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-blue-800 tracking-tight">Why Machine Learning Matters</h2>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong class="text-blue-600">Machine learning</strong> enables computers to learn from data and
+                    make predictions or decisions without being explicitly programmed. It powers applications like
+                    recommendation systems, image recognition, natural language processing, and more.
+                </p>
+                <p class="text-lg leading-relaxed mb-4">
+                    <strong>Real-world applications:</strong>
+                <ul class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed">
+                    <li>Spam detection and fraud prevention</li>
+                    <li>Personalized recommendations (e.g., Netflix, Amazon)</li>
+                    <li>Medical diagnosis and drug discovery</li>
+                    <li>Self-driving cars and robotics</li>
+                </ul>
+                </p>
+                <p class="text-lg leading-relaxed">
+                    Python's <code>scikit-learn</code>, <code>TensorFlow</code>, and <code>PyTorch</code> are the most
+                    popular libraries for machine learning.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Concepts -->
+    <section class="mb-8">
+        <div class="relative mb-8">
+            <div class="absolute -top-6 left-6 z-10">
+                <span
+                    class="inline-flex items-center justify-center w-14 h-14 bg-green-100 bg-opacity-80 backdrop-blur-md border-4 border-green-300 shadow-lg rounded-full text-3xl text-green-600 transition-transform duration-200 hover:scale-110 animate-fade-in">💡</span>
+            </div>
+            <div
+                class="bg-gradient-to-br from-green-50/80 to-white/80 backdrop-blur-md border-2 border-green-200 shadow-xl rounded-2xl p-8 pt-12 animate-fade-in">
+                <h2 class="text-3xl font-extrabold mb-4 text-green-800 tracking-tight">Key Concepts: Machine Learning in
+                    Python</h2>
+                <ul
+                    class="list-disc list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-green-300 shadow-md rounded-xl p-6 animate-fade-in">
+                    <li><strong class="text-green-600">Supervised Learning:</strong> Training models on labeled data
+                        (e.g., classification, regression).</li>
+                    <li><strong class="text-green-600">Unsupervised Learning:</strong> Discovering patterns in unlabeled
+                        data (e.g., clustering, dimensionality reduction).</li>
+                    <li><strong class="text-green-600">Deep Learning:</strong> Neural networks for complex tasks
+                        (images, text, audio).</li>
+                    <li><strong class="text-green-600">Model Evaluation:</strong> Metrics like accuracy, precision,
+                        recall, F1-score.</li>
+                    <li><strong class="text-green-600">Popular Libraries:</strong> scikit-learn, TensorFlow, PyTorch.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- scikit-learn Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span
+                class="mr-2">📚</span>scikit-learn: Simple Classification</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>scikit-learn</strong> is the go-to library for classical machine learning algorithms in Python. It
+            provides simple APIs for data preprocessing, model training, and evaluation. This example demonstrates
+            training a logistic regression classifier on the famous Iris dataset.
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dots flex gap-2">
+                    <div class="code-editor-dot-red"></div>
+                    <div class="code-editor-dot-yellow"></div>
+                    <div class="code-editor-dot-green"></div>
+                </div>
+                <span class="text-gray-400 text-xs">sklearn_example.py</span>
+            </div>
+            <pre><code><span style="color: #ff79c6;">from</span> <span style="color: #8be9fd;">sklearn.datasets</span> <span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">load_iris</span>
+<span style="color: #ff79c6;">from</span> <span style="color: #8be9fd;">sklearn.linear_model</span> <span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">LogisticRegression</span>
+<span style="color: #ff79c6;">from</span> <span style="color: #8be9fd;">sklearn.model_selection</span> <span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">train_test_split</span>
+
+<span style="color: #8be9fd;">iris</span> <span style="color: #ff79c6;">=</span> <span style="color: #50fa7b;">load_iris</span>()
+<span style="color: #8be9fd;">X</span>, <span style="color: #8be9fd;">y</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">iris</span>.<span style="color: #8be9fd;">data</span>, <span style="color: #8be9fd;">iris</span>.<span style="color: #8be9fd;">target</span>
+<span style="color: #8be9fd;">X_train</span>, <span style="color: #8be9fd;">X_test</span>, <span style="color: #8be9fd;">y_train</span>, <span style="color: #8be9fd;">y_test</span> <span style="color: #ff79c6;">=</span> <span style="color: #50fa7b;">train_test_split</span>(<span style="color: #8be9fd;">X</span>, <span style="color: #8be9fd;">y</span>, test_size<span style="color: #ff79c6;">=</span><span style="color: #bd93f9;">0.2</span>, random_state<span style="color: #ff79c6;">=</span><span style="color: #bd93f9;">42</span>)
+
+<span style="color: #8be9fd;">clf</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">LogisticRegression</span>(max_iter<span style="color: #ff79c6;">=</span><span style="color: #bd93f9;">200</span>)
+<span style="color: #8be9fd;">clf</span>.<span style="color: #50fa7b;">fit</span>(<span style="color: #8be9fd;">X_train</span>, <span style="color: #8be9fd;">y_train</span>)
+<span style="color: #8be9fd;">score</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">clf</span>.<span style="color: #50fa7b;">score</span>(<span style="color: #8be9fd;">X_test</span>, <span style="color: #8be9fd;">y_test</span>)
+<span style="color: #ff79c6;">print</span>(<span style="color: #f1fa8c;">f"Test accuracy: {score:.2f}"</span>)
+</code></pre>
+        </div>
+        <div class="bg-gray-900 p-4 rounded-lg">
+            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+            <pre class="text-green-400 text-sm"><code>Test accuracy: 1.00</code></pre>
+        </div>
+    </section>
+
+    <!-- TensorFlow Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🧠</span>TensorFlow:
+            Neural Network Example</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>TensorFlow</strong> is a powerful open-source library for deep learning and neural networks. This
+            example demonstrates building and training a simple neural network for digit classification using the MNIST
+            dataset.
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dots flex gap-2">
+                    <div class="code-editor-dot-red"></div>
+                    <div class="code-editor-dot-yellow"></div>
+                    <div class="code-editor-dot-green"></div>
+                </div>
+                <span class="text-gray-400 text-xs">tensorflow_example.py</span>
+            </div>
+            <pre><code><span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">tensorflow</span> <span style="color: #ff79c6;">as</span> <span style="color: #8be9fd;">tf</span>
+
+<span style="color: #8be9fd;">mnist</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">tf</span>.<span style="color: #50fa7b;">keras</span>.<span style="color: #50fa7b;">datasets</span>.<span style="color: #50fa7b;">mnist</span>
+(<span style="color: #8be9fd;">x_train</span>, <span style="color: #8be9fd;">y_train</span>), (<span style="color: #8be9fd;">x_test</span>, <span style="color: #8be9fd;">y_test</span>) <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">mnist</span>.<span style="color: #50fa7b;">load_data</span>()
+<span style="color: #8be9fd;">x_train</span>, <span style="color: #8be9fd;">x_test</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">x_train</span> / <span style="color: #bd93f9;">255.0</span>, <span style="color: #8be9fd;">x_test</span> / <span style="color: #bd93f9;">255.0</span>
+
+<span style="color: #8be9fd;">model</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">tf</span>.<span style="color: #50fa7b;">keras</span>.<span style="color: #50fa7b;">Sequential</span>([
+    <span style="color: #8be9fd;">tf</span>.<span style="color: #50fa7b;">keras</span>.<span style="color: #50fa7b;">layers</span>.<span style="color: #50fa7b;">Flatten</span>(input_shape<span style="color: #ff79c6;">=</span>(<span style="color: #bd93f9;">28</span>, <span style="color: #bd93f9;">28</span>)),
+    <span style="color: #8be9fd;">tf</span>.<span style="color: #50fa7b;">keras</span>.<span style="color: #50fa7b;">layers</span>.<span style="color: #50fa7b;">Dense</span>(<span style="color: #bd93f9;">128</span>, activation<span style="color: #ff79c6;">=</span><span style="color: #f1fa8c;">'relu'</span>),
+    <span style="color: #8be9fd;">tf</span>.<span style="color: #50fa7b;">keras</span>.<span style="color: #50fa7b;">layers</span>.<span style="color: #50fa7b;">Dropout</span>(<span style="color: #bd93f9;">0.2</span>),
+    <span style="color: #8be9fd;">tf</span>.<span style="color: #50fa7b;">keras</span>.<span style="color: #50fa7b;">layers</span>.<span style="color: #50fa7b;">Dense</span>(<span style="color: #bd93f9;">10</span>, activation<span style="color: #ff79c6;">=</span><span style="color: #f1fa8c;">'softmax'</span>)
+])
+
+<span style="color: #8be9fd;">model</span>.<span style="color: #50fa7b;">compile</span>(optimizer<span style="color: #ff79c6;">=</span><span style="color: #f1fa8c;">'adam'</span>, loss<span style="color: #ff79c6;">=</span><span style="color: #f1fa8c;">'sparse_categorical_crossentropy'</span>, metrics<span style="color: #ff79c6;">=</span>[<span style="color: #f1fa8c;">'accuracy'</span>])
+<span style="color: #8be9fd;">model</span>.<span style="color: #50fa7b;">fit</span>(<span style="color: #8be9fd;">x_train</span>, <span style="color: #8be9fd;">y_train</span>, epochs<span style="color: #ff79c6;">=</span><span style="color: #bd93f9;">5</span>, validation_data<span style="color: #ff79c6;">=</span>(<span style="color: #8be9fd;">x_test</span>, <span style="color: #8be9fd;">y_test</span>))
+<span style="color: #ff79c6;">print</span>(<span style="color: #f1fa8c;">'Model trained!'</span>)
+</code></pre>
+        </div>
+        <div class="bg-gray-900 p-4 rounded-lg">
+            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+            <pre class="text-green-400 text-sm"><code>Model trained!
+Train and validation accuracy/loss per epoch</code></pre>
+        </div>
+    </section>
+
+    <!-- PyTorch Example -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🔥</span>PyTorch:
+            Simple Neural Network</h2>
+        <p class="text-lg leading-relaxed mb-4">
+            <strong>PyTorch</strong> is a popular deep learning library known for its flexibility and dynamic
+            computation graphs. This example shows how to define and train a simple neural network for image
+            classification.
+        </p>
+        <div class="code-editor-example mb-4">
+            <div class="code-editor-bar">
+                <div class="code-editor-dots flex gap-2">
+                    <div class="code-editor-dot-red"></div>
+                    <div class="code-editor-dot-yellow"></div>
+                    <div class="code-editor-dot-green"></div>
+                </div>
+                <span class="text-gray-400 text-xs">pytorch_example.py</span>
+            </div>
+            <pre><code><span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">torch</span>
+<span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">torch.nn</span> <span style="color: #ff79c6;">as</span> <span style="color: #8be9fd;">nn</span>
+<span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">torch.optim</span> <span style="color: #ff79c6;">as</span> <span style="color: #8be9fd;">optim</span>
+
+<span style="color: #8be9fd;">class</span> <span style="color: #50fa7b;">Net</span>(<span style="color: #8be9fd;">nn</span>.<span style="color: #50fa7b;">Module</span>):
+    <span style="color: #ff79c6;">def</span> <span style="color: #50fa7b;">__init__</span>(<span style="color: #8be9fd;">self</span>):
+        <span style="color: #8be9fd;">super</span>(<span style="color: #50fa7b;">Net</span>, <span style="color: #8be9fd;">self</span>).__init__()
+        <span style="color: #8be9fd;">self</span>.<span style="color: #50fa7b;">fc1</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">nn</span>.<span style="color: #50fa7b;">Linear</span>(<span style="color: #bd93f9;">784</span>, <span style="color: #bd93f9;">128</span>)
+        <span style="color: #8be9fd;">self</span>.<span style="color: #50fa7b;">relu</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">nn</span>.<span style="color: #50fa7b;">ReLU</span>()
+        <span style="color: #8be9fd;">self</span>.<span style="color: #50fa7b;">fc2</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">nn</span>.<span style="color: #50fa7b;">Linear</span>(<span style="color: #bd93f9;">128</span>, <span style="color: #bd93f9;">10</span>)
+    <span style="color: #ff79c6;">def</span> <span style="color: #50fa7b;">forward</span>(<span style="color: #8be9fd;">self</span>, <span style="color: #8be9fd;">x</span>):
+        <span style="color: #8be9fd;">x</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">self</span>.<span style="color: #50fa7b;">fc1</span>(<span style="color: #8be9fd;">x</span>)
+        <span style="color: #8be9fd;">x</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">self</span>.<span style="color: #50fa7b;">relu</span>(<span style="color: #8be9fd;">x</span>)
+        <span style="color: #8be9fd;">x</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">self</span>.<span style="color: #50fa7b;">fc2</span>(<span style="color: #8be9fd;">x</span>)
+        <span style="color: #ff79c6;">return</span> <span style="color: #8be9fd;">x</span>
+
+<span style="color: #8be9fd;">net</span> <span style="color: #ff79c6;">=</span> <span style="color: #50fa7b;">Net</span>()
+<span style="color: #8be9fd;">optimizer</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">optim</span>.<span style="color: #50fa7b;">Adam</span>(<span style="color: #8be9fd;">net</span>.<span style="color: #50fa7b;">parameters</span>())
+<span style="color: #8be9fd;">criterion</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">nn</span>.<span style="color: #50fa7b;">CrossEntropyLoss</span>()
+# ... Training loop would go here ...
+<span style="color: #ff79c6;">print</span>(<span style="color: #f1fa8c;">'Model defined! Training loop omitted for brevity.'</span>)
+</code></pre>
+        </div>
+        <div class="bg-gray-900 p-4 rounded-lg">
+            <h3 class="text-white font-semibold mb-3">💡 Expected Output:</h3>
+            <pre class="text-green-400 text-sm"><code>Model defined! Training loop omitted for brevity.</code></pre>
+        </div>
+    </section>
+
+    <!-- Best Practices -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-blue-700 flex items-center">
+            <span class="bg-blue-100 text-blue-600 p-2 rounded-lg mr-3">✅</span>
+            Best Practices for Machine Learning
+        </h2>
+        <ul
+            class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-blue-300 shadow-md rounded-xl p-6 animate-fade-in">
+            <li>Always preprocess and clean your data before training.</li>
+            <li>Split your data into training, validation, and test sets.</li>
+            <li>Start with simple models before trying complex ones.</li>
+            <li>Monitor for overfitting and use regularization techniques.</li>
+            <li>Document your experiments and results.</li>
+        </ul>
+    </section>
+
+    <!-- Common Pitfalls -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-red-700 flex items-center">
+            <span class="bg-red-100 text-red-600 p-2 rounded-lg mr-3">⚠️</span>
+            Common Pitfalls
+        </h2>
+        <ul
+            class="list-disc list-inside ml-6 mt-2 text-lg leading-relaxed space-y-2 bg-white/90 border-l-4 border-red-300 shadow-md rounded-xl p-6 animate-fade-in">
+            <li>Training on unbalanced or unrepresentative data.</li>
+            <li>Overfitting to the training set.</li>
+            <li>Ignoring data leakage between train and test sets.</li>
+            <li>Misinterpreting evaluation metrics.</li>
+            <li>Not tuning hyperparameters or validating results.</li>
+        </ul>
+    </section>
+
+    <!-- Try it Yourself Section -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center"><span class="mr-2">🧑‍💻</span>Try it
+            Yourself: Train a Classifier</h2>
+        <p class="mb-4 text-lg">Practice a real-world machine learning workflow: load data, train a model, and evaluate
+            its accuracy using scikit-learn.</p>
+        <div id="code-editor-container" class="bg-gray-50 p-6 rounded-lg shadow-inner border border-gray-200"></div>
+        <script type="text/plain" id="default-code">
+from sklearn.datasets import load_iris
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
+
+# Load the Iris dataset
+iris = load_iris()
+X, y = iris.data, iris.target
+
+# Split into train and test sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Train a logistic regression model
+clf = LogisticRegression(max_iter=200)
+clf.fit(X_train, y_train)
+
+# Evaluate accuracy
+score = clf.score(X_test, y_test)
+print(f"Test accuracy: {score:.2f}")
+        </script>
+        <div class="mt-4 text-sm text-gray-600">
+            <strong>Note:</strong> The browser editor may not support external libraries like <code>scikit-learn</code>.
+            For best results, run this code in your local Python environment.
+        </div>
+    </section>
+
+    <!-- Challenge: Mini Machine Learning Project -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-purple-700 flex items-center">
+            <span class="bg-purple-100 text-purple-600 p-2 rounded-lg mr-3">🏆</span>
+            Project Challenge: End-to-End ML Pipeline
+        </h2>
+        <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg border-l-4 border-purple-500">
+            <p class="text-lg leading-relaxed mb-4">
+                <strong>Scenario:</strong> Use a real-world dataset (e.g., from <a
+                    href="https://www.kaggle.com/datasets" class="text-blue-600 underline" target="_blank">Kaggle</a>)
+                to:
+            </p>
+            <ul class="list-decimal list-inside ml-4 mt-2 text-lg leading-relaxed space-y-2">
+                <li>Load and preprocess the data</li>
+                <li>Train and evaluate at least two different models</li>
+                <li>Compare results and select the best model</li>
+                <li>Document your workflow and findings</li>
+            </ul>
+            <div class="bg-gray-900 p-4 rounded-lg mt-6">
+                <h3 class="text-white font-semibold mb-3">💡 Project Example Output:</h3>
+                <pre class="text-green-400 text-sm"><code>Best model: Logistic Regression (accuracy: 0.97)
+Workflow and results documented
+</code></pre>
+            </div>
+            <p class="text-md text-gray-600 mt-4">This project will help you master the end-to-end process of building,
+                evaluating, and selecting machine learning models in Python.</p>
+        </div>
+    </section>
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+        <a href="#" onclick="loadLesson('lessons/introduction_to_ai.html')"
+            class="flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous: Introduction to AI
+        </a>
+        <a href="#" onclick="loadLesson('lessons/deep_learning.html')"
+            class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+            Next: Deep Learning
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </a>
+    </div>
+</div>
