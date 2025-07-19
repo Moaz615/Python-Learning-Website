@@ -69,21 +69,6 @@
             height: 0.75rem;
             border-radius: 9999px;
         }
-
-        .lesson-link.locked {
-            opacity: 0.5;
-            cursor: not-allowed;
-            position: relative;
-        }
-
-        .lesson-link.locked::after {
-            content: "🔒";
-            position: absolute;
-            right: 8px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 0.8rem;
-        }
     </style>
     <!-- CodeMirror CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
@@ -644,6 +629,7 @@
                 if (score >= 21) { // 70% of 30 questions
                     markQuizCompleted('beginner');
                     showUnlockMessage('intermediate');
+                    updateLockedLessonStates(); // Update sidebar locked states
                 }
             };
         }
@@ -694,6 +680,7 @@
                 if (score >= 21) { // 70% of 30 questions
                     markQuizCompleted('advanced');
                     showUnlockMessage('expert');
+                    updateLockedLessonStates(); // Update sidebar locked states
                 }
             };
         }
@@ -769,6 +756,7 @@
                 if (score >= 21) { // 70% of 30 questions
                     markQuizCompleted('intermediate');
                     showUnlockMessage('advanced');
+                    updateLockedLessonStates(); // Update sidebar locked states
                 }
             };
         }
@@ -1113,7 +1101,9 @@
                 lessonPath.includes('lessons/devops_python.html') ||
                 lessonPath.includes('lessons/security_ethical_hacking.html') ||
                 lessonPath.includes('lessons/python_extensions_c.html') ||
-                lessonPath.includes('lessons/open_source_contributions.html')) {
+                lessonPath.includes('lessons/open_source_contributions.html') ||
+                lessonPath.includes('lessons/expert_quiz.html') ||
+                lessonPath.includes('lessons/expert_grand_challenge.html')) {
                 return isQuizCompleted('advanced');
             }
 
@@ -1125,14 +1115,72 @@
             let requiredQuiz = '';
             let quizLink = '';
 
-            if (lessonPath.includes('lessons/error_handling.html') || lessonPath.includes('lessons/intermediate_quiz.html')) {
+            // Determine which quiz is required based on the lesson path
+            if (lessonPath.includes('lessons/error_handling.html') ||
+                lessonPath.includes('lessons/builtin_functions.html') ||
+                lessonPath.includes('lessons/lambda_functions.html') ||
+                lessonPath.includes('lessons/map_filter_reduce.html') ||
+                lessonPath.includes('lessons/file_io.html') ||
+                lessonPath.includes('lessons/modules_packages.html') ||
+                lessonPath.includes('lessons/python_standard_library.html') ||
+                lessonPath.includes('lessons/intro_to_oop.html') ||
+                lessonPath.includes('lessons/classes_objects.html') ||
+                lessonPath.includes('lessons/constructors_inheritance.html') ||
+                lessonPath.includes('lessons/polymorphism_encapsulation.html') ||
+                lessonPath.includes('lessons/dunder_methods.html') ||
+                lessonPath.includes('lessons/iterators_generators.html') ||
+                lessonPath.includes('lessons/decorators.html') ||
+                lessonPath.includes('lessons/recursion.html') ||
+                lessonPath.includes('lessons/regex.html') ||
+                lessonPath.includes('lessons/virtual_environments.html') ||
+                lessonPath.includes('lessons/pip_libraries.html') ||
+                lessonPath.includes('lessons/intermediate_quiz.html') ||
+                lessonPath.includes('lessons/intermediate_grand_challenge.html')) {
                 requiredQuiz = 'Beginner Level Quiz';
                 quizLink = 'lessons/level1_quiz.html';
             } else if (lessonPath.includes('lessons/functional_programming.html') ||
-                lessonPath.includes('lessons/advanced_quiz.html')) {
+                lessonPath.includes('lessons/type_hints.html') ||
+                lessonPath.includes('lessons/async_programming.html') ||
+                lessonPath.includes('lessons/context_managers.html') ||
+                lessonPath.includes('lessons/logging.html') ||
+                lessonPath.includes('lessons/unit_testing.html') ||
+                lessonPath.includes('lessons/debugging.html') ||
+                lessonPath.includes('lessons/packaging_distribution.html') ||
+                lessonPath.includes('lessons/design_patterns.html') ||
+                lessonPath.includes('lessons/memory_management.html') ||
+                lessonPath.includes('lessons/multithreading.html') ||
+                lessonPath.includes('lessons/multiprocessing.html') ||
+                lessonPath.includes('lessons/performance_optimization.html') ||
+                lessonPath.includes('lessons/json_csv.html') ||
+                lessonPath.includes('lessons/web_scraping.html') ||
+                lessonPath.includes('lessons/database_access.html') ||
+                lessonPath.includes('lessons/working_with_apis.html') ||
+                lessonPath.includes('lessons/gui_programming.html') ||
+                lessonPath.includes('lessons/advanced_quiz.html') ||
+                lessonPath.includes('lessons/advanced_grand_challenge.html')) {
                 requiredQuiz = 'Intermediate Level Quiz';
                 quizLink = 'lessons/intermediate_quiz.html';
-            } else if (lessonPath.includes('lessons/data_science.html')) {
+            } else if (lessonPath.includes('lessons/data_science.html') ||
+                lessonPath.includes('lessons/data_visualization.html') ||
+                lessonPath.includes('lessons/introduction_to_ai.html') ||
+                lessonPath.includes('lessons/machine_learning.html') ||
+                lessonPath.includes('lessons/deep_learning.html') ||
+                lessonPath.includes('lessons/nlp.html') ||
+                lessonPath.includes('lessons/computer_vision.html') ||
+                lessonPath.includes('lessons/reinforcement_learning.html') ||
+                lessonPath.includes('lessons/generative_ai.html') ||
+                lessonPath.includes('lessons/web_development.html') ||
+                lessonPath.includes('lessons/networking.html') ||
+                lessonPath.includes('lessons/game_development.html') ||
+                lessonPath.includes('lessons/automation_scripting.html') ||
+                lessonPath.includes('lessons/working_with_excel.html') ||
+                lessonPath.includes('lessons/testing_automation.html') ||
+                lessonPath.includes('lessons/devops_python.html') ||
+                lessonPath.includes('lessons/security_ethical_hacking.html') ||
+                lessonPath.includes('lessons/python_extensions_c.html') ||
+                lessonPath.includes('lessons/open_source_contributions.html') ||
+                lessonPath.includes('lessons/expert_quiz.html') ||
+                lessonPath.includes('lessons/expert_grand_challenge.html')) {
                 requiredQuiz = 'Advanced Level Quiz';
                 quizLink = 'lessons/advanced_quiz.html';
             }
@@ -1311,9 +1359,39 @@
             }
         }
 
+        // Function to update locked lesson states in sidebar
+        function updateLockedLessonStates() {
+            document.querySelectorAll('.lesson-link').forEach(link => {
+                const lessonPath = link.dataset.lessonPath;
+                if (lessonPath) {
+                    // Remove any existing locked styling
+                    link.classList.remove('locked');
+                    link.style.pointerEvents = 'auto';
+                    // Keep lessons clickable but handle access in loadLesson function
+                }
+            });
+        }
+
+        // Function to toggle mobile sidebar
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+
+            if (sidebar.classList.contains('-translate-x-full')) {
+                sidebar.classList.remove('-translate-x-full');
+                overlay.classList.remove('hidden');
+            } else {
+                sidebar.classList.add('-translate-x-full');
+                overlay.classList.add('hidden');
+            }
+        }
+
         // Initialize Pyodide once when the main page loads
         document.addEventListener('DOMContentLoaded', () => {
             loadPyodideAndSetup();
+
+            // Update locked lesson states in sidebar
+            updateLockedLessonStates();
 
             // Attach click listeners to all lesson links
             document.querySelectorAll('.lesson-link').forEach(link => {
