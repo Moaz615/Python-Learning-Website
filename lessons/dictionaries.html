@@ -121,6 +121,50 @@ Alice
         </div>
     </section>
 
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
+            <span class="bg-yellow-100 text-yellow-600 p-2 rounded-lg mr-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+            </span>
+            Try it Yourself!
+        </h2>
+        <p class="text-lg leading-relaxed mb-4">
+            Create your own dictionary and practice adding, modifying, and accessing elements.
+        </p>
+        <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 mb-4">
+            <h3 class="font-semibold text-gray-800 mb-3">Practice with Dictionaries:</h3>
+            <div id="code-editor-container"></div>
+            <script type="text/plain" id="default-code-dictionaries">
+# Your code goes here
+car = {
+    "brand": "Ford",
+    "model": "Mustang",
+    "year": 1964
+}
+print("Car dictionary:", car)
+
+# Add color
+car["color"] = "red"
+print("After adding color:", car)
+
+# Update year
+car["year"] = 2023
+print("After updating year:", car)
+
+# Check if a key exists
+if "model" in car:
+    print("Model exists:", car["model"])
+
+# Get a value with a default if key not found
+owner = car.get("owner", "Unknown")
+print("Owner:", owner)
+            </script>
+        </div>
+    </section>
+
     <!-- Challenge/Homework Section -->
     <section class="mb-8">
         <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
@@ -188,7 +232,7 @@ Alice
             </div>
         </div>
     </section>
-
+    
     <!-- Navigation Buttons -->
     <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
         <a href="#" onclick="loadLesson('lessons/sets.html')"
