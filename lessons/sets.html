@@ -255,17 +255,23 @@ print(" Numbers set:", numbers) # Add a new number numbers.add(6) print("After a
     </section>
 
     <!-- Navigation Buttons -->
-    <div class="flex justify-between mt-8 pt-6 border-t border-gray-200">
+    <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
         <a href="#" onclick="loadLesson('lessons/tuples.html')"
-            class="px-6 py-3 bg-gray-600 text-white font-bold rounded-lg shadow-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-75 transition-all duration-200 transform hover:scale-105">
-            ← Previous: Tuples
+            class="flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous: Tuples
         </a>
         <div class="text-gray-600">
             <span class="text-sm">Lesson 14 of 71</span>
         </div>
         <a href="#" onclick="loadLesson('lessons/dictionaries.html')"
-            class="px-6 py-3 bg-indigo-600 text-white font-bold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75 transition-all duration-200 transform hover:scale-105">
-            Next: Dictionaries →
+            class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+            Next: Dictionaries
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
         </a>
     </div>
 </div>
