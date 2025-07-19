@@ -55,7 +55,7 @@
                 Let's explore the basic operations you can perform on sets, including adding, removing, and set
                 operations like union and intersection.
             </p>
-            <!-- Unified code editor container -->
+            <!-- Unified code editor container with syntax highlighting -->
             <div class="rounded-xl mb-4 overflow-hidden bg-[#232533]">
                 <div class="flex items-center px-4 py-3 border-b border-[#232533] bg-[#2d2f3a]">
                     <div class="flex space-x-2 mr-4">
@@ -65,33 +65,33 @@
                     </div>
                     <span class="text-gray-400 text-sm">Set Operations Example</span>
                 </div>
-                <pre class="bg-[#181a23] text-gray-100 text-sm p-6 font-mono overflow-x-auto"><code>
-fruits = {"apple", "banana", "cherry"}
-print("Original set:", fruits)
+                <pre class="bg-[#181a23] text-sm p-6 font-mono overflow-x-auto"><code>
+<span style="color: #f8f8f2;">fruits</span> <span style="color: #ff79c6;">=</span> <span style="color: #ff79c6;">{</span><span style="color: #f1fa8c;">"apple"</span><span style="color: #ff79c6;">,</span> <span style="color: #f1fa8c;">"banana"</span><span style="color: #ff79c6;">,</span> <span style="color: #f1fa8c;">"cherry"</span><span style="color: #ff79c6;">}</span>
+<span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">"Original set:"</span><span style="color: #ff79c6;">,</span> <span style="color: #f8f8f2;">fruits</span><span style="color: #ff79c6;">)</span>
 
-# Adding an element
-fruits.add("orange")
-print("After adding orange:", fruits)
+<span style="color: #6272a4;"># Adding an element</span>
+<span style="color: #f8f8f2;">fruits</span><span style="color: #ff79c6;">.</span><span style="color: #50fa7b;">add</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">"orange"</span><span style="color: #ff79c6;">)</span>
+<span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">"After adding orange:"</span><span style="color: #ff79c6;">,</span> <span style="color: #f8f8f2;">fruits</span><span style="color: #ff79c6;">)</span>
 
-# Removing an element
-fruits.remove("banana")
-print("After removing banana:", fruits)
+<span style="color: #6272a4;"># Removing an element</span>
+<span style="color: #f8f8f2;">fruits</span><span style="color: #ff79c6;">.</span><span style="color: #50fa7b;">remove</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">"banana"</span><span style="color: #ff79c6;">)</span>
+<span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">"After removing banana:"</span><span style="color: #ff79c6;">,</span> <span style="color: #f8f8f2;">fruits</span><span style="color: #ff79c6;">)</span>
 
-# Membership test
-print("Is apple in set?", "apple" in fruits)
+<span style="color: #6272a4;"># Membership test</span>
+<span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">"Is apple in set?"</span><span style="color: #ff79c6;">,</span> <span style="color: #f1fa8c;">"apple"</span> <span style="color: #ff79c6;">in</span> <span style="color: #f8f8f2;">fruits</span><span style="color: #ff79c6;">)</span>
 
-# Iterating
-print("All elements:")
-for fruit in fruits:
-    print(fruit)
+<span style="color: #6272a4;"># Iterating</span>
+<span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">"All elements:"</span><span style="color: #ff79c6;">)</span>
+<span style="color: #ff79c6;">for</span> <span style="color: #f8f8f2;">fruit</span> <span style="color: #ff79c6;">in</span> <span style="color: #f8f8f2;">fruits</span><span style="color: #ff79c6;">:</span>
+    <span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f8f8f2;">fruit</span><span style="color: #ff79c6;">)</span>
 
-# Set operations
-odds = {1, 3, 5, 7}
-evens = {2, 4, 6, 8}
-primes = {2, 3, 5, 7}
-print("Union:", odds | evens)
-print("Intersection:", odds & primes)
-print("Difference:", odds - primes)
+<span style="color: #6272a4;"># Set operations</span>
+<span style="color: #f8f8f2;">odds</span> <span style="color: #ff79c6;">=</span> <span style="color: #ff79c6;">{</span><span style="color: #bd93f9;">1</span><span style="color: #ff79c6;">,</span> <span style="color: #bd93f9;">3</span><span style="color: #ff79c6;">,</span> <span style="color: #bd93f9;">5</span><span style="color: #ff79c6;">,</span> <span style="color: #bd93f9;">7</span><span style="color: #ff79c6;">}</span>
+<span style="color: #f8f8f2;">evens</span> <span style="color: #ff79c6;">=</span> <span style="color: #ff79c6;">{</span><span style="color: #bd93f9;">2</span><span style="color: #ff79c6;">,</span> <span style="color: #bd93f9;">4</span><span style="color: #ff79c6;">,</span> <span style="color: #bd93f9;">6</span><span style="color: #ff79c6;">,</span> <span style="color: #bd93f9;">8</span><span style="color: #ff79c6;">}</span>
+<span style="color: #f8f8f2;">primes</span> <span style="color: #ff79c6;">=</span> <span style="color: #ff79c6;">{</span><span style="color: #bd93f9;">2</span><span style="color: #ff79c6;">,</span> <span style="color: #bd93f9;">3</span><span style="color: #ff79c6;">,</span> <span style="color: #bd93f9;">5</span><span style="color: #ff79c6;">,</span> <span style="color: #bd93f9;">7</span><span style="color: #ff79c6;">}</span>
+<span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">"Union:"</span><span style="color: #ff79c6;">,</span> <span style="color: #f8f8f2;">odds</span> <span style="color: #ff79c6;">|</span> <span style="color: #f8f8f2;">evens</span><span style="color: #ff79c6;">)</span>
+<span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">"Intersection:"</span><span style="color: #ff79c6;">,</span> <span style="color: #f8f8f2;">odds</span> <span style="color: #ff79c6;">&</span> <span style="color: #f8f8f2;">primes</span><span style="color: #ff79c6;">)</span>
+<span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">"Difference:"</span><span style="color: #ff79c6;">,</span> <span style="color: #f8f8f2;">odds</span> <span style="color: #ff79c6;">-</span> <span style="color: #f8f8f2;">primes</span><span style="color: #ff79c6;">)</span>
                 </code></pre>
             </div>
             <div
