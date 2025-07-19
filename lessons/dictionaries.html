@@ -55,17 +55,18 @@
                 Let's explore the basic operations you can perform on dictionaries, including creating, accessing,
                 modifying, and iterating through key-value pairs.
             </p>
-            <div class="code-editor-example mb-4">
-                <div class="code-editor-bar">
-                    <div class="code-editor-dots flex gap-2">
-                        <div class="code-editor-dot-red"></div>
-                        <div class="code-editor-dot-yellow"></div>
-                        <div class="code-editor-dot-green"></div>
+            <!-- Unified code editor container with syntax highlighting -->
+            <div class="rounded-xl mb-4 overflow-hidden bg-[#232533]">
+                <div class="flex items-center px-4 py-3 border-b border-[#232533] bg-[#2d2f3a]">
+                    <div class="flex space-x-2 mr-4">
+                        <span class="w-3 h-3 rounded-full bg-red-400 inline-block"></span>
+                        <span class="w-3 h-3 rounded-full bg-yellow-300 inline-block"></span>
+                        <span class="w-3 h-3 rounded-full bg-green-400 inline-block"></span>
                     </div>
+                    <span class="text-gray-400 text-sm">Dictionary Operations Example</span>
                 </div>
-                <span class="text-gray-400 text-xs">Dictionary Operations Example</span>
-            </div>
-            <pre><code><span style="color: #f8f8f2;">student</span> <span style="color: #ff79c6;">=</span> <span style="color: #ff79c6;">{</span>
+                <pre class="bg-[#181a23] text-sm p-6 font-mono overflow-x-auto"><code>
+<span style="color: #f8f8f2;">student</span> <span style="color: #ff79c6;">=</span> <span style="color: #ff79c6;">{</span>
     <span style="color: #f1fa8c;">"name"</span><span style="color: #ff79c6;">:</span> <span style="color: #f1fa8c;">"Alice"</span><span style="color: #ff79c6;">,</span>
     <span style="color: #f1fa8c;">"age"</span><span style="color: #ff79c6;">:</span> <span style="color: #bd93f9;">20</span><span style="color: #ff79c6;">,</span>
     <span style="color: #f1fa8c;">"major"</span><span style="color: #ff79c6;">:</span> <span style="color: #f1fa8c;">"Computer Science"</span><span style="color: #ff79c6;">,</span>
@@ -102,7 +103,9 @@
 <span style="color: #6272a4;"># Iterating through key-value pairs</span>
 <span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">"\nItems in dictionary:"</span><span style="color: #ff79c6;">)</span>
 <span style="color: #ff79c6;">for</span> <span style="color: #f8f8f2;">key</span><span style="color: #ff79c6;">,</span> <span style="color: #f8f8f2;">value</span> <span style="color: #ff79c6;">in</span> <span style="color: #f8f8f2;">student</span><span style="color: #ff79c6;">.</span><span style="color: #50fa7b;">items</span><span style="color: #ff79c6;">():</span>
-    <span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">f"{key}: {value}"</span><span style="color: #ff79c6;">)</span></code></pre>
+    <span style="color: #50fa7b;">print</span><span style="color: #ff79c6;">(</span><span style="color: #f1fa8c;">f"{key}: {value}"</span><span style="color: #ff79c6;">)</span>
+                </code></pre>
+            </div>
             <div
                 class="example-output bg-gray-100 p-2 sm:p-4 rounded-lg mt-2 border-l-4 border-green-500 w-full max-w-full">
                 <h4 class="font-semibold text-gray-800 mb-2 flex items-center">
@@ -115,92 +118,6 @@ Alice
 25
 {'name': 'Bob', 'age': 30}</pre>
             </div>
-        </div>
-    </section>
-
-    <section class="mb-8">
-        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
-            <span class="bg-purple-100 text-purple-600 p-2 rounded-lg mr-3">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z">
-                    </path>
-                </svg>
-            </span>
-            Common Dictionary Methods
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-                <h3 class="font-semibold text-gray-800 mb-3 flex items-center">
-                    <span class="bg-blue-100 text-blue-600 p-1 rounded mr-2">Access</span>
-                    Getting Values
-                </h3>
-                <ul class="space-y-2 text-sm text-gray-600">
-                    <li><code class="bg-gray-100 px-1 rounded">dict[key]</code> - Get value by key</li>
-                    <li><code class="bg-gray-100 px-1 rounded">dict.get(key)</code> - Get value safely</li>
-                    <li><code class="bg-gray-100 px-1 rounded">dict.get(key, default)</code> - Get with default</li>
-                    <li><code class="bg-gray-100 px-1 rounded">dict.keys()</code> - Get all keys</li>
-                    <li><code class="bg-gray-100 px-1 rounded">dict.values()</code> - Get all values</li>
-                </ul>
-            </div>
-            <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-                <h3 class="font-semibold text-gray-800 mb-3 flex items-center">
-                    <span class="bg-green-100 text-green-600 p-1 rounded mr-2">Modify</span>
-                    Modifying Dictionary
-                </h3>
-                <ul class="space-y-2 text-sm text-gray-600">
-                    <li><code class="bg-gray-100 px-1 rounded">dict[key] = value</code> - Add/update item</li>
-                    <li><code class="bg-gray-100 px-1 rounded">del dict[key]</code> - Remove item</li>
-                    <li><code class="bg-gray-100 px-1 rounded">dict.pop(key)</code> - Remove and return</li>
-                    <li><code class="bg-gray-100 px-1 rounded">dict.clear()</code> - Remove all items</li>
-                    <li><code class="bg-gray-100 px-1 rounded">dict.update(other)</code> - Merge dictionaries</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section class="mb-8">
-        <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex items-center">
-            <span class="bg-yellow-100 text-yellow-600 p-2 rounded-lg mr-3">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                </svg>
-            </span>
-            Try it Yourself!
-        </h2>
-        <p class="text-lg leading-relaxed mb-4">
-            Create your own dictionary and practice adding, modifying, and accessing elements.
-        </p>
-
-        <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 mb-4">
-            <h3 class="font-semibold text-gray-800 mb-3">Practice with Dictionaries:</h3>
-            <div id="code-editor-container"></div>
-            <script type="text/plain" id="default-code-dictionaries">
-# Your code goes here
-car = {
-    "brand": "Ford",
-    "model": "Mustang",
-    "year": 1964
-}
-print("Car dictionary:", car)
-
-# Add color
-car["color"] = "red"
-print("After adding color:", car)
-
-# Update year
-car["year"] = 2023
-print("After updating year:", car)
-
-# Check if a key exists
-if "model" in car:
-    print("Model exists:", car["model"])
-
-# Get a value with a default if key not found
-owner = car.get("owner", "Unknown")
-print("Owner:", owner)
-            </script>
         </div>
     </section>
 
@@ -273,17 +190,23 @@ print("Owner:", owner)
     </section>
 
     <!-- Navigation Buttons -->
-    <div class="flex justify-between mt-8 pt-6 border-t border-gray-200">
+    <div class="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
         <a href="#" onclick="loadLesson('lessons/sets.html')"
-            class="px-6 py-3 bg-gray-600 text-white font-bold rounded-lg shadow-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-75 transition-all duration-200 transform hover:scale-105">
-            ← Previous: Sets
+            class="flex items-center px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors duration-200">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Previous: Sets
         </a>
         <div class="text-gray-600">
             <span class="text-sm">Lesson 15 of 71</span>
         </div>
         <a href="#" onclick="loadLesson('lessons/loops.html')"
-            class="px-6 py-3 bg-indigo-600 text-white font-bold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75 transition-all duration-200 transform hover:scale-105">
-            Next: Loops →
+            class="flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+            Next: Loops (For/While)
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
         </a>
     </div>
 </div>
