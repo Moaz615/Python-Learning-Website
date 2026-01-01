@@ -4,250 +4,1506 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STEM URT & ToC Exams</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']]
-            }
-        };
-        (function() {
-            const savedTheme = localStorage.getItem('theme') || 'dark';
-            document.documentElement.setAttribute('data-theme', savedTheme);
-        })();
-    </script>
+    <title>Python Learning Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
-    <meta name="description" content="STEM URT & ToC Exams — practice URT and ToC past papers and solutions for Physics, Chemistry, Mathematics, and Mechanics.">
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .CodeMirror {
+            border: 1px solid #ddd;
+            height: 250px;
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .CodeMirror-scroll {
+            overflow-y: auto;
+        }
+
+        .code-editor-example {
+            background: #282a36;
+            color: #f8f8f2;
+            border-radius: 0.75rem;
+            box-shadow: 0 2px 8px 0 rgb(0 0 0 / 0.08);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Fira Mono', 'Consolas', 'Menlo', 'Monaco', 'Courier New', monospace;
+            font-size: 0.95rem;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .code-editor-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .code-editor-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .code-editor-dot-red {
+            background: #ef4444;
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 9999px;
+        }
+
+        .code-editor-dot-yellow {
+            background: #facc15;
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 9999px;
+        }
+
+        .code-editor-dot-green {
+            background: #22c55e;
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 9999px;
+        }
+    </style>
+    <!-- CodeMirror CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/theme/dracula.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
+    <link rel="icon" type="image/png" href="logo.png">
+    <!-- html2canvas for certificate download -->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 </head>
 
-<body class="preload">
-    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-        <svg id="theme-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-        </svg>
-    </button>
-    <button class="contact-toggle" id="contact-toggle" aria-label="Contact us" onclick="navigateTo('contact')">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-            <polyline points="22,6 12,13 2,6"></polyline>
-        </svg>
-    </button>
-    <div class="card">
-        <section id="step-0" class="step-section active">
-            <div class="welcome-container">
-                <h1 style="text-align: center;">STEM URT & ToC Exams</h1>
-                <img src="STEM Vector.svg" alt="STEM Logo" class="logo-img">
-                <p style="text-align: center;">Access URT and ToC practice materials for Physics, Chemistry, Mathematics, and Mechanics.</p>
-                <button class="primary-btn" onclick="navigateTo('subject')">Start Practicing</button>
-                <button class="primary-btn secondary-btn" onclick="showResultsHistory()" style="margin-top: 0.5rem;">View Results History</button>
-            </div>
-        </section>
+<body class="bg-gray-100 text-gray-800 flex min-h-screen">
 
-        <section id="step-1" class="step-section">
-            <div class="nav-buttons">
-                <button class="nav-btn back-btn" onclick="navigateTo('home')">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M19 12H5M12 19l-7-7 7-7"/>
-                    </svg>
-                    <span>Back to Home</span>
-                </button>
-            </div>
-            <h2>Select Subject</h2>
-            <div class="option-grid">
-                <button class="btn-choice" onclick="setSession('subject','physics')">Physics</button>
-                <button class="btn-choice" onclick="setSession('subject','chemistry')">Chemistry</button>
-                <button class="btn-choice" onclick="setSession('subject','mathematics')">Mathematics</button>
-                <button class="btn-choice" onclick="setSession('subject','mechanics')">Mechanics</button>
-            </div>
-        </section>
+    <!-- Hamburger for mobile -->
+    <button class="md:hidden fixed top-4 left-4 z-50 p-3 bg-white rounded-lg shadow-md border border-gray-200"
+        onclick="toggleSidebar()">☰</button>
 
-        <section id="step-2" class="step-section">
-            <div class="nav-buttons">
-                <button class="nav-btn back-btn" onclick="navigateTo('subject')">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M19 12H5M12 19l-7-7 7-7"/>
-                    </svg>
-                    <span>Back</span>
-                </button>
-            </div>
-            <h2>Select Exam Type</h2>
-            <div class="option-grid">
-                <button class="btn-choice" onclick="setSession('type','urt')">URT</button>
-                <button class="btn-choice" onclick="setSession('type','toc')">ToC</button>
-            </div>
-        </section>
+    <!-- Sidebar for Lessons Navigation -->
+    <aside id="sidebar"
+        class="fixed inset-y-0 left-0 w-64 bg-white shadow-md p-6 flex flex-col rounded-r-lg z-40 transform -translate-x-full md:translate-x-0 transition-transform duration-200 md:static md:block">
+        <!-- Home Link -->
+        <a href="home.html"
+            class="flex items-center justify-center mb-6 px-4 py-2 bg-yellow-400 hover:bg-yellow-500 text-indigo-900 font-bold rounded-lg shadow transition-colors duration-200">
+            <img src="logo.png" alt="Home"
+                class="h-8 w-8 rounded-full mr-2 border-2 border-yellow-300 bg-white object-contain" />
+            <span class="text-lg">Home</span>
+        </a>
+        <!-- Website Logo -->
+        <div class="flex justify-center mb-4">
+            <img src="logo.png" alt="Python Learning Logo"
+                class="h-24 w-24 rounded-full shadow-lg border-4 border-yellow-400 bg-white object-contain" />
+        </div>
+        <h2 class="text-2xl font-bold mb-6 text-indigo-700">Python Lessons</h2>
+        <nav>
+            <ul>
+                <!-- 🟢 Beginner Level -->
+                <li class="mb-4">
+                    <h3 class="text-sm font-semibold text-green-600 mb-2">🟢 Beginner Level</h3>
+                </li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/introduction.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">1.
+                        Introduction to Python</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/installation.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">2.
+                        Installing Python and IDEs</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/hello_world.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">3.
+                        Hello World Program</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/variables.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">4.
+                        Variables</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/data_types.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">5.
+                        Data Types</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/input_output.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">6.
+                        Basic Input and Output</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/operators.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">7.
+                        Arithmetic Operators</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/comments.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">8.
+                        Comments</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/strings.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">9.
+                        String Operations</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/control_flow.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">10.
+                        Conditional Statements (if, elif, else)</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/logical_operators.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">11.
+                        Logical and Comparison Operators</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/lists.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">12.
+                        Lists</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/tuples.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">13.
+                        Tuples</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/sets.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">14.
+                        Sets</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/dictionaries.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">15.
+                        Dictionaries</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/loops.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">16.
+                        Loops (for, while)</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/break_continue.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">17.
+                        Break and Continue</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/list_comprehensions.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">18.
+                        List Comprehensions</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/functions.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">19.
+                        Functions and Parameters</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/return_values.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">20.
+                        Return Values</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/scope_global.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">21.
+                        Scope and Global Variables</a></li>
 
-        <section id="step-3" class="step-section">
-            <div class="nav-buttons">
-                <button class="nav-btn back-btn" onclick="navigateTo('type')">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M19 12H5M12 19l-7-7 7-7"/>
-                    </svg>
-                    <span>Back</span>
-                </button>
-            </div>
-            <h2>Select Year</h2>
-            <div class="option-grid" id="year-buttons-container">
-                <button class="btn-choice" onclick="startExam('2025')">2025</button>
-                <button class="btn-choice" onclick="startExam('2024')">2024</button>
-                <button class="btn-choice" onclick="startExam('2023')">2023</button>
-                <button class="btn-choice" onclick="startExam('2022')">2022</button>
-                <button class="btn-choice" onclick="startExam('2021')">2021</button>
-                <button class="btn-choice" onclick="startExam('2020')">2020</button>
-                <button class="btn-choice" onclick="startExam('2019')">2019</button>
-                <button class="btn-choice" onclick="startExam('2018')">2018</button>
-                <button class="btn-choice" onclick="startExam('2017')">2017</button>
-                <button class="btn-choice" onclick="startExam('2016')">2016</button>
-                <button class="btn-choice" onclick="startExam('2015')">2015</button>
-            </div>
-        </section>
+                <!-- 📝 Level 1 Assessment & Challenge -->
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/level1_quiz.html"
+                        class="lesson-link block -mx-6 pr-6 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200 bg-green-500 font-semibold text-center text-white">
+                        Beginner Level Quiz</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/level1_grand_challenge.html"
+                        class="lesson-link block -mx-6 pr-6 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200 bg-green-500 font-semibold text-center text-white">
+                        Beginner Level Grand Challenge</a></li>
 
-        <section id="step-4" class="step-section">
-            <div class="nav-buttons">
-                <button class="nav-btn back-btn" onclick="navigateTo('year')">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M19 12H5M12 19l-7-7 7-7"/>
-                    </svg>
-                    <span>Back</span>
-                </button>
-            </div>
-            <h2>Select Exam Mode</h2>
-            <div class="option-grid">
-                <button class="btn-choice" onclick="setSession('mode','full')">Full-Length Exam</button>
-                <button class="btn-choice" onclick="setSession('mode','question')">Question by Question</button>
-            </div>
-        </section>
+                <!-- 🟡 Intermediate Level -->
+                <li class="mb-4 mt-6">
+                    <h3 class="text-sm font-semibold text-yellow-600 mb-2">🟡 Intermediate Level</h3>
+                </li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/error_handling.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">22.
+                        Error Handling (try, except)</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/builtin_functions.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">23.
+                        Built-in Functions</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/lambda_functions.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">24.
+                        Lambda Functions</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/map_filter_reduce.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">25.
+                        Map, Filter, Reduce</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/file_io.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">26.
+                        File Handling (read, write, append)</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/modules_packages.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">27.
+                        Modules and Packages</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/python_standard_library.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">28.
+                        Python Standard Library</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/intro_to_oop.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">29.
+                        Intro to OOP</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/classes_objects.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">30.
+                        Classes and Objects</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/constructors_inheritance.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">31.
+                        Constructors and Inheritance</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/polymorphism_encapsulation.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">32.
+                        Polymorphism and Encapsulation</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/dunder_methods.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">33.
+                        Dunder (Magic) Methods</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/iterators_generators.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">34.
+                        Iterators and Generators</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/decorators.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">35.
+                        Decorators</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/recursion.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">36.
+                        Recursion</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/regex.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">37.
+                        Regular Expressions (re module)</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/virtual_environments.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">38.
+                        Virtual Environments (venv)</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/pip_libraries.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">39.
+                        pip and Installing Libraries</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/intermediate_quiz.html"
+                        class="lesson-link block -mx-6 pr-6 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200 bg-yellow-500 font-semibold text-center text-white">
+                        Intermediate Level Quiz
+                    </a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/intermediate_grand_challenge.html"
+                        class="lesson-link block -mx-6 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200 bg-yellow-500 font-semibold text-center text-white">
+                        Intermediate Grand Challenge - Hangman Game
+                    </a></li>
 
-        <section id="step-5" class="step-section">
-            <div class="nav-buttons">
-                <button class="nav-btn back-btn" onclick="navigateTo('mode')">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M19 12H5M12 19l-7-7 7-7"/>
-                    </svg>
-                    <span>Back</span>
-                </button>
-                <button class="nav-btn home-btn" onclick="navigateTo('home')">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                    </svg>
-                    <span>Home</span>
-                </button>
-            </div>
-            
-            <div id="timer-container" class="timer-container" style="display: none;">
-                <div class="timer-display">
-                    <span id="timer-text">00:00:00</span>
-                    <div class="timer-controls">
-                        <button id="pause-btn" class="timer-btn" onclick="toggleTimer()">Pause</button>
-                        <button id="reset-btn" class="timer-btn" onclick="resetTimer()">Reset</button>
+                <!-- 🔵 Advanced Level -->
+                <li class="mb-4 mt-6">
+                    <h3 class="text-sm font-semibold text-blue-600 mb-2">🔵 Advanced Level</h3>
+                </li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/functional_programming.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">40.
+                        Functional Programming</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/type_hints.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">41.
+                        Type Hints and Annotations</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/async_programming.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">42.
+                        Asynchronous Programming (async/await)</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/context_managers.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">43.
+                        Context Managers</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/logging.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">44.
+                        Logging</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/unit_testing.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">45.
+                        Unit Testing (unittest, pytest)</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/debugging.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">46.
+                        Debugging Techniques</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/packaging_distribution.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">47.
+                        Packaging and Distribution (setup.py, PyPI)</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/design_patterns.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">48.
+                        Design Patterns</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/memory_management.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">49.
+                        Memory Management</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/multithreading.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">50.
+                        Multithreading</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/multiprocessing.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">51.
+                        Multiprocessing</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/performance_optimization.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">52.
+                        Performance Optimization</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/json_csv.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">53.
+                        Working with JSON and CSV</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/web_scraping.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">54.
+                        Web Scraping (requests, BeautifulSoup, selenium)</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/database_access.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">55.
+                        Database Access (SQLite, MySQL, PostgreSQL)</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/working_with_apis.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">56.
+                        Working with APIs (RESTful APIs, HTTP requests)</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/gui_programming.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">57.
+                        GUI Programming (tkinter, PyQt)</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/advanced_quiz.html"
+                        class="lesson-link block -mx-6 pr-6 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200 bg-blue-500 font-semibold text-center text-white">
+                        Advanced Level Quiz
+                    </a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/advanced_grand_challenge.html"
+                        class="lesson-link block -mx-6 pr-6 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200 bg-blue-500 font-semibold text-center text-white">
+                        Advanced Level Grand Challenge
+                    </a></li>
+
+                <!-- 🔴 Expert / Specialized Topics -->
+                <li class="mb-4 mt-6">
+                    <h3 class="text-sm font-semibold text-red-600 mb-2">🔴 Expert / Specialized Topics</h3>
+                </li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/data_science.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">58.
+                        Data Science with Python (NumPy, Pandas)</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/data_visualization.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">59.
+                        Data Visualization (Matplotlib, Seaborn, Plotly)</a></li>
+                <!-- 🤖 AI & Machine Learning -->
+                <li class="mb-4 mt-6">
+                    <h3 class="text-sm font-semibold text-red-700 mb-2">🤖 AI & Machine Learning</h3>
+                </li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/introduction_to_ai.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">60.
+                        Introduction to Artificial Intelligence (AI)</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/machine_learning.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">61.
+                        Machine Learning (scikit-learn, TensorFlow, PyTorch)</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/deep_learning.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">62.
+                        Deep Learning</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/nlp.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">63.
+                        Natural Language Processing (NLP)</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/computer_vision.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">64.
+                        Computer Vision</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/reinforcement_learning.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">65.
+                        Reinforcement Learning</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/generative_ai.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">66.
+                        Generative AI</a></li>
+                <!-- Continue expert lessons -->
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/web_development.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">67.
+                        Web Development (Flask, Django, FastAPI)</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/networking.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">68.
+                        Networking (socket, requests)</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/game_development.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">69.
+                        Game Development (Pygame)</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/automation_scripting.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">70.
+                        Automation and Scripting</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/working_with_excel.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">71.
+                        Working with Excel (openpyxl, pandas)</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/testing_automation.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">72.
+                        Testing Automation (Selenium)</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/devops_python.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">73.
+                        DevOps with Python (CI/CD scripting, Docker, Bash integration)</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/security_ethical_hacking.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">74.
+                        Security and Ethical Hacking with Python</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/python_extensions_c.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">75.
+                        Writing Python Extensions in C</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/open_source_contributions.html"
+                        class="lesson-link block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200">76.
+                        Contributing to Open Source Python Projects</a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/expert_quiz.html"
+                        class="lesson-link block -mx-6 pr-6 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200 bg-red-500 font-semibold text-center text-white">
+                        Expert Level Quiz
+                    </a></li>
+                <li class="mb-3"><a href="#" data-lesson-path="lessons/expert_grand_challenge.html"
+                        class="lesson-link block -mx-6 pr-6 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors duration-200 bg-red-500 font-semibold text-center text-white">
+                        Expert Level Grand Challenge
+                    </a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Overlay for mobile sidebar -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-30 z-30 hidden md:hidden"
+        onclick="toggleSidebar()"></div>
+
+    <!-- Main Content Area - This will be dynamically updated -->
+    <main id="lesson-content-container" class="flex-1 p-4 sm:p-6 md:p-8 lg:p-12 overflow-y-auto max-w-full">
+        <!-- Lesson content will be loaded here -->
+        <div class="max-w-4xl mx-auto bg-white p-4 sm:p-8 rounded-lg shadow-lg">
+            <h1 class="text-3xl font-extrabold mb-4 text-gray-900">Welcome to Python Learning!</h1>
+            <p class="text-lg leading-relaxed mb-4">
+                Select a lesson from the sidebar to get started.
+            </p>
+            <p class="text-md leading-relaxed text-gray-600">
+                This platform allows you to learn Python concepts and run code directly in your browser.
+            </p>
+        </div>
+    </main>
+
+    <!-- CodeMirror JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/python/python.min.js"></script>
+    <!-- Pyodide JS -->
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.26.1/full/pyodide.js"></script>
+
+    <script>
+        let editor; // Global CodeMirror instance
+        let pyodide; // Global Pyodide instance
+        let isPyodideLoaded = false; // Flag to track Pyodide loading status
+
+
+        function initializeCodeMirror(textareaElement) {
+
+            if (editor) {
+                editor.toTextArea();
+                editor = null;
+            }
+
+            editor = CodeMirror.fromTextArea(textareaElement, {
+                mode: 'python',
+                theme: 'dracula',
+                lineNumbers: true,
+                indentUnit: 4,
+                tabSize: 4,
+                electricChars: true,
+                matchBrackets: true,
+                autoCloseBrackets: true,
+                lineWrapping: true,
+                gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+                foldGutter: true,
+            });
+            editor.refresh();
+        }
+
+
+        async function loadPyodideAndSetup() {
+            const initialOutputElement = document.querySelector('#lesson-content-container #output');
+            if (initialOutputElement) {
+                initialOutputElement.textContent = 'Loading Python environment...';
+            } else {
+                console.log('Loading Python environment...');
+            }
+
+            try {
+                pyodide = await loadPyodide({
+                    indexURL: "https://cdn.jsdelivr.net/pyodide/v0.26.1/full/",
+                });
+                isPyodideLoaded = true;
+                if (initialOutputElement) {
+                    initialOutputElement.textContent = 'Python environment loaded. Ready to run code.';
+                } else {
+                    console.log('Python environment loaded. Ready to run code.');
+                }
+
+                // Redirect Python's stdout and stderr to in-memory StringIO
+                pyodide.runPython(`
+                    import sys
+                    from io import StringIO
+                    sys.stdout = StringIO()
+                    sys.stderr = StringIO()
+                `);
+            } catch (error) {
+                const errorMessage = `Failed to load Python environment: ${error}`;
+                if (initialOutputElement) {
+                    initialOutputElement.textContent = errorMessage;
+                    initialOutputElement.style.color = 'red';
+                } else {
+                    console.error(errorMessage);
+                }
+            }
+        }
+
+        /**
+         * Runs the Python code from the current editor and displays the output.
+         */
+        async function runPythonCode() {
+            const currentEditor = editor; // Use the current global editor instance
+            const outputElement = document.querySelector('#lesson-content-container #output'); // Get output div in current lesson
+
+            if (!currentEditor || !outputElement) {
+                console.error("Editor or output element not found for current lesson.");
+                return;
+            }
+
+            const code = currentEditor.getValue();
+            outputElement.innerHTML = '<span style="color: rgb(74 222 128);">Running code...</span>'; // Clear previous output and show loading
+
+            if (!isPyodideLoaded) {
+                outputElement.innerHTML = '<span style="color: orange;">Python environment not loaded. Please wait or refresh.</span>';
+                return;
+            }
+
+            try {
+                // Clear previous stdout/stderr before running new code
+                pyodide.runPython(`
+                    sys.stdout = StringIO()
+                    sys.stderr = StringIO()
+                `);
+
+                await pyodide.runPythonAsync(code);
+
+                // Get output from sys.stdout and sys.stderr
+                const stdout = pyodide.runPython("sys.stdout.getvalue()");
+                const stderr = pyodide.runPython("sys.stderr.getvalue()");
+
+                if (stdout) {
+                    // Preserve formatting by using pre tags and escaping HTML
+                    const formattedOutput = stdout.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                    outputElement.innerHTML = `<pre style="margin: 0; white-space: pre-wrap; color: rgb(74 222 128);">${formattedOutput}</pre>`;
+                } else if (stderr) {
+                    // Preserve formatting for error output too
+                    const formattedError = stderr.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                    outputElement.innerHTML = `<pre style="margin: 0; white-space: pre-wrap; color: red;">${formattedError}</pre>`;
+                } else {
+                    outputElement.innerHTML = '<span style="color: rgb(74 222 128);">Code executed successfully (no output).</span>';
+                }
+            } catch (error) {
+                const formattedError = error.toString().replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                outputElement.innerHTML = `<pre style="margin: 0; white-space: pre-wrap; color: red;">Error: ${formattedError}</pre>`;
+                console.error("Python execution error:", error);
+            }
+        }
+
+
+        function injectCodeEditor(container, defaultCode) {
+            // Create the editor HTML structure
+            const editorHTML = `
+                <div class="bg-gray-900 rounded-lg p-4 mb-4">
+                    <textarea id="code-editor" class="w-full h-64 p-4 bg-gray-900 text-green-400 font-mono text-sm border-0 outline-none resize-none" style="font-family: 'Courier New', monospace;">${defaultCode}</textarea>
+                </div>
+                <div class="flex gap-3 mb-4">
+                    <button id="run-button" class="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors duration-200">
+                        <span>▶</span>
+                        Run Code
+                    </button>
+                    <button id="reset-button" class="flex items-center gap-2 px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors duration-200">
+                        <span>↺</span>
+                        Reset
+                    </button>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-lg p-2 sm:p-4 w-full max-w-full">
+                    <h3 class="font-semibold text-gray-800 mb-2 text-base sm:text-lg">Output:</h3>
+                    <div id="output" class="bg-gray-900 text-green-400 p-2 sm:p-4 rounded-lg font-mono text-xs sm:text-sm min-h-[60px] overflow-x-auto w-full max-w-full">
+                        Click "Run Code" to see the output here...
                     </div>
                 </div>
-                <div class="progress-bar">
-                    <div id="progress-fill" class="progress-fill"></div>
-                </div>
-            </div>
-            
-            <div id="question-nav" class="question-nav" style="display: none;">
-                <div class="progress-info">
-                    <span id="question-progress">Question 1 of 30</span>
-                    <div class="progress-indicator">
-                        <div id="question-progress-fill" class="question-progress-fill"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <h2 id="title-display"></h2>
-            <div id="exam-container"></div>
-            
-            <div id="exam-controls">
-                <button class="primary-btn" id="submit-exam-btn" onclick="processResults()">Submit Exam</button>
-                <div id="question-controls" style="display: none;">
-                    <button class="secondary-btn" id="prev-question-btn" onclick="previousQuestion()" disabled>Previous</button>
-                    <button class="primary-btn" id="next-question-btn" onclick="nextQuestion()">Next</button>
-                </div>
-            </div>
-        </section>
+            `;
 
-        <section id="step-6" class="step-section">
-            <div class="nav-buttons">
-                <button class="nav-btn back-btn" onclick="navigateTo('exam')">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M19 12H5M12 19l-7-7 7-7"/>
-                    </svg>
-                    <span>Back to Exam</span>
-                </button>
-                <button class="nav-btn home-btn" onclick="resetApp()">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                    </svg>
-                    <span>Home</span>
-                </button>
-            </div>
-            <div class="score-display">
-                <h2>Exam Completed</h2>
-                <div class="score-circle" id="raw-score-display">0 / 0</div>
-                <p id="score-comment"></p>
-            </div>
-            <hr>
-            <h3>Review Your Answers</h3>
-            <div id="review-container"></div>
-        </section>
+            // Inject the HTML into the container
+            container.innerHTML = editorHTML;
 
-        <section id="step-7" class="step-section">
-            <div class="nav-buttons">
-                <button class="nav-btn home-btn" onclick="navigateTo('home')">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                    </svg>
-                    <span>Back to Home</span>
-                </button>
-            </div>
-            <h2>Results History</h2>
-            <div id="history-container"></div>
-        </section>
+            // Initialize CodeMirror on the textarea
+            const textarea = container.querySelector('#code-editor');
+            if (textarea) {
+                initializeCodeMirror(textarea);
 
-        <section id="step-8" class="step-section">
-            <div class="nav-buttons">
-                <button class="nav-btn home-btn" onclick="navigateTo('home')">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                    </svg>
-                    <span>Back to Home</span>
-                </button>
+                // Attach event handlers
+                const runButton = container.querySelector('#run-button');
+                const resetButton = container.querySelector('#reset-button');
+
+                if (runButton) {
+                    runButton.onclick = runPythonCode;
+                }
+
+                if (resetButton) {
+                    resetButton.onclick = () => {
+                        if (editor) {
+                            editor.setValue(defaultCode);
+                        }
+                    };
+                }
+            }
+        }
+
+        function initBeginnerQuiz() {
+            const form = document.getElementById('beginner-quiz-form');
+            if (!form) return;
+            form.onsubmit = function (event) {
+                event.preventDefault();
+                const answers = {
+                    q1: 'c', q2: 'b', q3: 'b', q4: 'a', q5: 'd', q6: 'b', q7: 'c', q8: 'b',
+                    q9: 'b', q10: 'b', q11: 'b', q12: 'b', q13: 'b', q14: 'a', q15: 'b', q16: 'b',
+                    q17: 'b', q18: 'b', q19: 'b', q20: 'b', q21: 'b', q22: 'b', q23: 'b', q24: 'b',
+                    q25: 'b', q26: 'b', q27: 'b', q28: 'b', q29: 'b', q30: 'b'
+                };
+                let score = 0, total = 30;
+                for (let i = 1; i <= total; i++) {
+                    const qName = 'q' + i;
+                    const selected = document.querySelector('input[name="' + qName + '"]:checked');
+                    const card = selected ? selected.closest('.bg-blue-50') : document.querySelectorAll('.bg-blue-50')[i - 1];
+                    card.classList.remove('border-green-500', 'border-red-500', 'border-yellow-500');
+                    let oldFeedback = card.querySelector('.quiz-feedback');
+                    if (oldFeedback) oldFeedback.remove();
+                    let feedback = document.createElement('div');
+                    feedback.className = 'quiz-feedback mt-2 text-sm font-semibold';
+                    if (selected && selected.value === answers[qName]) {
+                        score++;
+                        card.classList.add('border-green-500');
+                        feedback.textContent = 'Correct!';
+                        feedback.classList.add('text-green-700');
+                    } else if (selected) {
+                        card.classList.add('border-red-500');
+                        feedback.innerHTML = 'Incorrect. Correct answer: <span class="font-mono">' + answers[qName].toUpperCase() + '</span>';
+                        feedback.classList.add('text-red-700');
+                    } else {
+                        card.classList.add('border-yellow-500');
+                        feedback.textContent = 'No answer selected. Correct answer: ' + answers[qName].toUpperCase();
+                        feedback.classList.add('text-yellow-700');
+                    }
+                    card.appendChild(feedback);
+                }
+                const resultDiv = document.getElementById('quiz-result');
+                resultDiv.textContent = `You scored ${score} out of ${total}!`;
+                resultDiv.className = score === total ? 'mt-10 text-xl font-bold text-green-600 text-center' : 'mt-10 text-xl font-bold text-orange-600 text-center';
+
+                // Mark beginner quiz as completed if score is 70% or higher
+                if (score >= 21) { // 70% of 30 questions
+                    markQuizCompleted('beginner');
+                    showUnlockMessage('intermediate');
+                    updateLockedLessonStates(); // Update sidebar locked states
+                }
+            };
+        }
+
+        function initAdvancedQuiz() {
+            const form = document.getElementById('advanced-quiz-form');
+            if (!form) return;
+            form.onsubmit = function (event) {
+                event.preventDefault();
+                const answers = {
+                    q1: 'b', q2: 'a', q3: 'b', q4: 'a', q5: 'a', q6: 'c',
+                    q7: 'b', q8: 'a', q9: 'b', q10: 'a', q11: 'a', q12: 'a',
+                    q13: 'a', q14: 'c', q15: 'a', q16: 'a', q17: 'a', q18: 'a',
+                    q19: 'a', q20: 'a', q21: 'a', q22: 'b', q23: 'b', q24: 'a',
+                    q25: 'a', q26: 'b', q27: 'a', q28: 'a', q29: 'a', q30: 'a'
+                };
+                let score = 0, total = 30;
+                for (let i = 1; i <= total; i++) {
+                    const qName = 'q' + i;
+                    const selected = document.querySelector('input[name="' + qName + '"]:checked');
+                    const card = selected ? selected.closest('.bg-blue-50') : document.querySelectorAll('.bg-blue-50')[i - 1];
+                    card.classList.remove('border-green-500', 'border-red-500', 'border-yellow-500');
+                    let oldFeedback = card.querySelector('.quiz-feedback');
+                    if (oldFeedback) oldFeedback.remove();
+                    let feedback = document.createElement('div');
+                    feedback.className = 'quiz-feedback mt-2 text-sm font-semibold';
+                    if (selected && selected.value === answers[qName]) {
+                        score++;
+                        card.classList.add('border-green-500');
+                        feedback.textContent = 'Correct!';
+                        feedback.classList.add('text-green-700');
+                    } else if (selected) {
+                        card.classList.add('border-red-500');
+                        feedback.innerHTML = 'Incorrect. Correct answer: <span class="font-mono">' + answers[qName].toUpperCase() + '</span>';
+                        feedback.classList.add('text-red-700');
+                    } else {
+                        card.classList.add('border-yellow-500');
+                        feedback.textContent = 'No answer selected. Correct answer: ' + answers[qName].toUpperCase();
+                        feedback.classList.add('text-yellow-700');
+                    }
+                    card.appendChild(feedback);
+                }
+                const resultDiv = document.getElementById('quiz-result');
+                resultDiv.textContent = `You scored ${score} out of ${total}!`;
+                resultDiv.className = score === total ? 'mt-10 text-xl font-bold text-green-600 text-center' : 'mt-10 text-xl font-bold text-orange-600 text-center';
+
+                // Mark advanced quiz as completed if score is 70% or higher
+                if (score >= 21) { // 70% of 30 questions
+                    markQuizCompleted('advanced');
+                    showUnlockMessage('expert');
+                    updateLockedLessonStates(); // Update sidebar locked states
+                }
+            };
+        }
+
+        function initIntermediateQuiz() {
+            const form = document.getElementById('intermediate-quiz-form');
+            if (!form) return;
+            form.onsubmit = function (event) {
+                event.preventDefault();
+                const answers = {
+                    q1: 'a', // <class 'function'>
+                    q2: 'b', // try...except
+                    q3: 'b', // map object (iterator)
+                    q4: 'a', // [1, 2, 3, 1, 2, 3]
+                    q5: 'b', // 9
+                    q6: 'a', // aaab
+                    q7: 'b', // 3 5
+                    q8: 'a', // [2, 3]
+                    q9: 'a', // append()
+                    q10: 'a', // {2, 3}
+                    q11: 'a', // open('file.txt', 'r')
+                    q12: 'a', // iterator of (index, value) pairs
+                    q13: 'b', // array (not a built-in type)
+                    q14: 'a', // Hello World 2024
+                    q15: 'a', // from math import sqrt
+                    q16: 'a', // False
+                    q17: 'a', // d = {'a': 1, 'b': 2}
+                    q18: 'a', // 512
+                    q19: 'c', // Both a and b
+                    q20: 'a', // [2, 4, 6, 8]
+                    q21: 'c', // Both a and b
+                    q22: 'a', // python
+                    q23: 'c', // Both a and b
+                    q24: 'a', // [0, 2, 4]
+                    q25: 'a', // class MyClass:
+                    q26: 'a', // Python 3.10
+                    q27: 'a', // 'key' in d
+                    q28: 'a', // <class 'list'>
+                    q29: 'a', // with open('file.txt') as f:
+                    q30: 'a'  // [2, 4, 6]
+                };
+                let score = 0, total = 30;
+                for (let i = 1; i <= total; i++) {
+                    const qName = 'q' + i;
+                    const selected = document.querySelector('input[name="' + qName + '"]:checked');
+                    const card = selected ? selected.closest('.bg-indigo-50') : document.querySelectorAll('.bg-indigo-50')[i - 1];
+                    card.classList.remove('border-green-500', 'border-red-500', 'border-yellow-500');
+                    let oldFeedback = card.querySelector('.quiz-feedback');
+                    if (oldFeedback) oldFeedback.remove();
+                    let feedback = document.createElement('div');
+                    feedback.className = 'quiz-feedback mt-2 text-sm font-semibold';
+                    if (selected && selected.value === answers[qName]) {
+                        score++;
+                        card.classList.add('border-green-500');
+                        feedback.textContent = 'Correct!';
+                        feedback.classList.add('text-green-700');
+                    } else if (selected) {
+                        card.classList.add('border-red-500');
+                        feedback.innerHTML = 'Incorrect. Correct answer: <span class="font-mono">' + answers[qName].toUpperCase() + '</span>';
+                        feedback.classList.add('text-red-700');
+                    } else {
+                        card.classList.add('border-yellow-500');
+                        feedback.textContent = 'No answer selected. Correct answer: ' + answers[qName].toUpperCase();
+                        feedback.classList.add('text-yellow-700');
+                    }
+                    card.appendChild(feedback);
+                }
+                const resultDiv = document.getElementById('quiz-result');
+                resultDiv.textContent = `You scored ${score} out of ${total}!`;
+                resultDiv.className = score === total ? 'mt-10 text-xl font-bold text-green-600 text-center' : 'mt-10 text-xl font-bold text-orange-600 text-center';
+
+                // Mark intermediate quiz as completed if score is 70% or higher
+                if (score >= 21) { // 70% of 30 questions
+                    markQuizCompleted('intermediate');
+                    showUnlockMessage('advanced');
+                    updateLockedLessonStates(); // Update sidebar locked states
+                }
+            };
+        }
+
+        // Add this function to handle the expert quiz form
+        function attachExpertQuizHandler() {
+            const form = document.getElementById('expert-quiz-form');
+            if (!form) return;
+            form.onsubmit = function (event) {
+                event.preventDefault();
+                const answers = {
+                    q1: 'b', q2: 'b', q3: 'a', q4: 'a', q5: 'b',
+                    q6: 'd', q7: 'c', q8: 'a', q9: 'a', q10: 'd',
+                    q11: 'a', q12: 'b', q13: 'a', q14: 'a', q15: 'd',
+                    q16: 'b', q17: 'a', q18: 'c', q19: 'd', q20: 'b'
+                };
+                let score = 0, total = 20;
+                for (let i = 1; i <= total; i++) {
+                    const qName = 'q' + i;
+                    const selected = document.querySelector('input[name="' + qName + '"]:checked');
+                    const card = selected ? selected.closest('.quiz-question') : document.querySelectorAll('.quiz-question')[i - 1];
+                    card.classList.remove('border-green-500', 'border-red-500', 'border-yellow-500');
+                    let oldFeedback = card.querySelector('.answer-feedback');
+                    if (oldFeedback) oldFeedback.classList.add('hidden');
+                    let feedback = card.querySelector('.answer-feedback');
+                    if (!feedback) {
+                        feedback = document.createElement('div');
+                        feedback.className = 'answer-feedback mt-4';
+                        card.appendChild(feedback);
+                    }
+                    feedback.classList.remove('hidden', 'text-green-700', 'text-red-700', 'text-yellow-700');
+                    if (selected && selected.value === answers[qName]) {
+                        score++;
+                        card.classList.add('border-green-500');
+                        feedback.textContent = 'Correct!';
+                        feedback.classList.add('text-green-700');
+                    } else if (selected) {
+                        card.classList.add('border-red-500');
+                        feedback.innerHTML = 'Incorrect. Correct answer: <span class="font-mono">' + answers[qName].toUpperCase() + '</span>';
+                        feedback.classList.add('text-red-700');
+                    } else {
+                        card.classList.add('border-yellow-500');
+                        feedback.textContent = 'No answer selected. Correct answer: ' + answers[qName].toUpperCase();
+                        feedback.classList.add('text-yellow-700');
+                    }
+                    feedback.classList.remove('hidden');
+                }
+                const resultDiv = document.getElementById('quiz-result');
+                let certificateHTML = '';
+                if (score >= 12) {
+                    certificateHTML = `
+<div id="expert-certificate-wrapper" class="mt-10 flex flex-col items-center">
+    <form id="certificate-name-form" class="mb-6 flex flex-col sm:flex-row items-center gap-4">
+        <input id="certificate-name-input" type="text" maxlength="40"
+            placeholder="Enter your name"
+            value="${getExpertCertificateName() || ''}"
+            class="border border-gray-300 rounded-lg px-4 py-2 text-lg focus:outline-none focus:ring-2 focus:ring-blue-400 w-72" />
+        <button type="submit"
+            class="px-5 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-200">
+            Update Name
+        </button>
+    </form>
+
+    <div id="expert-certificate" class="certificate-bg real-certificate-border shadow-2xl p-10 max-w-3xl w-full text-center print:shadow-none print:border-4 animate-fade-in relative">
+        <!-- Logo at top center -->
+        <div class="flex justify-center mb-4">
+            <img src="logo.png" alt="Python Learning Logo" class="h-20 w-20 rounded-full border-4 border-yellow-400 bg-white object-contain shadow-md" style="margin: 0 auto;" />
+        </div>
+        <!-- Decorative Gold Seal -->
+        <div class="absolute left-10 top-10 print:hidden">
+            <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-md">
+                <circle cx="35" cy="35" r="30" fill="#ffe066" stroke="#bfa14a" stroke-width="6" />
+                <circle cx="35" cy="35" r="30" fill="url(#sealGradient)" opacity="0.5" />
+                <g filter="url(#starShadow)">
+                    <polygon points="35,16 39.51,28.09 52.36,28.09 41.42,35.91 45.93,48 35,40.18 24.07,48 28.58,35.91 17.64,28.09 30.49,28.09" fill="#bfa14a" stroke="#fffbe6" stroke-width="2" />
+                </g>
+                <defs>
+                    <radialGradient id="sealGradient" cx="0.5" cy="0.5" r="0.5" fx="0.6" fy="0.4" gradientTransform="matrix(70 0 0 70 0 0)" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#fffbe6" />
+                        <stop offset="0.7" stop-color="#ffe066" />
+                        <stop offset="1" stop-color="#bfa14a" />
+                    </radialGradient>
+                    <filter id="starShadow" x="0" y="0" width="70" height="70" filterUnits="userSpaceOnUse">
+                        <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#bfa14a" flood-opacity="0.3" />
+                    </filter>
+                </defs>
+            </svg>
+        </div>
+        <!-- End Seal -->
+        <div class="mb-6">
+            <h2 class="text-5xl font-extrabold text-yellow-700 tracking-widest uppercase certificate-title" style="font-family: 'Georgia', serif; letter-spacing: 2px;">Certificate of Achievement</h2>
+            <div class="w-32 h-2 bg-yellow-400 mx-auto mt-4 mb-8 rounded-full"></div>
+            <p class="text-gray-800 text-xl mb-4 font-medium" style="font-family: 'Georgia', serif;">This is to certify that</p>
+            <h3 id="certificate-user-name" class="text-4xl font-bold text-blue-900 mb-2 certificate-name" style="font-family: 'Great Vibes', 'Dancing Script', cursive;">${getExpertCertificateName() || '[Your Name]'}</h3>
+            <p class="text-gray-800 text-lg mb-4" style="font-family: 'Georgia', serif;">has successfully completed the</p>
+            <h4 class="text-2xl text-yellow-700 font-semibold mb-2" style="font-family: 'Georgia', serif;">Expert Level Python Track</h4>
+            <p class="text-gray-700 text-base mb-6" style="font-family: 'Georgia', serif;">in recognition of outstanding achievement and demonstrated mastery in advanced Python programming, Data Science, Artificial Intelligence, DevOps, and Open Source Collaboration.</p>
+            <p class="text-gray-900 text-lg mb-2 font-semibold" style="font-family: 'Georgia', serif;">Awarded this day with a quiz score of <span class="text-yellow-700 font-bold">${score} / ${total}</span>.</p>
+            <p class="text-blue-800 text-md font-medium mb-2" style="font-family: 'Georgia', serif;">We celebrate your dedication, expertise, and commitment to excellence.</p>
+        </div>
+        <div class="mt-8 flex justify-between items-center text-sm text-gray-700 px-4">
+            <span>Date: ${new Date().toLocaleDateString()}</span>
+            <span>Python Learning Platform</span>
+        </div>
+        <div class="mt-10 text-right pr-10">
+            <div class="text-gray-800 font-semibold mb-1">Signed by:</div>
+            <div style="font-family: 'Dancing Script', cursive; font-size: 2rem; color: #bfa14a;">
+                Moaz Mohammed
             </div>
-            <h1 class="contact-title">Contact Us</h1>
-            
-            <form action="https://formspree.io/f/mojvjeed" method="POST" class="contact-form">
-                <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Your Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="message">Your Message</label>
-                    <textarea id="message" name="message" rows="6" required></textarea>
-                </div>
-                
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
-            
-            <div id="form-status" class="form-status"></div>
-        </section>
+        </div>
+        <button onclick="downloadCertificateAsImage()"
+            class="mt-10 px-6 py-2 bg-yellow-600 text-white font-bold rounded-lg hover:bg-yellow-700 transition-colors duration-200 print:hidden"
+            data-html2canvas-ignore
+        >
+            Download as Image
+        </button>
     </div>
-    <script src="script.js"></script>
+</div>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@700&display=swap');
+
+.certificate-bg {
+    background: linear-gradient(135deg, #fffbe6 0%, #f7e9c4 40%, #e0e7ff 100%),
+                repeating-linear-gradient(120deg, rgba(191,161,74,0.08) 0 40px, transparent 40px 80px),
+                radial-gradient(circle at 60% 40%, #fef6e0 0%, #e0e7ff 100%);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    position: relative;
+}
+
+.real-certificate-border {
+    border: 8px double #bfa14a;
+    border-radius: 2.5rem;
+    box-shadow: 0 0 0 8px #fffbe6, 0 0 0 16px #bfa14a;
+}
+
+.certificate-title {
+    font-family: 'Georgia', serif;
+    letter-spacing: 2px;
+    color: #bfa14a;
+    text-shadow: 0 2px 8px #fffbe6, 0 1px 0 #e0e7ff;
+}
+
+.certificate-name {
+    font-family: 'Great Vibes', 'Dancing Script', cursive;
+    color: #1e293b;
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px #fffbe6, 0 1px 0 #e0e7ff;
+}
+
+@media print {
+    #certificate-name-form, .print\:hidden {
+        display: none !important;
+    }
+    #expert-certificate-wrapper {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    #expert-certificate {
+        border-width: 6px !important;
+        box-shadow: none !important;
+        background: linear-gradient(135deg, #fffbe6 0%, #f7e9c4 40%, #e0e7ff 100%),
+                    repeating-linear-gradient(120deg, rgba(191,161,74,0.08) 0 40px, transparent 40px 80px),
+                    radial-gradient(circle at 60% 40%, #fef6e0 0%, #e0e7ff 100%) !important;
+    }
+}
+</style>
+`;
+                }
+                if (score >= 16) {
+                    resultDiv.innerHTML = `<span class="text-green-700">🎉 Excellent! You scored ${score} out of ${total}! You have
+                        mastered the expert track.</span>` + certificateHTML;
+                } else if (score >= 12) {
+                    resultDiv.innerHTML = `<span class="text-orange-700">Good job! You scored ${score} out of ${total}. Review any
+                        missed topics and try again!</span>` + certificateHTML;
+                } else {
+                    resultDiv.innerHTML = `<span class="text-red-700">You scored ${score} out of ${total}. Keep practicing and try
+                        again!</span>`;
+                }
+
+                // Attach name form handler if present
+                setTimeout(() => {
+                    const nameForm = document.getElementById('certificate-name-form');
+                    if (nameForm) {
+                        nameForm.onsubmit = function (e) {
+                            e.preventDefault();
+                            const nameInput = document.getElementById('certificate-name-input');
+                            const name = nameInput.value.trim() || '[Your Name]';
+                            setExpertCertificateName(name);
+                            // Update the name on the certificate
+                            const nameDisplay = document.getElementById('certificate-user-name');
+                            if (nameDisplay) nameDisplay.textContent = name;
+                        };
+                    }
+                    // On load, update the name if already saved
+                    const nameDisplay = document.getElementById('certificate-user-name');
+                    if (nameDisplay) nameDisplay.textContent = getExpertCertificateName() || '[Your Name]';
+                    const nameInput = document.getElementById('certificate-name-input');
+                    if (nameInput) nameInput.value = getExpertCertificateName() || '';
+                }, 100);
+            };
+        }
+
+        function getExpertCertificateName() {
+            return localStorage.getItem('expert_certificate_name') || '';
+        }
+
+        function setExpertCertificateName(name) {
+            localStorage.setItem('expert_certificate_name', name);
+        }
+
+        function downloadCertificateAsImage() {
+            const cert = document.getElementById('expert-certificate');
+            const btn = cert.querySelector('button[data-html2canvas-ignore]');
+            if (!cert) return;
+            if (btn) btn.style.display = 'none';
+
+            // Wait for all fonts to be loaded
+            document.fonts.ready.then(() => {
+                setTimeout(() => {
+                    html2canvas(cert, {
+                        backgroundColor: null, // Use computed background
+                        useCORS: true,
+                        scale: 2 // Higher quality
+                    }).then(canvas => {
+                        if (btn) btn.style.display = '';
+                        const link = document.createElement('a');
+                        link.download = 'python-certificate.png';
+                        link.href = canvas.toDataURL('image/png');
+                        link.click();
+                    }).catch(() => {
+                        if (btn) btn.style.display = '';
+                    });
+                }, 100); // Small delay for layout stabilization
+            });
+        }
+
+        // Quiz completion tracking functions
+        function markQuizCompleted(level) {
+            localStorage.setItem(`quiz_completed_${level}`, 'true');
+            console.log(`${level} quiz completed!`);
+        }
+
+        function isQuizCompleted(level) {
+            return localStorage.getItem(`quiz_completed_${level}`) === 'true';
+        }
+
+        function canAccessLesson(lessonPath) {
+            // Beginner lessons (1-21) are always accessible
+            if (lessonPath.includes('lessons/introduction.html') ||
+                lessonPath.includes('lessons/installation.html') ||
+                lessonPath.includes('lessons/hello_world.html') ||
+                lessonPath.includes('lessons/variables.html') ||
+                lessonPath.includes('lessons/data_types.html') ||
+                lessonPath.includes('lessons/input_output.html') ||
+                lessonPath.includes('lessons/operators.html') ||
+                lessonPath.includes('lessons/comments.html') ||
+                lessonPath.includes('lessons/strings.html') ||
+                lessonPath.includes('lessons/control_flow.html') ||
+                lessonPath.includes('lessons/logical_operators.html') ||
+                lessonPath.includes('lessons/lists.html') ||
+                lessonPath.includes('lessons/tuples.html') ||
+                lessonPath.includes('lessons/sets.html') ||
+                lessonPath.includes('lessons/dictionaries.html') ||
+                lessonPath.includes('lessons/loops.html') ||
+                lessonPath.includes('lessons/break_continue.html') ||
+                lessonPath.includes('lessons/list_comprehensions.html') ||
+                lessonPath.includes('lessons/functions.html') ||
+                lessonPath.includes('lessons/return_values.html') ||
+                lessonPath.includes('lessons/scope_global.html') ||
+                lessonPath.includes('lessons/level1_quiz.html') ||
+                lessonPath.includes('lessons/level1_grand_challenge.html')) {
+                return true;
+            }
+
+            // Intermediate lessons (22-39) require beginner quiz completion
+            if (lessonPath.includes('lessons/error_handling.html') ||
+                lessonPath.includes('lessons/builtin_functions.html') ||
+                lessonPath.includes('lessons/lambda_functions.html') ||
+                lessonPath.includes('lessons/map_filter_reduce.html') ||
+                lessonPath.includes('lessons/file_io.html') ||
+                lessonPath.includes('lessons/modules_packages.html') ||
+                lessonPath.includes('lessons/python_standard_library.html') ||
+                lessonPath.includes('lessons/intro_to_oop.html') ||
+                lessonPath.includes('lessons/classes_objects.html') ||
+                lessonPath.includes('lessons/constructors_inheritance.html') ||
+                lessonPath.includes('lessons/polymorphism_encapsulation.html') ||
+                lessonPath.includes('lessons/dunder_methods.html') ||
+                lessonPath.includes('lessons/iterators_generators.html') ||
+                lessonPath.includes('lessons/decorators.html') ||
+                lessonPath.includes('lessons/recursion.html') ||
+                lessonPath.includes('lessons/regex.html') ||
+                lessonPath.includes('lessons/virtual_environments.html') ||
+                lessonPath.includes('lessons/pip_libraries.html') ||
+                lessonPath.includes('lessons/intermediate_quiz.html') ||
+                lessonPath.includes('lessons/intermediate_grand_challenge.html')) {
+                return isQuizCompleted('beginner');
+            }
+
+            // Advanced lessons (40-57) require intermediate quiz completion
+            if (lessonPath.includes('lessons/functional_programming.html') ||
+                lessonPath.includes('lessons/type_hints.html') ||
+                lessonPath.includes('lessons/async_programming.html') ||
+                lessonPath.includes('lessons/context_managers.html') ||
+                lessonPath.includes('lessons/logging.html') ||
+                lessonPath.includes('lessons/unit_testing.html') ||
+                lessonPath.includes('lessons/debugging.html') ||
+                lessonPath.includes('lessons/packaging_distribution.html') ||
+                lessonPath.includes('lessons/design_patterns.html') ||
+                lessonPath.includes('lessons/memory_management.html') ||
+                lessonPath.includes('lessons/multithreading.html') ||
+                lessonPath.includes('lessons/multiprocessing.html') ||
+                lessonPath.includes('lessons/performance_optimization.html') ||
+                lessonPath.includes('lessons/json_csv.html') ||
+                lessonPath.includes('lessons/web_scraping.html') ||
+                lessonPath.includes('lessons/database_access.html') ||
+                lessonPath.includes('lessons/working_with_apis.html') ||
+                lessonPath.includes('lessons/gui_programming.html') ||
+                lessonPath.includes('lessons/advanced_quiz.html') ||
+                lessonPath.includes('lessons/advanced_grand_challenge.html')) {
+                return isQuizCompleted('intermediate');
+            }
+
+            // Expert lessons (58-71) require advanced quiz completion
+            if (lessonPath.includes('lessons/data_science.html') ||
+                lessonPath.includes('lessons/data_visualization.html') ||
+                lessonPath.includes('lessons/introduction_to_ai.html') ||
+                lessonPath.includes('lessons/machine_learning.html') ||
+                lessonPath.includes('lessons/deep_learning.html') ||
+                lessonPath.includes('lessons/nlp.html') ||
+                lessonPath.includes('lessons/computer_vision.html') ||
+                lessonPath.includes('lessons/reinforcement_learning.html') ||
+                lessonPath.includes('lessons/generative_ai.html') ||
+                lessonPath.includes('lessons/web_development.html') ||
+                lessonPath.includes('lessons/networking.html') ||
+                lessonPath.includes('lessons/game_development.html') ||
+                lessonPath.includes('lessons/automation_scripting.html') ||
+                lessonPath.includes('lessons/working_with_excel.html') ||
+                lessonPath.includes('lessons/testing_automation.html') ||
+                lessonPath.includes('lessons/devops_python.html') ||
+                lessonPath.includes('lessons/security_ethical_hacking.html') ||
+                lessonPath.includes('lessons/python_extensions_c.html') ||
+                lessonPath.includes('lessons/open_source_contributions.html') ||
+                lessonPath.includes('lessons/expert_quiz.html') ||
+                lessonPath.includes('lessons/expert_grand_challenge.html')) {
+                return isQuizCompleted('advanced');
+            }
+
+            return true; // Default allow access
+        }
+
+        function showLockedMessage(lessonPath) {
+            const lessonContentContainer = document.getElementById('lesson-content-container');
+            let requiredQuiz = '';
+            let quizLink = '';
+
+            // Determine which quiz is required based on the lesson path
+            if (lessonPath.includes('lessons/error_handling.html') ||
+                lessonPath.includes('lessons/builtin_functions.html') ||
+                lessonPath.includes('lessons/lambda_functions.html') ||
+                lessonPath.includes('lessons/map_filter_reduce.html') ||
+                lessonPath.includes('lessons/file_io.html') ||
+                lessonPath.includes('lessons/modules_packages.html') ||
+                lessonPath.includes('lessons/python_standard_library.html') ||
+                lessonPath.includes('lessons/intro_to_oop.html') ||
+                lessonPath.includes('lessons/classes_objects.html') ||
+                lessonPath.includes('lessons/constructors_inheritance.html') ||
+                lessonPath.includes('lessons/polymorphism_encapsulation.html') ||
+                lessonPath.includes('lessons/dunder_methods.html') ||
+                lessonPath.includes('lessons/iterators_generators.html') ||
+                lessonPath.includes('lessons/decorators.html') ||
+                lessonPath.includes('lessons/recursion.html') ||
+                lessonPath.includes('lessons/regex.html') ||
+                lessonPath.includes('lessons/virtual_environments.html') ||
+                lessonPath.includes('lessons/pip_libraries.html') ||
+                lessonPath.includes('lessons/intermediate_quiz.html') ||
+                lessonPath.includes('lessons/intermediate_grand_challenge.html')) {
+                requiredQuiz = 'Beginner Level Quiz';
+                quizLink = 'lessons/level1_quiz.html';
+            } else if (lessonPath.includes('lessons/functional_programming.html') ||
+                lessonPath.includes('lessons/type_hints.html') ||
+                lessonPath.includes('lessons/async_programming.html') ||
+                lessonPath.includes('lessons/context_managers.html') ||
+                lessonPath.includes('lessons/logging.html') ||
+                lessonPath.includes('lessons/unit_testing.html') ||
+                lessonPath.includes('lessons/debugging.html') ||
+                lessonPath.includes('lessons/packaging_distribution.html') ||
+                lessonPath.includes('lessons/design_patterns.html') ||
+                lessonPath.includes('lessons/memory_management.html') ||
+                lessonPath.includes('lessons/multithreading.html') ||
+                lessonPath.includes('lessons/multiprocessing.html') ||
+                lessonPath.includes('lessons/performance_optimization.html') ||
+                lessonPath.includes('lessons/json_csv.html') ||
+                lessonPath.includes('lessons/web_scraping.html') ||
+                lessonPath.includes('lessons/database_access.html') ||
+                lessonPath.includes('lessons/working_with_apis.html') ||
+                lessonPath.includes('lessons/gui_programming.html') ||
+                lessonPath.includes('lessons/advanced_quiz.html') ||
+                lessonPath.includes('lessons/advanced_grand_challenge.html')) {
+                requiredQuiz = 'Intermediate Level Quiz';
+                quizLink = 'lessons/intermediate_quiz.html';
+            } else if (lessonPath.includes('lessons/data_science.html') ||
+                lessonPath.includes('lessons/data_visualization.html') ||
+                lessonPath.includes('lessons/introduction_to_ai.html') ||
+                lessonPath.includes('lessons/machine_learning.html') ||
+                lessonPath.includes('lessons/deep_learning.html') ||
+                lessonPath.includes('lessons/nlp.html') ||
+                lessonPath.includes('lessons/computer_vision.html') ||
+                lessonPath.includes('lessons/reinforcement_learning.html') ||
+                lessonPath.includes('lessons/generative_ai.html') ||
+                lessonPath.includes('lessons/web_development.html') ||
+                lessonPath.includes('lessons/networking.html') ||
+                lessonPath.includes('lessons/game_development.html') ||
+                lessonPath.includes('lessons/automation_scripting.html') ||
+                lessonPath.includes('lessons/working_with_excel.html') ||
+                lessonPath.includes('lessons/testing_automation.html') ||
+                lessonPath.includes('lessons/devops_python.html') ||
+                lessonPath.includes('lessons/security_ethical_hacking.html') ||
+                lessonPath.includes('lessons/python_extensions_c.html') ||
+                lessonPath.includes('lessons/open_source_contributions.html') ||
+                lessonPath.includes('lessons/expert_quiz.html') ||
+                lessonPath.includes('lessons/expert_grand_challenge.html')) {
+                requiredQuiz = 'Advanced Level Quiz';
+                quizLink = 'lessons/advanced_quiz.html';
+            }
+
+            lessonContentContainer.innerHTML = `
+                <div class="max-w-4xl mx-auto bg-yellow-50 p-8 rounded-lg shadow-lg text-center">
+                    <div class="text-6xl mb-4">🔒</div>
+                    <h2 class="text-2xl font-bold mb-4 text-yellow-800">Lesson Locked</h2>
+                    <p class="text-lg mb-4">You need to complete the <strong>${requiredQuiz}</strong> to access this lesson.</p>
+                    <p class="text-md mb-6 text-yellow-700">Score 70% or higher to unlock the next level.</p>
+                    <a href="#" onclick="loadLesson('${quizLink}')"
+                        class="inline-block px-6 py-3 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 transition-colors duration-200 font-semibold">
+                        Take ${requiredQuiz}
+                    </a>
+                </div>
+            `;
+            // Scroll to the top after showing the locked message
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showUnlockMessage(level) {
+            const levelName = level === 'intermediate' ? 'Intermediate' : level === 'advanced' ? 'Advanced' : 'Expert';
+            const lessonContentContainer = document.getElementById('lesson-content-container');
+
+            // Add a temporary success message
+            const successDiv = document.createElement('div');
+            successDiv.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50';
+            successDiv.innerHTML = `
+                <div class="flex items-center">
+                    <span class="text-2xl mr-2">🎉</span>
+                    <div>
+                        <div class="font-bold">Level Unlocked!</div>
+                        <div class="text-sm">${levelName} lessons are now available</div>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(successDiv);
+
+            // Remove the message after 5 seconds
+            setTimeout(() => {
+                if (successDiv.parentNode) {
+                    successDiv.parentNode.removeChild(successDiv);
+                }
+            }, 5000);
+        }
+
+        /**
+         * Loads lesson content into the main container.
+         * @param {string} lessonPath - The path to the HTML file containing the lesson content.
+         */
+        async function loadLesson(lessonPath) {
+            // Check if user can access this lesson
+            if (!canAccessLesson(lessonPath)) {
+                showLockedMessage(lessonPath);
+                return;
+            }
+
+            const lessonContentContainer = document.getElementById('lesson-content-container');
+            lessonContentContainer.innerHTML = `
+                <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg text-center">
+                    <p class="text-xl text-gray-700">Loading lesson...</p>
+                </div>
+            `; // Show loading message
+
+            // Extract fragment identifier if present
+            let fragment = null;
+            if (lessonPath.includes('#')) {
+                const parts = lessonPath.split('#');
+                lessonPath = parts[0];
+                fragment = '#' + parts[1];
+            }
+
+            try {
+                const response = await fetch(lessonPath);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const lessonHtml = await response.text();
+                lessonContentContainer.innerHTML = lessonHtml;
+
+                // Scroll to fragment if specified
+                if (fragment) {
+                    setTimeout(() => {
+                        const targetElement = document.querySelector(fragment);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }, 100); // Small delay to ensure content is rendered
+                } else {
+                    // Scroll to the top of the page after loading new content
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+
+                // Save the current lesson path to localStorage
+                localStorage.setItem('currentLessonPath', lessonPath);
+
+                // Push state to browser history if not already there
+                if (!history.state || history.state.lessonPath !== lessonPath) {
+                    history.pushState({ lessonPath }, '', `#${lessonPath}`);
+                }
+
+                // Check for code editor container and inject the editor if found
+                const codeEditorContainer = lessonContentContainer.querySelector('#code-editor-container');
+                if (codeEditorContainer) {
+                    // Try to find a <script type="text/plain" id^="default-code"> in the lesson
+                    const defaultCodeScript = lessonContentContainer.querySelector('script[type="text/plain"][id^="default-code"]');
+                    let defaultCode = 'print("Hello, World!")';
+                    if (defaultCodeScript) {
+                        defaultCode = defaultCodeScript.textContent.trim();
+                    } else if (codeEditorContainer.dataset.defaultCode) {
+                        defaultCode = codeEditorContainer.dataset.defaultCode;
+                    }
+                    injectCodeEditor(codeEditorContainer, defaultCode);
+                } else {
+                    // Fallback: Check for legacy textarea (for backward compatibility)
+                    const newTextArea = lessonContentContainer.querySelector('#code-editor');
+                    if (newTextArea) {
+                        const defaultCode = newTextArea.value;
+                        initializeCodeMirror(newTextArea);
+
+                        // Re-attach the run button event listener for the newly loaded button
+                        const newRunButton = lessonContentContainer.querySelector('#run-button');
+                        if (newRunButton) {
+                            newRunButton.onclick = runPythonCode;
+                        }
+
+                        // Attach reset button functionality
+                        const allButtons = lessonContentContainer.querySelectorAll('button');
+                        const resetButton = Array.from(allButtons).find(button =>
+                            button.textContent.includes('Reset') ||
+                            button.textContent.includes('↺') ||
+                            button.getAttribute('onclick')?.includes('reset')
+                        );
+                        if (resetButton) {
+                            resetButton.removeAttribute('onclick');
+                            resetButton.onclick = () => {
+                                if (editor) {
+                                    editor.setValue(defaultCode);
+                                }
+                            };
+                        }
+                    } else {
+                        // If no editor on the page (e.g., welcome page or pure text lesson)
+                        if (editor) {
+                            editor.toTextArea();
+                            editor = null;
+                        }
+                    }
+                }
+
+                // Update active link in sidebar
+                document.querySelectorAll('.lesson-link').forEach(link => {
+                    if (link.dataset.lessonPath === lessonPath) {
+                        link.classList.add('text-indigo-600', 'font-semibold', 'bg-indigo-50');
+                        link.classList.remove('text-gray-700', 'hover:bg-gray-100');
+                    } else {
+                        link.classList.remove('text-indigo-600', 'font-semibold', 'bg-indigo-50');
+                        link.classList.add('text-gray-700', 'hover:bg-gray-100');
+                    }
+                });
+
+                initBeginnerQuiz();
+                initIntermediateQuiz(); // Initialize intermediate quiz
+                initAdvancedQuiz(); // Initialize advanced quiz
+                attachExpertQuizHandler(); // Attach expert quiz handler if present
+
+            } catch (error) {
+                lessonContentContainer.innerHTML = `
+                        <div class="max-w-4xl mx-auto bg-red-100 p-8 rounded-lg shadow-lg text-center text-red-700">
+                            <h2 class="text-2xl font-bold mb-4">Error loading lesson!</h2>
+                            <p>Could not load lesson from ${lessonPath}. Please check the file path and try again.</p>
+                            <p class="text-sm mt-2">Error details: ${error.message}</p>
+                        </div>
+                    `;
+                console.error("Error loading lesson:", error);
+            }
+        }
+
+        // Function to update locked lesson states in sidebar
+        function updateLockedLessonStates() {
+            document.querySelectorAll('.lesson-link').forEach(link => {
+                const lessonPath = link.dataset.lessonPath;
+                if (lessonPath) {
+                    // Remove any existing locked styling
+                    link.classList.remove('locked');
+                    link.style.pointerEvents = 'auto';
+                    // Keep lessons clickable but handle access in loadLesson function
+                }
+            });
+        }
+
+        // Function to toggle mobile sidebar
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+
+            if (sidebar.classList.contains('-translate-x-full')) {
+                sidebar.classList.remove('-translate-x-full');
+                overlay.classList.remove('hidden');
+            } else {
+                sidebar.classList.add('-translate-x-full');
+                overlay.classList.add('hidden');
+            }
+        }
+
+        // Initialize Pyodide once when the main page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            loadPyodideAndSetup();
+
+            // Update locked lesson states in sidebar
+            updateLockedLessonStates();
+
+            // Attach click listeners to all lesson links
+            document.querySelectorAll('.lesson-link').forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault(); // Prevent default link navigation
+                    const lessonPath = event.currentTarget.dataset.lessonPath;
+                    if (lessonPath) {
+                        loadLesson(lessonPath);
+                    }
+                });
+            });
+
+            // Restore last lesson or load default on initial page load
+            const hashLesson = window.location.hash && window.location.hash.startsWith('#lessons/')
+                ? window.location.hash.substring(1)
+                : null;
+            const lastLesson = localStorage.getItem('currentLessonPath');
+            const initialLesson = hashLesson || lastLesson || 'lessons/introduction.html';
+            // If no last lesson and not already on home.html, redirect to home.html
+            if (!lastLesson && !hashLesson && !window.location.pathname.endsWith('home.html')) {
+                window.location.href = 'home.html';
+                return;
+            }
+            loadLesson(initialLesson);
+            history.replaceState({ lessonPath: initialLesson }, '', `#${initialLesson}`);
+        });
+
+        // Listen for browser back/forward navigation
+        window.addEventListener('popstate', (event) => {
+            // Get the list of all lesson paths in order
+            const lessonLinks = Array.from(document.querySelectorAll('.lesson-link'));
+            const lessonPaths = lessonLinks.map(link => link.dataset.lessonPath);
+
+            // Determine the current lesson path
+            let lessonPath = (event.state && event.state.lessonPath) || (location.hash ? location.hash.substring(1) : null);
+            // If not found, fallback to localStorage
+            if (!lessonPath) {
+                lessonPath = localStorage.getItem('currentLessonPath') || 'lessons/introduction.html';
+            }
+
+            // Find the index of the current lesson
+            const currentIndex = lessonPaths.indexOf(lessonPath);
+            if (currentIndex !== -1) {
+                // Determine navigation direction
+                const direction = event.state && event.state.direction;
+                let nextIndex = currentIndex;
+                if (direction === 'back') {
+                    nextIndex = Math.max(0, currentIndex - 1);
+                } else if (direction === 'forward') {
+                    nextIndex = Math.min(lessonPaths.length - 1, currentIndex + 1);
+                }
+                // Only navigate if not at the edge
+                if (nextIndex !== currentIndex) {
+                    loadLesson(lessonPaths[nextIndex]);
+                    return;
+                }
+            }
+            // Default: load the lesson as before
+            if (lessonPath) {
+                loadLesson(lessonPath);
+            }
+        });
+
+        // Add delegated event listener for navigation buttons in lesson content
+        document.addEventListener('click', function (event) {
+            // Only handle clicks on <a> or <button> with an onclick that calls loadLesson
+            let target = event.target;
+            // Traverse up to the <a> or <button> if an inner element was clicked
+            while (target && target !== document) {
+                if ((target.tagName === 'A' || target.tagName === 'BUTTON') && target.getAttribute('onclick')) {
+                    const onclick = target.getAttribute('onclick');
+                    const match = onclick.match(/loadLesson\(['"]([^'"]+)['"]\)/);
+                    if (match) {
+                        event.preventDefault();
+                        loadLesson(match[1]);
+                        return;
+                    }
+                }
+                target = target.parentElement;
+            }
+        });
+    </script>
+    <script>
+        function printExpertCertificate() {
+            window.print();
+        }
+    </script>
+    <style>
+        @media print {
+            body * {
+                visibility: hidden !important;
+            }
+
+            #expert-certificate,
+            #expert-certificate * {
+                visibility: visible !important;
+            }
+
+            #expert-certificate {
+                position: absolute !important;
+                left: 0;
+                top: 0;
+                width: 100vw !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            .print\:hidden {
+                display: none !important;
+            }
+        }
+    </style>
 </body>
 
 </html>
